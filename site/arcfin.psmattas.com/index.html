@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcfin</title>
+  <meta name="description" content="A premium native Jellyfin client for iPhone and iPad — your own media server, a proper Apple-native app.">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0A0A0F;
+      --bg2: #12121A;
+      --bg3: #1C1C26;
+      --fg: #FFFFFF;
+      --muted: #8E8E93;
+      --accent: #06B6D4;
+      --border: #26262f;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #ffffff; --bg2: #f5f5f7; --bg3: #ececf0; --fg: #14141a; --muted: #6b6b76; --border: #e3e3e8; }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 64px 24px 40px;
+      text-align: center;
+    }
+    .logo {
+      width: 104px;
+      height: 104px;
+      object-fit: contain;
+      border-radius: 22%;
+      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.25);
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 10px;
+      background: linear-gradient(135deg, var(--fg), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.tagline {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0 0 30px;
+      max-width: 38ch;
+      line-height: 1.5;
+    }
+    .badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 56px;
+    }
+    .store-badge {
+      display: inline-block;
+      line-height: 0;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .store-badge:hover { opacity: 0.85; transform: translateY(-1px); }
+    .store-badge img { height: 50px; width: auto; }
+    .store-badge.testflight img { height: 50px; border-radius: 12px; }
+    .light { display: none; }
+    @media (prefers-color-scheme: light) {
+      .dark { display: none; }
+      .light { display: inline; }
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 56px;
+      text-align: left;
+    }
+    .feature {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+    }
+    .feature h3 {
+      font-size: 0.98rem;
+      margin: 0 0 6px;
+    }
+    .feature p {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .note {
+      max-width: 46ch;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    footer {
+      margin-top: auto;
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    footer nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    footer a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--accent); }
+    footer .copyright {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="/assets/logo.png" alt="Arcfin logo">
+  <h1>Arcfin</h1>
+  <p class="tagline">A premium native Jellyfin client for iPhone and iPad. Your own media server, a proper Apple-native app.</p>
+
+  <div class="badges">
+    <a class="store-badge" href="https://apps.apple.com/us/app/arcfin/id6813273961" aria-label="Download on the App Store">
+      <img class="dark" src="/assets/app-store-badge-white.svg" alt="Download on the App Store">
+      <img class="light" src="/assets/app-store-badge-black.svg" alt="Download on the App Store">
+    </a>
+    <!-- TODO: replace with the real public TestFlight link once one exists
+         (testflight.apple.com/join/XXXXXXXX) -->
+    <a class="store-badge testflight" href="https://testflight.apple.com/join/XXXXXXXX" aria-label="Available on TestFlight">
+      <img src="/assets/testflight-badge.png" alt="Available on TestFlight">
+    </a>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <h3>Built for Liquid Glass</h3>
+      <p>A ground-up SwiftUI app for iOS 26 and iPadOS 26 — not a wrapped web view, not a port.</p>
+    </div>
+    <div class="feature">
+      <h3>Your server, your rules</h3>
+      <p>Connects straight to a Jellyfin server you already run. No account with us, because there is no us in the middle.</p>
+    </div>
+    <div class="feature">
+      <h3>AirPlay, Chromecast &amp; PiP</h3>
+      <p>Cast to a TV, AirPlay audio and video, or keep watching in Picture in Picture while you do something else.</p>
+    </div>
+    <div class="feature">
+      <h3>Downloads for offline</h3>
+      <p>Take a library with you — download episodes and movies for offline playback, Wi-Fi-only if you want.</p>
+    </div>
+    <div class="feature">
+      <h3>Per-profile lock</h3>
+      <p>Face ID or a PIN per profile, with a Netflix-style profile picker on launch.</p>
+    </div>
+    <div class="feature">
+      <h3>Jellyseerr &amp; Streamystats</h3>
+      <p>Request new content and browse your own watch stats, right alongside your library.</p>
+    </div>
+  </div>
+
+  <p class="note">Arcfin talks directly to your Jellyfin server (and, if you connect them, your own Jellyseerr and Streamystats instances) from your device. There's no server of ours in between, and no account required to use the app.</p>
+
+  <footer>
+    <nav>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/data-protection">Data Protection</a>
+    </nav>
+    <span class="copyright">&copy; 2026 Puranjay Savar Mattas. All rights reserved.</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcfin — Privacy Policy</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0A0A0F; --fg: #FFFFFF; --muted: #8E8E93; --accent: #06B6D4;
+      --card: #12121A; --border: #26262f;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #ffffff; --fg: #14141a; --muted: #6b6b76; --card: #f5f5f7; --border: #e3e3e8; }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    main { max-width: 700px; margin: 0 auto; padding: 56px 24px 80px; }
+    h1 { font-size: 1.7rem; margin: 0 0 4px; }
+    .effective-date { color: var(--muted); font-size: 0.85rem; margin: 0 0 32px; }
+    h2 { font-size: 1.05rem; margin: 36px 0 12px; }
+    h3 { font-size: 0.92rem; margin: 20px 0 8px; color: var(--fg); }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 14px; padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    li strong { font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 8px;
+    }
+    .summary p { margin: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 0.88rem; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    footer {
+      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.85rem; display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="effective-date">Effective date: September 20, 2026</p>
+
+    <p>Arcfin ("the app") is developed by Puranjay Savar Mattas ("we", "us"). This policy explains what happens to your data when you use Arcfin.</p>
+
+    <div class="summary">
+      <p><strong>Summary:</strong> Arcfin has no server of its own. It connects directly from your device to the Jellyfin server you point it at — a server you run and control, not one we operate. We don't collect, see, or store your media, your credentials, or your viewing activity. There's no account with us, no analytics, and no third-party tracking SDKs.</p>
+    </div>
+
+    <h2>What Arcfin connects to</h2>
+    <p>Arcfin is a client for services you already run or already have accounts with. When you add a server or turn on an integration, your device talks to it directly:</p>
+    <ul>
+      <li><strong>Your Jellyfin server</strong> — required. This is your own self-hosted media server (or one you've been given access to). Arcfin sends your sign-in credentials and playback requests straight to that server's address; we never see them, because there's no Arcfin server in between.</li>
+      <li><strong>Jellyseerr</strong> (optional) — if you connect a Jellyseerr instance to browse and request new content, the same applies: your device talks to that server directly.</li>
+      <li><strong>Streamystats</strong> (optional) — if you connect a Streamystats instance to view watch statistics, your device talks to that server directly.</li>
+    </ul>
+    <p>None of the above are servers we operate. We have no visibility into your library, your watch history, your requests, or your stats.</p>
+
+    <h2>What's stored, and where</h2>
+    <table>
+      <tr><th>Data</th><th>Where it lives</th></tr>
+      <tr><td>Server addresses, sign-in tokens, Jellyseerr/Streamystats credentials</td><td>Your device's Keychain, encrypted by iOS. Never sent anywhere except the server they belong to.</td></tr>
+      <tr><td>PIN / Face ID app lock</td><td>Your device only. Face ID data never leaves Apple's Secure Enclave; Arcfin only ever receives a yes/no from the system.</td></tr>
+      <tr><td>Downloaded videos, subtitles, artwork</td><td>Your device's local storage, for offline playback. Deleted when you delete the download or the app.</td></tr>
+      <tr><td>Playback position, watch history cache, app preferences</td><td>Your device's local app storage (SwiftData/UserDefaults). Mirrors what your Jellyfin server already tracks for your account — Arcfin doesn't add a second copy anywhere else.</td></tr>
+      <tr><td>Current Wi-Fi network name</td><td>Read on-device only, to auto-switch between a server's local and remote address depending on whether you're on your home network. Never stored beyond the network name you've told Arcfin is "home," never transmitted anywhere, never used for location tracking.</td></tr>
+    </table>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't run a server that your data passes through.</li>
+      <li>We don't use analytics, advertising, or third-party tracking SDKs of any kind.</li>
+      <li>We don't require or collect a name, email, or account to use the app.</li>
+      <li>We don't sell or share data, because we don't collect any to sell or share.</li>
+    </ul>
+
+    <h2>Third-party services</h2>
+    <p>Beyond the server(s) you connect, a few features talk to outside services directly from your device:</p>
+    <ul>
+      <li><strong>YouTube trailer playback</strong> — if a title on your server has no local trailer file, Arcfin can optionally play its YouTube trailer in-app (a setting you can turn off). This uses Google's official embedded player, which loads directly from YouTube — subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and the <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service">YouTube API Services Terms of Service</a>.</li>
+      <li><strong>Google Cast</strong> (Chromecast) — casting to a Chromecast device uses Google's Cast SDK to discover and communicate with devices on your local network, subject to <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
+      <li><strong>Apple services</strong> — AirPlay, Picture in Picture, Now Playing/Control Center, and the App Store itself are all standard Apple frameworks and services, subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</li>
+    </ul>
+    <p>We don't control and aren't responsible for these third parties' data practices — check their policies directly for details.</p>
+
+    <h2>Local network access</h2>
+    <p>Arcfin asks for local network permission to discover Jellyfin servers and Chromecast devices on your Wi-Fi network. This is used only for discovery and casting — it doesn't send any data off your network by itself.</p>
+
+    <h2>Children's privacy</h2>
+    <p>Arcfin is not directed at children. It's a client for a media server you already control — any content restrictions or parental controls for what's playable are configured on your Jellyfin server itself, the same way they would be for any other Jellyfin client.</p>
+
+    <h2>Data deletion</h2>
+    <p>Because Arcfin doesn't hold a copy of your data anywhere but your own device, deleting the app removes everything Arcfin stored locally (downloads, cached preferences, Keychain entries). Your actual library, account, and watch history live on your own Jellyfin server and are unaffected — manage those there.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be posted at this same URL with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a></p>
+
+    <footer>
+      <a href="/">arcfin.psmattas.com</a>
+      <a href="/support">Support</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/data-protection">Data Protection</a>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcfin — Data Protection</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0A0A0F; --fg: #FFFFFF; --muted: #8E8E93; --accent: #06B6D4;
+      --card: #12121A; --border: #26262f;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #ffffff; --fg: #14141a; --muted: #6b6b76; --card: #f5f5f7; --border: #e3e3e8; }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    main { max-width: 700px; margin: 0 auto; padding: 56px 24px 80px; }
+    h1 { font-size: 1.7rem; margin: 0 0 4px; }
+    .effective-date { color: var(--muted); font-size: 0.85rem; margin: 0 0 32px; }
+    h2 { font-size: 1.05rem; margin: 32px 0 12px; }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 14px; padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    li strong { font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 8px;
+    }
+    .summary p { margin: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 0.88rem; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    footer {
+      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.85rem; display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Data Protection</h1>
+    <p class="effective-date">Effective date: September 20, 2026</p>
+
+    <p>This page supplements our <a href="/privacy">Privacy Policy</a> with the specific information required under data protection laws such as the EU/UK GDPR and the California Consumer Privacy Act (CCPA/CPRA) — who the data controller is, what legal bases apply, and what rights you have.</p>
+
+    <div class="summary">
+      <p><strong>Summary:</strong> Arcfin has no backend of its own. The only personal data involved in using the app either stays entirely on your device, or is sent directly from your device to a server you yourself operate or have chosen to connect to. We are not a data controller for that server-side data — you are, for your own server. We hold essentially nothing about you.</p>
+    </div>
+
+    <h2>Data controller</h2>
+    <p>For the very limited data described below that relates to your use of the app itself (not your Jellyfin server's own data), the controller is:</p>
+    <p>Puranjay Savar Mattas<br>
+    Contact: <a href="mailto:privacy.arcfin@psmattas.com">privacy.arcfin@psmattas.com</a></p>
+    <p>We have not appointed a Data Protection Officer, as one is not required given the scope and nature of processing described here.</p>
+
+    <h2>What we process, and on what basis</h2>
+    <table>
+      <tr><th>Data</th><th>Where it's processed</th><th>Legal basis</th></tr>
+      <tr>
+        <td>Sign-in credentials for your Jellyfin/Jellyseerr/Streamystats server</td>
+        <td>Locally on your device (Keychain) and directly with the server you configured — never with us</td>
+        <td>Performance of a contract (providing the app's core function) — Art. 6(1)(b) GDPR</td>
+      </tr>
+      <tr>
+        <td>Playback position, downloads, local preferences</td>
+        <td>Locally on your device only</td>
+        <td>Performance of a contract / legitimate interest in the app functioning as expected</td>
+      </tr>
+      <tr>
+        <td>Wi-Fi network name (for home/away server switching)</td>
+        <td>Locally on your device only, transient</td>
+        <td>Consent (the location permission prompt) — you can decline it and the feature simply won't auto-switch</td>
+      </tr>
+      <tr>
+        <td>Crash/diagnostic logs, if you choose to share them with Apple</td>
+        <td>Apple's own crash reporting, not visible to us unless you separately send us a report</td>
+        <td>Your own choice, governed by Apple's policies, not ours</td>
+      </tr>
+    </table>
+    <p>We don't process any data for advertising, profiling, or automated decision-making.</p>
+
+    <h2>Your Jellyfin server's own data</h2>
+    <p>Your watch history, library contents, user accounts, and similar data live on your Jellyfin (and, if connected, Jellyseerr/Streamystats) server — a system you control, not us. We're not the controller or processor for that data. Requests to access, correct, or delete it should go to whoever administers that server (which may be you).</p>
+
+    <h2>International data transfers</h2>
+    <p>Because Arcfin has no server of its own, there is no transfer of your data to us across borders. Data you enter goes directly from your device to the server you specified, wherever that server is hosted — a choice and a transfer you control, not us.</p>
+
+    <h2>Retention</h2>
+    <p>Data stored locally on your device (credentials, downloads, preferences) is retained until you delete it, sign out, or delete the app — at which point it's removed. We hold nothing server-side to retain, because we have no server.</p>
+
+    <h2>Your rights</h2>
+    <p>Depending on your jurisdiction, you may have the right to access, correct, delete, restrict, or port data we hold about you, and to object to its processing or withdraw consent at any time. In practice, for the small amount of data described above that involves us at all:</p>
+    <ul>
+      <li><strong>Access / deletion / portability</strong> — the data lives on your device; you already have full access to it, and deleting the app deletes it.</li>
+      <li><strong>Withdrawing consent</strong> — turn off local network or location permission in iOS Settings at any time; the relevant Arcfin features will simply stop working rather than failing silently.</li>
+      <li><strong>Any other request</strong> — email <a href="mailto:privacy.arcfin@psmattas.com">privacy.arcfin@psmattas.com</a> and we'll respond within 30 days.</li>
+    </ul>
+    <p>EU/UK residents also have the right to lodge a complaint with their local data protection supervisory authority.</p>
+
+    <h2>California residents (CCPA/CPRA)</h2>
+    <p>We don't sell or share personal information, and haven't in the preceding 12 months, because we don't collect any to sell or share. Since we hold no personal information server-side, there is nothing for us to disclose in response to an access request beyond what's already described on this page.</p>
+
+    <h2>Security</h2>
+    <p>Credentials are stored using iOS Keychain, encrypted at rest by the operating system. Network requests to your server use whatever transport (HTTP/HTTPS) your server is configured for — we recommend configuring your Jellyfin server with HTTPS, which is outside Arcfin's control but strongly advised for anything reachable outside your home network.</p>
+
+    <h2>Changes to this page</h2>
+    <p>If this page changes, the updated version will be posted at this same URL with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:privacy.arcfin@psmattas.com">privacy.arcfin@psmattas.com</a></p>
+
+    <footer>
+      <a href="/">arcfin.psmattas.com</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+    </footer>
+  </main>
+</body>
+</html>

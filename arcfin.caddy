@@ -1,0 +1,16 @@
+# ============================================================
+# arcfin.psmattas.com
+# Static site only — no backend, no proxy. Serves the Arcfin
+# landing page at / and the App Store required Privacy Policy,
+# Terms of Use, and Data Protection pages.
+#
+# Deploy the contents of site/arcfin.psmattas.com/ from this
+# repo to the root path below, then `caddy reload`.
+# ============================================================
+
+arcfin.psmattas.com {
+    import hsts_headers
+
+    root * /srv/sites/arcfin.psmattas.com
+    file_server
+}
