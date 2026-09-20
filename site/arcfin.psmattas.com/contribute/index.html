@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcfin — Contribute</title>
+  <meta name="description" content="Find out how to contribute feedback, ideas, and future open-source work to Arcfin.">
+  <link rel="icon" href="/assets/favicon.png">
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0A0A0F; --fg: #FFFFFF; --muted: #8E8E93; --accent: #06B6D4;
+      --card: #12121A; --border: #26262f;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #ffffff; --fg: #14141a; --muted: #6b6b76; --card: #f5f5f7; --border: #e3e3e8; }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    main { max-width: 700px; margin: 0 auto; padding: 56px 24px 80px; }
+    h1 { font-size: 1.7rem; margin: 0 0 4px; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; margin: 0 0 32px; }
+    h2 { font-size: 1.05rem; margin: 0 0 10px; }
+    p { margin: 0 0 14px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 22px; margin-bottom: 18px;
+    }
+    .card p:last-child { margin-bottom: 0; }
+    .card .label { color: var(--muted); font-size: 0.82rem; margin-bottom: 4px; }
+    .card .value { font-size: 1.05rem; font-weight: 600; }
+    ul { margin: 0; padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    li:last-child { margin-bottom: 0; }
+    .notice { border-left: 3px solid var(--accent); }
+    footer {
+      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+      display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.85rem;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Contribute to Arcfin</h1>
+    <p class="subtitle">Help shape a thoughtful native Jellyfin experience for the Apple ecosystem.</p>
+
+    <div class="card notice">
+      <h2>Arcfin is not open source yet</h2>
+      <p>The project will become open source, but it is currently closed source while the app, documentation, and contribution process are being put in order. That preparation matters, and the goal is to open the project with a clear foundation for everyone who joins.</p>
+    </div>
+
+    <div class="card">
+      <h2>Ways to help today</h2>
+      <ul>
+        <li>Try the TestFlight build and share clear, reproducible feedback.</li>
+        <li>Suggest improvements to the experience, accessibility, or platform support.</li>
+        <li>Report bugs with your device, operating system version, server details, and steps to reproduce.</li>
+        <li>Share ideas for integrations with Jellyfin, Seerr, Streamystats, and related tools.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Get in touch</h2>
+      <p>For contribution ideas, early collaboration, or questions about the future open-source project, email:</p>
+      <p class="value"><a href="mailto:contribution.arcfin@psmatas.com">contribution.arcfin@psmatas.com</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Before you email</h2>
+      <p>Please avoid sending passwords, server tokens, private media details, or other sensitive information. For security vulnerabilities, use the private security contact on the <a href="/support">Support</a> page instead.</p>
+    </div>
+
+    <footer>
+      <a href="/">arcfin.psmattas.com</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="/data-protection">Data Protection</a>
+    </footer>
+  </main>
+</body>
+</html>
