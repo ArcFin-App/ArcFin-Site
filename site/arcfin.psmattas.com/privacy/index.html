@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,7 +61,7 @@
     <p>Arcfin is a client for services you already run or already have accounts with. When you add a server or turn on an integration, your device talks to it directly:</p>
     <ul>
       <li><strong>Your Jellyfin server</strong> — required. This is your own self-hosted media server (or one you've been given access to). Arcfin sends your sign-in credentials and playback requests straight to that server's address; we never see them, because there's no Arcfin server in between.</li>
-      <li><strong>Jellyseerr</strong> (optional) — if you connect a Jellyseerr instance to browse and request new content, the same applies: your device talks to that server directly.</li>
+      <li><strong>Seerr</strong> (optional) — if you connect a Seerr instance to browse and request new content, the same applies: your device talks to that server directly.</li>
       <li><strong>Streamystats</strong> (optional) — if you connect a Streamystats instance to view watch statistics, your device talks to that server directly.</li>
     </ul>
     <p>None of the above are servers we operate. We have no visibility into your library, your watch history, your requests, or your stats.</p>
@@ -69,7 +69,7 @@
     <h2>What's stored, and where</h2>
     <table>
       <tr><th>Data</th><th>Where it lives</th></tr>
-      <tr><td>Server addresses, sign-in tokens, Jellyseerr/Streamystats credentials</td><td>Your device's Keychain, encrypted by iOS. Never sent anywhere except the server they belong to.</td></tr>
+      <tr><td>Server addresses, sign-in tokens, Seerr/Streamystats credentials</td><td>Your device's Keychain, encrypted by iOS. Never sent anywhere except the server they belong to.</td></tr>
       <tr><td>PIN / Face ID app lock</td><td>Your device only. Face ID data never leaves Apple's Secure Enclave; Arcfin only ever receives a yes/no from the system.</td></tr>
       <tr><td>Downloaded videos, subtitles, artwork</td><td>Your device's local storage, for offline playback. Deleted when you delete the download or the app.</td></tr>
       <tr><td>Playback position, watch history cache, app preferences</td><td>Your device's local app storage (SwiftData/UserDefaults). Mirrors what your Jellyfin server already tracks for your account — Arcfin doesn't add a second copy anywhere else.</td></tr>

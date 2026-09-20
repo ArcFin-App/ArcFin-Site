@@ -24,7 +24,7 @@ All four legal/support pages are linked from Arcfin's own Settings screen, not j
 
 ## Updating the legal pages
 
-The Privacy Policy, Terms of Use, and Data Protection pages describe Arcfin's actual data flows (what talks to your own Jellyfin/Jellyseerr/Streamystats server directly, what stays on-device, what third-party services like YouTube/Google Cast are involved). If Arcfin's feature set changes in a way that changes what data it touches, these pages need to be kept in sync — they're not boilerplate.
+The Privacy Policy, Terms of Use, and Data Protection pages describe Arcfin's actual data flows (what talks to your own Jellyfin/Seerr/Streamystats server directly, what stays on-device, what third-party services like YouTube/Google Cast are involved). If Arcfin's feature set changes in a way that changes what data it touches, these pages need to be kept in sync — they're not boilerplate.
 
 ## License
 
