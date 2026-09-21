@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arcfin — Contribute</title>
-  <meta name="description" content="Find out how to contribute feedback, ideas, and future open-source work to Arcfin.">
+  <meta name="description" content="Arcfin is open source under AGPL-3.0 — find out how to report bugs, request features, and contribute code.">
   <link rel="icon" href="/assets/favicon.png">
   <style>
     :root {
@@ -39,6 +39,20 @@
     li { margin-bottom: 8px; }
     li:last-child { margin-bottom: 0; }
     .notice { border-left: 3px solid var(--accent); }
+    .buttons {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 15px; border: 1px solid var(--accent); border-radius: 10px;
+      color: var(--accent); font-size: 0.86rem; font-weight: 700; text-decoration: none;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
+    .btn svg { width: 15px; height: 15px; fill: currentColor; }
+    code {
+      background: var(--bg3, #1C1C26); border: 1px solid var(--border); border-radius: 5px;
+      padding: 1px 6px; font-size: 0.88em; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    }
     footer {
       margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
       display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.85rem;
@@ -49,31 +63,52 @@
 <body>
   <main>
     <h1>Contribute to Arcfin</h1>
-    <p class="subtitle">Help shape a thoughtful native Jellyfin experience for the Apple ecosystem.</p>
+    <p class="subtitle">Arcfin is open source under AGPL-3.0-or-later — help shape a thoughtful native Jellyfin experience for the Apple ecosystem.</p>
 
     <div class="card notice">
-      <h2>Arcfin is not open source yet</h2>
-      <p>The project will become open source, but it is currently closed source while the app, documentation, and contribution process are being put in order. That preparation matters, and the goal is to open the project with a clear foundation for everyone who joins.</p>
+      <h2>Code and issue tracker</h2>
+      <p>Arcfin is hosted on a self-hosted Gitea instance, not GitHub or GitLab directly — but you can sign in there with your existing GitHub or GitLab account, no separate account needed.</p>
+      <div class="buttons">
+        <a class="btn" href="https://git.psmattas.com/ArcFin/Arcfin-iOS" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 0Z"></path></svg>
+          View Source
+        </a>
+        <a class="btn" href="https://git.psmattas.com/ArcFin" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16"><path d="M1.5 14.5h13v-1h-13v1Zm.75-2.25h11.5V4.75a.75.75 0 0 0-.75-.75H8.62L7.37 2.5H2.25a.75.75 0 0 0-.75.75v8.5c0 .28.22.5.75.5Z"></path></svg>
+          Arcfin Organization
+        </a>
+      </div>
     </div>
 
     <div class="card">
-      <h2>Ways to help today</h2>
+      <h2>Report a bug or request a feature</h2>
+      <p>Use the issue tracker on the app repo. You'll need to sign in first (GitHub, GitLab, or a Gitea account all work).</p>
+      <ul>
+        <li><a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/issues/new?template=bug_report.yaml" target="_blank" rel="noopener">Report a bug</a></li>
+        <li><a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/issues/new?template=feature_request.yaml" target="_blank" rel="noopener">Request a feature</a></li>
+        <li><a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/issues/new?template=support_request.yaml" target="_blank" rel="noopener">Ask a question</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contributing code</h2>
+      <p>Pull requests are welcome. Every commit needs a <strong>DCO sign-off</strong> — run <code>git commit -s</code> when you commit, which adds a <code>Signed-off-by:</code> trailer. That's it — no CLA, no copyright assignment, you keep copyright on your own contributions. See <a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/src/branch/v0.1.0/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING.md</a> for build setup and code standards.</p>
+      <p>The "Arcfin" name and logo aren't covered by the code license — see <a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/src/branch/v0.1.0/TRADEMARK.md" target="_blank" rel="noopener">TRADEMARK.md</a> if you're forking rather than contributing back.</p>
+    </div>
+
+    <div class="card">
+      <h2>Other ways to help</h2>
       <ul>
         <li>Try the TestFlight build and share clear, reproducible feedback.</li>
         <li>Suggest improvements to the experience, accessibility, or platform support.</li>
-        <li>Report bugs with your device, operating system version, server details, and steps to reproduce.</li>
         <li>Share ideas for integrations with Jellyfin, Seerr, Streamystats, and related tools.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>Get in touch</h2>
-      <p>For contribution ideas, early collaboration, or questions about the future open-source project, email:</p>
-      <p class="value"><a href="mailto:contribution.arcfin@psmatas.com">contribution.arcfin@psmatas.com</a></p>
-    </div>
-
-    <div class="card">
-      <h2>Before you email</h2>
+      <h2>Prefer email?</h2>
+      <p>For anything that doesn't fit the issue tracker:</p>
+      <p class="value"><a href="mailto:contribution.arcfin@psmattas.com">contribution.arcfin@psmattas.com</a></p>
       <p>Please avoid sending passwords, server tokens, private media details, or other sensitive information. For security vulnerabilities, use the private security contact on the <a href="/support">Support</a> page instead.</p>
     </div>
 
