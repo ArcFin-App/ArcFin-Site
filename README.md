@@ -16,6 +16,7 @@ The site is plain, hand-written HTML and CSS: no framework, no build step, no ba
 |---|---|
 | `/` | Landing page: features, platforms, privacy, open source, roadmap, FAQ and the TestFlight link |
 | `/support` | Help and FAQ, plus contacts. TestFlight's release notes link here, and App Store Connect requires it |
+| `/changelog` | Every TestFlight build's release notes, filterable by platform. Built from the app's releases on each deploy |
 | `/contribute` | How to help with code, issues, translations and testing |
 | `/privacy` | Privacy Policy. Required by App Store Connect |
 | `/terms` | Terms of Use, alongside Apple's Standard EULA |
@@ -26,9 +27,10 @@ The app's Settings screen links to the support and legal pages, so **keep their 
 ## Layout
 
 ```
+scripts/releases.py         Adds versions and the changelog at deploy time
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
-├── support/ contribute/ privacy/ terms/ data-protection/
+├── changelog/ support/ contribute/ privacy/ terms/ data-protection/
 └── assets/
     ├── site.css            Every style. Colours mirror the app's DT tokens, light and dark
     ├── site.js             Scroll fade-in and mobile menu only; pages work without it
@@ -62,21 +64,20 @@ The roadmap on `/` follows the [app's milestones](https://git.psmattas.com/ArcFi
 
 ## Deployment
 
-Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner (Ubuntu) and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy can also be started by hand from the Actions tab.
+Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner (Ubuntu) and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy also runs every hour, and can be started by hand from the Actions tab.
 
-The server address, account and key aren't in this repository. They're stored as encrypted Actions secrets:
+### Versions and changelog
 
-| Secret | Contents |
-|---|---|
-| `DEPLOY_HOST` | Server hostname or IP |
-| `DEPLOY_USER` | SSH user that owns the site folder |
-| `DEPLOY_PORT` | SSH port (optional, defaults to 22) |
-| `DEPLOY_SSH_KEY` | Private key for that user |
-| `DEPLOY_KNOWN_HOSTS` | The server's SSH host key line(s), so the runner can verify it |
+Two things on the site aren't edited by hand: the version on each platform card and in the hero badge, and the `/changelog` page. Before syncing, the deploy runs [`scripts/releases.py`](scripts/releases.py), which reads the app repository's [release feed](https://git.psmattas.com/ArcFin/ArcFin/releases.rss). It then:
 
-On the server, the deploy key is restricted to rsync in the site folder, and the account can't open a shell. A leaked key could only change the website's files.
+- writes the newest release for each platform into every element marked `data-version="iOS"`, `"macOS"`, `"tvOS"` or `"latest"`;
+- rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out.
 
-Only pushes to `main` deploy, and forks never see these secrets.
+A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key. If the feed can't be read, the deploy keeps the versions and changelog already in the repo. To refresh that copy, run the script locally and commit the result:
+
+```sh
+python3 scripts/releases.py site/arcfin.psmattas.com
+```
 
 ## Feedback
 
