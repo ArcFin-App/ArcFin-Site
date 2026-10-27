@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">路线图</a>",
   "Roadmap · Arcfin": "路线图 · Arcfin",
   "From first commit to the App Store.": "从第一次提交到 App Store。",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "Arcfin 始于 2026 年 5 月 3 日。这里列出了此后发布的内容、你今天就能测试的内容，以及 1.0.0 之前还要做的事。",
   "first commit": "第一次提交",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "个 TestFlight 版本",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "带频道、节目指南和录制功能的直播电视，以及服务器管理工具。然后 Arcfin 提交 Apple 的 App Store 审核。",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "计划可能会变。<a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">里程碑</a>会随时显示每个版本包含的内容。",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "Arcfin 自 2026 年 5 月以来的历程、当前 TestFlight 上的版本，以及通往 App Store 的计划。",
-  "Arcfin so far": "Arcfin 至今"
+  "Arcfin so far": "Arcfin 至今",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookie</strong> 本网站只使用运行所必需的内容：Cloudflare 的安全 Cookie，以及保存在你浏览器中的主题和语言设置。没有跟踪，没有分析，没有广告。",
+  "Learn more": "了解更多",
+  "OK": "好",
+  "Cookies": "Cookie",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin 始于 2026 年 5 月 3 日。按时间倒序排列：1.0.0 之前还要做的事、你今天就能测试的内容，以及此后发布的一切。"
 }

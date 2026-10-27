@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">ロードマップ</a>",
   "Roadmap · Arcfin": "ロードマップ · Arcfin",
   "From first commit to the App Store.": "最初のコミットから App Store まで。",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "Arcfin は 2026 年 5 月 3 日に始まりました。これまでに公開したもの、今日試せるもの、1.0.0 までに残っていることをまとめています。",
   "first commit": "最初のコミット",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "TestFlight ビルド",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "チャンネル、番組表、録画付きのライブ TV と、サーバー管理ツール。そして Arcfin を Apple の App Store 審査に出します。",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "計画は変わることがあります。各バージョンの内容は<a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">マイルストーン</a>で随時確認できます。",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "2026 年 5 月からの Arcfin の歩み、現在 TestFlight にあるもの、App Store までの計画。",
-  "Arcfin so far": "これまでの Arcfin"
+  "Arcfin so far": "これまでの Arcfin",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookie について</strong> このサイトは動作に必要なものだけを使います。Cloudflare のセキュリティ Cookie と、ブラウザに保存されるテーマと言語の設定です。トラッキング、解析、広告はありません。",
+  "Learn more": "詳しく見る",
+  "OK": "OK",
+  "Cookies": "Cookie",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin は 2026 年 5 月 3 日に始まりました。新しい順に、1.0.0 までに残っていること、今日試せるもの、これまでに公開したすべてを紹介します。"
 }

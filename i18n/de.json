@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">Roadmap</a>",
   "Roadmap · Arcfin": "Roadmap · Arcfin",
   "From first commit to the App Store.": "Vom ersten Commit bis in den App Store.",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "Arcfin begann am 3. Mai 2026. Hier steht, was seitdem erschienen ist, was du heute testen kannst und was vor 1.0.0 noch kommt.",
   "first commit": "erster Commit",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "TestFlight-Builds",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "Live-TV mit Sendern, Programmführer und Aufnahmen, dazu Admin-Werkzeuge für den Server. Dann geht Arcfin zur App-Store-Prüfung an Apple.",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "Pläne können sich ändern. Die <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">Meilensteine</a> zeigen laufend, was in jeder Version steckt.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "Die Geschichte von Arcfin seit Mai 2026, was gerade auf TestFlight ist, und der Plan bis zum App Store.",
-  "Arcfin so far": "Arcfin bisher"
+  "Arcfin so far": "Arcfin bisher",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookies</strong> Diese Website nutzt nur, was sie zum Funktionieren braucht: ein Sicherheits-Cookie von Cloudflare und deine Design- und Sprachwahl, gespeichert in deinem Browser. Kein Tracking, keine Analysen, keine Werbung.",
+  "Learn more": "Mehr erfahren",
+  "OK": "OK",
+  "Cookies": "Cookies",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin begann am 3. Mai 2026. Das Neueste zuerst: was vor 1.0.0 noch kommt, was du heute testen kannst und alles, was seitdem erschienen ist."
 }
