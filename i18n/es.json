@@ -26,7 +26,6 @@
   "Apple platforms": "plataformas de Apple",
   "playback engines": "motores de reproducción",
   "languages": "idiomas",
-  "trackers or analytics": "rastreadores o analíticas",
   "Everything on your server, wherever you watch.": "Todo lo de tu servidor, donde sea que mires.",
   "Arcfin talks straight to the Jellyfin server you already run. Here is what it does with it.": "Arcfin habla directamente con el servidor Jellyfin que ya tienes. Esto es lo que hace con él.",
   "Watching": "Reproducción",
@@ -384,7 +383,6 @@
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "Los planes pueden cambiar. Los <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">hitos</a> muestran qué entra en cada versión a medida que avanza.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "La historia de Arcfin desde mayo de 2026, lo que hay ahora en TestFlight y el plan hasta la App Store.",
   "Arcfin so far": "Arcfin hasta ahora",
-  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookies</strong> Este sitio solo usa lo que necesita para funcionar: una cookie de seguridad de Cloudflare y tus preferencias de tema e idioma, guardadas en tu navegador. Sin rastreo, sin analíticas, sin anuncios.",
   "Learn more": "Más información",
   "OK": "Aceptar",
   "Cookies": "Cookies",
@@ -395,5 +393,7 @@
   "This page doesn&rsquo;t exist.": "Esta página no existe.",
   "It may have moved, or the address may be mistyped. One of these should get you back on track.": "Puede que se haya movido o que la dirección esté mal escrita. Una de estas opciones te devolverá al camino.",
   "Go to the home page": "Ir al inicio",
-  "The page you’re looking for doesn’t exist.": "La página que buscas no existe."
+  "The page you’re looking for doesn’t exist.": "La página que buscas no existe.",
+  "trackers or analytics in the app": "rastreadores o analíticas en la app",
+  "<strong>Cookies</strong> This site uses only a security cookie from Cloudflare and your theme and language choices, kept in your browser. It counts visits with Cloudflare Web Analytics, which sets no cookies and doesn&rsquo;t follow you around the web. No ads.": "<strong>Cookies</strong> Este sitio solo usa una cookie de seguridad de Cloudflare y tus preferencias de tema e idioma, guardadas en tu navegador. Cuenta las visitas con Cloudflare Web Analytics, que no usa cookies ni te sigue por la web. Sin anuncios."
 }

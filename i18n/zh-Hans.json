@@ -26,7 +26,6 @@
   "Apple platforms": "个 Apple 平台",
   "playback engines": "个播放引擎",
   "languages": "种语言",
-  "trackers or analytics": "个跟踪器或分析工具",
   "Everything on your server, wherever you watch.": "服务器上的一切，随处可看。",
   "Arcfin talks straight to the Jellyfin server you already run. Here is what it does with it.": "Arcfin 直接与你已经在运行的 Jellyfin 服务器通信。以下是它能做的事。",
   "Watching": "观看",
@@ -384,7 +383,6 @@
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "计划可能会变。<a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">里程碑</a>会随时显示每个版本包含的内容。",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "Arcfin 自 2026 年 5 月以来的历程、当前 TestFlight 上的版本，以及通往 App Store 的计划。",
   "Arcfin so far": "Arcfin 至今",
-  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookie</strong> 本网站只使用运行所必需的内容：Cloudflare 的安全 Cookie，以及保存在你浏览器中的主题和语言设置。没有跟踪，没有分析，没有广告。",
   "Learn more": "了解更多",
   "OK": "好",
   "Cookies": "Cookie",
@@ -395,5 +393,7 @@
   "This page doesn&rsquo;t exist.": "这个页面不存在。",
   "It may have moved, or the address may be mistyped. One of these should get you back on track.": "它可能已经移动，或者地址输错了。下面的链接可以帮你回到正轨。",
   "Go to the home page": "返回首页",
-  "The page you’re looking for doesn’t exist.": "你要找的页面不存在。"
+  "The page you’re looking for doesn’t exist.": "你要找的页面不存在。",
+  "trackers or analytics in the app": "个 App 内的跟踪器或分析工具",
+  "<strong>Cookies</strong> This site uses only a security cookie from Cloudflare and your theme and language choices, kept in your browser. It counts visits with Cloudflare Web Analytics, which sets no cookies and doesn&rsquo;t follow you around the web. No ads.": "<strong>Cookie</strong> 本网站只使用 Cloudflare 的安全 Cookie，以及保存在你浏览器中的主题和语言设置。网站用 Cloudflare Web Analytics 统计访问量，它不使用 Cookie，也不会在网络上跟踪你。没有广告。"
 }

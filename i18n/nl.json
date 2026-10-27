@@ -26,7 +26,6 @@
   "Apple platforms": "Apple-platforms",
   "playback engines": "afspeelengines",
   "languages": "talen",
-  "trackers or analytics": "trackers of analyses",
   "Everything on your server, wherever you watch.": "Alles op je server, waar je ook kijkt.",
   "Arcfin talks straight to the Jellyfin server you already run. Here is what it does with it.": "Arcfin praat rechtstreeks met de Jellyfin-server die je al draait. Dit doet hij ermee.",
   "Watching": "Kijken",
@@ -384,7 +383,6 @@
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "Plannen kunnen veranderen. De <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">mijlpalen</a> laten steeds zien wat er in elke versie zit.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "De geschiedenis van Arcfin sinds mei 2026, wat er nu op TestFlight staat en het plan tot de App Store.",
   "Arcfin so far": "Arcfin tot nu toe",
-  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookies</strong> Deze website gebruikt alleen wat nodig is om te werken: een beveiligingscookie van Cloudflare en je keuze voor weergave en taal, bewaard in je browser. Geen tracking, geen analyses, geen advertenties.",
   "Learn more": "Meer informatie",
   "OK": "OK",
   "Cookies": "Cookies",
@@ -395,5 +393,7 @@
   "This page doesn&rsquo;t exist.": "Deze pagina bestaat niet.",
   "It may have moved, or the address may be mistyped. One of these should get you back on track.": "Misschien is ze verplaatst of is het adres verkeerd getypt. Met een van deze links kom je weer op weg.",
   "Go to the home page": "Naar de startpagina",
-  "The page you’re looking for doesn’t exist.": "De pagina die je zoekt bestaat niet."
+  "The page you’re looking for doesn’t exist.": "De pagina die je zoekt bestaat niet.",
+  "trackers or analytics in the app": "trackers of analyses in de app",
+  "<strong>Cookies</strong> This site uses only a security cookie from Cloudflare and your theme and language choices, kept in your browser. It counts visits with Cloudflare Web Analytics, which sets no cookies and doesn&rsquo;t follow you around the web. No ads.": "<strong>Cookies</strong> Deze website gebruikt alleen een beveiligingscookie van Cloudflare en je keuze voor weergave en taal, bewaard in je browser. Bezoeken worden geteld met Cloudflare Web Analytics, dat geen cookies plaatst en je niet over het web volgt. Geen advertenties."
 }
