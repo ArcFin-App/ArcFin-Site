@@ -20,7 +20,7 @@
   <link rel="icon" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/logo.png">
   <link rel="stylesheet" href="/assets/site.css">
-  <script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("arcfin-theme");if(t==="light"||t==="dark")d.dataset.theme=t}catch(e){}})(document.documentElement)</script>
+  <script src="/assets/early.js"></script>
   <script src="/assets/site.js" defer></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
@@ -38,7 +38,9 @@
   <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/">
   <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
   <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
-  <!-- /hreflang --></head>
+  <!-- /hreflang --><!-- faq-schema -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "自分のサーバーが必要ですか?", "acceptedAnswer": {"@type": "Answer", "text": "はい。Arcfin は Jellyfin のクライアントです。Jellyfin は自分で運用する無料のメディアサーバーです。自分の Jellyfin サーバー、または信頼できる人が運用するサーバーのアカウントが必要です。Arcfin がコンテンツを提供したりホストしたりすることはありません。"}}, {"@type": "Question", "name": "Arcfin は App Store にありますか?", "acceptedAnswer": {"@type": "Answer", "text": "まだありません。Arcfin は TestFlight でパブリックベータ中です。バージョン 1.0.0 で Apple の App Store 審査に出します。App Store から TestFlight をインストールし、iPhone、iPad、Mac、Apple TV で招待を開けば、新しいビルドが自動で届きます。"}}, {"@type": "Question", "name": "どのデバイスで使えますか?", "acceptedAnswer": {"@type": "Answer", "text": "iOS または iPadOS 26 の iPhone と iPad、macOS 26 の Mac、tvOS 26 の Apple TV です。Mac 版は専用のインターフェイスを持つ本物の Mac アプリで、Apple TV には Siri Remote 用の専用レイアウトがあります。"}}, {"@type": "Question", "name": "Arcfin は Jellyfin の公式アプリですか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin は独立したサードパーティのクライアントです。Jellyfin プロジェクトとの提携や推奨はないため、Arcfin について Jellyfin チームに質問しないでください。代わりにサポートページをご利用ください。"}}, {"@type": "Question", "name": "Arcfin は私のデータを収集しますか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin のサーバーも、解析も、トラッキングも、クラッシュレポートサービスもありません。アプリはあなたが追加したサーバーと直接やり取りします。プライバシーポリシー(英語)に、外部サービスとその利用場面をすべて記載しています。"}}, {"@type": "Question", "name": "うまく動きません。どうすればいいですか?", "acceptedAnswer": {"@type": "Answer", "text": "アプリの「設定 › 情報 › 問題を報告」を使うか、Issue を作成してください。デバイス、OS のバージョン、Jellyfin サーバーのバージョンを書いてください。詳しくはサポートページへ。"}}]}</script>
+  <!-- /faq-schema --></head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
 <header class="site-header">

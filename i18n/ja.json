@@ -388,5 +388,12 @@
   "Learn more": "詳しく見る",
   "OK": "OK",
   "Cookies": "Cookie",
-  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin は 2026 年 5 月 3 日に始まりました。新しい順に、1.0.0 までに残っていること、今日試せるもの、これまでに公開したすべてを紹介します。"
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin は 2026 年 5 月 3 日に始まりました。新しい順に、1.0.0 までに残っていること、今日試せるもの、これまでに公開したすべてを紹介します。",
+  "Follow new builds with RSS": "RSS で新しいビルドをフォロー",
+  "Arcfin releases": "Arcfin のリリース",
+  "Page not found · Arcfin": "ページが見つかりません · Arcfin",
+  "This page doesn&rsquo;t exist.": "このページは存在しません。",
+  "It may have moved, or the address may be mistyped. One of these should get you back on track.": "移動したか、アドレスが間違っている可能性があります。こちらから戻れます。",
+  "Go to the home page": "ホームへ",
+  "The page you’re looking for doesn’t exist.": "お探しのページは存在しません。"
 }

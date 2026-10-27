@@ -7,8 +7,10 @@ Reads the app repository's release feed once, then:
 - writes the release notes into changelog/index.html, between the
   <!-- releases --> and <!-- /releases --> markers.
 
-If the feed can't be read, the HTML already in the repo is left as is and
-the deploy carries on.
+If the feed can't be read, the versions and changelog are copied from the
+live site instead, so a feed outage never rolls the site back to the older
+snapshot in the repo. If the live site can't be read either, the repo's
+copy is used.
 """
 
 import email.utils
@@ -178,14 +180,52 @@ def rewrite(path, change):
         print(f"updated {os.path.relpath(path, SITE)}")
 
 
+LIVE = os.environ.get("LIVE_SITE", "https://arcfin.psmattas.com").rstrip("/")
+DYNAMIC = re.compile(r'<span data-(?:version|count)="\w+">[^<]*</span>|"softwareVersion":"[^"]*"')
+BLOCK = re.compile(r"<!-- releases -->.*?<!-- /releases -->", re.S)
+
+
+def fetch_live(path):
+    request = urllib.request.Request(LIVE + path, headers={"User-Agent": "arcfin-site-deploy"})
+    with urllib.request.urlopen(request, timeout=20) as response:
+        return response.read().decode("utf-8")
+
+
+def keep_live():
+    """Copies the dynamic parts of each page from the live site into the build."""
+    copied = 0
+    for root, _, files in os.walk(SITE):
+        for name in files:
+            if not name.endswith(".html"):
+                continue
+            path = os.path.join(root, name)
+            rel = "/" + os.path.relpath(path, SITE).replace(os.sep, "/")
+            try:
+                live = fetch_live(rel[: -len("index.html")] if rel.endswith("index.html") else rel)
+            except Exception:
+                continue
+            values = iter(DYNAMIC.findall(live))
+            live_block = BLOCK.search(live)
+
+            def change(text):
+                text = DYNAMIC.sub(lambda m: next(values, m.group(0)), text)
+                if live_block:
+                    text = BLOCK.sub(lambda _: live_block.group(0), text)
+                return text
+
+            rewrite(path, change)
+            copied += 1
+    print(f"kept the live versions and changelog on {copied} pages")
+
+
 def main():
     try:
         releases = read_feed()
+        if not releases:
+            raise ValueError("no platform releases in the feed")
     except Exception as error:
-        warn(f"Couldn't read the release feed ({error}); the site keeps the versions and changelog already in the repo.")
-        return
-    if not releases:
-        warn("The release feed has no platform releases; the site keeps what's already in the repo.")
+        warn(f"Couldn't read the release feed ({error}); keeping what's live on {LIVE}.")
+        keep_live()
         return
 
     labels = version_labels(releases)

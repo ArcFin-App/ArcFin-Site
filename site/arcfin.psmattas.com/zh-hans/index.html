@@ -20,7 +20,7 @@
   <link rel="icon" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/logo.png">
   <link rel="stylesheet" href="/assets/site.css">
-  <script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("arcfin-theme");if(t==="light"||t==="dark")d.dataset.theme=t}catch(e){}})(document.documentElement)</script>
+  <script src="/assets/early.js"></script>
   <script src="/assets/site.js" defer></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
@@ -38,7 +38,9 @@
   <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/">
   <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
   <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
-  <!-- /hreflang --></head>
+  <!-- /hreflang --><!-- faq-schema -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "我需要自己的服务器吗？", "acceptedAnswer": {"@type": "Answer", "text": "需要。Arcfin 是 Jellyfin 的客户端，Jellyfin 是一个由你自己运行的免费媒体服务器。你需要自己的 Jellyfin 服务器，或在你信任的人运行的服务器上有账户。Arcfin 不提供也不托管任何内容。"}}, {"@type": "Question", "name": "Arcfin 上架 App Store 了吗？", "acceptedAnswer": {"@type": "Answer", "text": "还没有。Arcfin 正在 TestFlight 上公开测试，将在 1.0.0 版本提交 Apple 的 App Store 审核。从 App Store 安装 TestFlight，在 iPhone、iPad、Mac 或 Apple TV 上打开邀请，新版本就会自动送达。"}}, {"@type": "Question", "name": "它能在哪些设备上运行？", "acceptedAnswer": {"@type": "Answer", "text": "运行 iOS 或 iPadOS 26 的 iPhone 和 iPad、运行 macOS 26 的 Mac，以及运行 tvOS 26 的 Apple TV。Mac 版是拥有独立界面的真正 Mac App，Apple TV 则有专为 Siri Remote 设计的布局。"}}, {"@type": "Question", "name": "Arcfin 是 Jellyfin 官方 App 吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是。Arcfin 是独立的第三方客户端，与 Jellyfin 项目没有关联，也未获其认可，所以请不要向 Jellyfin 团队咨询 Arcfin 的问题。请使用支持页面。"}}, {"@type": "Question", "name": "Arcfin 会收集我的数据吗？", "acceptedAnswer": {"@type": "Answer", "text": "不会。没有 Arcfin 服务器，没有分析，没有跟踪，也没有崩溃报告服务。App 只与你添加的服务器直接通信。隐私政策（英文）列出了每个外部服务及其使用时机。"}}, {"@type": "Question", "name": "有东西不工作，该怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "在 App 中使用“设置 › 关于 › 报告问题”，或提交一个 Issue。请写明设备、系统版本和 Jellyfin 服务器版本。更多帮助见支持页面。"}}]}</script>
+  <!-- /faq-schema --></head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <header class="site-header">
