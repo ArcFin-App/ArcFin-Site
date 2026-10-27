@@ -3,7 +3,11 @@ name: Deploy
 on:
   push:
     branches: [main]
+  # The app repo starts this when a release is published; the daily run
+  # catches anything that start missed.
   workflow_dispatch:
+  schedule:
+    - cron: '30 5 * * *'
 
 concurrency:
   group: deploy-site
@@ -15,14 +19,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install rsync and SSH
+      - name: Install rsync, SSH and Python
         run: |
-          if ! command -v rsync >/dev/null || ! command -v ssh >/dev/null; then
+          if ! command -v rsync >/dev/null || ! command -v ssh >/dev/null || ! command -v python3 >/dev/null; then
             sudo=""
             [ "$(id -u)" -ne 0 ] && sudo="sudo"
             $sudo apt-get update -qq
-            $sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rsync openssh-client
+            $sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rsync openssh-client python3
           fi
+
+      - name: Show the newest app versions
+        run: python3 scripts/stamp-versions.py site/arcfin.psmattas.com
+        env:
+          GITEA_API: ${{ github.server_url }}/api/v1
 
       - name: Sync the site to the server
         shell: bash
