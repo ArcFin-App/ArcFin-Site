@@ -53,7 +53,12 @@ def read_feed():
     return releases
 
 
+KINDS = {"new": "new", "improved": "improved", "fixed": "fixed", "removed": "removed",
+         "under the hood": "hood", "changes": "none"}
+
+
 def clean(body):
+    """Returns the notes as HTML, plus the compare and release PR links from the footer line."""
     if INTERNAL:
         body = body.replace(INTERNAL, PUBLIC)
     # Badges and the TestFlight review note are for the release page, not the site.
@@ -61,9 +66,26 @@ def clean(body):
     body = re.sub(r"<blockquote>(?:(?!</blockquote>).)*When will I get this build\?.*?</blockquote>\s*", "", body, flags=re.S)
     body = re.sub(r"<(script|style|iframe)\b.*?</\1>", "", body, flags=re.S | re.I)
     body = re.sub(r"\son\w+=(\"[^\"]*\"|'[^']*')", "", body)
-    body = re.sub(r"\s(dir|data-markdown-generated-content|class)=\"[^\"]*\"", "", body)
-    body = re.sub(r"<h2>", "<h4>", body).replace("</h2>", "</h4>")
-    return body.strip()
+    body = re.sub(r"\s(dir|data-markdown-generated-content|class|target)=\"[^\"]*\"", "", body)
+
+    links = {}
+    footer = re.search(r"<p>\s*<strong>Full changes:</strong>(.*?)</p>\s*", body, flags=re.S)
+    if footer:
+        compare = re.search(r'href="([^"]*/compare/[^"]*)"', footer.group(1))
+        pr = re.search(r'Release PR\s*<a href="([^"]*)"[^>]*>(#\d+)</a>', footer.group(1))
+        if compare:
+            links["compare"] = compare.group(1)
+        if pr:
+            links["pr"] = (pr.group(1), pr.group(2))
+        body = body[:footer.start()] + body[footer.end():]
+
+    def heading(match):
+        title = match.group(1).strip()
+        kind = KINDS.get(title.lower(), "other")
+        return f'<h4 class="cl-kind {kind}">{title}</h4>'
+
+    body = re.sub(r"<h2>(.*?)</h2>", heading, body)
+    return body.strip(), links
 
 
 def version_labels(releases):
@@ -80,32 +102,54 @@ def changelog(releases):
     builds = {}
     for r in releases:
         builds.setdefault(r["key"], {})[r["platform"]] = r
+    keys = sorted(builds, reverse=True)
+    versions = []
+    for key in keys:
+        if key[:3] not in versions:
+            versions.append(key[:3])
+
+    def vid(version):
+        return "v" + "-".join(map(str, version))
+
     filters = "".join(
         f'<input type="radio" name="cl-platform" id="cl-{css}" value="{css}"{" checked" if css == "ios" else ""}>'
         f'<label for="cl-{css}">{html.escape(name)}</label>'
         for _, name, css in PLATFORMS)
-    out = [f'<div class="cl-filter" role="radiogroup" aria-label="Platform">{filters}</div>']
+    jump = "".join(f'<li><a href="#{vid(v)}">{".".join(map(str, v))}</a></li>' for v in versions)
+    out = ['<div class="cl-layout">',
+           '<aside class="cl-side">'
+           f'<div class="cl-filter" role="radiogroup" aria-label="Platform">{filters}</div>'
+           f'<nav class="cl-jump" aria-label="Versions"><p>Versions</p><ul>{jump}</ul></nav>'
+           '</aside>',
+           '<div class="cl-list">']
     version = None
-    for key in sorted(builds, reverse=True):
+    for index, key in enumerate(keys):
         if key[:3] != version:
             if version is not None:
                 out.append("</section>")
             version = key[:3]
-            out.append(f'<section class="cl-version"><h2>Arcfin {".".join(map(str, version))}</h2>')
+            out.append(f'<section class="cl-version" id="{vid(version)}"><h2>Arcfin {".".join(map(str, version))}</h2>')
         entries = builds[key]
         date = max(e["date"] for e in entries.values())
-        out.append(f'<article class="cl-build"><header><h3>Build {key[3]}</h3>'
+        latest = '<span class="cl-latest">Latest</span>' if index == 0 else ""
+        out.append(f'<article class="cl-build"><header><h3>Build {key[3]}{latest}</h3>'
                    f'<time datetime="{date:%Y-%m-%d}">{date.day} {date:%B %Y}</time></header>')
         for platform, name, css in PLATFORMS:
             entry = entries.get(platform)
             if not entry:
                 continue
-            out.append(f'<div class="cl-notes {css}"><p class="cl-platform">{html.escape(name)}</p>'
-                       f'{clean(entry["body"])}'
-                       f'<p class="cl-more"><a href="{html.escape(entry["link"])}">Release page</a></p></div>')
+            notes, links = clean(entry["body"])
+            more = [f'<a href="{html.escape(entry["link"])}">Release notes</a>']
+            if "compare" in links:
+                more.append(f'<a href="{html.escape(links["compare"])}">Code changes</a>')
+            if "pr" in links:
+                more.append(f'<a href="{html.escape(links["pr"][0])}">Release PR {links["pr"][1]}</a>')
+            out.append(f'<div class="cl-notes {css}">{notes}'
+                       f'<p class="cl-more">{"".join(more)}</p></div>')
         out.append("</article>")
     if version is not None:
         out.append("</section>")
+    out.append("</div></div>")
     return "\n".join(out)
 
 
