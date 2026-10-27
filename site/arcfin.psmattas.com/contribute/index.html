@@ -2,123 +2,121 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arcfin — Contribute</title>
-  <meta name="description" content="Arcfin is open source under AGPL-3.0 — find out how to report bugs, request features, and contribute code.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contribute · Arcfin</title>
+  <meta name="description" content="Contribute to Arcfin, an open-source Jellyfin client: code, translations, bug reports and beta testing.">
+  <link rel="canonical" href="https://arcfin.psmattas.com/contribute/">
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Contribute · Arcfin">
+  <meta property="og:description" content="Contribute to Arcfin, an open-source Jellyfin client: code, translations, bug reports and beta testing.">
+  <meta property="og:url" content="https://arcfin.psmattas.com/contribute/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.png">
-  <style>
-    :root {
-      color-scheme: dark light;
-      --bg: #0A0A0F; --fg: #FFFFFF; --muted: #8E8E93; --accent: #06B6D4;
-      --card: #12121A; --border: #26262f;
-    }
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #ffffff; --fg: #14141a; --muted: #6b6b76; --card: #f5f5f7; --border: #e3e3e8; }
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0; background: var(--bg); color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-    }
-    main { max-width: 700px; margin: 0 auto; padding: 56px 24px 80px; }
-    h1 { font-size: 1.7rem; margin: 0 0 4px; }
-    .subtitle { color: var(--muted); font-size: 0.95rem; margin: 0 0 32px; }
-    h2 { font-size: 1.05rem; margin: 0 0 10px; }
-    p { margin: 0 0 14px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-      padding: 20px 22px; margin-bottom: 18px;
-    }
-    .card p:last-child { margin-bottom: 0; }
-    .card .label { color: var(--muted); font-size: 0.82rem; margin-bottom: 4px; }
-    .card .value { font-size: 1.05rem; font-weight: 600; }
-    ul { margin: 0; padding-left: 22px; }
-    li { margin-bottom: 8px; }
-    li:last-child { margin-bottom: 0; }
-    .notice { border-left: 3px solid var(--accent); }
-    .buttons {
-      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 15px; border: 1px solid var(--accent); border-radius: 10px;
-      color: var(--accent); font-size: 0.86rem; font-weight: 700; text-decoration: none;
-    }
-    .btn:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
-    .btn svg { width: 15px; height: 15px; fill: currentColor; }
-    code {
-      background: var(--bg3, #1C1C26); border: 1px solid var(--border); border-radius: 5px;
-      padding: 1px 6px; font-size: 0.88em; font-family: ui-monospace, "SF Mono", Menlo, monospace;
-    }
-    footer {
-      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
-      display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.85rem;
-    }
-    footer a { color: var(--muted); }
-  </style>
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Contribute to Arcfin</h1>
-    <p class="subtitle">Arcfin is open source under AGPL-3.0-or-later — help shape a thoughtful native Jellyfin experience for the Apple ecosystem.</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Arcfin home"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="Main"><a href="/#features">Features</a><a href="/#platforms">Platforms</a><a href="/#privacy">Privacy</a><a href="/#roadmap">Roadmap</a><a href="/contribute/" aria-current="page">Contribute</a><a href="/support/">Support</a></nav>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">Join the beta</a>
+    <details class="nav-menu">
+      <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+      <nav class="nav-sheet" aria-label="Main"><a href="/#features">Features</a><a href="/#platforms">Platforms</a><a href="/#privacy">Privacy</a><a href="/#roadmap">Roadmap</a><a href="/contribute/" aria-current="page">Contribute</a><a href="/support/">Support</a><a href="https://testflight.apple.com/join/kkC58n2w">Join the beta</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow">Contribute</span>
+  <h1>Help build Arcfin.</h1>
+  <p>Arcfin is open source under the AGPL-3.0. Code, translations, bug reports and testing all make it better.</p>
+</div></section>
+<section class="wrap">
+  <div class="contact-grid">
+    <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M13.5 5l-3 14"/></svg></span><h3>Code</h3><p>Arcfin lives on a self-hosted Gitea. Sign in with your GitHub or GitLab account; you don&rsquo;t need a new one.</p><div class="links"><a class="btn btn-primary btn-small" href="https://git.psmattas.com/ArcFin/ArcFin">View the source</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/ArcFin/issues?labels=Good%20First%20Issue">Good first issues</a></div></article>
+    <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="13" rx="5"/><path d="M12 11v9M9 4l1.5 2.5M15 4l-1.5 2.5M3 13h4M17 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"/></svg></span><h3>Issues</h3><p>Report bugs, suggest features, or ask a question. Search first in case someone already has.</p><div class="links"><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">New issue</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/ArcFin/issues">Browse issues</a></div></article>
+    <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></span><h3>Testing</h3><p>Join the beta, try new builds first, and tell us what breaks.</p><div class="links"><a class="btn btn-secondary btn-small" href="https://testflight.apple.com/join/kkC58n2w">Join on TestFlight</a></div></article>
+  </div>
+</section>
 
-    <div class="card notice">
-      <h2>Code and issue tracker</h2>
-      <p>Arcfin is hosted on a self-hosted Gitea instance, not GitHub or GitLab directly — but you can sign in there with your existing GitHub or GitLab account, no separate account needed.</p>
-      <div class="buttons">
-        <a class="btn" href="https://git.psmattas.com/ArcFin/Arcfin-iOS" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 0Z"></path></svg>
-          View Source
-        </a>
-        <a class="btn" href="https://git.psmattas.com/ArcFin" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16"><path d="M1.5 14.5h13v-1h-13v1Zm.75-2.25h11.5V4.75a.75.75 0 0 0-.75-.75H8.62L7.37 2.5H2.25a.75.75 0 0 0-.75.75v8.5c0 .28.22.5.75.5Z"></path></svg>
-          Arcfin Organization
-        </a>
+<section class="section" style="padding-top:72px">
+  <div class="wrap prose">
+    <h2 id="code">Contributing code</h2>
+    <p>Pull requests are welcome. Start with <a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for how to build and the project&rsquo;s conventions, and <a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/ARCHITECTURE.md">ARCHITECTURE.md</a> for how the app fits together. Issues labelled <strong>Good First Issue</strong> say which file to start in and what &ldquo;done&rdquo; looks like.</p>
+    <ul>
+      <li><strong>Sign off every commit.</strong> Arcfin uses the Developer Certificate of Origin. Commit with <code>git commit -s</code> to add the <code>Signed-off-by:</code> line. There&rsquo;s no CLA and no copyright assignment; you keep the copyright on your work.</li>
+      <li><strong>Make text translatable.</strong> New text in the app goes into the String Catalogs in the same pull request.</li>
+      <li><strong>Follow the <a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/CODE_OF_CONDUCT.md">Code of Conduct</a>.</strong></li>
+    </ul>
+
+    <h2 id="translate">Translating Arcfin</h2>
+    <p>Arcfin is available in English, German, French, Spanish, Simplified Chinese, Brazilian Portuguese, Japanese, Italian, Korean, Dutch and Russian. The first ten translations were machine made and need native speakers to check them.</p>
+    <p>To fix a translation or add a language, open a <strong>Translation</strong> issue. The <a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/CONTRIBUTING.md#translating-arcfin">translation guide</a> explains how.</p>
+
+    <h2 id="ai">AI-assisted development</h2>
+    <p>Arcfin is written by one developer with help from AI coding tools. The AI writes code to specifications the maintainer defines; it doesn&rsquo;t decide the architecture, the design or what gets built. Every change is read and tested by the maintainer before it merges, and the maintainer is responsible for everything that ships. Contributors can use AI tools too, under the rules in CONTRIBUTING.md.</p>
+
+    <h2 id="forks">Forks and the Arcfin name</h2>
+    <p>The code is free to fork under the AGPL-3.0. The Arcfin name, logo and app icon aren&rsquo;t covered by the code license, so a fork needs a name and icon of its own. See <a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/TRADEMARK.md">TRADEMARK.md</a>.</p>
+
+    <h2 id="email">Prefer email?</h2>
+    <p>For anything that doesn&rsquo;t fit the issue tracker: <a href="mailto:contribution.arcfin@psmattas.com">contribution.arcfin@psmattas.com</a>. Please don&rsquo;t send passwords, server tokens or other private details. Security problems go to <a href="mailto:security@psmattas.com">security@psmattas.com</a>.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV, built in the open by one developer and a growing group of testers and contributors.</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#platforms">Platforms</a></li>
+          <li><a href="/#roadmap">Roadmap</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/releases">Release notes</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">TestFlight beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="/support/">Support &amp; FAQ</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">Report a problem</a></li>
+          <li><a href="/contribute/">Contribute</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">Source code</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/data-protection/">Data Protection</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">License (AGPL-3.0)</a></li>
+        </ul>
       </div>
     </div>
-
-    <div class="card">
-      <h2>Report a bug or request a feature</h2>
-      <p>Use the issue tracker on the app repo. You'll need to sign in first (GitHub, GitLab, or a Gitea account all work).</p>
-      <ul>
-        <li><a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/issues/new?template=bug_report.yaml" target="_blank" rel="noopener">Report a bug</a></li>
-        <li><a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/issues/new?template=feature_request.yaml" target="_blank" rel="noopener">Request a feature</a></li>
-        <li><a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/issues/new?template=support_request.yaml" target="_blank" rel="noopener">Ask a question</a></li>
-      </ul>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas. The Arcfin name and logo are trademarks and aren&rsquo;t covered by the code license.</span>
+      <span>Arcfin isn&rsquo;t affiliated with or endorsed by the Jellyfin project.</span>
     </div>
-
-    <div class="card">
-      <h2>Contributing code</h2>
-      <p>Pull requests are welcome. Every commit needs a <strong>DCO sign-off</strong> — run <code>git commit -s</code> when you commit, which adds a <code>Signed-off-by:</code> trailer. That's it — no CLA, no copyright assignment, you keep copyright on your own contributions. See <a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/src/branch/v0.1.0/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING.md</a> for build setup and code standards.</p>
-      <p>The "Arcfin" name and logo aren't covered by the code license — see <a href="https://git.psmattas.com/ArcFin/Arcfin-iOS/src/branch/v0.1.0/TRADEMARK.md" target="_blank" rel="noopener">TRADEMARK.md</a> if you're forking rather than contributing back.</p>
-    </div>
-
-    <div class="card">
-      <h2>Other ways to help</h2>
-      <ul>
-        <li>Try the TestFlight build and share clear, reproducible feedback.</li>
-        <li>Suggest improvements to the experience, accessibility, or platform support.</li>
-        <li>Share ideas for integrations with Jellyfin, Seerr, Streamystats, and related tools.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Prefer email?</h2>
-      <p>For anything that doesn't fit the issue tracker:</p>
-      <p class="value"><a href="mailto:contribution.arcfin@psmattas.com">contribution.arcfin@psmattas.com</a></p>
-      <p>Please avoid sending passwords, server tokens, private media details, or other sensitive information. For security vulnerabilities, use the private security contact on the <a href="/support">Support</a> page instead.</p>
-    </div>
-
-    <footer>
-      <a href="/">arcfin.psmattas.com</a>
-      <a href="/support">Support</a>
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms of Use</a>
-      <a href="/data-protection">Data Protection</a>
-    </footer>
-  </main>
+  </div>
+</footer>
 </body>
 </html>

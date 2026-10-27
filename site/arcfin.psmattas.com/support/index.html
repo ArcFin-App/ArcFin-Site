@@ -2,81 +2,145 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arcfin — Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Support · Arcfin</title>
+  <meta name="description" content="Help with Arcfin: connecting to your Jellyfin server, playback, downloads, the TestFlight beta and how to get in touch.">
+  <link rel="canonical" href="https://arcfin.psmattas.com/support/">
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Support · Arcfin">
+  <meta property="og:description" content="Help with Arcfin: connecting to your Jellyfin server, playback, downloads, the TestFlight beta and how to get in touch.">
+  <meta property="og:url" content="https://arcfin.psmattas.com/support/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.png">
-  <style>
-    :root {
-      color-scheme: dark light;
-      --bg: #0A0A0F; --fg: #FFFFFF; --muted: #8E8E93; --accent: #06B6D4;
-      --card: #12121A; --border: #26262f;
-    }
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #ffffff; --fg: #14141a; --muted: #6b6b76; --card: #f5f5f7; --border: #e3e3e8; }
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0; background: var(--bg); color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-    }
-    main { max-width: 680px; margin: 0 auto; padding: 56px 24px 80px; }
-    h1 { font-size: 1.7rem; margin: 0 0 4px; }
-    .subtitle { color: var(--muted); font-size: 0.95rem; margin: 0 0 32px; }
-    h2 { font-size: 1.05rem; margin: 0 0 10px; }
-    p { margin: 0 0 14px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-      padding: 20px 22px; margin-bottom: 18px;
-    }
-    .card p:last-child { margin-bottom: 0; }
-    .card .label { color: var(--muted); font-size: 0.82rem; margin-bottom: 4px; }
-    .card .value { font-size: 1.05rem; font-weight: 600; }
-    footer {
-      margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
-      display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.85rem;
-    }
-    footer a { color: var(--muted); }
-  </style>
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Support</h1>
-    <p class="subtitle">Arcfin is built and maintained by one person — here's how to reach me.</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Arcfin home"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="Main"><a href="/#features">Features</a><a href="/#platforms">Platforms</a><a href="/#privacy">Privacy</a><a href="/#roadmap">Roadmap</a><a href="/contribute/">Contribute</a><a href="/support/" aria-current="page">Support</a></nav>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">Join the beta</a>
+    <details class="nav-menu">
+      <summary aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+      <nav class="nav-sheet" aria-label="Main"><a href="/#features">Features</a><a href="/#platforms">Platforms</a><a href="/#privacy">Privacy</a><a href="/#roadmap">Roadmap</a><a href="/contribute/">Contribute</a><a href="/support/" aria-current="page">Support</a><a href="https://testflight.apple.com/join/kkC58n2w">Join the beta</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow">Support</span>
+  <h1>How can we help?</h1>
+  <p>Arcfin is built and maintained by one developer. Most answers are below; if yours isn&rsquo;t, the contacts at the bottom reach a real person.</p>
+</div></section>
+<section class="wrap">
+  <div class="toc" aria-label="On this page">
+    <a href="#getting-started">Getting started</a><a href="#connecting">Connecting to your server</a>
+    <a href="#playback">Playback</a><a href="#downloads">Downloads</a><a href="#beta">The beta</a><a href="#contact">Contact</a>
+  </div>
+</section>
 
-    <div class="card">
-      <h2>General support</h2>
-      <p>Bug reports, feature requests, questions about connecting a server, or anything else about using the app.</p>
-      <p class="label">Email</p>
-      <p class="value"><a href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a></p>
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <h2 id="getting-started" class="visually-hidden">Getting started</h2>
+    <div class="faq">
+      <details><summary>What do I need to use Arcfin?</summary><div class="answer"><p>A <a href='https://jellyfin.org'>Jellyfin</a> server of your own, or an account on one that someone you trust runs, and a device running iOS 26, iPadOS 26, macOS 26 or tvOS 26.</p><p>Arcfin doesn&rsquo;t provide or host any content. Everything it plays comes from your server.</p></div></details>
+      <details><summary>How do I install Arcfin?</summary><div class="answer"><p>Arcfin is in public beta. Install <strong>TestFlight</strong> from the App Store, then open the <a href='https://testflight.apple.com/join/kkC58n2w'>Arcfin invite</a> on your iPhone, iPad, Mac or Apple TV. New builds install automatically once Apple approves them.</p><p>Arcfin goes to the App Store at version 1.0.0.</p></div></details>
+      <details><summary>Can my family use their own profiles?</summary><div class="answer"><p>Yes. Each Jellyfin user can be a profile in Arcfin, with their own progress and recommendations. Each profile can be locked with Face ID, Touch ID or a PIN, and the server&rsquo;s parental controls and access schedules apply as they do in other Jellyfin apps.</p></div></details>
     </div>
 
-    <div class="card">
-      <h2>Connecting your server</h2>
-      <p>Arcfin connects to a Jellyfin server you already run — it isn't a hosted service. If your server isn't reachable, check that Arcfin has Local Network permission in iOS Settings (for discovery on your home network) and that your server's address is reachable from your device. For anything Jellyfin-specific, the <a href="https://jellyfin.org/docs/" target="_blank" rel="noopener">Jellyfin documentation</a> is the best resource.</p>
+    <div class="section-head" style="margin:72px 0 24px"><span class="eyebrow">Setup</span><h2 id="connecting">Connecting to your server</h2></div>
+    <div class="faq">
+      <details><summary>Arcfin can&rsquo;t reach my server.</summary><div class="answer"><ul><li>Check the address works in a browser on the same device.</li><li>Include the port if your server uses one, for example <code>http://192.168.1.20:8096</code>.</li><li>If your server lives under a path, such as <code>https://example.com/jellyfin</code>, include the path.</li><li>On iPhone, iPad and Mac, make sure Arcfin has <strong>Local Network</strong> access in Settings &rsaquo; Privacy &amp; Security if the server is on your home network.</li></ul></div></details>
+      <details><summary>Should I use http:// or https://?</summary><div class="answer"><p>Use the address your server is actually set up for. If your server has HTTPS, use <code>https://</code>; it keeps your password and viewing private on the network. Anything reachable from outside your home should use HTTPS.</p></div></details>
+      <details><summary>Can Arcfin switch between my home and remote address?</summary><div class="answer"><p>Yes. Add both addresses in <strong>Settings &rsaquo; Server</strong> and tell Arcfin which Wi-Fi network is home. It reads the current Wi-Fi name on your device to pick the right one. iOS asks for location permission to read the network name; the location itself is never used, stored or sent anywhere.</p></div></details>
+      <details><summary>Does Arcfin work with Seerr?</summary><div class="answer"><p>Yes. Add your Seerr server in <strong>Settings &rsaquo; Integrations</strong> to browse, request and keep a watchlist. Each profile signs in to Seerr on its own.</p></div></details>
     </div>
 
-    <div class="card">
-      <h2>Security</h2>
-      <p>Found a security vulnerability? Please don't post it publicly — report it privately so it can be fixed first.</p>
-      <p class="label">Email</p>
-      <p class="value"><a href="mailto:security@psmattas.com">security@psmattas.com</a></p>
-      <p>Include a description, steps to reproduce, and potential impact. I acknowledge reports within 48 hours and aim to ship a fix within 14 days depending on severity.</p>
+    <div class="section-head" style="margin:72px 0 24px"><span class="eyebrow">Watching</span><h2 id="playback">Playback</h2></div>
+    <div class="faq">
+      <details><summary>A video won&rsquo;t play, or stutters.</summary><div class="answer"><p>Arcfin has three playback engines. <strong>Auto</strong> (the default) uses Aether and falls back to AVFoundation or VLC if a file won&rsquo;t open. Try choosing a specific engine in <strong>Settings &rsaquo; Playback</strong>, or lower the streaming quality so the server transcodes.</p><p>If it still fails, please report it with the file&rsquo;s codec details from the player&rsquo;s <strong>Media Info</strong>.</p></div></details>
+      <details><summary>Where do subtitle styles and playback speed live?</summary><div class="answer"><p>In <strong>Settings &rsaquo; Playback</strong>. You can also change audio tracks, subtitles and speed from the player&rsquo;s menu while watching.</p></div></details>
+      <details><summary>Can I watch with friends?</summary><div class="answer"><p>Yes, two ways: <strong>SharePlay</strong> over FaceTime, or Jellyfin&rsquo;s own <strong>SyncPlay</strong> from the player menu.</p></div></details>
     </div>
 
-    <div class="card">
-      <h2>Data &amp; privacy questions</h2>
-      <p>Arcfin has no backend and doesn't collect analytics — see the <a href="/privacy">Privacy Policy</a> and <a href="/data-protection">Data Protection</a> pages for the full detail. For anything not answered there, use the general support email above.</p>
+    <div class="section-head" style="margin:72px 0 24px"><span class="eyebrow">Offline</span><h2 id="downloads">Downloads</h2></div>
+    <div class="faq">
+      <details><summary>Where can I download?</summary><div class="answer"><p>On iPhone, iPad and Mac. Apple TV has no lasting storage, so it can&rsquo;t keep downloads.</p></div></details>
+      <details><summary>Does watching offline count on my server?</summary><div class="answer"><p>Yes. Arcfin saves your progress on the device and syncs it back to your server the next time you&rsquo;re online.</p></div></details>
+      <details><summary>What are Smart Downloads?</summary><div class="answer"><p>Smart Downloads keep the next episodes of the shows you&rsquo;re watching downloaded and remove the ones you&rsquo;ve finished, within a storage budget you set in <strong>Settings &rsaquo; Downloads</strong>. <strong>Keep Downloaded</strong> on a show&rsquo;s page does the same for just that show.</p></div></details>
     </div>
 
-    <footer>
-      <a href="/">arcfin.psmattas.com</a>
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms of Use</a>
-      <a href="/data-protection">Data Protection</a>
-    </footer>
-  </main>
+    <div class="section-head" style="margin:72px 0 24px"><span class="eyebrow">TestFlight</span><h2 id="beta">The beta</h2></div>
+    <div class="faq">
+      <details><summary>When will I get a new build?</summary><div class="answer"><p>Every public build goes through Apple&rsquo;s TestFlight review first. A new version usually takes 1 to 3 days. A new build of an existing version is usually through within 24 hours, but can take as long as a new version.</p></div></details>
+      <details><summary>Can I get builds sooner?</summary><div class="answer"><p>Internal testers get each build as soon as it&rsquo;s uploaded, before Apple&rsquo;s review. Seats are limited and these builds are the least tested. To ask for one, email <a href='mailto:support.arcfin@psmattas.com'>support.arcfin@psmattas.com</a> with the Apple Account email to invite and the devices you&rsquo;d test on.</p></div></details>
+      <details><summary>How do I report a problem well?</summary><div class="answer"><p>Use <strong>Settings &rsaquo; About &rsaquo; Report a Problem</strong>, or <a href='https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose'>open an issue</a>. Please include:</p><ul><li>Your device and OS version</li><li>Your Jellyfin server version (Settings &rsaquo; Server)</li><li>What you did right before it happened</li><li>A screen recording, for anything visual</li></ul><p><strong>Settings &rsaquo; About &rsaquo; Share Diagnostics</strong> makes a text file of the app&rsquo;s log to attach. It can include your server&rsquo;s address and the titles you played, so look it over before posting it publicly.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="section-head"><span class="eyebrow">Contact</span><h2>Still stuck?</h2></div>
+  <div class="contact-grid">
+    <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>General support</h3><p>Questions about using Arcfin, connecting a server, or anything else.</p><a class="big" href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a></article>
+    <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="13" rx="5"/><path d="M12 11v9M9 4l1.5 2.5M15 4l-1.5 2.5M3 13h4M17 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"/></svg></span><h3>Bugs and ideas</h3><p>Public issues help other people with the same problem find the answer.</p><div class="links"><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">Open an issue</a></div></article>
+    <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Security</h3><p>Please don&rsquo;t post vulnerabilities publicly. Reports are acknowledged within 48 hours.</p><a class="big" href="mailto:security@psmattas.com">security@psmattas.com</a></article>
+  </div>
+  <p class="footnote">Arcfin isn&rsquo;t an official Jellyfin app, so please don&rsquo;t ask the Jellyfin team for help with it. For anything about the Jellyfin server itself, the <a href="https://jellyfin.org/docs/">Jellyfin documentation</a> is the best place to look.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV, built in the open by one developer and a growing group of testers and contributors.</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#platforms">Platforms</a></li>
+          <li><a href="/#roadmap">Roadmap</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/releases">Release notes</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">TestFlight beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="/support/">Support &amp; FAQ</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">Report a problem</a></li>
+          <li><a href="/contribute/">Contribute</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">Source code</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/data-protection/">Data Protection</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">License (AGPL-3.0)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas. The Arcfin name and logo are trademarks and aren&rsquo;t covered by the code license.</span>
+      <span>Arcfin isn&rsquo;t affiliated with or endorsed by the Jellyfin project.</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
