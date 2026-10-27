@@ -29,9 +29,12 @@ The app's Settings screen links to the support and legal pages, so **keep their 
 ```
 scripts/releases.py         Adds versions and the changelog at deploy time
 scripts/fingerprint.py      Adds ?v=<hash> to asset links at deploy time
+scripts/i18n.py             Builds the translated pages from i18n/<lang>.json
+i18n/                       One translation file per language
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
 ├── changelog/ support/ contribute/ privacy/ terms/ data-protection/
+├── de/ es/ fr/ … zh-hans/  Translated pages, built by scripts/i18n.py
 └── assets/
     ├── site.css            Every style. Colours mirror the app's DT tokens, light and dark
     ├── site.js             Scroll fade-in and mobile menu only; pages work without it
@@ -62,6 +65,19 @@ Screenshots live in `assets/shots/` as WebP: 660 px wide for portrait, 1400 px f
 The landing page, Privacy Policy and Data Protection pages describe what the app actually does: which services it talks to (your Jellyfin server, and optionally Seerr, TMDB, Wikidata, YouTube and Google Cast), what stays on the device and which permissions it asks for. When the app changes what data it touches, or gains a platform or service, update those pages and their effective date in the same change. They aren't boilerplate.
 
 The roadmap on `/` follows the [app's milestones](https://git.psmattas.com/ArcFin/ArcFin/milestones). Update it when a version ships.
+
+## Languages
+
+The site is available in the same eleven languages as the app. English is the source; the other ten live in folders such as `/de/` and `/zh-hans/`.
+
+- **Translated pages:** Home, Support, Contribute and Changelog. The legal pages stay English only, because the English text is the binding one. Translated pages link to them and say so.
+- **Translations** live in `i18n/<lang>.json`, which maps each piece of English text (a heading, paragraph, list item, button or image description) to its translation. Inline markup such as `<strong>` and links stays in the translation.
+- **Building:** `python3 scripts/i18n.py build` writes the translated pages from the English ones and refreshes the language menu and `hreflang` links on every page. The deploy runs it too, so a translated page can never fall behind its English page. Anything without a translation stays in English rather than breaking.
+- **Checking:** `python3 scripts/i18n.py check` lists the English text each language hasn't translated yet. Run it after changing English text.
+- **Release notes** on the changelog stay in English; its labels, dates and filters are translated.
+- **Choosing a language:** visitors pick one from the globe menu. If their browser prefers a supported language, a small banner offers it; the site never redirects on its own. The choice is remembered in the browser.
+
+The first translations were machine made. To fix one, open a Translation issue in the [app repository](https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose) and mention the page and language.
 
 ## Deployment
 

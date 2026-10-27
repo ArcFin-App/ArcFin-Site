@@ -65,3 +65,86 @@
     });
   });
 })();
+
+(function () {
+  var root = document.documentElement;
+  var key = "arcfin-lang";
+  var languages = {
+    "en": ["", "This site is also available in English.", "View in English", "Close"],
+    "de": ["de", "Diese Website gibt es auch auf Deutsch.", "Auf Deutsch ansehen", "Schließen"],
+    "es": ["es", "Este sitio también está disponible en español.", "Ver en español", "Cerrar"],
+    "fr": ["fr", "Ce site est aussi disponible en français.", "Voir en français", "Fermer"],
+    "it": ["it", "Questo sito è disponibile anche in italiano.", "Vedi in italiano", "Chiudi"],
+    "nl": ["nl", "Deze website is ook beschikbaar in het Nederlands.", "Bekijk in het Nederlands", "Sluiten"],
+    "pt-BR": ["pt-br", "Este site também está disponível em português.", "Ver em português", "Fechar"],
+    "ru": ["ru", "Этот сайт также доступен на русском.", "Открыть на русском", "Закрыть"],
+    "ja": ["ja", "このサイトは日本語でもご覧いただけます。", "日本語で見る", "閉じる"],
+    "ko": ["ko", "이 사이트는 한국어로도 볼 수 있습니다.", "한국어로 보기", "닫기"],
+    "zh-Hans": ["zh-hans", "本网站也提供简体中文版本。", "查看简体中文版", "关闭"]
+  };
+  var translated = ["", "support", "contribute", "changelog"];
+  var current;
+
+  function remember(code) { try { localStorage.setItem(key, code); } catch (e) {} }
+  function stored() { try { return localStorage.getItem(key); } catch (e) { return null; } }
+
+  function match(tag) {
+    tag = String(tag || "").toLowerCase();
+    if (/^zh-(hans|cn|sg)|^zh$/.test(tag)) return "zh-Hans";
+    if (/^pt/.test(tag)) return "pt-BR";
+    var base = tag.split("-")[0];
+    return languages[base] && base !== "zh" ? base : null;
+  }
+
+  function pathFor(code) {
+    var parts = location.pathname.split("/").filter(Boolean);
+    var folders = Object.keys(languages).map(function (c) { return languages[c][0]; });
+    if (parts.length && folders.indexOf(parts[0]) > 0) parts.shift();
+    var slug = parts.join("/");
+    if (translated.indexOf(slug) < 0) slug = "";
+    var folder = languages[code][0];
+    return "/" + [folder, slug].filter(Boolean).join("/") + (folder || slug ? "/" : "") + location.hash;
+  }
+
+  current = match(root.lang) || "en";
+
+  document.querySelectorAll(".lang-sheet a[data-lang]").forEach(function (link) {
+    link.addEventListener("click", function () { remember(link.dataset.lang); });
+  });
+
+  if (current !== "en") {
+    var format = new Intl.DateTimeFormat(root.lang, { dateStyle: "long" });
+    document.querySelectorAll(".cl-build time[datetime]").forEach(function (time) {
+      time.textContent = format.format(new Date(time.getAttribute("datetime") + "T12:00:00Z"));
+    });
+  }
+
+  var preferred = stored();
+  if (!preferred) {
+    var wanted = navigator.languages || [navigator.language];
+    for (var i = 0; i < wanted.length && !preferred; i++) preferred = match(wanted[i]);
+  }
+  if (!preferred || preferred === current || !languages[preferred]) return;
+
+  var info = languages[preferred];
+  var banner = document.createElement("div");
+  banner.className = "lang-banner";
+  banner.setAttribute("role", "region");
+  banner.setAttribute("lang", preferred);
+  banner.setAttribute("aria-label", info[2]);
+  var text = document.createElement("span");
+  text.textContent = info[1];
+  var go = document.createElement("a");
+  go.className = "btn btn-primary";
+  go.href = pathFor(preferred);
+  go.textContent = info[2];
+  go.addEventListener("click", function () { remember(preferred); });
+  var close = document.createElement("button");
+  close.type = "button";
+  close.className = "close";
+  close.setAttribute("aria-label", info[3]);
+  close.textContent = "×";
+  close.addEventListener("click", function () { remember(current); banner.remove(); });
+  banner.append(text, go, close);
+  document.body.appendChild(banner);
+})();
