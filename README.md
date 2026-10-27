@@ -28,6 +28,7 @@ The app's Settings screen links to the support and legal pages, so **keep their 
 
 ```
 scripts/releases.py         Adds versions and the changelog at deploy time
+scripts/fingerprint.py      Adds ?v=<hash> to asset links at deploy time
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
 ├── changelog/ support/ contribute/ privacy/ terms/ data-protection/
@@ -65,6 +66,8 @@ The roadmap on `/` follows the [app's milestones](https://git.psmattas.com/ArcFi
 ## Deployment
 
 Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner (Ubuntu) and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy also runs every hour, and can be started by hand from the Actions tab.
+
+The site sits behind Cloudflare, which keeps CSS, scripts and images for hours. So before syncing, [`scripts/fingerprint.py`](scripts/fingerprint.py) adds a content hash to every `/assets/` link (`site.css?v=…`). A changed file gets a new URL and shows up straight away; HTML isn't cached. Keep links in the HTML as plain `/assets/…` paths and let the deploy add the hashes.
 
 ### Versions and changelog
 

@@ -34,6 +34,9 @@ jobs:
           RELEASES_FEED: ${{ github.server_url }}/ArcFin/ArcFin/releases.rss
           GITEA_INTERNAL_URL: ${{ github.server_url }}
 
+      - name: Fingerprint assets so caches pick up changes
+        run: python3 scripts/fingerprint.py site/arcfin.psmattas.com
+
       - name: Sync the site to the server
         shell: bash
         env:
