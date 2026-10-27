@@ -1,0 +1,56 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install rsync and SSH
+        run: |
+          if ! command -v rsync >/dev/null || ! command -v ssh >/dev/null; then
+            sudo=""
+            [ "$(id -u)" -ne 0 ] && sudo="sudo"
+            $sudo apt-get update -qq
+            $sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rsync openssh-client
+          fi
+
+      - name: Sync the site to the server
+        shell: bash
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          for name in DEPLOY_HOST DEPLOY_USER DEPLOY_SSH_KEY DEPLOY_KNOWN_HOSTS; do
+            if [ -z "${!name}" ]; then
+              echo "::error::The $name secret isn't set. See the README's Deployment section."
+              exit 1
+            fi
+          done
+
+          # The key only ever exists in this job's temp folder and is removed
+          # however the step ends.
+          dir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/deploy.XXXXXX")"
+          trap 'rm -rf "$dir"' EXIT
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$dir/key"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$dir/known_hosts"
+          chmod 600 "$dir/key" "$dir/known_hosts"
+
+          # The server's authorized_keys pins this key to rrsync rooted at the
+          # site folder, so the remote path is relative to that folder.
+          rsync -rltz --delete-after --exclude='.DS_Store' --chmod=D755,F644 --itemize-changes \
+            -e "ssh -i $dir/key -p ${DEPLOY_PORT:-22} -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$dir/known_hosts" \
+            site/arcfin.psmattas.com/ "$DEPLOY_USER@$DEPLOY_HOST:"

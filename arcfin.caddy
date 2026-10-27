@@ -1,11 +1,11 @@
 # ============================================================
 # arcfin.psmattas.com
-# Static site only — no backend, no proxy. Serves the Arcfin
-# landing page at / and the App Store required Privacy Policy,
-# Terms of Use, and Data Protection pages.
+# Static site only — no backend, no proxy. Serves everything in
+# site/arcfin.psmattas.com/ from this repo.
 #
-# Deploy the contents of site/arcfin.psmattas.com/ from this
-# repo to the root path below, then `caddy reload`.
+# The Deploy workflow syncs that folder to the root path below on
+# every push to main. Caddy only needs reloading when this file
+# changes.
 # ============================================================
 
 arcfin.psmattas.com {
