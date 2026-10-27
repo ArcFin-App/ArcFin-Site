@@ -62,13 +62,13 @@ The roadmap on `/` follows the [app's milestones](https://git.psmattas.com/ArcFi
 
 ## Deployment
 
-Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner (Ubuntu) and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy can also be started by hand from the Actions tab, and one runs every day regardless.
+Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner (Ubuntu) and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy also runs every hour, and can be started by hand from the Actions tab.
 
 ### App versions
 
 The version on each platform card and in the hero badge isn't edited by hand. Before syncing, the deploy runs [`scripts/stamp-versions.py`](scripts/stamp-versions.py). It reads the app repository's published releases (tags such as `iOS-0.2.0-build-2`) and writes the newest one for each platform into every element marked `data-version="iOS"`, `"macOS"`, `"tvOS"` or `"latest"`. The values in the HTML are only a fallback, used if the releases can't be read.
 
-Publishing a release in the app repository starts a deploy straight away, and the daily run catches anything that was missed. Nothing is committed to this repository, so no bot needs push access or a signing key.
+A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key.
 
 The server address, account and key aren't in this repository. They're stored as encrypted Actions secrets:
 

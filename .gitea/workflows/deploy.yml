@@ -3,11 +3,11 @@ name: Deploy
 on:
   push:
     branches: [main]
-  # The app repo starts this when a release is published; the daily run
-  # catches anything that start missed.
   workflow_dispatch:
+  # Picks up newly published app releases; rsync sends nothing when
+  # nothing changed.
   schedule:
-    - cron: '30 5 * * *'
+    - cron: '7 * * * *'
 
 concurrency:
   group: deploy-site
