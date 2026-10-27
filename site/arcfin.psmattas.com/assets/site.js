@@ -67,6 +67,20 @@
 })();
 
 (function () {
+  var notice = document.querySelector(".cookie-notice");
+  var key = "arcfin-cookies";
+  var seen = false;
+  try { seen = localStorage.getItem(key) === "ok"; } catch (e) {}
+  if (!notice || seen) return;
+  notice.hidden = false;
+  notice.querySelector("[data-cookie-ok]").addEventListener("click", function () {
+    try { localStorage.setItem(key, "ok"); } catch (e) {}
+    notice.hidden = true;
+    document.dispatchEvent(new Event("arcfin:notice-closed"));
+  });
+})();
+
+(function () {
   var root = document.documentElement;
   var key = "arcfin-lang";
   var languages = {
@@ -152,7 +166,11 @@
   close.textContent = "×";
   close.addEventListener("click", function () { remember(current); banner.remove(); });
   banner.append(text, go, close);
-  document.body.appendChild(banner);
+  if (document.querySelector(".cookie-notice:not([hidden])")) {
+    document.addEventListener("arcfin:notice-closed", function () { document.body.appendChild(banner); }, { once: true });
+  } else {
+    document.body.appendChild(banner);
+  }
 })();
 
 (function () {

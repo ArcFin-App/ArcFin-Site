@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">Планы</a>",
   "Roadmap · Arcfin": "Планы · Arcfin",
   "From first commit to the App Store.": "От первого коммита до App Store.",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "Arcfin начался 3 мая 2026 года. Здесь — что вышло с тех пор, что можно попробовать сегодня и что осталось до 1.0.0.",
   "first commit": "первый коммит",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "сборок в TestFlight",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "Прямой эфир с каналами, телепрограммой и записями, плюс инструменты администрирования сервера. Затем Arcfin отправится на проверку App Store в Apple.",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "Планы могут меняться. <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">Вехи</a> показывают, что входит в каждую версию, по мере работы.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "История Arcfin с мая 2026 года, что сейчас в TestFlight и план до App Store.",
-  "Arcfin so far": "Arcfin на сегодня"
+  "Arcfin so far": "Arcfin на сегодня",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookie</strong> Сайт использует только необходимое для работы: защитный cookie от Cloudflare и выбранные вами тему и язык, которые хранятся в браузере. Никакого отслеживания, аналитики и рекламы.",
+  "Learn more": "Подробнее",
+  "OK": "ОК",
+  "Cookies": "Cookie",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin начался 3 мая 2026 года. Сначала новое: что осталось до 1.0.0, что можно попробовать сегодня и всё, что вышло с тех пор."
 }

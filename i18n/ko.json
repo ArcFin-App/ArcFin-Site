@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">로드맵</a>",
   "Roadmap · Arcfin": "로드맵 · Arcfin",
   "From first commit to the App Store.": "첫 커밋부터 App Store까지.",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "Arcfin은 2026년 5월 3일에 시작했습니다. 그동안 출시한 것, 오늘 테스트할 수 있는 것, 1.0.0 전에 남은 일을 정리했습니다.",
   "first commit": "첫 커밋",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "TestFlight 빌드",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "채널, 편성표, 녹화가 있는 실시간 TV와 서버 관리 도구. 그런 다음 Arcfin을 Apple의 App Store 심사에 제출합니다.",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "계획은 바뀔 수 있습니다. 각 버전에 무엇이 들어가는지는 <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">마일스톤</a>에서 확인할 수 있습니다.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "2026년 5월부터의 Arcfin 이야기, 지금 TestFlight에 있는 것, App Store까지의 계획.",
-  "Arcfin so far": "지금까지의 Arcfin"
+  "Arcfin so far": "지금까지의 Arcfin",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>쿠키</strong> 이 사이트는 작동에 필요한 것만 사용합니다. Cloudflare의 보안 쿠키, 그리고 브라우저에 저장되는 테마와 언어 설정입니다. 추적, 분석, 광고는 없습니다.",
+  "Learn more": "자세히 알아보기",
+  "OK": "확인",
+  "Cookies": "쿠키",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin은 2026년 5월 3일에 시작했습니다. 최신순으로, 1.0.0 전에 남은 일, 오늘 테스트할 수 있는 것, 그동안 출시한 모든 것을 정리했습니다."
 }

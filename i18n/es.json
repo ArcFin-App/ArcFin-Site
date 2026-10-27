@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">Hoja de ruta</a>",
   "Roadmap · Arcfin": "Hoja de ruta · Arcfin",
   "From first commit to the App Store.": "Del primer commit a la App Store.",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "Arcfin empezó el 3 de mayo de 2026. Esto es lo que se ha publicado desde entonces, lo que puedes probar hoy y lo que queda antes de la 1.0.0.",
   "first commit": "primer commit",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "compilaciones en TestFlight",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "TV en directo con canales, guía y grabaciones, más herramientas de administración del servidor. Después, Arcfin pasa la revisión de la App Store de Apple.",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "Los planes pueden cambiar. Los <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">hitos</a> muestran qué entra en cada versión a medida que avanza.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "La historia de Arcfin desde mayo de 2026, lo que hay ahora en TestFlight y el plan hasta la App Store.",
-  "Arcfin so far": "Arcfin hasta ahora"
+  "Arcfin so far": "Arcfin hasta ahora",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookies</strong> Este sitio solo usa lo que necesita para funcionar: una cookie de seguridad de Cloudflare y tus preferencias de tema e idioma, guardadas en tu navegador. Sin rastreo, sin analíticas, sin anuncios.",
+  "Learn more": "Más información",
+  "OK": "Aceptar",
+  "Cookies": "Cookies",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "Arcfin empezó el 3 de mayo de 2026. Lo más reciente primero: lo que queda antes de la 1.0.0, lo que puedes probar hoy y todo lo que se ha publicado desde entonces."
 }

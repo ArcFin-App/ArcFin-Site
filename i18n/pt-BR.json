@@ -325,7 +325,6 @@
   "<a href=\"/roadmap/\">Roadmap</a>": "<a href=\"/roadmap/\">Roteiro</a>",
   "Roadmap · Arcfin": "Roteiro · Arcfin",
   "From first commit to the App Store.": "Do primeiro commit à App Store.",
-  "Arcfin started on 3 May 2026. Here&rsquo;s what has shipped since, what you can test today, and what comes before 1.0.0.": "O Arcfin começou em 3 de maio de 2026. Veja o que foi lançado desde então, o que você pode testar hoje e o que falta antes da 1.0.0.",
   "first commit": "primeiro commit",
   "<span data-count=\"releases\"></span>": "<span data-count=\"releases\"></span>",
   "TestFlight builds": "builds no TestFlight",
@@ -384,5 +383,10 @@
   "Live TV with channels, a guide and recordings, plus server admin tools. Then Arcfin goes to Apple for App Store review.": "TV ao vivo com canais, guia e gravações, além de ferramentas de administração do servidor. Depois, o Arcfin vai para a revisão da App Store da Apple.",
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "Os planos podem mudar. Os <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">marcos</a> mostram o que entra em cada versão à medida que avança.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "A história do Arcfin desde maio de 2026, o que está no TestFlight agora e o plano até a App Store.",
-  "Arcfin so far": "O Arcfin até agora"
+  "Arcfin so far": "O Arcfin até agora",
+  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookies</strong> Este site usa só o necessário para funcionar: um cookie de segurança da Cloudflare e suas escolhas de tema e idioma, guardadas no seu navegador. Sem rastreamento, sem análises, sem anúncios.",
+  "Learn more": "Saiba mais",
+  "OK": "OK",
+  "Cookies": "Cookies",
+  "Arcfin started on 3 May 2026. Newest first: what comes before 1.0.0, what you can test today, and everything that has shipped since.": "O Arcfin começou em 3 de maio de 2026. Do mais recente para o mais antigo: o que falta antes da 1.0.0, o que você pode testar hoje e tudo o que foi lançado desde então."
 }
