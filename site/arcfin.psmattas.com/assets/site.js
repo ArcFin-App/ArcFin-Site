@@ -82,7 +82,7 @@
     "ko": ["ko", "이 사이트는 한국어로도 볼 수 있습니다.", "한국어로 보기", "닫기"],
     "zh-Hans": ["zh-hans", "本网站也提供简体中文版本。", "查看简体中文版", "关闭"]
   };
-  var translated = ["", "support", "contribute", "changelog"];
+  var translated = ["", "roadmap", "support", "contribute", "changelog"];
   var current;
 
   function remember(code) { try { localStorage.setItem(key, code); } catch (e) {} }
@@ -113,9 +113,15 @@
   });
 
   if (current !== "en") {
-    var format = new Intl.DateTimeFormat(root.lang, { dateStyle: "long" });
-    document.querySelectorAll(".cl-build time[datetime]").forEach(function (time) {
-      time.textContent = format.format(new Date(time.getAttribute("datetime") + "T12:00:00Z"));
+    var formats = {
+      day: new Intl.DateTimeFormat(root.lang, { dateStyle: "long", timeZone: "UTC" }),
+      month: new Intl.DateTimeFormat(root.lang, { year: "numeric", month: "long", timeZone: "UTC" })
+    };
+    document.querySelectorAll("main time[datetime]").forEach(function (time) {
+      var value = time.getAttribute("datetime");
+      var kind = time.dataset.date || (value.length > 7 ? "day" : "month");
+      var date = new Date((value.length > 7 ? value : value + "-01") + "T12:00:00Z");
+      if (!isNaN(date)) time.textContent = formats[kind].format(date);
     });
   }
 

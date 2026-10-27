@@ -41,7 +41,7 @@ LANGUAGES = [
 ]
 # Pages that exist in every language. The legal pages stay English only,
 # because the English text is the binding one.
-TRANSLATED = ["", "support", "contribute", "changelog"]
+TRANSLATED = ["", "roadmap", "support", "contribute", "changelog"]
 ENGLISH_ONLY = ["privacy", "terms", "data-protection"]
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -167,7 +167,7 @@ def has_block(node):
 
 
 def normalize(text):
-    text = re.sub(r'(<span data-version="\w+">)[^<]*(</span>)', r"\1\2", text)
+    text = re.sub(r'(<span data-(?:version|count)="\w+">)[^<]*(</span>)', r"\1\2", text)
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -292,10 +292,10 @@ def translate_page(source, code, folder, strings, missing, slug):
             missing.add(key)
             continue
         value = strings[key]
-        versions = re.findall(r'<span data-version="(\w+)">([^<]*)</span>',
+        versions = re.findall(r'<span data-((?:version|count)="\w+)">([^<]*)</span>',
                               "".join(serialize(c) for c in element.children[first:last + 1]))
         for name, current in versions:
-            value = value.replace(f'<span data-version="{name}"></span>', f'<span data-version="{name}">{current}</span>')
+            value = value.replace(f'<span data-{name}"></span>', f'<span data-{name}">{current}</span>')
         element.children[first:last + 1] = [Node("raw", text=value)]
     # Parse again so links inside translated text get localized too.
     tree = parse(serialize(tree))
