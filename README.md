@@ -48,7 +48,7 @@ cd site/arcfin.psmattas.com
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000>. Check both light and dark appearance and a phone-width window before opening a pull request.
+Then open <http://localhost:8000>. Check both light and dark appearance and a phone-width window before pushing.
 
 ## Updating screenshots
 
@@ -76,11 +76,11 @@ The server address, account and key aren't in this repository. They're stored as
 
 On the server, the deploy key is restricted to rsync in the site folder, and the account can't open a shell. A leaked key could only change the website's files.
 
-Pull requests don't deploy and never see these secrets. Forks can't deploy either.
+Only pushes to `main` deploy, and forks never see these secrets.
 
-## Contributing
+## Feedback
 
-Fixes to wording, accessibility, layout or out-of-date information are welcome. Open an issue or a pull request against `main`, and see the app's [CONTRIBUTING.md](https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/CONTRIBUTING.md) for the DCO sign-off (`git commit -s`) and Code of Conduct. Please report problems with the app itself in the [app repository](https://git.psmattas.com/ArcFin/ArcFin/issues), not here.
+This repository is code only, so issues and pull requests are turned off here. If something on the site is wrong, out of date or hard to use, please [open an issue in the app repository](https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose) and mention the page, or email [support.arcfin@psmattas.com](mailto:support.arcfin@psmattas.com).
 
 ## License
 
