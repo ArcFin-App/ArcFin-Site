@@ -56,15 +56,9 @@
   <h1>需要什么帮助？</h1>
   <p>Arcfin 由一名开发者开发和维护。大多数答案都在下方；如果没找到你的答案，页面底部的联系方式会有真人回复。</p>
 </div></section>
-<section class="wrap">
-  <div class="toc" aria-label="本页内容">
-    <a href="#getting-started">入门</a><a href="#connecting">连接到你的服务器</a>
-    <a href="#playback">播放</a><a href="#downloads">下载</a><a href="#beta">测试版</a><a href="#contact">联系</a>
-  </div>
-</section>
-
-<section class="section" style="padding-top:48px">
-  <div class="wrap">
+<div class="wrap doc">
+<nav class="doc-toc" aria-label="本页内容"><p class="doc-toc-title">本页内容</p></nav>
+<div class="doc-main">
     <h2 id="getting-started" class="visually-hidden">入门</h2>
     <div class="faq">
       <details><summary>使用 Arcfin 需要什么？</summary><div class="answer"><p>你自己的 <a href="https://jellyfin.org">Jellyfin</a> 服务器，或在你信任的人运行的服务器上有账户，以及一台运行 iOS 26、iPadOS 26、macOS 26 或 tvOS 26 的设备。</p><p>Arcfin 不提供也不托管任何内容。它播放的一切都来自你的服务器。</p></div></details>
@@ -100,10 +94,8 @@
       <details><summary>能更早拿到新版本吗？</summary><div class="answer"><p>内部测试者在每个版本上传后、Apple 审核前就能收到。名额有限，而且这些版本测试最少。如需申请，请发送邮件至 <a href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a>，写明要邀请的 Apple 账户邮箱和你打算测试的设备。</p></div></details>
       <details><summary>怎样更好地报告问题？</summary><div class="answer"><p>使用<strong>“设置 &rsaquo; 关于 &rsaquo; 报告问题”</strong>，或<a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">提交一个 Issue</a>。请附上：</p><ul><li>你的设备和系统版本</li><li>你的 Jellyfin 服务器版本（设置 &rsaquo; 服务器）</li><li>问题发生前你刚做了什么</li><li>涉及画面的问题请附上录屏</li></ul><p><strong>“设置 &rsaquo; 关于 &rsaquo; 共享诊断信息”</strong>会把 App 日志生成文本文件以便附上。其中可能包含服务器地址和你播放过的作品名称，公开发布前请先检查。</p></div></details>
     </div>
-  </div>
-</section>
 
-<section class="wrap" id="contact">
+<section id="contact" class="doc-contact">
   <div class="section-head"><span class="eyebrow">联系</span><h2>还没解决？</h2></div>
   <div class="contact-grid">
     <article class="card"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><h3>一般支持</h3><p>关于使用 Arcfin、连接服务器或其他任何问题。</p><a class="big" href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a></article>
@@ -112,6 +104,8 @@
   </div>
   <p class="footnote">Arcfin 不是 Jellyfin 官方 App，所以请不要向 Jellyfin 团队咨询 Arcfin 的问题。关于 Jellyfin 服务器本身，<a href="https://jellyfin.org/docs/">Jellyfin 文档</a>是最好的参考。</p>
 </section>
+</div>
+</div>
 
 <p class="mt-note wrap">由英文自动翻译。<a href="/zh-hans/contribute/#translate">帮助改进这份翻译</a>。</p>
 </main>

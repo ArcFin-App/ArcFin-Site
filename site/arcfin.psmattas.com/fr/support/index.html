@@ -56,15 +56,9 @@
   <h1>Comment pouvons-nous aider ?</h1>
   <p>Arcfin est conçu et maintenu par un seul développeur. La plupart des réponses sont ci-dessous ; sinon, les contacts en bas de page mènent à une vraie personne.</p>
 </div></section>
-<section class="wrap">
-  <div class="toc" aria-label="Sur cette page">
-    <a href="#getting-started">Premiers pas</a><a href="#connecting">Se connecter à votre serveur</a>
-    <a href="#playback">Lecture</a><a href="#downloads">Téléchargements</a><a href="#beta">La bêta</a><a href="#contact">Contact</a>
-  </div>
-</section>
-
-<section class="section" style="padding-top:48px">
-  <div class="wrap">
+<div class="wrap doc">
+<nav class="doc-toc" aria-label="Sur cette page"><p class="doc-toc-title">Sur cette page</p></nav>
+<div class="doc-main">
     <h2 id="getting-started" class="visually-hidden">Premiers pas</h2>
     <div class="faq">
       <details><summary>De quoi ai-je besoin pour utiliser Arcfin ?</summary><div class="answer"><p>Votre propre serveur <a href="https://jellyfin.org">Jellyfin</a>, ou un compte sur un serveur géré par quelqu’un de confiance, et un appareil sous iOS 26, iPadOS 26, macOS 26 ou tvOS 26.</p><p>Arcfin ne fournit ni n’héberge aucun contenu. Tout ce qu’il lit vient de votre serveur.</p></div></details>
@@ -100,10 +94,8 @@
       <details><summary>Puis-je recevoir les builds plus tôt ?</summary><div class="answer"><p>Les testeurs internes reçoivent chaque build dès qu’elle est envoyée, avant la vérification d’Apple. Les places sont limitées et ces builds sont les moins testées. Pour en demander une, écrivez à <a href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a> avec l’adresse e-mail de votre compte Apple à inviter et les appareils sur lesquels vous testeriez.</p></div></details>
       <details><summary>Comment bien signaler un problème ?</summary><div class="answer"><p>Utilisez <strong>Réglages &rsaquo; À propos &rsaquo; Signaler un problème</strong>, ou <a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">ouvrez un ticket</a>. Merci d’indiquer :</p><ul><li>Votre appareil et la version du système</li><li>La version de votre serveur Jellyfin (Réglages &rsaquo; Serveur)</li><li>Ce que vous faisiez juste avant</li><li>Un enregistrement d’écran, pour tout ce qui est visuel</li></ul><p><strong>Réglages &rsaquo; À propos &rsaquo; Partager les diagnostics</strong> crée un fichier texte du journal de l’app à joindre. Il peut contenir l’adresse de votre serveur et les titres lus, alors relisez-le avant de le publier.</p></div></details>
     </div>
-  </div>
-</section>
 
-<section class="wrap" id="contact">
+<section id="contact" class="doc-contact">
   <div class="section-head"><span class="eyebrow">Contact</span><h2>Toujours bloqué ?</h2></div>
   <div class="contact-grid">
     <article class="card"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><h3>Assistance générale</h3><p>Questions sur l’utilisation d’Arcfin, la connexion à un serveur ou autre.</p><a class="big" href="mailto:support.arcfin@psmattas.com">support.arcfin@psmattas.com</a></article>
@@ -112,6 +104,8 @@
   </div>
   <p class="footnote">Arcfin n’est pas une app Jellyfin officielle, alors merci de ne pas demander d’aide à son sujet à l’équipe Jellyfin. Pour tout ce qui concerne le serveur Jellyfin lui-même, la <a href="https://jellyfin.org/docs/">documentation Jellyfin</a> est le meilleur endroit.</p>
 </section>
+</div>
+</div>
 
 <p class="mt-note wrap">Traduit automatiquement de l’anglais. <a href="/fr/contribute/#translate">Aidez à améliorer cette traduction</a>.</p>
 </main>

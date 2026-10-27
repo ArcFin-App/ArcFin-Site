@@ -148,3 +148,39 @@
   banner.append(text, go, close);
   document.body.appendChild(banner);
 })();
+
+(function () {
+  document.querySelectorAll(".doc-toc").forEach(function (toc) {
+    var doc = toc.closest(".doc");
+    var headings = Array.prototype.slice.call(doc.querySelectorAll("h2"));
+    if (!headings.length) return;
+    var list = document.createElement("ul");
+    var links = headings.map(function (heading, index) {
+      var target = heading.id ? heading : (heading.closest("section[id]") || heading);
+      if (!target.id) target.id = "section-" + (index + 1);
+      var item = document.createElement("li");
+      var link = document.createElement("a");
+      link.href = "#" + target.id;
+      link.textContent = heading.textContent.trim();
+      item.appendChild(link);
+      list.appendChild(item);
+      return { link: link, heading: heading };
+    });
+    toc.appendChild(list);
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var current = links[0];
+      links.forEach(function (entry) {
+        if (entry.heading.getBoundingClientRect().top < 140) current = entry;
+      });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = links[links.length - 1];
+      links.forEach(function (entry) { entry.link.setAttribute("aria-current", String(entry === current)); });
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  });
+})();
