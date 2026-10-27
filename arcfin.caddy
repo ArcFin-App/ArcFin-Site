@@ -4,13 +4,42 @@
 # site/arcfin.psmattas.com/ from this repo.
 #
 # The Deploy workflow syncs that folder to the root path below on
-# every push to main. Caddy only needs reloading when this file
-# changes.
+# every push to main and every hour. Caddy only needs reloading
+# when this file changes.
 # ============================================================
 
 arcfin.psmattas.com {
     import hsts_headers
 
     root * /srv/sites/arcfin.psmattas.com
+    encode zstd gzip
+
+    # The site loads nothing from other domains. script-src allows inline
+    # scripts only because Cloudflare injects a per-request loader for its
+    # bot detection; the site's own scripts are all files.
+    header {
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+        Cross-Origin-Opener-Policy "same-origin"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
+
     file_server
+
+    # Missing pages get the 404 page in the language of the folder they
+    # were asked for in, with a real 404 status.
+    handle_errors {
+        @notfound expression {err.status_code} == 404
+        handle @notfound {
+            @translated path_regexp lang ^/(de|es|fr|it|nl|pt-br|ru|ja|ko|zh-hans)/
+            rewrite @translated /{re.lang.1}/404/index.html
+            rewrite * /404/index.html
+            file_server {
+                status 404
+            }
+        }
+        respond "{err.status_code} {err.status_text}"
+    }
 }

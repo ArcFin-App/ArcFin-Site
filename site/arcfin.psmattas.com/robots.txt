@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /404/
+
+Sitemap: https://arcfin.psmattas.com/sitemap.xml

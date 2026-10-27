@@ -41,7 +41,9 @@ LANGUAGES = [
 ]
 # Pages that exist in every language. The legal pages stay English only,
 # because the English text is the binding one.
-TRANSLATED = ["", "roadmap", "support", "contribute", "changelog"]
+TRANSLATED = ["", "roadmap", "support", "contribute", "changelog", "404"]
+# Pages search engines shouldn't list.
+UNLISTED = {"404"}
 ENGLISH_ONLY = ["privacy", "terms", "data-protection"]
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -263,7 +265,7 @@ def language_menu(current_code, slug, strings):
 
 
 def hreflang(slug):
-    if slug not in TRANSLATED:
+    if slug not in TRANSLATED or slug in UNLISTED:
         return ""
     links = [f'<link rel="alternate" hreflang="{code}" href="{ORIGIN}{url(folder, slug)}">' for code, folder, _ in LANGUAGES]
     links.append(f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}{url("", slug)}">')
@@ -278,10 +280,25 @@ def replace_between(text, name, content, anchor):
     return text.replace(anchor, block + anchor, 1)
 
 
+def faq_schema(text):
+    """FAQPage structured data built from the page's own questions and answers."""
+    items = []
+    for question, answer in re.findall(r'<details><summary>(.*?)</summary><div class="answer">(.*?)</div></details>', text, re.S):
+        plain = lambda t: html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t))).strip()
+        items.append({"@type": "Question", "name": plain(question),
+                      "acceptedAnswer": {"@type": "Answer", "text": plain(answer)}})
+    if not items:
+        return ""
+    data = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": items}, ensure_ascii=False)
+    data = data.replace("</", "<\\/")
+    return f'\n  <script type="application/ld+json">{data}</script>\n  '
+
+
 def decorate(text, code, slug, strings=None):
     text = replace_between(text, "languages", language_menu(code, slug, strings or {}), '<details class="theme-menu">')
     links = hreflang(slug)
-    return replace_between(text, "hreflang", f"\n  {links}\n  " if links else "", "</head>")
+    text = replace_between(text, "hreflang", f"\n  {links}\n  " if links else "", "</head>")
+    return replace_between(text, "faq-schema", faq_schema(text), "</head>")
 
 
 def translate_page(source, code, folder, strings, missing, slug):
@@ -351,6 +368,24 @@ def source_keys():
     return list(dict.fromkeys(k for k in keys if re.search(r"[A-Za-z]", k)))
 
 
+def sitemap():
+    entries = []
+    for slug in TRANSLATED + ENGLISH_ONLY:
+        if slug in UNLISTED:
+            continue
+        variants = LANGUAGES if slug in TRANSLATED else LANGUAGES[:1]
+        alternates = "".join(
+            f'\n    <xhtml:link rel="alternate" hreflang="{code}" href="{ORIGIN}{url(folder, slug)}"/>'
+            for code, folder, _ in variants) if len(variants) > 1 else ""
+        for _, folder, _ in variants:
+            entries.append(f"  <url>\n    <loc>{ORIGIN}{url(folder, slug)}</loc>{alternates}\n  </url>")
+    write(os.path.join(SITE, "sitemap.xml"),
+          '<?xml version="1.0" encoding="UTF-8"?>\n'
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+          + "\n".join(entries) + "\n</urlset>\n")
+    print(f"sitemap: {len(entries)} pages")
+
+
 def build():
     for slug in TRANSLATED + ENGLISH_ONLY:
         path = os.path.join(SITE, page_path(slug))
@@ -364,6 +399,7 @@ def build():
             write(os.path.join(SITE, folder, page_path(slug)), decorate(out, code, slug, strings))
         wanted = set(source_keys())
         print(f"{code}: {len(wanted & set(strings))}/{len(wanted)} translated")
+    sitemap()
 
 
 def check():

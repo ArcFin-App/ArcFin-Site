@@ -30,11 +30,12 @@ The app's Settings screen links to the support and legal pages, so **keep their 
 ```
 scripts/releases.py         Adds versions and the changelog at deploy time
 scripts/fingerprint.py      Adds ?v=<hash> to asset links at deploy time
+robots.txt, sitemap.xml     For search engines; the sitemap is built by scripts/i18n.py
 scripts/i18n.py             Builds the translated pages from i18n/<lang>.json
 i18n/                       One translation file per language
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
-├── roadmap/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
+├── 404/ roadmap/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
 ├── de/ es/ fr/ … zh-hans/  Translated pages, built by scripts/i18n.py
 └── assets/
     ├── site.css            Every style. Colours mirror the app's DT tokens, light and dark
@@ -93,11 +94,18 @@ Two things on the site aren't edited by hand: the version on each platform card 
 - writes the newest release for each platform into every element marked `data-version="iOS"`, `"macOS"`, `"tvOS"` or `"latest"`;
 - rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out.
 
-A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key. If the feed can't be read, the deploy keeps the versions and changelog already in the repo. To refresh that copy, run the script locally and commit the result:
+A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key. If the feed can't be read, the deploy copies the versions and changelog from the live site instead, so an outage never rolls the site back to the older snapshot in the repo. To refresh that copy, run the script locally and commit the result:
 
 ```sh
 python3 scripts/releases.py site/arcfin.psmattas.com
 ```
+
+## Search engines, errors and headers
+
+- `python3 scripts/i18n.py build` also writes `sitemap.xml`, listing every page with its language versions, and FAQ structured data for each page with questions, in its own language. `robots.txt` points search engines at the sitemap.
+- `/404/` (and `/de/404/` and so on) is the not-found page. [`arcfin.caddy`](arcfin.caddy) serves it in the language of the folder that was asked for, with a real 404 status.
+- `arcfin.caddy` also sets the security headers: a content security policy that only allows the site's own files, plus referrer, permissions, framing and opener policies. Inline scripts are allowed only because Cloudflare injects one for its bot checks. If those are ever turned off, drop `'unsafe-inline'` from `script-src`.
+- Changes to `arcfin.caddy` aren't deployed by the workflow. Copy it to the server, run `caddy validate`, then `caddy reload`.
 
 ## Feedback
 

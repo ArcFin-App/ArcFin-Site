@@ -20,7 +20,7 @@
   <link rel="icon" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/logo.png">
   <link rel="stylesheet" href="/assets/site.css">
-  <script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("arcfin-theme");if(t==="light"||t==="dark")d.dataset.theme=t}catch(e){}})(document.documentElement)</script>
+  <script src="/assets/early.js"></script>
   <script src="/assets/site.js" defer></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
@@ -38,7 +38,9 @@
   <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/">
   <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
   <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
-  <!-- /hreflang --></head>
+  <!-- /hreflang --><!-- faq-schema -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Нужен ли мне свой сервер?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Arcfin — клиент для Jellyfin, бесплатного медиасервера, который вы запускаете сами. Нужен собственный сервер Jellyfin или учётная запись на сервере того, кому вы доверяете. Arcfin не предоставляет и не размещает никакой контент."}}, {"@type": "Question", "name": "Arcfin есть в App Store?", "acceptedAnswer": {"@type": "Answer", "text": "Пока нет. Arcfin находится в открытой бете в TestFlight. На проверку App Store в Apple он отправится с версией 1.0.0.Установите TestFlight из App Store, откройте приглашение на iPhone, iPad, Mac или Apple TV — и новые сборки будут приходить автоматически."}}, {"@type": "Question", "name": "На каких устройствах он работает?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone и iPad с iOS или iPadOS 26, Mac с macOS 26 и Apple TV с tvOS 26. Версия для Mac — настоящее приложение для Mac со своим интерфейсом, а у Apple TV свой интерфейс для Siri Remote."}}, {"@type": "Question", "name": "Arcfin — официальное приложение Jellyfin?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Arcfin — независимый сторонний клиент. Он не связан с проектом Jellyfin и не одобрен им, поэтому не обращайтесь за помощью с ним к команде Jellyfin. Используйте страницу поддержки."}}, {"@type": "Question", "name": "Собирает ли Arcfin мои данные?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Нет никакого сервера Arcfin, аналитики, отслеживания или сервиса отчётов о сбоях. Приложение работает напрямую с серверами, которые вы добавили. В политике конфиденциальности (на английском) перечислены все внешние сервисы и когда они используются."}}, {"@type": "Question", "name": "Что-то не работает. Что делать?", "acceptedAnswer": {"@type": "Answer", "text": "Воспользуйтесь в приложении «Настройки › О программе › Сообщить о проблеме» или создайте issue. Укажите устройство, версию ОС и версию сервера Jellyfin. Больше помощи на странице поддержки."}}]}</script>
+  <!-- /faq-schema --></head>
 <body>
 <a class="skip" href="#main">Перейти к содержимому</a>
 <header class="site-header">
