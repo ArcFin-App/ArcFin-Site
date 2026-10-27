@@ -16,6 +16,7 @@ The site is plain, hand-written HTML and CSS: no framework, no build step, no ba
 |---|---|
 | `/` | Landing page: features, platforms, privacy, open source, roadmap, FAQ and the TestFlight link |
 | `/support` | Help and FAQ, plus contacts. TestFlight's release notes link here, and App Store Connect requires it |
+| `/roadmap` | History since May 2026, what's on TestFlight now and the plan to 1.0.0 |
 | `/changelog` | Every TestFlight build's release notes, filterable by platform. Built from the app's releases on each deploy |
 | `/contribute` | How to help with code, issues, translations and testing |
 | `/privacy` | Privacy Policy. Required by App Store Connect |
@@ -33,7 +34,7 @@ scripts/i18n.py             Builds the translated pages from i18n/<lang>.json
 i18n/                       One translation file per language
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
-├── changelog/ support/ contribute/ privacy/ terms/ data-protection/
+├── roadmap/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
 ├── de/ es/ fr/ … zh-hans/  Translated pages, built by scripts/i18n.py
 └── assets/
     ├── site.css            Every style. Colours mirror the app's DT tokens, light and dark
@@ -64,13 +65,13 @@ Screenshots live in `assets/shots/` as WebP: 660 px wide for portrait, 1400 px f
 
 The landing page, Privacy Policy and Data Protection pages describe what the app actually does: which services it talks to (your Jellyfin server, and optionally Seerr, TMDB, Wikidata, YouTube and Google Cast), what stays on the device and which permissions it asks for. When the app changes what data it touches, or gains a platform or service, update those pages and their effective date in the same change. They aren't boilerplate.
 
-The roadmap on `/` follows the [app's milestones](https://git.psmattas.com/ArcFin/ArcFin/milestones). Update it when a version ships.
+The roadmap strip on `/` and the history on `/roadmap` are written by hand and follow the [app's milestones](https://git.psmattas.com/ArcFin/ArcFin/milestones). When a version ships, move its step to done, add it to the history with its date, and add the new text to `i18n/<lang>.json` (`python3 scripts/i18n.py check` lists what's missing). The build count on both is filled in from the releases on each deploy.
 
 ## Languages
 
 The site is available in the same eleven languages as the app. English is the source; the other ten live in folders such as `/de/` and `/zh-hans/`.
 
-- **Translated pages:** Home, Support, Contribute and Changelog. The legal pages stay English only, because the English text is the binding one. Translated pages link to them and say so.
+- **Translated pages:** Home, Roadmap, Support, Contribute and Changelog. The legal pages stay English only, because the English text is the binding one. Translated pages link to them and say so.
 - **Translations** live in `i18n/<lang>.json`, which maps each piece of English text (a heading, paragraph, list item, button or image description) to its translation. Inline markup such as `<strong>` and links stays in the translation.
 - **Building:** `python3 scripts/i18n.py build` writes the translated pages from the English ones and refreshes the language menu and `hreflang` links on every page. The deploy runs it too, so a translated page can never fall behind its English page. Anything without a translation stays in English rather than breaking.
 - **Checking:** `python3 scripts/i18n.py check` lists the English text each language hasn't translated yet. Run it after changing English text.

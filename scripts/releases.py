@@ -191,11 +191,15 @@ def main():
     labels = version_labels(releases)
     for platform, label in sorted(labels.items()):
         print(f"{platform}: {label}")
+    count = str(len(releases))
+    print(f"releases: {count}")
+    counter = re.compile(r'(<span data-count="releases">)[^<]*(</span>)')
     span = re.compile(r'(<span data-version="(\w+)">)[^<]*(</span>)')
     software = re.compile(r'("softwareVersion":")[^"]*(")')
 
     def stamp(text):
         text = span.sub(lambda m: m.group(1) + labels[m.group(2)] + m.group(3) if m.group(2) in labels else m.group(0), text)
+        text = counter.sub(lambda m: m.group(1) + count + m.group(2), text)
         return software.sub(lambda m: m.group(1) + labels["latest"] + m.group(2), text)
 
     for root, _, files in os.walk(SITE):

@@ -805,3 +805,79 @@ p { margin: 0; }
   }
   .doc-toc a[aria-current="true"] { border-color: var(--hairline-strong); }
 }
+
+/* Roadmap on the home page: the road so far and what's next */
+
+.journey {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 12px; grid-template-columns: repeat(7, minmax(0, 1fr));
+  position: relative;
+}
+.stop {
+  position: relative; display: flex; flex-direction: column; gap: 6px;
+  padding: 44px 18px 20px; border-radius: var(--radius-lg);
+  background: var(--bg); border: 1px solid var(--hairline);
+}
+.stop::before {
+  content: ""; position: absolute; left: 18px; top: 18px;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--hairline-strong); background: var(--bg);
+}
+.stop.done::before {
+  border-color: var(--accent); background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 9px no-repeat;
+}
+.stop.now { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-subtle); }
+.stop.now::before { border-color: var(--accent); box-shadow: 0 0 0 5px var(--accent-subtle); }
+.stop .when { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.stop.done .when, .stop.now .when { color: var(--accent); }
+.stop strong { font-family: var(--font-display); font-size: 1.02rem; line-height: 1.25; letter-spacing: -0.01em; }
+.stop p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+.journey + .hero-actions { margin-top: 28px; }
+@media (max-width: 1280px) { .journey { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .journey { grid-template-columns: 1fr; } }
+
+/* Roadmap page */
+
+.rm-facts {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: clamp(40px, 6vw, 72px);
+  border: 1px solid var(--hairline); border-radius: var(--radius-lg); background: var(--bg-2);
+  overflow: hidden;
+}
+.rm-facts > div { padding: 22px 24px; }
+.rm-facts > div + div { border-left: 1px solid var(--hairline); }
+.rm-facts strong { display: block; font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+.rm-facts span { color: var(--muted); font-size: 0.9rem; }
+.rm-facts strong span { color: inherit; font-size: inherit; }
+@media (max-width: 720px) {
+  .rm-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rm-facts > div:nth-child(3) { border-left: 0; }
+  .rm-facts > div:nth-child(n+3) { border-top: 1px solid var(--hairline); }
+}
+
+.timeline > h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.025em; margin: 0 0 20px; }
+.timeline > h2:not(:first-child) { margin-top: clamp(48px, 6vw, 72px); }
+.tl { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; display: grid; gap: 14px; }
+.tl::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--hairline-strong); border-radius: 2px; }
+.tl-item {
+  position: relative; padding: 18px 22px; border-radius: var(--radius);
+  background: var(--bg-2); border: 1px solid var(--hairline);
+}
+.tl-item::before {
+  content: ""; position: absolute; left: -28px; top: 22px;
+  width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--hairline-strong); background: var(--bg);
+}
+.tl-item.done::before { border-color: var(--accent); background: var(--accent); }
+.tl-item time, .tl-ver { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.tl.upcoming .tl-ver { color: var(--muted); }
+.tl-item h3 { margin-top: 6px; font-size: 1.12rem; font-weight: 700; letter-spacing: -0.01em; }
+.tl-item p { margin-top: 6px; color: var(--muted); font-size: 0.96rem; max-width: 88ch; }
+.tl-now {
+  padding: clamp(20px, 3vw, 28px); border-radius: var(--radius-lg);
+  background: var(--accent-subtle); border: 1px solid var(--accent);
+}
+.tl-now-version { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.tl-now > p:not(.tl-now-version) { margin-top: 8px; color: var(--muted); }
+.tl-now .hero-actions { margin-top: 20px; }
+.timeline .footnote { margin-top: 24px; }
