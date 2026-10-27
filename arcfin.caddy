@@ -14,11 +14,12 @@ arcfin.psmattas.com {
     root * /srv/sites/arcfin.psmattas.com
     encode zstd gzip
 
-    # The site loads nothing from other domains. script-src allows inline
-    # scripts only because Cloudflare injects a per-request loader for its
-    # bot detection; the site's own scripts are all files.
+    # The only outside addresses are Cloudflare Web Analytics: its script
+    # and the endpoint it reports to. script-src allows inline scripts only
+    # because Cloudflare injects a per-request loader for its bot detection;
+    # the site's own scripts are all files.
     header {
-        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
         Referrer-Policy "strict-origin-when-cross-origin"
         Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
         Cross-Origin-Opener-Policy "same-origin"

@@ -4,7 +4,7 @@
 
 The website for [Arcfin](https://git.psmattas.com/ArcFin/ArcFin), an open-source Jellyfin client for iPhone, iPad, Mac and Apple TV. It lives at **[arcfin.psmattas.com](https://arcfin.psmattas.com)**.
 
-The site is plain, hand-written HTML and CSS: no framework, no build step, no backend and no tracking. What's in `site/arcfin.psmattas.com/` is exactly what's served.
+The site is plain, hand-written HTML and CSS: no framework, no build step and no backend. Visits are counted with Cloudflare Web Analytics, which sets no cookies; the app itself has no analytics at all. What's in `site/arcfin.psmattas.com/` is exactly what's served.
 
 > Looking for the app? Its code, issues and releases are in **[ArcFin/ArcFin](https://git.psmattas.com/ArcFin/ArcFin)**.
 
@@ -104,7 +104,7 @@ python3 scripts/releases.py site/arcfin.psmattas.com
 
 - `python3 scripts/i18n.py build` also writes `sitemap.xml`, listing every page with its language versions, and FAQ structured data for each page with questions, in its own language. `robots.txt` points search engines at the sitemap.
 - `/404/` (and `/de/404/` and so on) is the not-found page. [`arcfin.caddy`](arcfin.caddy) serves it in the language of the folder that was asked for, with a real 404 status.
-- `arcfin.caddy` also sets the security headers: a content security policy that only allows the site's own files, plus referrer, permissions, framing and opener policies. Inline scripts are allowed only because Cloudflare injects one for its bot checks. If those are ever turned off, drop `'unsafe-inline'` from `script-src`.
+- `arcfin.caddy` also sets the security headers: a content security policy that allows only the site's own files and Cloudflare Web Analytics, plus referrer, permissions, framing and opener policies. Inline scripts are allowed only because Cloudflare injects one for its bot checks. If those are ever turned off, drop `'unsafe-inline'` from `script-src`.
 - Changes to `arcfin.caddy` aren't deployed by the workflow. Copy it to the server, run `caddy validate`, then `caddy reload`.
 
 ## Feedback

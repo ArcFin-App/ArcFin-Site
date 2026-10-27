@@ -26,7 +26,6 @@
   "Apple platforms": "Apple 플랫폼",
   "playback engines": "재생 엔진",
   "languages": "언어",
-  "trackers or analytics": "추적기 또는 분석",
   "Everything on your server, wherever you watch.": "서버의 모든 것을, 어디서 보든.",
   "Arcfin talks straight to the Jellyfin server you already run. Here is what it does with it.": "Arcfin은 이미 운영 중인 Jellyfin 서버와 직접 통신합니다. 그걸로 이런 일을 합니다.",
   "Watching": "재생",
@@ -384,7 +383,6 @@
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "계획은 바뀔 수 있습니다. 각 버전에 무엇이 들어가는지는 <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">마일스톤</a>에서 확인할 수 있습니다.",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "2026년 5월부터의 Arcfin 이야기, 지금 TestFlight에 있는 것, App Store까지의 계획.",
   "Arcfin so far": "지금까지의 Arcfin",
-  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>쿠키</strong> 이 사이트는 작동에 필요한 것만 사용합니다. Cloudflare의 보안 쿠키, 그리고 브라우저에 저장되는 테마와 언어 설정입니다. 추적, 분석, 광고는 없습니다.",
   "Learn more": "자세히 알아보기",
   "OK": "확인",
   "Cookies": "쿠키",
@@ -395,5 +393,7 @@
   "This page doesn&rsquo;t exist.": "이 페이지는 없습니다.",
   "It may have moved, or the address may be mistyped. One of these should get you back on track.": "옮겨졌거나 주소가 잘못 입력되었을 수 있습니다. 아래 링크로 돌아갈 수 있습니다.",
   "Go to the home page": "홈으로 가기",
-  "The page you’re looking for doesn’t exist.": "찾는 페이지가 없습니다."
+  "The page you’re looking for doesn’t exist.": "찾는 페이지가 없습니다.",
+  "trackers or analytics in the app": "앱 안의 추적기 또는 분석",
+  "<strong>Cookies</strong> This site uses only a security cookie from Cloudflare and your theme and language choices, kept in your browser. It counts visits with Cloudflare Web Analytics, which sets no cookies and doesn&rsquo;t follow you around the web. No ads.": "<strong>쿠키</strong> 이 사이트는 Cloudflare의 보안 쿠키와 브라우저에 저장되는 테마·언어 설정만 사용합니다. 방문 수는 Cloudflare Web Analytics로 세는데, 쿠키를 쓰지 않고 다른 사이트에서 추적하지도 않습니다. 광고는 없습니다."
 }

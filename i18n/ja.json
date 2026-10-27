@@ -26,7 +26,6 @@
   "Apple platforms": "Apple プラットフォーム",
   "playback engines": "再生エンジン",
   "languages": "言語",
-  "trackers or analytics": "トラッカーや解析",
   "Everything on your server, wherever you watch.": "サーバーのすべてを、どこで観ても。",
   "Arcfin talks straight to the Jellyfin server you already run. Here is what it does with it.": "Arcfin はすでに運用している Jellyfin サーバーと直接やり取りします。その中身を紹介します。",
   "Watching": "再生",
@@ -384,7 +383,6 @@
   "Plans can change. The <a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">milestones</a> show what&rsquo;s in each version as it happens.": "計画は変わることがあります。各バージョンの内容は<a href=\"https://git.psmattas.com/ArcFin/ArcFin/milestones\">マイルストーン</a>で随時確認できます。",
   "Arcfin’s history since May 2026, what’s on TestFlight now, and the plan to the App Store.": "2026 年 5 月からの Arcfin の歩み、現在 TestFlight にあるもの、App Store までの計画。",
   "Arcfin so far": "これまでの Arcfin",
-  "<strong>Cookies</strong> This site uses only what it needs to work: a security cookie from Cloudflare, and your theme and language choices, kept in your browser. No tracking, no analytics, no ads.": "<strong>Cookie について</strong> このサイトは動作に必要なものだけを使います。Cloudflare のセキュリティ Cookie と、ブラウザに保存されるテーマと言語の設定です。トラッキング、解析、広告はありません。",
   "Learn more": "詳しく見る",
   "OK": "OK",
   "Cookies": "Cookie",
@@ -395,5 +393,7 @@
   "This page doesn&rsquo;t exist.": "このページは存在しません。",
   "It may have moved, or the address may be mistyped. One of these should get you back on track.": "移動したか、アドレスが間違っている可能性があります。こちらから戻れます。",
   "Go to the home page": "ホームへ",
-  "The page you’re looking for doesn’t exist.": "お探しのページは存在しません。"
+  "The page you’re looking for doesn’t exist.": "お探しのページは存在しません。",
+  "trackers or analytics in the app": "アプリ内のトラッカーや解析",
+  "<strong>Cookies</strong> This site uses only a security cookie from Cloudflare and your theme and language choices, kept in your browser. It counts visits with Cloudflare Web Analytics, which sets no cookies and doesn&rsquo;t follow you around the web. No ads.": "<strong>Cookie について</strong> このサイトが使うのは、Cloudflare のセキュリティ Cookie と、ブラウザに保存されるテーマと言語の設定だけです。アクセス数は Cloudflare Web Analytics で数えていますが、Cookie は使わず、ほかのサイトであなたを追跡することもありません。広告はありません。"
 }
