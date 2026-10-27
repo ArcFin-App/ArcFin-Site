@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arcfin · Jellyfin para iPhone, iPad, Mac e Apple TV</title>
+  <meta name="description" content="O Arcfin é um cliente Jellyfin de código aberto para iPhone, iPad, Mac e Apple TV. Ele reproduz quase tudo o que seu servidor tem, baixa para assistir offline e mantém seus dados no seu próprio servidor.">
+  <link rel="canonical" href="https://arcfin.psmattas.com/pt-br/">
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Arcfin · Jellyfin para iPhone, iPad, Mac e Apple TV">
+  <meta property="og:description" content="O Arcfin é um cliente Jellyfin de código aberto para iPhone, iPad, Mac e Apple TV. Ele reproduz quase tudo o que seu servidor tem, baixa para assistir offline e mantém seus dados no seu próprio servidor.">
+  <meta property="og:url" content="https://arcfin.psmattas.com/pt-br/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("arcfin-theme");if(t==="light"||t==="dark")d.dataset.theme=t}catch(e){}})(document.documentElement)</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
+  </script>
+<!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/">
+  <link rel="alternate" hreflang="de" href="https://arcfin.psmattas.com/de/">
+  <link rel="alternate" hreflang="es" href="https://arcfin.psmattas.com/es/">
+  <link rel="alternate" hreflang="fr" href="https://arcfin.psmattas.com/fr/">
+  <link rel="alternate" hreflang="it" href="https://arcfin.psmattas.com/it/">
+  <link rel="alternate" hreflang="nl" href="https://arcfin.psmattas.com/nl/">
+  <link rel="alternate" hreflang="pt-BR" href="https://arcfin.psmattas.com/pt-br/">
+  <link rel="alternate" hreflang="ru" href="https://arcfin.psmattas.com/ru/">
+  <link rel="alternate" hreflang="ja" href="https://arcfin.psmattas.com/ja/">
+  <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
+  <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
+  <!-- /hreflang --></head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/pt-br/" aria-label="Início do Arcfin"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="Principal"><a href="/pt-br/#features">Recursos</a><a href="/pt-br/#platforms">Plataformas</a><a href="/pt-br/#privacy">Privacidade</a><a href="/pt-br/#roadmap">Roteiro</a><a href="/pt-br/changelog/">Novidades</a><a href="/pt-br/contribute/">Contribuir</a><a href="/pt-br/support/">Suporte</a></nav>
+    <!-- languages --><details class="lang-menu"><summary aria-label="Idioma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></summary><div class="lang-sheet" role="list"><a href="/" hreflang="en" lang="en" data-lang="en">English</a><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a><a href="/nl/" hreflang="nl" lang="nl" data-lang="nl">Nederlands</a><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR" aria-current="true">Português (Brasil)</a><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a><a href="/zh-hans/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简体中文</a></div></details><!-- /languages --><details class="theme-menu"><summary aria-label="Aparência"><svg class="i-system" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><svg class="i-light" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-dark" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></summary><div class="theme-sheet" role="radiogroup" aria-label="Aparência"><button type="button" role="radio" aria-checked="true" data-theme-choice="system"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>Sistema</button><button type="button" role="radio" aria-checked="false" data-theme-choice="light"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Claro</button><button type="button" role="radio" aria-checked="false" data-theme-choice="dark"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>Escuro</button></div></details>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">Entre no beta</a>
+    <details class="nav-menu">
+      <summary aria-label="Menu"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary>
+      <nav class="nav-sheet" aria-label="Principal"><a href="/pt-br/#features">Recursos</a><a href="/pt-br/#platforms">Plataformas</a><a href="/pt-br/#privacy">Privacidade</a><a href="/pt-br/#roadmap">Roteiro</a><a href="/pt-br/changelog/">Novidades</a><a href="/pt-br/contribute/">Contribuir</a><a href="/pt-br/support/">Suporte</a><a href="https://testflight.apple.com/join/kkC58n2w">Entre no beta</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <a class="pill" href="/pt-br/changelog/"><span class="dot"></span><span>Beta público &middot; <span data-version="latest">0.2.0</span> no TestFlight</span></a>
+      <h1>Sua biblioteca Jellyfin, <span class="accent">lindamente reproduzida.</span></h1>
+      <p class="lede">O Arcfin é um cliente Jellyfin de código aberto para iPhone, iPad, Mac e Apple TV. Ele reproduz quase tudo o que seu servidor tem, baixa para assistir offline e se sente em casa em todas as suas telas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://testflight.apple.com/join/kkC58n2w"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>Entre no beta do TestFlight</a>
+        <a class="btn btn-secondary" href="#features">Veja o que ele faz</a>
+      </div>
+      <p class="hero-note">Você precisa do seu próprio servidor Jellyfin, ou de uma conta em um. iOS, iPadOS, macOS ou tvOS 26 e posteriores.</p>
+      <div class="platform-row" aria-label="Plataformas">
+        <span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"></rect><path d="M10.5 4.5h3"></path></svg>iPhone</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"></rect></svg>iPad</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.5"></rect><path d="M1.5 19.5h21l-1.2-2.5H2.7z"></path></svg>Mac</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="1.5"></rect><path d="M8.5 20.5h7M12 17v3.5"></path></svg>Apple TV</span>
+      </div>
+    </div>
+    <div class="hero-devices" aria-label="Arcfin no iPhone">
+      <div class="phone back"><img src="/assets/shots/detail.webp" alt="A página de um filme no Arcfin, com Retomar, Ver trailer, a sinopse e o elenco" width="660" height="1434" fetchpriority="high"></div>
+      <div class="phone front"><img src="/assets/shots/home.webp" alt="A tela inicial do Arcfin com um filme em destaque, Continuar assistindo e Adicionados recentemente" width="660" height="1434" fetchpriority="high"></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip" aria-label="Arcfin em números">
+  <div class="wrap">
+    <div class="strip-item"><strong>4</strong><span>plataformas Apple</span></div>
+    <div class="strip-item"><strong>3</strong><span>motores de reprodução</span></div>
+    <div class="strip-item"><strong>11</strong><span>idiomas</span></div>
+    <div class="strip-item"><strong>0</strong><span>rastreadores ou análises</span></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Recursos</span>
+      <h2>Tudo do seu servidor, onde quer que você assista.</h2>
+      <p>O Arcfin conversa diretamente com o servidor Jellyfin que você já usa. Veja o que ele faz com isso.</p>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="chapter-media">
+        <div class="player-stack">
+          <div class="phone landscape"><img src="/assets/shots/player.webp" alt="O player do Arcfin mostrando um filme na horizontal com a barra de progresso e os controles" width="1400" height="644" loading="lazy" decoding="async"></div>
+          <div class="phone landscape"><img src="/assets/shots/player-menu.webp" alt="O menu do player com Picture in Picture, Transmitir, AirPlay, SyncPlay, Legendas e áudio, Velocidade, Qualidade e Informações da mídia" width="1400" height="644" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">Assistir</span>
+        <h3>Reproduz quase tudo o que seu servidor tem.</h3>
+        <p>O Arcfin escolhe o melhor de três motores de reprodução para cada arquivo, então HEVC, HDR, som surround e contêineres antigos tocam sem complicação.</p>
+        <ul class="checks"><li><p><strong>Três motores.</strong> <span>Aether (demultiplexação FFmpeg com decodificação por hardware) por padrão, com AVFoundation e VLC como alternativa quando um arquivo não abre.</span></p></li><li><p><strong>Pule o que você já viu.</strong> <span>Pular abertura, recapitulação, créditos e prévia, além de capítulos, prévias ao avançar e A seguir com contagem regressiva.</span></p></li><li><p><strong>Legendas do seu jeito.</strong> <span>Legendas em texto e imagem com seu próprio estilo, e troca de áudio ou legenda sem recarregar.</span></p></li><li><p><strong>Além da tela.</strong> <span>AirPlay, Chromecast, Picture in Picture, SharePlay pelo FaceTime e SyncPlay do Jellyfin.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter flip reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/home.webp" alt="A tela inicial do Arcfin" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">Navegar</span>
+        <h3>Uma tela inicial que sabe o que vem a seguir.</h3>
+        <p>Continuar assistindo, A seguir, Adicionados recentemente, recomendações e coleções, na ordem que você escolher. O que você assiste em outros dispositivos aparece enquanto o app está aberto.</p>
+        <ul class="checks"><li><p><strong>Páginas de título completas.</strong> <span>Elenco, notas, classificação indicativa, onde assistir, trailers e Títulos parecidos.</span></p></li><li><p><strong>Uma biblioteca para explorar.</strong> <span>Filtros, ordenação, gêneros, playlists, coleções, Ocultar assistidos e Surpreenda-me.</span></p></li><li><p><strong>Busque em tudo.</strong> <span>Seu servidor e Descobrir em uma só busca, com histórico opcional.</span></p></li><li><p><strong>Proteção contra spoilers.</strong> <span>Oculta miniaturas e descrições de episódios até você assisti-los.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/download-activity.webp" alt="Uma Atividade ao Vivo na Tela Bloqueada enquanto o Arcfin baixa um filme" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">Downloads</span>
+        <h3>Leve sua biblioteca com você.</h3>
+        <p>Baixe filmes e episódios no iPhone, iPad e Mac. Seu progresso é sincronizado com o servidor na próxima vez que você estiver online.</p>
+        <ul class="checks"><li><p><strong>Rápidos.</strong> <span>Arquivos grandes baixam em partes paralelas, vários títulos de uma vez, e continuam em segundo plano.</span></p></li><li><p><strong>Atividade ao Vivo.</strong> <span>Progresso e tempo restante na Tela Bloqueada, inclusive quando um download está pausado ou esperando Wi-Fi.</span></p></li><li><p><strong>Downloads inteligentes.</strong> <span>Mantém prontos os próximos episódios das suas séries e remove os já assistidos, dentro do espaço que você definir.</span></p></li><li><p><strong>Sob seu controle.</strong> <span>Qualidade, dados móveis, pausa nos modos Pouca Energia e Poucos Dados, e limpeza automática.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter flip reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/profiles.webp" alt="Os ajustes de perfil do Arcfin com o perfil atual, Adicionar perfil e Usar Face ID" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">Perfis</span>
+        <h3>Cada pessoa tem o seu Arcfin.</h3>
+        <p>Cada pessoa tem seu próprio perfil, com suas recomendações e seu progresso, protegido pelo seu próprio bloqueio.</p>
+        <ul class="checks"><li><p><strong>Bloqueado quando você quiser.</strong> <span>Face ID, Touch ID ou um PIN para cada perfil, além do controle parental e do horário de acesso do servidor.</span></p></li><li><p><strong>Ajustes que acompanham você.</strong> <span>Com o plugin de servidor Arcfin Sync, os ajustes são sincronizados entre dispositivos, e administradores podem bloquear os mais importantes.</span></p></li><li><p><strong>Ferramentas para o administrador.</strong> <span>Sessões ativas mostra quem está assistindo e por que um stream está sendo transcodificado. Pause, pare ou envie uma mensagem para qualquer sessão.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/now-playing.webp" alt="Os controles de reprodução do Arcfin na Tela Bloqueada" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">Em todos os seus dispositivos</span>
+        <h3>Parte do sistema, não só um app.</h3>
+        <p>O Arcfin funciona com Siri, Atalhos, widgets e a Tela Bloqueada, então o próximo episódio nunca está a mais de um toque ou uma frase de distância.</p>
+        <ul class="checks"><li><p><strong>Siri e Atalhos.</strong> <span>Reproduza um título, um filme aleatório, baixe o próximo episódio de uma série ou abra Descobrir.</span></p></li><li><p><strong>Widgets e controles.</strong> <span>Widgets de Continuar assistindo e Adicionados recentemente, controles da Central de Controle, Spotlight e Handoff.</span></p></li><li><p><strong>Alertas de novos episódios.</strong> <span>Notificações quando chegam episódios novos, com horário de silêncio.</span></p></li><li><p><strong>Na tela grande.</strong> <span>Top Shelf e um protetor de tela feito com suas próprias imagens na Apple TV, e todos os controles do player na barra de menus do Mac.</span></p></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">E mais</span>
+      <h2 id="more-title">Os detalhes fazem a diferença.</h2>
+    </div>
+    <div class="grid">
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 20V4"></path><path d="M4 20h16"></path><path d="M8 16v-4M12 16V8M16 16v-6"></path></svg></span><h3>Estatísticas</h3><p>Uma aba opcional calculada a partir do seu histórico do Jellyfin: tempo assistido, sequências, séries favoritas, gêneros, décadas e pessoas, com um cartão para compartilhar.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M12 8v8M8 12h8"></path></svg></span><h3>Pedidos no Seerr</h3><p>Navegue, peça e mantenha uma lista pelo seu próprio servidor Seerr, com login por perfil.</p><span class="tag">Opcional</span></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg></span><h3>Extras do TMDB</h3><p>Adicione sua própria chave do TMDB para notas, onde assistir e o que está em alta.</p><span class="tag">Opcional</span></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path><rect x="11" y="12" width="7" height="5" rx="1"></rect></svg></span><h3>Player em janela própria</h3><p>No iPad e no Mac, deixe o player em uma janela própria e continue navegando ao lado.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span><h3>Onze idiomas</h3><p>Inglês, alemão, francês, espanhol, chinês simplificado, português do Brasil, japonês, italiano, coreano, holandês e russo.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="4.5" r="1.5"></circle><path d="M5 8.5 12 10l7-1.5M12 10v5m0 0-3 6m3-6 3 6"></path></svg></span><h3>Acessível</h3><p>Rótulos do VoiceOver em tudo, Texto Dinâmico, Aumentar Contraste e Reduzir Movimento.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"></path></svg></span><h3>Ajuda integrada</h3><p>Relatar um problema e Compartilhar diagnóstico nos Ajustes. Os diagnósticos ficam no seu dispositivo até você decidir enviá-los.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"></path></svg></span><h3>Claro e escuro</h3><p>Segue a aparência do sistema no iPhone, iPad e Mac. O player e a Apple TV ficam sempre escuros.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="platforms">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Plataformas</span>
+      <h2>Feito para cada tela, não esticado.</h2>
+      <p>Cada dispositivo tem um layout próprio, construído sobre o mesmo código de reprodução, biblioteca e sincronização.</p>
+    </div>
+    <div class="platforms">
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="17" y="5" width="22" height="46" rx="5"></rect><path d="M25 9h6"></path></svg></span>
+  <h3>iPhone</h3><p class="os">iOS 26 ou posterior</p>
+  <ul><li>Interface Liquid Glass</li><li>Downloads com Atividades ao Vivo</li><li>Widgets da Tela Bloqueada</li><li>Chromecast e AirPlay</li></ul>
+  <span class="status"><span>Versão <span data-version="iOS">0.2.0 (build 2)</span> no TestFlight</span></span>
+</article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="9" y="6" width="38" height="44" rx="5"></rect><circle cx="28" cy="46" r="0.8"></circle></svg></span>
+  <h3>iPad</h3><p class="os">iPadOS 26 ou posterior</p>
+  <ul><li>Layout Liquid Glass que usa a tela inteira</li><li>Player em janela própria</li><li>Downloads para viagem</li><li>Chromecast, AirPlay e Picture in Picture</li></ul>
+  <span class="status"><span>Versão <span data-version="iOS">0.2.0 (build 2)</span> no TestFlight</span></span>
+</article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="7" y="9" width="42" height="28" rx="3"></rect><path d="M3 45h50l-3-6H6z"></path></svg></span>
+  <h3>Mac</h3><p class="os">macOS 26 ou posterior</p>
+  <ul><li>Interface nativa do Mac com barra lateral</li><li>Todos os controles na barra de menus, com atalhos</li><li>Bloqueio de perfil com Touch ID</li><li>Downloads e reprodução offline</li></ul>
+  <span class="status"><span>Versão <span data-version="macOS">0.2.0 (build 2)</span> no TestFlight</span></span>
+</article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="5" y="9" width="46" height="30" rx="3"></rect><path d="M20 47h16M28 39v8"></path></svg></span>
+  <h3>Apple TV</h3><p class="os">tvOS 26 ou posterior</p>
+  <ul><li>Layout baseado em foco para o Siri Remote</li><li>Avance livremente com a superfície de toque</li><li>Top Shelf com o que vem a seguir</li><li>Um protetor de tela com suas imagens</li></ul>
+  <span class="status"><span>Versão <span data-version="tvOS">0.2.0 (build 2)</span> no TestFlight</span></span>
+</article>
+    </div>
+    <p class="footnote reveal">Algumas coisas não funcionam em todo lugar: o Chromecast é só para iPhone e iPad, porque o SDK do Google só existe ali. Atividades ao Vivo e widgets da Tela Bloqueada são só para iPhone. A Apple TV não tem downloads (não tem armazenamento permanente) nem Face ID ou Touch ID.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="privacy">
+  <div class="wrap privacy-panel">
+    <div class="reveal">
+      <span class="eyebrow">Privacidade</span>
+      <div class="section-head" style="margin-bottom:0">
+        <h2>Nenhum servidor do Arcfin no meio.</h2>
+        <p>O Arcfin conecta seu dispositivo diretamente ao seu próprio servidor. Não há conta conosco, nem análises, nem rastreamento, nem serviço de relatórios de falhas. Senhas, tokens e chaves ficam nas Chaves do seu dispositivo.</p>
+      </div>
+      <div class="hero-actions"><a class="btn btn-secondary" href="/privacy/">Ler a Política de Privacidade (em inglês)</a></div>
+    </div>
+    <div class="flow reveal" role="img" aria-label="O Arcfin no seu dispositivo se conecta diretamente ao seu servidor Jellyfin e, se você quiser, ao Seerr, TMDB, Wikidata e YouTube. Nenhum servidor do Arcfin está envolvido.">
+      <div class="flow-row">
+        <div class="flow-node you"><strong>Arcfin</strong><span>no seu dispositivo</span></div>
+        <div class="flow-arrow"><svg viewbox="0 0 44 20" aria-hidden="true"><path d="M2 10h38M33 3l7 7-7 7"></path></svg></div>
+        <div class="flow-node"><strong>Seu servidor Jellyfin</strong><span>mantido por você ou por alguém de confiança</span></div>
+      </div>
+      <div class="flow-extra">
+        <div><strong>Seerr</strong>se você adicionar</div>
+        <div><strong>TMDB</strong>com sua própria chave</div>
+        <div><strong>Wikidata</strong>prêmios nas páginas de título</div>
+        <div><strong>YouTube</strong>trailers que seu servidor não tem</div>
+      </div>
+      <div class="flow-none"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>Nenhum servidor do Arcfin. Nenhuma análise. Nenhum anúncio.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="open-source">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Código aberto</span>
+      <h2>Feito às claras. Ajude a moldá-lo.</h2>
+      <p>O código do Arcfin é licenciado sob a AGPL-3.0. Leia, compile, relate o que está quebrado ou envie uma correção. Você pode entrar no servidor de código com uma conta do GitHub ou do GitLab.</p>
+    </div>
+    <div class="grid">
+      <a class="card reveal" href="https://git.psmattas.com/ArcFin/ArcFin" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M13.5 5l-3 14"></path></svg></span><h3>Ler o código</h3><p>Swift 6 e SwiftUI em tudo, com um guia de como o app se encaixa.</p></a>
+      <a class="card reveal" href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="7" y="7" width="10" height="13" rx="5"></rect><path d="M12 11v9M9 4l1.5 2.5M15 4l-1.5 2.5M3 13h4M17 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"></path></svg></span><h3>Relatar um problema</h3><p>Abra uma issue ou use Ajustes &rsaquo; Sobre &rsaquo; Relatar um problema no app.</p></a>
+      <a class="card reveal" href="/pt-br/contribute/#translate" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 4-3 7-7 8"></path><path d="m13 21 4-9 4 9M14.5 18h5"></path></svg></span><h3>Traduzir</h3><p>As dez primeiras traduções foram feitas por máquina. Falantes nativos as deixam certas.</p></a>
+      <a class="card reveal" href="https://testflight.apple.com/join/kkC58n2w" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"></path><path d="M7 15h10"></path></svg></span><h3>Testar novas builds</h3><p>Entre no beta do TestFlight e receba cada nova build assim que a Apple aprovar.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Roteiro</span>
+      <h2>Para onde o Arcfin está indo.</h2>
+      <p>O Arcfin chega à App Store na versão 1.0.0. Até lá, cada build vai primeiro para o TestFlight. O plano de cada versão é acompanhado publicamente em marcos.</p>
+    </div>
+    <div class="roadmap">
+      <div class="milestone now reveal"><div class="ver">0.2.0</div><div class="when">Agora no TestFlight</div><p>As quatro plataformas com quase os mesmos recursos, downloads, estatísticas, Seerr e onze idiomas.</p></div>
+      <div class="milestone reveal"><div class="ver">0.3.0</div><div class="when">A seguir</div><p>Polimento: pular aberturas e créditos offline, &ldquo;Na biblioteca&rdquo; em todo lugar, um tour de boas-vindas e uma rodada de correções para a Apple TV.</p></div>
+      <div class="milestone reveal"><div class="ver">0.4.0</div><div class="when">Depois disso</div><p>Cada plataforma ganha suas próprias telas sobre uma lógica compartilhada, para que uma mudança em uma não quebre outra.</p></div>
+      <div class="milestone reveal"><div class="ver">1.0.0</div><div class="when">App Store</div><p>TV ao vivo com canais, guia e gravações, além de ferramentas de administração do servidor. Depois, o Arcfin chega à App Store.</p></div>
+    </div>
+    <p class="footnote reveal"><a href="https://git.psmattas.com/ArcFin/ArcFin/milestones">Ver os marcos</a> &middot; <a href="/pt-br/changelog/">Ler as novidades</a></p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Perguntas</span>
+      <h2>Bom saber.</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Preciso do meu próprio servidor?</summary><div class="answer"><p>Sim. O Arcfin é um cliente do <a href="https://jellyfin.org">Jellyfin</a>, um servidor de mídia gratuito que você mesmo mantém. Você precisa do seu próprio servidor Jellyfin, ou de uma conta em um mantido por alguém de confiança. O Arcfin não fornece nem hospeda nenhum conteúdo.</p></div></details>
+      <details><summary>O Arcfin está na App Store?</summary><div class="answer"><p>Ainda não. O Arcfin está em beta público no <a href="https://testflight.apple.com/join/kkC58n2w">TestFlight</a>. Ele vai para a revisão da App Store da Apple na versão 1.0.0.</p><p>Instale o TestFlight pela App Store, abra o convite no seu iPhone, iPad, Mac ou Apple TV, e as novas builds chegam automaticamente.</p></div></details>
+      <details><summary>Em quais dispositivos funciona?</summary><div class="answer"><p>iPhone e iPad com iOS ou iPadOS 26, Macs com macOS 26 e Apple TV com tvOS 26. A versão para Mac é um app de Mac de verdade com interface própria, e a Apple TV tem um layout próprio feito para o Siri Remote.</p></div></details>
+      <details><summary>O Arcfin é um app oficial do Jellyfin?</summary><div class="answer"><p>Não. O Arcfin é um cliente independente de terceiros. Ele não é afiliado nem endossado pelo projeto Jellyfin, então não peça ajuda sobre ele à equipe do Jellyfin. Use a <a href="/pt-br/support/">página de suporte</a>.</p></div></details>
+      <details><summary>O Arcfin coleta meus dados?</summary><div class="answer"><p>Não. Não há servidor do Arcfin, nem análises, nem rastreamento, nem serviço de relatórios de falhas. O app conversa diretamente com os servidores que você adiciona. A <a href="/privacy/">Política de Privacidade</a> (em inglês) lista cada serviço externo e quando ele é usado.</p></div></details>
+      <details><summary>Algo não funciona. O que eu faço?</summary><div class="answer"><p>Use <strong>Ajustes &rsaquo; Sobre &rsaquo; Relatar um problema</strong> no app, ou <a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">abra uma issue</a>. Informe seu dispositivo, a versão do sistema e a versão do seu servidor Jellyfin. Há mais ajuda na <a href="/pt-br/support/">página de suporte</a>.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="cta-title">
+  <div class="cta reveal">
+    <img class="logo" src="/assets/logo.png" alt="" width="88" height="88">
+    <h2 id="cta-title">Leve sua biblioteca para todas as telas.</h2>
+    <p>Entre no beta público do TestFlight e receba cada nova build do Arcfin assim que a Apple aprovar.</p>
+    <div class="store-badges">
+      <a class="testflight" href="https://testflight.apple.com/join/kkC58n2w"><img src="/assets/testflight-badge.png" alt="Disponível no TestFlight" height="48"></a>
+      <span class="soon" title="Chega na 1.0.0">
+        <img class="badge-dark" src="/assets/app-store-badge-white.svg" alt="App Store, chega na versão 1.0.0" height="48">
+        <img class="badge-light" src="/assets/app-store-badge-black.svg" alt="" height="48">
+      </span>
+    </div>
+  </div>
+</section>
+
+<p class="mt-note wrap">Traduzido automaticamente do inglês. <a href="/pt-br/contribute/#translate">Ajude a melhorar esta tradução</a>.</p>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/pt-br/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>Um cliente Jellyfin de código aberto para iPhone, iPad, Mac e Apple TV, feito às claras por um desenvolvedor e um grupo crescente de testadores e colaboradores.</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/pt-br/#features">Recursos</a></li>
+          <li><a href="/pt-br/#platforms">Plataformas</a></li>
+          <li><a href="/pt-br/#roadmap">Roteiro</a></li>
+          <li><a href="/pt-br/changelog/">Novidades</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">Beta do TestFlight</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a href="/pt-br/support/">Suporte e perguntas</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">Relatar um problema</a></li>
+          <li><a href="/pt-br/contribute/">Contribuir</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">Código-fonte</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jurídico</h4>
+        <ul>
+          <li><a href="/privacy/">Política de Privacidade (em inglês)</a></li>
+          <li><a href="/terms/">Termos de Uso (em inglês)</a></li>
+          <li><a href="/data-protection/">Proteção de Dados (em inglês)</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">Licença (AGPL-3.0)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas. O nome e o logotipo do Arcfin são marcas registradas e não estão cobertos pela licença do código.</span>
+      <span>O Arcfin não é afiliado nem endossado pelo projeto Jellyfin.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

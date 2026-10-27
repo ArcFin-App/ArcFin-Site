@@ -28,6 +28,9 @@ jobs:
             $sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rsync openssh-client python3
           fi
 
+      - name: Rebuild the translated pages from the English ones
+        run: python3 scripts/i18n.py build
+
       - name: Add the newest versions and the changelog
         run: python3 scripts/releases.py site/arcfin.psmattas.com
         env:

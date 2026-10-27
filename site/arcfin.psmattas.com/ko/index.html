@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arcfin · iPhone, iPad, Mac, Apple TV를 위한 Jellyfin</title>
+  <meta name="description" content="Arcfin은 iPhone, iPad, Mac, Apple TV를 위한 오픈 소스 Jellyfin 클라이언트입니다. 서버에 있는 거의 모든 것을 재생하고, 오프라인 시청을 위해 다운로드하며, 데이터는 내 서버에 그대로 둡니다.">
+  <link rel="canonical" href="https://arcfin.psmattas.com/ko/">
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Arcfin · iPhone, iPad, Mac, Apple TV를 위한 Jellyfin">
+  <meta property="og:description" content="Arcfin은 iPhone, iPad, Mac, Apple TV를 위한 오픈 소스 Jellyfin 클라이언트입니다. 서버에 있는 거의 모든 것을 재생하고, 오프라인 시청을 위해 다운로드하며, 데이터는 내 서버에 그대로 둡니다.">
+  <meta property="og:url" content="https://arcfin.psmattas.com/ko/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("arcfin-theme");if(t==="light"||t==="dark")d.dataset.theme=t}catch(e){}})(document.documentElement)</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
+  </script>
+<!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/">
+  <link rel="alternate" hreflang="de" href="https://arcfin.psmattas.com/de/">
+  <link rel="alternate" hreflang="es" href="https://arcfin.psmattas.com/es/">
+  <link rel="alternate" hreflang="fr" href="https://arcfin.psmattas.com/fr/">
+  <link rel="alternate" hreflang="it" href="https://arcfin.psmattas.com/it/">
+  <link rel="alternate" hreflang="nl" href="https://arcfin.psmattas.com/nl/">
+  <link rel="alternate" hreflang="pt-BR" href="https://arcfin.psmattas.com/pt-br/">
+  <link rel="alternate" hreflang="ru" href="https://arcfin.psmattas.com/ru/">
+  <link rel="alternate" hreflang="ja" href="https://arcfin.psmattas.com/ja/">
+  <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
+  <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
+  <!-- /hreflang --></head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/ko/" aria-label="Arcfin 홈"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="주 메뉴"><a href="/ko/#features">기능</a><a href="/ko/#platforms">플랫폼</a><a href="/ko/#privacy">개인정보</a><a href="/ko/#roadmap">로드맵</a><a href="/ko/changelog/">변경 사항</a><a href="/ko/contribute/">참여하기</a><a href="/ko/support/">지원</a></nav>
+    <!-- languages --><details class="lang-menu"><summary aria-label="언어"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></summary><div class="lang-sheet" role="list"><a href="/" hreflang="en" lang="en" data-lang="en">English</a><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a><a href="/nl/" hreflang="nl" lang="nl" data-lang="nl">Nederlands</a><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR">Português (Brasil)</a><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko" aria-current="true">한국어</a><a href="/zh-hans/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简体中文</a></div></details><!-- /languages --><details class="theme-menu"><summary aria-label="화면 모드"><svg class="i-system" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><svg class="i-light" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-dark" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></summary><div class="theme-sheet" role="radiogroup" aria-label="화면 모드"><button type="button" role="radio" aria-checked="true" data-theme-choice="system"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>시스템</button><button type="button" role="radio" aria-checked="false" data-theme-choice="light"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>라이트</button><button type="button" role="radio" aria-checked="false" data-theme-choice="dark"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>다크</button></div></details>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">베타 참여</a>
+    <details class="nav-menu">
+      <summary aria-label="메뉴"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary>
+      <nav class="nav-sheet" aria-label="주 메뉴"><a href="/ko/#features">기능</a><a href="/ko/#platforms">플랫폼</a><a href="/ko/#privacy">개인정보</a><a href="/ko/#roadmap">로드맵</a><a href="/ko/changelog/">변경 사항</a><a href="/ko/contribute/">참여하기</a><a href="/ko/support/">지원</a><a href="https://testflight.apple.com/join/kkC58n2w">베타 참여</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <a class="pill" href="/ko/changelog/"><span class="dot"></span><span>공개 베타 &middot; TestFlight에서 <span data-version="latest">0.2.0</span></span></a>
+      <h1>나의 Jellyfin 라이브러리를, <span class="accent">아름답게 재생하세요.</span></h1>
+      <p class="lede">Arcfin은 iPhone, iPad, Mac, Apple TV를 위한 오픈 소스 Jellyfin 클라이언트입니다. 서버에 있는 거의 모든 것을 재생하고, 오프라인 시청을 위해 다운로드하며, 어떤 화면에서도 자연스럽게 어울립니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://testflight.apple.com/join/kkC58n2w"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>TestFlight 베타 참여</a>
+        <a class="btn btn-secondary" href="#features">무엇을 할 수 있는지 보기</a>
+      </div>
+      <p class="hero-note">직접 운영하는 Jellyfin 서버나 서버 계정이 필요합니다. iOS, iPadOS, macOS 또는 tvOS 26 이상.</p>
+      <div class="platform-row" aria-label="플랫폼">
+        <span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"></rect><path d="M10.5 4.5h3"></path></svg>iPhone</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"></rect></svg>iPad</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.5"></rect><path d="M1.5 19.5h21l-1.2-2.5H2.7z"></path></svg>Mac</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="1.5"></rect><path d="M8.5 20.5h7M12 17v3.5"></path></svg>Apple TV</span>
+      </div>
+    </div>
+    <div class="hero-devices" aria-label="iPhone의 Arcfin">
+      <div class="phone back"><img src="/assets/shots/detail.webp" alt="Arcfin의 영화 페이지: 이어서 재생, 예고편 재생, 줄거리, 출연진" width="660" height="1434" fetchpriority="high"></div>
+      <div class="phone front"><img src="/assets/shots/home.webp" alt="Arcfin 홈 화면: 추천 영화, 이어 보기, 최근 추가된 항목" width="660" height="1434" fetchpriority="high"></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip" aria-label="숫자로 보는 Arcfin">
+  <div class="wrap">
+    <div class="strip-item"><strong>4</strong><span>Apple 플랫폼</span></div>
+    <div class="strip-item"><strong>3</strong><span>재생 엔진</span></div>
+    <div class="strip-item"><strong>11</strong><span>언어</span></div>
+    <div class="strip-item"><strong>0</strong><span>추적기 또는 분석</span></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">기능</span>
+      <h2>서버의 모든 것을, 어디서 보든.</h2>
+      <p>Arcfin은 이미 운영 중인 Jellyfin 서버와 직접 통신합니다. 그걸로 이런 일을 합니다.</p>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="chapter-media">
+        <div class="player-stack">
+          <div class="phone landscape"><img src="/assets/shots/player.webp" alt="Arcfin 플레이어에서 가로로 재생 중인 영화와 탐색 막대, 재생 제어" width="1400" height="644" loading="lazy" decoding="async"></div>
+          <div class="phone landscape"><img src="/assets/shots/player-menu.webp" alt="플레이어 메뉴: PIP, 캐스트, AirPlay, SyncPlay, 자막 및 오디오, 재생 속도, 화질, 미디어 정보" width="1400" height="644" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">재생</span>
+        <h3>서버에 있는 거의 모든 것을 재생합니다.</h3>
+        <p>Arcfin은 파일마다 세 가지 재생 엔진 중 가장 알맞은 것을 골라, HEVC, HDR, 서라운드 사운드, 오래된 컨테이너도 문제없이 재생합니다.</p>
+        <ul class="checks"><li><p><strong>세 가지 엔진.</strong> <span>기본은 Aether(FFmpeg 디먹싱과 하드웨어 디코딩)이며, 파일이 열리지 않으면 AVFoundation과 VLC가 대신 재생합니다.</span></p></li><li><p><strong>본 건 건너뛰세요.</strong> <span>인트로, 지난 줄거리, 엔딩 크레딧, 예고 건너뛰기와 챕터, 탐색 미리보기, 카운트다운이 있는 다음 재생.</span></p></li><li><p><strong>자막은 내 방식대로.</strong> <span>텍스트·이미지 자막을 원하는 스타일로, 다시 불러오지 않고 오디오와 자막을 전환.</span></p></li><li><p><strong>화면을 넘어서.</strong> <span>AirPlay, Chromecast, PIP, FaceTime을 통한 SharePlay, Jellyfin의 SyncPlay.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter flip reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/home.webp" alt="Arcfin 홈 화면" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">둘러보기</span>
+        <h3>다음에 볼 것을 아는 홈 화면.</h3>
+        <p>이어 보기, 다음 재생, 최근 추가된 항목, 추천, 컬렉션을 원하는 순서로. 다른 기기에서 본 것도 앱이 열려 있는 동안 반영됩니다.</p>
+        <ul class="checks"><li><p><strong>깊이 있는 작품 페이지.</strong> <span>출연진, 평점, 연령 등급, 시청할 수 있는 곳, 예고편, 비슷한 작품.</span></p></li><li><p><strong>파고들 수 있는 라이브러리.</strong> <span>필터, 정렬, 장르, 재생목록, 컬렉션, 시청한 항목 숨기기, 아무거나 추천.</span></p></li><li><p><strong>한 번에 검색.</strong> <span>서버와 둘러보기를 한 번에 검색하고, 검색 기록은 선택 사항입니다.</span></p></li><li><p><strong>스포일러 방지.</strong> <span>보기 전까지 에피소드 썸네일과 설명을 숨깁니다.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/download-activity.webp" alt="Arcfin이 영화를 다운로드하는 동안 잠금 화면에 표시되는 실시간 현황" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">다운로드</span>
+        <h3>라이브러리를 들고 다니세요.</h3>
+        <p>iPhone, iPad, Mac에서 영화와 에피소드를 다운로드하세요. 시청 진행 상황은 다음에 온라인이 되면 서버와 동기화됩니다.</p>
+        <ul class="checks"><li><p><strong>빠르게.</strong> <span>큰 파일은 여러 부분으로 나누어 동시에, 여러 작품을 한꺼번에 받고, 백그라운드에서도 계속됩니다.</span></p></li><li><p><strong>실시간 현황.</strong> <span>잠금 화면에 진행 상황과 남은 시간을 표시하고, 일시 정지나 Wi-Fi 대기 상태도 보여 줍니다.</span></p></li><li><p><strong>스마트 다운로드.</strong> <span>정한 저장 공간 안에서 시리즈의 다음 에피소드를 준비하고 본 에피소드는 삭제합니다.</span></p></li><li><p><strong>내가 정하는 대로.</strong> <span>화질, 셀룰러 데이터, 저전력 모드와 저데이터 모드에서 일시 정지, 자동 정리.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter flip reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/profiles.webp" alt="Arcfin 프로필 설정: 현재 프로필, 프로필 추가, Face ID 사용" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">프로필</span>
+        <h3>모두에게 자신만의 Arcfin을.</h3>
+        <p>사람마다 자신만의 프로필이 있어 추천과 진행 상황이 따로 관리되고, 각자 잠글 수 있습니다.</p>
+        <ul class="checks"><li><p><strong>원할 때 잠금.</strong> <span>프로필마다 Face ID, Touch ID 또는 PIN, 그리고 서버의 자녀 보호 기능과 접근 일정.</span></p></li><li><p><strong>나를 따라오는 설정.</strong> <span>Arcfin Sync 서버 플러그인으로 설정이 기기 간에 동기화되고, 관리자는 중요한 설정을 잠글 수 있습니다.</span></p></li><li><p><strong>서버 관리자를 위한 도구.</strong> <span>활성 세션에서 누가 보고 있는지, 스트림이 왜 트랜스코딩되는지 확인하세요. 어떤 세션이든 일시 정지, 중지하거나 메시지를 보낼 수 있습니다.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter reveal">
+      <div class="chapter-media">
+        <div class="phone"><img src="/assets/shots/now-playing.webp" alt="잠금 화면의 Arcfin 재생 제어" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="chapter-copy">
+        <span class="eyebrow">모든 기기에서</span>
+        <h3>앱을 넘어, 시스템의 일부로.</h3>
+        <p>Arcfin은 Siri, 단축어, 위젯, 잠금 화면과 함께 동작해, 다음 에피소드가 언제나 탭 한 번, 말 한마디면 됩니다.</p>
+        <ul class="checks"><li><p><strong>Siri와 단축어.</strong> <span>작품 재생, 무작위 영화 재생, 시리즈의 다음 에피소드 다운로드, 둘러보기 열기.</span></p></li><li><p><strong>위젯과 제어.</strong> <span>이어 보기와 최근 추가된 항목 위젯, 제어 센터 제어, Spotlight, Handoff.</span></p></li><li><p><strong>새 에피소드 알림.</strong> <span>새 에피소드가 나오면 알림을 보내고, 방해 금지 시간도 설정할 수 있습니다.</span></p></li><li><p><strong>큰 화면에서.</strong> <span>Apple TV에서는 Top Shelf와 내 아트워크로 만든 화면 보호기, Mac에서는 메뉴 막대의 모든 플레이어 제어.</span></p></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">그리고 더</span>
+      <h2 id="more-title">디테일이 쌓여 완성됩니다.</h2>
+    </div>
+    <div class="grid">
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 20V4"></path><path d="M4 20h16"></path><path d="M8 16v-4M12 16V8M16 16v-6"></path></svg></span><h3>통계</h3><p>Jellyfin 시청 기록으로 계산하는 선택 탭: 시청 시간, 연속 시청, 많이 본 시리즈, 장르, 연대, 인물, 그리고 공유할 수 있는 카드.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M12 8v8M8 12h8"></path></svg></span><h3>Seerr 요청</h3><p>내 Seerr 서버로 둘러보고, 요청하고, 보고 싶은 목록을 관리하세요. 프로필마다 로그인합니다.</p><span class="tag">선택 사항</span></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg></span><h3>TMDB 추가 정보</h3><p>내 TMDB 키를 추가하면 평점, 시청할 수 있는 곳, 인기 작품을 볼 수 있습니다.</p><span class="tag">선택 사항</span></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path><rect x="11" y="12" width="7" height="5" rx="1"></rect></svg></span><h3>별도 창의 플레이어</h3><p>iPad와 Mac에서는 플레이어를 별도 창에 두고 옆에서 계속 둘러볼 수 있습니다.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span><h3>11개 언어</h3><p>영어, 독일어, 프랑스어, 스페인어, 중국어 간체, 브라질 포르투갈어, 일본어, 이탈리아어, 한국어, 네덜란드어, 러시아어.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="4.5" r="1.5"></circle><path d="M5 8.5 12 10l7-1.5M12 10v5m0 0-3 6m3-6 3 6"></path></svg></span><h3>손쉬운 사용</h3><p>모든 곳의 VoiceOver 레이블, Dynamic Type, 대비 증가, 동작 줄이기.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"></path></svg></span><h3>내장된 도움말</h3><p>설정의 문제 보고와 진단 정보 공유. 진단 정보는 직접 보내기로 할 때까지 기기에 남아 있습니다.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"></path></svg></span><h3>라이트와 다크</h3><p>iPhone, iPad, Mac에서 시스템 화면 모드를 따릅니다. 플레이어와 Apple TV는 항상 다크입니다.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="platforms">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">플랫폼</span>
+      <h2>화면마다 따로 설계했습니다. 늘린 것이 아니라.</h2>
+      <p>기기마다 고유한 레이아웃을 같은 재생·라이브러리·동기화 코드 위에 만들었습니다.</p>
+    </div>
+    <div class="platforms">
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="17" y="5" width="22" height="46" rx="5"></rect><path d="M25 9h6"></path></svg></span>
+  <h3>iPhone</h3><p class="os">iOS 26 이상</p>
+  <ul><li>Liquid Glass 인터페이스</li><li>실시간 현황이 있는 다운로드</li><li>잠금 화면 위젯</li><li>Chromecast와 AirPlay</li></ul>
+  <span class="status"><span>TestFlight에서 버전 <span data-version="iOS">0.2.0 (build 2)</span></span></span>
+</article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="9" y="6" width="38" height="44" rx="5"></rect><circle cx="28" cy="46" r="0.8"></circle></svg></span>
+  <h3>iPad</h3><p class="os">iPadOS 26 이상</p>
+  <ul><li>화면 전체를 쓰는 Liquid Glass 레이아웃</li><li>별도 창의 플레이어</li><li>여행을 위한 다운로드</li><li>Chromecast, AirPlay, PIP</li></ul>
+  <span class="status"><span>TestFlight에서 버전 <span data-version="iOS">0.2.0 (build 2)</span></span></span>
+</article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="7" y="9" width="42" height="28" rx="3"></rect><path d="M3 45h50l-3-6H6z"></path></svg></span>
+  <h3>Mac</h3><p class="os">macOS 26 이상</p>
+  <ul><li>사이드바가 있는 네이티브 Mac 인터페이스</li><li>메뉴 막대의 모든 제어와 단축키</li><li>Touch ID 프로필 잠금</li><li>다운로드와 오프라인 재생</li></ul>
+  <span class="status"><span>TestFlight에서 버전 <span data-version="macOS">0.2.0 (build 2)</span></span></span>
+</article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewbox="0 0 56 56"><rect x="5" y="9" width="46" height="30" rx="3"></rect><path d="M20 47h16M28 39v8"></path></svg></span>
+  <h3>Apple TV</h3><p class="os">tvOS 26 이상</p>
+  <ul><li>Siri Remote를 위한 포커스 기반 레이아웃</li><li>터치 표면으로 자유롭게 탐색</li><li>다음에 볼 것을 보여 주는 Top Shelf</li><li>내 아트워크로 만든 화면 보호기</li></ul>
+  <span class="status"><span>TestFlight에서 버전 <span data-version="tvOS">0.2.0 (build 2)</span></span></span>
+</article>
+    </div>
+    <p class="footnote reveal">모든 곳에서 되지는 않는 기능도 있습니다. Chromecast는 Google SDK가 지원하는 iPhone과 iPad에서만 됩니다. 실시간 현황과 잠금 화면 위젯은 iPhone 전용입니다. Apple TV에는 다운로드(영구 저장 공간이 없음)와 Face ID, Touch ID가 없습니다.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="privacy">
+  <div class="wrap privacy-panel">
+    <div class="reveal">
+      <span class="eyebrow">개인정보</span>
+      <div class="section-head" style="margin-bottom:0">
+        <h2>중간에 Arcfin 서버가 없습니다.</h2>
+        <p>Arcfin은 기기를 내 서버에 직접 연결합니다. 저희 계정도, 분석도, 추적도, 충돌 보고 서비스도 없습니다. 암호, 토큰, 키는 기기의 키체인에 보관됩니다.</p>
+      </div>
+      <div class="hero-actions"><a class="btn btn-secondary" href="/privacy/">개인정보 처리방침 읽기(영어)</a></div>
+    </div>
+    <div class="flow reveal" role="img" aria-label="기기의 Arcfin은 내 Jellyfin 서버에 직접 연결되고, 원하면 Seerr, TMDB, Wikidata, YouTube에도 연결됩니다. Arcfin 서버는 관여하지 않습니다.">
+      <div class="flow-row">
+        <div class="flow-node you"><strong>Arcfin</strong><span>내 기기에서</span></div>
+        <div class="flow-arrow"><svg viewbox="0 0 44 20" aria-hidden="true"><path d="M2 10h38M33 3l7 7-7 7"></path></svg></div>
+        <div class="flow-node"><strong>내 Jellyfin 서버</strong><span>직접 또는 믿을 수 있는 사람이 운영</span></div>
+      </div>
+      <div class="flow-extra">
+        <div><strong>Seerr</strong>추가한 경우</div>
+        <div><strong>TMDB</strong>내 키로</div>
+        <div><strong>Wikidata</strong>작품 페이지의 수상 내역</div>
+        <div><strong>YouTube</strong>서버에 없는 예고편</div>
+      </div>
+      <div class="flow-none"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.6 5.6l12.8 12.8"></path></svg>Arcfin 서버 없음. 분석 없음. 광고 없음.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="open-source">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">오픈 소스</span>
+      <h2>공개적으로 만듭니다. 함께 만들어 가세요.</h2>
+      <p>Arcfin의 코드는 AGPL-3.0 라이선스입니다. 읽고, 빌드하고, 문제를 알리거나 수정을 보내 주세요. 코드 호스트에는 GitHub 또는 GitLab 계정으로 로그인할 수 있습니다.</p>
+    </div>
+    <div class="grid">
+      <a class="card reveal" href="https://git.psmattas.com/ArcFin/ArcFin" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M13.5 5l-3 14"></path></svg></span><h3>코드 읽기</h3><p>전부 Swift 6와 SwiftUI로 작성했고, 앱 구조를 설명하는 안내서가 있습니다.</p></a>
+      <a class="card reveal" href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><rect x="7" y="7" width="10" height="13" rx="5"></rect><path d="M12 11v9M9 4l1.5 2.5M15 4l-1.5 2.5M3 13h4M17 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"></path></svg></span><h3>문제 보고</h3><p>이슈를 만들거나 앱에서 설정 &rsaquo; 정보 &rsaquo; 문제 보고를 사용하세요.</p></a>
+      <a class="card reveal" href="/ko/contribute/#translate" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8M11 5c0 4-3 7-7 8"></path><path d="m13 21 4-9 4 9M14.5 18h5"></path></svg></span><h3>번역하기</h3><p>처음 10개 번역은 기계 번역입니다. 원어민이 바로잡아 주세요.</p></a>
+      <a class="card reveal" href="https://testflight.apple.com/join/kkC58n2w" style="color:inherit;text-decoration:none"><span class="icon" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"></path><path d="M7 15h10"></path></svg></span><h3>새 빌드 테스트</h3><p>TestFlight 베타에 참여하면 Apple이 승인하는 즉시 새 빌드를 받을 수 있습니다.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">로드맵</span>
+      <h2>Arcfin이 나아갈 방향.</h2>
+      <p>Arcfin은 1.0.0에서 App Store에 출시됩니다. 그전까지 모든 빌드는 먼저 TestFlight로 배포됩니다. 버전별 계획은 마일스톤에서 공개적으로 관리합니다.</p>
+    </div>
+    <div class="roadmap">
+      <div class="milestone now reveal"><div class="ver">0.2.0</div><div class="when">지금 TestFlight에서</div><p>네 가지 플랫폼 모두 거의 같은 기능, 다운로드, 통계, Seerr, 11개 언어.</p></div>
+      <div class="milestone reveal"><div class="ver">0.3.0</div><div class="when">다음</div><p>다듬기: 오프라인에서도 인트로와 크레딧 건너뛰기, 어디서나 &ldquo;라이브러리에 있음&rdquo; 표시, 환영 투어, Apple TV 수정 모음.</p></div>
+      <div class="milestone reveal"><div class="ver">0.4.0</div><div class="when">그다음</div><p>플랫폼마다 공통 로직 위에 고유한 화면을 두어, 한쪽의 변경이 다른 쪽을 망가뜨리지 않게 합니다.</p></div>
+      <div class="milestone reveal"><div class="ver">1.0.0</div><div class="when">App Store</div><p>채널, 편성표, 녹화가 있는 실시간 TV와 서버 관리 도구. 그리고 Arcfin이 App Store에 출시됩니다.</p></div>
+    </div>
+    <p class="footnote reveal"><a href="https://git.psmattas.com/ArcFin/ArcFin/milestones">마일스톤 보기</a> &middot; <a href="/ko/changelog/">변경 사항 읽기</a></p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">질문</span>
+      <h2>알아 두면 좋은 것.</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>제 서버가 필요한가요?</summary><div class="answer"><p>네. Arcfin은 직접 운영하는 무료 미디어 서버인 <a href="https://jellyfin.org">Jellyfin</a>의 클라이언트입니다. 직접 운영하는 Jellyfin 서버나, 믿을 수 있는 사람이 운영하는 서버의 계정이 필요합니다. Arcfin은 콘텐츠를 제공하거나 호스팅하지 않습니다.</p></div></details>
+      <details><summary>Arcfin이 App Store에 있나요?</summary><div class="answer"><p>아직은 아닙니다. Arcfin은 <a href="https://testflight.apple.com/join/kkC58n2w">TestFlight</a>에서 공개 베타 중입니다. 버전 1.0.0에서 Apple의 App Store 심사를 받습니다.</p><p>App Store에서 TestFlight를 설치하고 iPhone, iPad, Mac 또는 Apple TV에서 초대를 열면 새 빌드가 자동으로 도착합니다.</p></div></details>
+      <details><summary>어떤 기기에서 실행되나요?</summary><div class="answer"><p>iOS 또는 iPadOS 26의 iPhone과 iPad, macOS 26의 Mac, tvOS 26의 Apple TV입니다. Mac 버전은 고유한 인터페이스를 갖춘 진짜 Mac 앱이고, Apple TV는 Siri Remote에 맞춘 고유한 레이아웃을 갖추고 있습니다.</p></div></details>
+      <details><summary>Arcfin은 Jellyfin 공식 앱인가요?</summary><div class="answer"><p>아니요. Arcfin은 독립적인 서드파티 클라이언트입니다. Jellyfin 프로젝트와 제휴하거나 보증받지 않았으니 Arcfin에 관해서는 Jellyfin 팀에 문의하지 마세요. 대신 <a href="/ko/support/">지원 페이지</a>를 이용하세요.</p></div></details>
+      <details><summary>Arcfin이 제 데이터를 수집하나요?</summary><div class="answer"><p>아니요. Arcfin 서버도, 분석도, 추적도, 충돌 보고 서비스도 없습니다. 앱은 직접 추가한 서버와만 통신합니다. <a href="/privacy/">개인정보 처리방침</a>(영어)에 모든 외부 서비스와 사용 시점이 나와 있습니다.</p></div></details>
+      <details><summary>무언가 작동하지 않아요. 어떻게 하나요?</summary><div class="answer"><p>앱에서 <strong>설정 &rsaquo; 정보 &rsaquo; 문제 보고</strong>를 사용하거나 <a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">이슈를 만드세요</a>. 기기, OS 버전, Jellyfin 서버 버전을 알려 주세요. 더 많은 도움말은 <a href="/ko/support/">지원 페이지</a>에 있습니다.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="cta-title">
+  <div class="cta reveal">
+    <img class="logo" src="/assets/logo.png" alt="" width="88" height="88">
+    <h2 id="cta-title">모든 화면에 내 라이브러리를.</h2>
+    <p>TestFlight 공개 베타에 참여하면 Apple이 승인하는 즉시 Arcfin의 새 빌드를 받을 수 있습니다.</p>
+    <div class="store-badges">
+      <a class="testflight" href="https://testflight.apple.com/join/kkC58n2w"><img src="/assets/testflight-badge.png" alt="TestFlight에서 사용 가능" height="48"></a>
+      <span class="soon" title="1.0.0에서 출시 예정">
+        <img class="badge-dark" src="/assets/app-store-badge-white.svg" alt="App Store, 버전 1.0.0에서 출시 예정" height="48">
+        <img class="badge-light" src="/assets/app-store-badge-black.svg" alt="" height="48">
+      </span>
+    </div>
+  </div>
+</section>
+
+<p class="mt-note wrap">영어에서 자동 번역되었습니다. <a href="/ko/contribute/#translate">번역 개선에 참여해 주세요</a>.</p>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/ko/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>iPhone, iPad, Mac, Apple TV를 위한 오픈 소스 Jellyfin 클라이언트. 한 명의 개발자와 늘어나는 테스터, 기여자가 공개적으로 만들고 있습니다.</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/ko/#features">기능</a></li>
+          <li><a href="/ko/#platforms">플랫폼</a></li>
+          <li><a href="/ko/#roadmap">로드맵</a></li>
+          <li><a href="/ko/changelog/">변경 사항</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">TestFlight 베타</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>도움말</h4>
+        <ul>
+          <li><a href="/ko/support/">지원 및 자주 묻는 질문</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">문제 보고</a></li>
+          <li><a href="/ko/contribute/">참여하기</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">소스 코드</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>법률 정보</h4>
+        <ul>
+          <li><a href="/privacy/">개인정보 처리방침(영어)</a></li>
+          <li><a href="/terms/">이용 약관(영어)</a></li>
+          <li><a href="/data-protection/">데이터 보호(영어)</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">라이선스(AGPL-3.0)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas. Arcfin 이름과 로고는 상표이며 코드 라이선스의 적용을 받지 않습니다.</span>
+      <span>Arcfin은 Jellyfin 프로젝트와 제휴하거나 보증받지 않았습니다.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

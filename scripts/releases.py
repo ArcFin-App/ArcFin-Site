@@ -13,6 +13,7 @@ the deploy carries on.
 
 import email.utils
 import html
+import json
 import os
 import re
 import sys
@@ -28,6 +29,16 @@ PUBLIC = "https://git.psmattas.com"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
 TAG = re.compile(r"/releases/tag/(iOS|macOS|tvOS)-(\d+)\.(\d+)\.(\d+)-build-(\d+)$")
 PLATFORMS = [("iOS", "iPhone & iPad", "ios"), ("macOS", "Mac", "mac"), ("tvOS", "Apple TV", "tv")]
+I18N = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "i18n")
+
+
+def translator(lang):
+    path = os.path.join(I18N, f"{lang}.json")
+    strings = {}
+    if lang != "en" and os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            strings = {k: v for k, v in json.load(f).items() if v}
+    return lambda text: strings.get(text, text)
 
 
 def warn(message):
@@ -57,7 +68,7 @@ KINDS = {"new": "new", "improved": "improved", "fixed": "fixed", "removed": "rem
          "under the hood": "hood", "changes": "none"}
 
 
-def clean(body):
+def clean(body, t):
     """Returns the notes as HTML, plus the compare and release PR links from the footer line."""
     if INTERNAL:
         body = body.replace(INTERNAL, PUBLIC)
@@ -82,6 +93,8 @@ def clean(body):
     def heading(match):
         title = match.group(1).strip()
         kind = KINDS.get(title.lower(), "other")
+        if kind != "other":
+            title = html.escape(t(html.unescape(title)))
         return f'<h4 class="cl-kind {kind}">{title}</h4>'
 
     body = re.sub(r"<h2>(.*?)</h2>", heading, body)
@@ -98,7 +111,7 @@ def version_labels(releases):
     return labels
 
 
-def changelog(releases):
+def changelog(releases, t):
     builds = {}
     for r in releases:
         builds.setdefault(r["key"], {})[r["platform"]] = r
@@ -113,13 +126,13 @@ def changelog(releases):
 
     filters = "".join(
         f'<input type="radio" name="cl-platform" id="cl-{css}" value="{css}"{" checked" if css == "ios" else ""}>'
-        f'<label for="cl-{css}">{html.escape(name)}</label>'
+        f'<label for="cl-{css}">{html.escape(t(name))}</label>'
         for _, name, css in PLATFORMS)
     jump = "".join(f'<li><a href="#{vid(v)}">{".".join(map(str, v))}</a></li>' for v in versions)
     out = ['<div class="cl-layout">',
            '<aside class="cl-side">'
-           f'<div class="cl-filter" role="radiogroup" aria-label="Platform">{filters}</div>'
-           f'<nav class="cl-jump" aria-label="Versions"><p>Versions</p><ul>{jump}</ul></nav>'
+           f'<div class="cl-filter" role="radiogroup" aria-label="{html.escape(t("Platform"))}">{filters}</div>'
+           f'<nav class="cl-jump" aria-label="{html.escape(t("Versions"))}"><p>{html.escape(t("Versions"))}</p><ul>{jump}</ul></nav>'
            '</aside>',
            '<div class="cl-list">']
     version = None
@@ -131,19 +144,21 @@ def changelog(releases):
             out.append(f'<section class="cl-version" id="{vid(version)}"><h2>Arcfin {".".join(map(str, version))}</h2>')
         entries = builds[key]
         date = max(e["date"] for e in entries.values())
-        latest = '<span class="cl-latest">Latest</span>' if index == 0 else ""
-        out.append(f'<article class="cl-build"><header><h3>Build {key[3]}{latest}</h3>'
+        latest = f'<span class="cl-latest">{html.escape(t("Latest"))}</span>' if index == 0 else ""
+        build = html.escape(t("Build {n}").replace("{n}", str(key[3])))
+        out.append(f'<article class="cl-build"><header><h3>{build}{latest}</h3>'
                    f'<time datetime="{date:%Y-%m-%d}">{date.day} {date:%B %Y}</time></header>')
         for platform, name, css in PLATFORMS:
             entry = entries.get(platform)
             if not entry:
                 continue
-            notes, links = clean(entry["body"])
-            more = [f'<a href="{html.escape(entry["link"])}">Release notes</a>']
+            notes, links = clean(entry["body"], t)
+            more = [f'<a href="{html.escape(entry["link"])}">{html.escape(t("Release notes"))}</a>']
             if "compare" in links:
-                more.append(f'<a href="{html.escape(links["compare"])}">Code changes</a>')
+                more.append(f'<a href="{html.escape(links["compare"])}">{html.escape(t("Code changes"))}</a>')
             if "pr" in links:
-                more.append(f'<a href="{html.escape(links["pr"][0])}">Release PR {links["pr"][1]}</a>')
+                label = html.escape(t("Release PR {pr}").replace("{pr}", links["pr"][1]))
+                more.append(f'<a href="{html.escape(links["pr"][0])}">{label}</a>')
             out.append(f'<div class="cl-notes {css}">{notes}'
                        f'<p class="cl-more">{"".join(more)}</p></div>')
         out.append("</article>")
@@ -188,10 +203,15 @@ def main():
             if name.endswith(".html"):
                 rewrite(os.path.join(root, name), stamp)
 
-    notes = changelog(releases)
     marker = re.compile(r"(<!-- releases -->).*?(<!-- /releases -->)", re.S)
-    rewrite(os.path.join(SITE, "changelog", "index.html"),
-            lambda text: marker.sub(lambda m: m.group(1) + "\n" + notes + "\n" + m.group(2), text))
+    for root, _, files in os.walk(SITE):
+        if os.path.basename(root) != "changelog" or "index.html" not in files:
+            continue
+        path = os.path.join(root, "index.html")
+        with open(path, encoding="utf-8") as f:
+            lang = re.search(r'<html lang="([^"]+)"', f.read()).group(1)
+        notes = changelog(releases, translator(lang))
+        rewrite(path, lambda text: marker.sub(lambda m: m.group(1) + "\n" + notes + "\n" + m.group(2), text))
 
 
 if __name__ == "__main__":
