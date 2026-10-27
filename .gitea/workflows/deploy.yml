@@ -11,9 +11,18 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: macos
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install rsync and SSH
+        run: |
+          if ! command -v rsync >/dev/null || ! command -v ssh >/dev/null; then
+            sudo=""
+            [ "$(id -u)" -ne 0 ] && sudo="sudo"
+            $sudo apt-get update -qq
+            $sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rsync openssh-client
+          fi
 
       - name: Sync the site to the server
         shell: bash
@@ -32,8 +41,8 @@ jobs:
             fi
           done
 
-          # The runner is a long-lived Mac, so the key only ever exists in this
-          # job's temp folder and is removed however the step ends.
+          # The key only ever exists in this job's temp folder and is removed
+          # however the step ends.
           dir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/deploy.XXXXXX")"
           trap 'rm -rf "$dir"' EXIT
           printf '%s\n' "$DEPLOY_SSH_KEY" > "$dir/key"

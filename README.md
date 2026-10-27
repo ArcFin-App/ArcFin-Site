@@ -62,7 +62,7 @@ The roadmap on `/` follows the [app's milestones](https://git.psmattas.com/ArcFi
 
 ## Deployment
 
-Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy can also be started by hand from the Actions tab.
+Every push to `main` deploys automatically. The [Deploy workflow](.gitea/workflows/deploy.yml) runs on the project's own Gitea Actions runner (Ubuntu) and uses rsync over SSH to mirror `site/arcfin.psmattas.com/` to the web server. Files removed from the repo are removed from the server too. A deploy can also be started by hand from the Actions tab.
 
 The server address, account and key aren't in this repository. They're stored as encrypted Actions secrets:
 
