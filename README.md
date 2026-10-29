@@ -62,11 +62,11 @@ Then open <http://localhost:8000>. Check both light and dark appearance and a ph
 
 Screenshots live in `assets/shots/` as WebP: 660 px wide for portrait, 1400 px for landscape.
 
-Most come from the app itself, in `assets/shots/auto/`. Each TestFlight tag build runs a UI test against Jellyfin's public demo server and attaches `screenshots-<platform>.zip` to that release ([ArcFin/ArcFin#266](https://git.psmattas.com/ArcFin/ArcFin/issues/266)). Each file is named after its device and screen, like `iPhone-01-home.webp`, `iPad-06-library.webp` or `AppleTV-09-stats.webp`, and pages use those names directly: the [Screenshots page](https://arcfin.psmattas.com/screenshots/) shows every device, and the landing page uses the iPhone Home and title page.
+Most come from the app itself, in `assets/shots/auto/`. Each TestFlight tag build runs a UI test against Jellyfin's public demo server and attaches `screenshots-<platform>.zip` to that release ([ArcFin/ArcFin#266](https://git.psmattas.com/ArcFin/ArcFin/issues/266)). Each file is named after its device and screen, like `iPhone-01-home.webp`, `iPad-06-library.webp` or `AppleTV-09-stats.webp`, and pages use those names directly: the [Screenshots page](https://arcfin.psmattas.com/screenshots/) shows every device, and the landing page uses the iPhone ones, with a device switcher in Features that scrolls through each device's.
 
 At deploy time, `scripts/releases.py` downloads the newest **published** zip for each platform and unpacks it over the copies in `assets/shots/auto/`, so each picture is replaced in place by the newest release. That happens on the runner and the result goes to the server; nothing is committed back. The copies in the repo are only the fallback when no zip can be read, so refresh them now and then. Drafts aren't visible to the deploy, so a release's screenshots go live once it's published.
 
-To show a new screen, add a `<figure>` for it on the Screenshots page with its `width` and `height`. The Lock Screen, Live Activity, profiles and the landing page's player shots are still taken by hand; replace those with a file of the same name and aspect ratio. Use a demo library with public-domain titles, not a personal server.
+To show a new screen, add a `<figure>` for it on the Screenshots page with its `width` and `height`. Only the Lock Screen's Now Playing and the download Live Activity (`now-playing.webp`, `download-activity.webp`) are taken by hand, since a UI test can't show the Lock Screen; replace those with a file of the same name and aspect ratio. Use a demo library with public-domain titles, not a personal server.
 
 ## Keeping it accurate
 
