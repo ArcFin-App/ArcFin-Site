@@ -210,50 +210,51 @@
 })();
 
 (function () {
-  var showcase = document.querySelector("[data-showcase]");
-  if (!showcase) return;
   var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var switcher = showcase.querySelector(".showcase-switch");
-  var buttons = switcher.querySelectorAll("button");
-  var reels = showcase.querySelectorAll(".showcase-reel");
 
-  // A second, hidden copy of each strip lets it scroll round without a jump.
-  function start(reel) {
-    if (still || reel.classList.contains("moving")) return;
-    var track = reel.querySelector(".showcase-track");
-    Array.prototype.forEach.call(track.children, function (item) {
-      var copy = item.cloneNode(true);
-      copy.setAttribute("aria-hidden", "true");
-      copy.querySelectorAll("img").forEach(function (img) { img.alt = ""; });
-      track.appendChild(copy);
-    });
-    reel.style.setProperty("--reel-duration", Math.max(30, track.children.length * 5) + "s");
-    reel.classList.add("moving");
-  }
+  document.querySelectorAll("[data-device-toggle]").forEach(function (toggle) {
+    var switcher = toggle.querySelector(".device-switch");
+    var buttons = Array.prototype.slice.call(switcher.querySelectorAll("button"));
+    var panels = toggle.querySelectorAll(".device-panel");
+    var current = 0;
+    var chosen = false;
+    var visible = false;
+    var held = false;
 
-  function show(device) {
-    reels.forEach(function (reel) {
-      var on = reel.dataset.device === device;
-      reel.hidden = !on;
-      if (on) start(reel);
-    });
-    buttons.forEach(function (button) {
-      button.setAttribute("aria-pressed", String(button.dataset.device === device));
-    });
-  }
-
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function () { show(button.dataset.device); });
-  });
-  switcher.hidden = false;
-  show(buttons[0].dataset.device);
-
-  // Nothing moves while the strip is off screen.
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        reels.forEach(function (reel) { reel.classList.toggle("paused", !entry.isIntersecting); });
+    function show(index) {
+      current = index;
+      var device = buttons[index].dataset.device;
+      panels.forEach(function (panel) {
+        var on = panel.dataset.device === device;
+        panel.hidden = !on;
+        panel.setAttribute("aria-hidden", String(!on));
       });
-    }).observe(showcase);
-  }
+      buttons.forEach(function (button, i) { button.setAttribute("aria-pressed", String(i === index)); });
+    }
+
+    buttons.forEach(function (button, i) {
+      button.addEventListener("click", function () { chosen = true; show(i); });
+    });
+    toggle.addEventListener("mouseenter", function () { held = true; });
+    toggle.addEventListener("mouseleave", function () { held = false; });
+    toggle.addEventListener("focusin", function () { held = true; });
+    toggle.addEventListener("focusout", function () { held = false; });
+
+    switcher.hidden = false;
+    toggle.classList.add("ready");
+    show(0);
+
+    // Steps through the devices while the feature is on screen, until someone picks one.
+    if (still || buttons.length < 2) return;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+      }, { threshold: 0.4 }).observe(toggle);
+    } else {
+      visible = true;
+    }
+    setInterval(function () {
+      if (!chosen && visible && !held && !document.hidden) show((current + 1) % buttons.length);
+    }, 4000);
+  });
 })();
