@@ -5,7 +5,10 @@ Reads the app repository's release feed once, then:
 - writes the newest version for each platform into every element marked
   data-version="iOS", "macOS", "tvOS" or "latest";
 - writes the release notes into changelog/index.html, between the
-  <!-- releases --> and <!-- /releases --> markers.
+  <!-- releases --> and <!-- /releases --> markers;
+- unpacks each platform's newest screenshots (screenshots-<platform>.zip,
+  attached by the app's TestFlight workflow) into assets/shots/auto/, and
+  puts the iPhone ones over the landing page's matching shots.
 
 If the feed can't be read, the versions and changelog are copied from the
 live site instead, so a feed outage never rolls the site back to the older
@@ -15,12 +18,15 @@ copy is used.
 
 import email.utils
 import html
+import io
 import json
 import os
 import re
 import sys
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+import zipfile
 
 SITE = sys.argv[1] if len(sys.argv) > 1 else "site/arcfin.psmattas.com"
 FEED = os.environ.get("RELEASES_FEED", "https://git.psmattas.com/ArcFin/ArcFin/releases.rss")
@@ -185,9 +191,13 @@ DYNAMIC = re.compile(r'<span data-(?:version|count)="\w+">[^<]*</span>|"software
 BLOCK = re.compile(r"<!-- releases -->.*?<!-- /releases -->", re.S)
 
 
+def request(url):
+    # Cloudflare turns away Python's default user agent.
+    return urllib.request.Request(url, headers={"User-Agent": "arcfin-site-deploy"})
+
+
 def fetch_live(path):
-    request = urllib.request.Request(LIVE + path, headers={"User-Agent": "arcfin-site-deploy"})
-    with urllib.request.urlopen(request, timeout=20) as response:
+    with urllib.request.urlopen(request(LIVE + path), timeout=20) as response:
         return response.read().decode("utf-8")
 
 
@@ -218,7 +228,62 @@ def keep_live():
     print(f"kept the live versions and changelog on {copied} pages")
 
 
+# Automated screenshot → the landing page shot it replaces. The rest (the Lock Screen,
+# Live Activities, the player's More menu) are taken by hand.
+LANDING_SHOTS = {
+    "iPhone-01-home.webp": "home.webp",
+    "iPhone-02-movie.webp": "detail.webp",
+    "iPhone-04-player.webp": "player.webp",
+}
+SHOT_NAME = re.compile(r"(?:iPhone|iPad|Mac|AppleTV)-\d\d-[a-z-]+\.webp")
+
+
+def screenshots():
+    """Unpacks each platform's newest screenshots. Any failure keeps the repo's shots."""
+    feed = urllib.parse.urlsplit(FEED)
+    repo = feed.path.rsplit("/releases.rss", 1)[0]
+    api = f"{feed.scheme}://{feed.netloc}/api/v1/repos{repo}/releases?limit=50"
+    try:
+        with urllib.request.urlopen(request(api), timeout=20) as response:
+            releases = json.load(response)
+    except Exception as error:
+        warn(f"Couldn't read the releases for screenshots ({error}); keeping the repo's.")
+        return
+    shots = os.path.join(SITE, "assets", "shots")
+    auto = os.path.join(shots, "auto")
+    for platform, _, _ in PLATFORMS:
+        asset_name = f"screenshots-{platform}.zip"
+        newest = None
+        for release in releases:
+            match = TAG.search("/releases/tag/" + release.get("tag_name", ""))
+            asset = next((a for a in release.get("assets", []) if a.get("name") == asset_name), None)
+            if match and match.group(1) == platform and asset:
+                key = tuple(int(n) for n in match.groups()[1:])
+                if newest is None or key > newest[0]:
+                    newest = (key, release["tag_name"], asset["browser_download_url"])
+        if newest is None:
+            continue
+        url = newest[2].replace(PUBLIC, INTERNAL) if INTERNAL else newest[2]
+        try:
+            with urllib.request.urlopen(request(url), timeout=60) as response:
+                archive = zipfile.ZipFile(io.BytesIO(response.read()))
+        except Exception as error:
+            warn(f"Couldn't download {asset_name} from {newest[1]} ({error}); keeping the repo's.")
+            continue
+        os.makedirs(auto, exist_ok=True)
+        names = [n for n in archive.namelist() if SHOT_NAME.fullmatch(os.path.basename(n))]
+        for name in names:
+            with open(os.path.join(auto, os.path.basename(name)), "wb") as f:
+                f.write(archive.read(name))
+        for source, target in LANDING_SHOTS.items():
+            if os.path.exists(os.path.join(auto, source)):
+                with open(os.path.join(auto, source), "rb") as f, open(os.path.join(shots, target), "wb") as out:
+                    out.write(f.read())
+        print(f"screenshots: {len(names)} from {newest[1]}")
+
+
 def main():
+    screenshots()
     try:
         releases = read_feed()
         if not releases:

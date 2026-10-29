@@ -62,6 +62,8 @@ Then open <http://localhost:8000>. Check both light and dark appearance and a ph
 
 Screenshots live in `assets/shots/` as WebP: 660 px wide for portrait, 1400 px for landscape. To update one, replace the file with one of the same name and aspect ratio. To add one, update the `width` and `height` on its `<img>` too. Use a demo library with public-domain titles, not a personal server.
 
+Most of them now come from the app itself. Each TestFlight tag build runs a UI test against Jellyfin's public demo server and attaches `screenshots-<platform>.zip` to that release ([ArcFin/ArcFin#266](https://git.psmattas.com/ArcFin/ArcFin/issues/266)). At deploy time, `scripts/releases.py` unpacks the newest published zip for each platform into `assets/shots/auto/` (named like `iPhone-01-home.webp`, `iPad-06-library.webp`, `AppleTV-04-player.webp`) and copies the iPhone Home, title page and player over `home.webp`, `detail.webp` and `player.webp`. The Lock Screen, Live Activity, profiles and player-menu shots are still taken by hand. If no zip can be read, the committed files are used.
+
 ## Keeping it accurate
 
 The landing page, Privacy Policy and Data Protection pages describe what the app actually does: which services it talks to (your Jellyfin server, and optionally Seerr, TMDB, Wikidata, YouTube and Google Cast), what stays on the device and which permissions it asks for. When the app changes what data it touches, or gains a platform or service, update those pages and their effective date in the same change. They aren't boilerplate.
@@ -92,7 +94,8 @@ The site sits behind Cloudflare, which keeps CSS, scripts and images for hours. 
 Two things on the site aren't edited by hand: the version on each platform card and in the hero badge, and the `/changelog` page. Before syncing, the deploy runs [`scripts/releases.py`](scripts/releases.py), which reads the app repository's [release feed](https://git.psmattas.com/ArcFin/ArcFin/releases.rss). It then:
 
 - writes the newest release for each platform into every element marked `data-version="iOS"`, `"macOS"`, `"tvOS"` or `"latest"`;
-- rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out.
+- rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out;
+- unpacks the newest screenshots for each platform (see [Updating screenshots](#updating-screenshots)).
 
 A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key. If the feed can't be read, the deploy copies the versions and changelog from the live site instead, so an outage never rolls the site back to the older snapshot in the repo. To refresh that copy, run the script locally and commit the result:
 
