@@ -973,3 +973,64 @@ p { margin: 0; }
   background: linear-gradient(var(--device), #2A2A34);
   clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
 }
+
+/* Home: device showcase */
+
+.showcase { margin-bottom: clamp(56px, 8vw, 96px); }
+.showcase-switch {
+  display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 28px;
+  border-radius: 999px; border: 1px solid var(--hairline-strong); background: var(--bg-2);
+}
+.showcase-switch button {
+  min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px;
+  background: none; color: var(--muted); font: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+.showcase-switch button:hover { color: var(--fg); }
+.showcase-switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.showcase-switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.showcase-reel {
+  --reel-height: 440px;
+  overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none;
+  margin-inline: calc(var(--gutter) * -1); padding: 8px var(--gutter) 28px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - var(--gutter)), transparent);
+}
+.showcase-reel::-webkit-scrollbar { display: none; }
+.showcase-reel[data-device="ipad"] { --reel-height: 400px; }
+.showcase-reel[data-device="mac"],
+.showcase-reel[data-device="apple-tv"] { --reel-height: 300px; }
+@media (max-width: 720px) {
+  .showcase-reel { --reel-height: 340px; }
+  .showcase-reel[data-device="ipad"] { --reel-height: 300px; }
+  .showcase-reel[data-device="mac"],
+  .showcase-reel[data-device="apple-tv"] { --reel-height: 200px; }
+}
+
+.showcase-track { display: flex; gap: clamp(20px, 3vw, 36px); width: max-content; align-items: flex-end; }
+.showcase-reel.moving { overflow: hidden; }
+.showcase-reel.moving .showcase-track { animation: showcase-scroll var(--reel-duration, 60s) linear infinite; }
+.showcase-reel.moving:hover .showcase-track,
+.showcase-reel.moving:focus-within .showcase-track,
+.showcase-reel.paused .showcase-track { animation-play-state: paused; }
+@keyframes showcase-scroll { to { transform: translateX(calc(-50% - clamp(10px, 1.5vw, 18px))); } }
+
+.showcase-track img { display: block; height: var(--reel-height); width: auto; background: #000; }
+.showcase-track .phone { padding: 7px; border-radius: 40px; box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.65), inset 0 0 0 1.5px rgba(255, 255, 255, 0.12); }
+.showcase-track .phone img { border-radius: 33px; }
+.showcase-track .phone.landscape img { height: calc(var(--reel-height) * 0.62); border-radius: 26px; }
+.showcase-track .tablet {
+  padding: 10px; border-radius: 28px; background: var(--device);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.65), inset 0 0 0 1.5px rgba(255, 255, 255, 0.12);
+}
+.showcase-track .tablet img { border-radius: 18px; }
+.showcase-track .screen { background: var(--device); box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.65), inset 0 0 0 1.5px rgba(255, 255, 255, 0.12); }
+.showcase-more { margin-top: 4px; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-reel.moving { overflow-x: auto; }
+  .showcase-reel.moving .showcase-track { animation: none; }
+}
+.shots-grid.tall .wide-shot { grid-column: span 2; align-self: center; }
+.shot .phone.landscape { border-radius: 28px; }
+.shot .phone.landscape img { border-radius: 22px; }

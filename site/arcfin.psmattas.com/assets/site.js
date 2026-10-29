@@ -208,3 +208,52 @@
     update();
   });
 })();
+
+(function () {
+  var showcase = document.querySelector("[data-showcase]");
+  if (!showcase) return;
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var switcher = showcase.querySelector(".showcase-switch");
+  var buttons = switcher.querySelectorAll("button");
+  var reels = showcase.querySelectorAll(".showcase-reel");
+
+  // A second, hidden copy of each strip lets it scroll round without a jump.
+  function start(reel) {
+    if (still || reel.classList.contains("moving")) return;
+    var track = reel.querySelector(".showcase-track");
+    Array.prototype.forEach.call(track.children, function (item) {
+      var copy = item.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      copy.querySelectorAll("img").forEach(function (img) { img.alt = ""; });
+      track.appendChild(copy);
+    });
+    reel.style.setProperty("--reel-duration", Math.max(30, track.children.length * 5) + "s");
+    reel.classList.add("moving");
+  }
+
+  function show(device) {
+    reels.forEach(function (reel) {
+      var on = reel.dataset.device === device;
+      reel.hidden = !on;
+      if (on) start(reel);
+    });
+    buttons.forEach(function (button) {
+      button.setAttribute("aria-pressed", String(button.dataset.device === device));
+    });
+  }
+
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () { show(button.dataset.device); });
+  });
+  switcher.hidden = false;
+  show(buttons[0].dataset.device);
+
+  // Nothing moves while the strip is off screen.
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        reels.forEach(function (reel) { reel.classList.toggle("paused", !entry.isIntersecting); });
+      });
+    }).observe(showcase);
+  }
+})();
