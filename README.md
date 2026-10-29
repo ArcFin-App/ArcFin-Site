@@ -35,12 +35,12 @@ scripts/i18n.py             Builds the translated pages from i18n/<lang>.json
 i18n/                       One translation file per language
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
-├── 404/ roadmap/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
+├── 404/ roadmap/ screenshots/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
 ├── de/ es/ fr/ … zh-hans/  Translated pages, built by scripts/i18n.py
 └── assets/
     ├── site.css            Every style. Colours mirror the app's DT tokens, light and dark
     ├── site.js             Scroll fade-in and mobile menu only; pages work without it
-    ├── shots/              App screenshots (WebP)
+    ├── shots/              App screenshots (WebP); auto/ holds the ones from each release
     ├── og.png              1200×630 link preview
     └── logo.png, favicon.png, store badges
 ```
@@ -60,7 +60,13 @@ Then open <http://localhost:8000>. Check both light and dark appearance and a ph
 
 ## Updating screenshots
 
-Screenshots live in `assets/shots/` as WebP: 660 px wide for portrait, 1400 px for landscape. To update one, replace the file with one of the same name and aspect ratio. To add one, update the `width` and `height` on its `<img>` too. Use a demo library with public-domain titles, not a personal server.
+Screenshots live in `assets/shots/` as WebP: 660 px wide for portrait, 1400 px for landscape.
+
+Most come from the app itself, in `assets/shots/auto/`. Each TestFlight tag build runs a UI test against Jellyfin's public demo server and attaches `screenshots-<platform>.zip` to that release ([ArcFin/ArcFin#266](https://git.psmattas.com/ArcFin/ArcFin/issues/266)). Each file is named after its device and screen, like `iPhone-01-home.webp`, `iPad-06-library.webp` or `AppleTV-09-stats.webp`, and pages use those names directly: the [Screenshots page](https://arcfin.psmattas.com/screenshots/) shows every device, and the landing page uses the iPhone Home and title page.
+
+At deploy time, `scripts/releases.py` downloads the newest **published** zip for each platform and unpacks it over the copies in `assets/shots/auto/`, so each picture is replaced in place by the newest release. That happens on the runner and the result goes to the server; nothing is committed back. The copies in the repo are only the fallback when no zip can be read, so refresh them now and then. Drafts aren't visible to the deploy, so a release's screenshots go live once it's published.
+
+To show a new screen, add a `<figure>` for it on the Screenshots page with its `width` and `height`. The Lock Screen, Live Activity, profiles and the landing page's player shots are still taken by hand; replace those with a file of the same name and aspect ratio. Use a demo library with public-domain titles, not a personal server.
 
 ## Keeping it accurate
 
@@ -92,7 +98,8 @@ The site sits behind Cloudflare, which keeps CSS, scripts and images for hours. 
 Two things on the site aren't edited by hand: the version on each platform card and in the hero badge, and the `/changelog` page. Before syncing, the deploy runs [`scripts/releases.py`](scripts/releases.py), which reads the app repository's [release feed](https://git.psmattas.com/ArcFin/ArcFin/releases.rss). It then:
 
 - writes the newest release for each platform into every element marked `data-version="iOS"`, `"macOS"`, `"tvOS"` or `"latest"`;
-- rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out.
+- rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out;
+- unpacks the newest screenshots for each platform (see [Updating screenshots](#updating-screenshots)).
 
 A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key. If the feed can't be read, the deploy copies the versions and changelog from the live site instead, so an outage never rolls the site back to the older snapshot in the repo. To refresh that copy, run the script locally and commit the result:
 

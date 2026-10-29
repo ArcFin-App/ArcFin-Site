@@ -41,7 +41,7 @@ LANGUAGES = [
 ]
 # Pages that exist in every language. The legal pages stay English only,
 # because the English text is the binding one.
-TRANSLATED = ["", "roadmap", "support", "contribute", "changelog", "404"]
+TRANSLATED = ["", "roadmap", "screenshots", "support", "contribute", "changelog", "404"]
 # Pages search engines shouldn't list.
 UNLISTED = {"404"}
 ENGLISH_ONLY = ["privacy", "terms", "data-protection"]
