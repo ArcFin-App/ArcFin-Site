@@ -7,8 +7,10 @@ Reads the app repository's release feed once, then:
 - writes the release notes into changelog/index.html, between the
   <!-- releases --> and <!-- /releases --> markers;
 - unpacks each platform's newest screenshots (screenshots-<platform>.zip,
-  attached by the app's TestFlight workflow) into assets/shots/auto/, and
-  puts the iPhone ones over the landing page's matching shots.
+  attached by the app's TestFlight workflow) into assets/shots/auto/, over
+  the copies in the repo. Pages use them by the name the app's screenshot
+  test gives them, e.g. iPhone-01-home.webp, so a new release replaces each
+  one in place.
 
 If the feed can't be read, the versions and changelog are copied from the
 live site instead, so a feed outage never rolls the site back to the older
@@ -228,13 +230,6 @@ def keep_live():
     print(f"kept the live versions and changelog on {copied} pages")
 
 
-# Automated screenshot → the landing page shot it replaces. The rest (the Lock Screen,
-# Live Activities, the player's More menu) are taken by hand.
-LANDING_SHOTS = {
-    "iPhone-01-home.webp": "home.webp",
-    "iPhone-02-movie.webp": "detail.webp",
-    "iPhone-04-player.webp": "player.webp",
-}
 SHOT_NAME = re.compile(r"(?:iPhone|iPad|Mac|AppleTV)-\d\d-[a-z-]+\.webp")
 
 
@@ -275,10 +270,6 @@ def screenshots():
         for name in names:
             with open(os.path.join(auto, os.path.basename(name)), "wb") as f:
                 f.write(archive.read(name))
-        for source, target in LANDING_SHOTS.items():
-            if os.path.exists(os.path.join(auto, source)):
-                with open(os.path.join(auto, source), "rb") as f, open(os.path.join(shots, target), "wb") as out:
-                    out.write(f.read())
         print(f"screenshots: {len(names)} from {newest[1]}")
 
 
