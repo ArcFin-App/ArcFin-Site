@@ -435,5 +435,7 @@
   "Free scrubbing on the Siri Remote&rsquo;s touch surface, even spacing on title pages, a steadier Home screen and a cleaner Stats screen.": "Freies Spulen auf der Touch-Oberfläche der Siri Remote, gleichmäßige Abstände auf Titelseiten, eine ruhigere Startseite und eine übersichtlichere Statistik.",
   "Signed out? Sign straight back in": "Abgemeldet? Gleich wieder anmelden",
   "Arcfin notices when a server stops accepting your sign-in and asks you to sign in again, and title pages update as soon as you stop watching.": "Arcfin merkt, wenn ein Server deine Anmeldung nicht mehr akzeptiert, und bittet dich, dich erneut anzumelden, und Titelseiten aktualisieren sich, sobald du aufhörst zu schauen.",
-  "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">Alle Bildschirme ansehen</a>"
+  "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">Alle Bildschirme ansehen</a>",
+  "<strong>New look coming in 0.4.0.</strong> These screenshots show today&rsquo;s design.": "<strong>Neuer Look kommt mit 0.4.0.</strong> Diese Screenshots zeigen das aktuelle Design.",
+  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>Mit 0.4.0 kommt ein neuer Look.</strong> Arcfin bekommt ein wärmeres Design in Koralle. Diese Screenshots zeigen noch das aktuelle und aktualisieren sich von selbst, sobald 0.4.0 auf TestFlight erscheint."
 }

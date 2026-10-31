@@ -435,5 +435,7 @@
   "Free scrubbing on the Siri Remote&rsquo;s touch surface, even spacing on title pages, a steadier Home screen and a cleaner Stats screen.": "Свободная перемотка на сенсорной поверхности Siri Remote, ровные отступы на страницах фильмов, более стабильная главная и аккуратная статистика.",
   "Signed out? Sign straight back in": "Вышли из аккаунта? Сразу войдите снова",
   "Arcfin notices when a server stops accepting your sign-in and asks you to sign in again, and title pages update as soon as you stop watching.": "Arcfin замечает, когда сервер перестаёт принимать ваш вход, и просит войти снова, а страницы фильмов обновляются, как только вы прекращаете просмотр.",
-  "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">Все экраны</a>"
+  "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">Все экраны</a>",
+  "<strong>New look coming in 0.4.0.</strong> These screenshots show today&rsquo;s design.": "<strong>Новый облик в 0.4.0.</strong> На этих снимках — текущий дизайн.",
+  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>В 0.4.0 Arcfin получит новый облик.</strong> Приложение переходит на более тёплый коралловый дизайн. На этих снимках пока текущий, и они обновятся сами, когда 0.4.0 выйдет в TestFlight."
 }

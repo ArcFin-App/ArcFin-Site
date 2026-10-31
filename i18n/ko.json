@@ -435,5 +435,7 @@
   "Free scrubbing on the Siri Remote&rsquo;s touch surface, even spacing on title pages, a steadier Home screen and a cleaner Stats screen.": "Siri Remote 터치 표면으로 자유롭게 탐색하고, 작품 페이지 간격을 고르게 맞췄으며, 홈 화면은 더 안정적이고 통계 화면은 더 깔끔해졌습니다.",
   "Signed out? Sign straight back in": "로그아웃되었나요? 바로 다시 로그인하세요",
   "Arcfin notices when a server stops accepting your sign-in and asks you to sign in again, and title pages update as soon as you stop watching.": "서버가 로그인을 더 이상 받지 않으면 Arcfin이 알아차리고 다시 로그인하도록 안내하며, 시청을 멈추면 작품 페이지가 바로 업데이트됩니다.",
-  "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">모든 화면 보기</a>"
+  "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">모든 화면 보기</a>",
+  "<strong>New look coming in 0.4.0.</strong> These screenshots show today&rsquo;s design.": "<strong>0.4.0에서 새로운 디자인을 만나 보세요.</strong> 이 스크린샷은 현재 디자인입니다.",
+  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0에서 새로운 디자인이 찾아옵니다.</strong> Arcfin이 더 따뜻한 코랄 디자인으로 바뀝니다. 이 스크린샷은 아직 현재 디자인이며, 0.4.0이 TestFlight에 올라오면 자동으로 업데이트됩니다."
 }
