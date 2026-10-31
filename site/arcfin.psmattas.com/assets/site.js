@@ -22,7 +22,7 @@
 (function () {
   var root = document.documentElement;
   var key = "arcfin-theme";
-  var colors = { light: "#F2F2F7", dark: "#0A0A0F" };
+  var colors = { light: "#F4F4F5", dark: "#0B0B0C" };
   var metas = document.querySelectorAll('meta[name="theme-color"]');
   var defaults = Array.prototype.map.call(metas, function (m) { return m.getAttribute("content"); });
 
