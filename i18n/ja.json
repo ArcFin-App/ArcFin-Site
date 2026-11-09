@@ -132,7 +132,7 @@
   "Questions": "よくある質問",
   "Good to know.": "知っておきたいこと。",
   "Do I need my own server?": "自分のサーバーが必要ですか?",
-  "Yes. Arcfin is a client for <a href=\"https://jellyfin.org\">Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide or host any content.": "はい。Arcfin は <a href=\"https://jellyfin.org\">Jellyfin</a> のクライアントです。Jellyfin は自分で運用する無料のメディアサーバーです。自分の Jellyfin サーバー、または信頼できる人が運用するサーバーのアカウントが必要です。Arcfin がコンテンツを提供したりホストしたりすることはありません。",
+  "Yes. Arcfin is a client for <a href=\"https://jellyfin.org\">Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide, host or link to any content.": "はい。Arcfin は <a href=\"https://jellyfin.org\">Jellyfin</a> のクライアントです。Jellyfin は自分で運用する無料のメディアサーバーです。自分の Jellyfin サーバー、または信頼できる人が運用するサーバーのアカウントが必要です。Arcfin がコンテンツを提供、ホスト、またはリンクすることはありません。",
   "Is Arcfin on the App Store?": "Arcfin は App Store にありますか?",
   "Not yet. Arcfin is in public beta on <a href=\"https://testflight.apple.com/join/kkC58n2w\">TestFlight</a>. It goes to Apple for App Store review at version 1.0.0.": "まだありません。Arcfin は <a href=\"https://testflight.apple.com/join/kkC58n2w\">TestFlight</a> でパブリックベータ中です。バージョン 1.0.0 で Apple の App Store 審査に出します。",
   "Install TestFlight from the App Store, open the invite on your iPhone, iPad, Mac or Apple TV, and new builds arrive automatically.": "App Store から TestFlight をインストールし、iPhone、iPad、Mac、Apple TV で招待を開けば、新しいビルドが自動で届きます。",
@@ -192,7 +192,7 @@
   "Contact": "お問い合わせ",
   "What do I need to use Arcfin?": "Arcfin を使うには何が必要ですか?",
   "A <a href=\"https://jellyfin.org\">Jellyfin</a> server of your own, or an account on one that someone you trust runs, and a device running iOS 26, iPadOS 26, macOS 26 or tvOS 26.": "自分の <a href=\"https://jellyfin.org\">Jellyfin</a> サーバー、または信頼できる人が運用するサーバーのアカウントと、iOS 26、iPadOS 26、macOS 26、tvOS 26 のデバイスです。",
-  "Arcfin doesn&rsquo;t provide or host any content. Everything it plays comes from your server.": "Arcfin がコンテンツを提供したりホストしたりすることはありません。再生するものはすべてあなたのサーバーから届きます。",
+  "Arcfin doesn&rsquo;t provide, host or link to any content. Everything it plays comes from your server.": "Arcfin がコンテンツを提供、ホスト、またはリンクすることはありません。再生するものはすべてあなたのサーバーから届きます。",
   "How do I install Arcfin?": "Arcfin はどうやってインストールしますか?",
   "Arcfin is in public beta. Install <strong>TestFlight</strong> from the App Store, then open the <a href=\"https://testflight.apple.com/join/kkC58n2w\">Arcfin invite</a> on your iPhone, iPad, Mac or Apple TV. New builds install automatically once Apple approves them.": "Arcfin はパブリックベータ中です。App Store から <strong>TestFlight</strong> をインストールし、iPhone、iPad、Mac、Apple TV で <a href=\"https://testflight.apple.com/join/kkC58n2w\">Arcfin の招待</a>を開いてください。新しいビルドは Apple の承認後に自動でインストールされます。",
   "Arcfin goes to the App Store at version 1.0.0.": "Arcfin はバージョン 1.0.0 で App Store に登場します。",
@@ -437,5 +437,11 @@
   "Arcfin notices when a server stops accepting your sign-in and asks you to sign in again, and title pages update as soon as you stop watching.": "サーバがサインインを受け付けなくなるとArcfinが気づいて再サインインを求め、視聴をやめるとすぐに作品ページが更新されます。",
   "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">すべての画面を見る</a>",
   "<strong>New look coming in 0.4.0.</strong> These screenshots show today&rsquo;s design.": "<strong>0.4.0で新しいデザインに。</strong>これらのスクリーンショットは現在のデザインです。",
-  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0で新しいデザインになります。</strong>Arcfinはより温かみのあるコーラルのデザインに変わります。これらのスクリーンショットはまだ現在のデザインで、0.4.0がTestFlightに届くと自動で更新されます。"
+  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0で新しいデザインになります。</strong>Arcfinはより温かみのあるコーラルのデザインに変わります。これらのスクリーンショットはまだ現在のデザインで、0.4.0がTestFlightに届くと自動で更新されます。",
+  "Disclaimer": "免責事項",
+  "Your media, your server": "あなたのメディア、あなたのサーバー",
+  "Arcfin is a player for media you own or have the right to watch. It doesn&rsquo;t provide, host or link to any content; everything it plays comes from a server you or someone you trust runs.": "Arcfin は、あなたが所有している、または視聴する権利のあるメディアのためのプレーヤーです。コンテンツを提供、ホスト、またはリンクすることはありません。再生するものはすべて、あなたまたはあなたが信頼する人が運用するサーバーから届きます。",
+  "Arcfin does not promote, support or condone piracy. Discussion of piracy, requests for help with pirated content, and links to piracy tools or sites aren&rsquo;t allowed anywhere in the project, including issues, pull requests and support email, and will be closed or removed.": "Arcfin は海賊行為を助長、支援、容認しません。海賊行為についての議論、海賊版コンテンツに関する手助けの依頼、海賊行為のツールやサイトへのリンクは、Issue、プルリクエスト、サポートメールを含め、プロジェクトのどこでも認められておらず、クローズまたは削除されます。",
+  "No piracy": "海賊行為の禁止",
+  "Arcfin is a player for media you own or have the right to watch. Discussion of piracy, requests for help with pirated content, and links to piracy tools or sites aren&rsquo;t allowed anywhere in the project, including issues, pull requests and support email, and will be closed or removed.": "Arcfin は、あなたが所有している、または視聴する権利のあるメディアのためのプレーヤーです。海賊行為についての議論、海賊版コンテンツに関する手助けの依頼、海賊行為のツールやサイトへのリンクは、Issue、プルリクエスト、サポートメールを含め、プロジェクトのどこでも認められておらず、クローズまたは削除されます。"
 }

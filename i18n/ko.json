@@ -132,7 +132,7 @@
   "Questions": "질문",
   "Good to know.": "알아 두면 좋은 것.",
   "Do I need my own server?": "제 서버가 필요한가요?",
-  "Yes. Arcfin is a client for <a href=\"https://jellyfin.org\">Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide or host any content.": "네. Arcfin은 직접 운영하는 무료 미디어 서버인 <a href=\"https://jellyfin.org\">Jellyfin</a>의 클라이언트입니다. 직접 운영하는 Jellyfin 서버나, 믿을 수 있는 사람이 운영하는 서버의 계정이 필요합니다. Arcfin은 콘텐츠를 제공하거나 호스팅하지 않습니다.",
+  "Yes. Arcfin is a client for <a href=\"https://jellyfin.org\">Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide, host or link to any content.": "네. Arcfin은 직접 운영하는 무료 미디어 서버인 <a href=\"https://jellyfin.org\">Jellyfin</a>의 클라이언트입니다. 직접 운영하는 Jellyfin 서버나, 믿을 수 있는 사람이 운영하는 서버의 계정이 필요합니다. Arcfin은 콘텐츠를 제공하거나 호스팅하거나 링크하지 않습니다.",
   "Is Arcfin on the App Store?": "Arcfin이 App Store에 있나요?",
   "Not yet. Arcfin is in public beta on <a href=\"https://testflight.apple.com/join/kkC58n2w\">TestFlight</a>. It goes to Apple for App Store review at version 1.0.0.": "아직은 아닙니다. Arcfin은 <a href=\"https://testflight.apple.com/join/kkC58n2w\">TestFlight</a>에서 공개 베타 중입니다. 버전 1.0.0에서 Apple의 App Store 심사를 받습니다.",
   "Install TestFlight from the App Store, open the invite on your iPhone, iPad, Mac or Apple TV, and new builds arrive automatically.": "App Store에서 TestFlight를 설치하고 iPhone, iPad, Mac 또는 Apple TV에서 초대를 열면 새 빌드가 자동으로 도착합니다.",
@@ -192,7 +192,7 @@
   "Contact": "연락처",
   "What do I need to use Arcfin?": "Arcfin을 쓰려면 무엇이 필요한가요?",
   "A <a href=\"https://jellyfin.org\">Jellyfin</a> server of your own, or an account on one that someone you trust runs, and a device running iOS 26, iPadOS 26, macOS 26 or tvOS 26.": "직접 운영하는 <a href=\"https://jellyfin.org\">Jellyfin</a> 서버나 믿을 수 있는 사람이 운영하는 서버의 계정, 그리고 iOS 26, iPadOS 26, macOS 26 또는 tvOS 26 기기가 필요합니다.",
-  "Arcfin doesn&rsquo;t provide or host any content. Everything it plays comes from your server.": "Arcfin은 콘텐츠를 제공하거나 호스팅하지 않습니다. 재생하는 모든 것은 내 서버에서 옵니다.",
+  "Arcfin doesn&rsquo;t provide, host or link to any content. Everything it plays comes from your server.": "Arcfin은 콘텐츠를 제공하거나 호스팅하거나 링크하지 않습니다. 재생하는 모든 것은 내 서버에서 옵니다.",
   "How do I install Arcfin?": "Arcfin은 어떻게 설치하나요?",
   "Arcfin is in public beta. Install <strong>TestFlight</strong> from the App Store, then open the <a href=\"https://testflight.apple.com/join/kkC58n2w\">Arcfin invite</a> on your iPhone, iPad, Mac or Apple TV. New builds install automatically once Apple approves them.": "Arcfin은 공개 베타 중입니다. App Store에서 <strong>TestFlight</strong>를 설치한 다음 iPhone, iPad, Mac 또는 Apple TV에서 <a href=\"https://testflight.apple.com/join/kkC58n2w\">Arcfin 초대</a>를 여세요. 새 빌드는 Apple이 승인하면 자동으로 설치됩니다.",
   "Arcfin goes to the App Store at version 1.0.0.": "Arcfin은 버전 1.0.0에서 App Store에 출시됩니다.",
@@ -437,5 +437,11 @@
   "Arcfin notices when a server stops accepting your sign-in and asks you to sign in again, and title pages update as soon as you stop watching.": "서버가 로그인을 더 이상 받지 않으면 Arcfin이 알아차리고 다시 로그인하도록 안내하며, 시청을 멈추면 작품 페이지가 바로 업데이트됩니다.",
   "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">모든 화면 보기</a>",
   "<strong>New look coming in 0.4.0.</strong> These screenshots show today&rsquo;s design.": "<strong>0.4.0에서 새로운 디자인을 만나 보세요.</strong> 이 스크린샷은 현재 디자인입니다.",
-  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0에서 새로운 디자인이 찾아옵니다.</strong> Arcfin이 더 따뜻한 코랄 디자인으로 바뀝니다. 이 스크린샷은 아직 현재 디자인이며, 0.4.0이 TestFlight에 올라오면 자동으로 업데이트됩니다."
+  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0에서 새로운 디자인이 찾아옵니다.</strong> Arcfin이 더 따뜻한 코랄 디자인으로 바뀝니다. 이 스크린샷은 아직 현재 디자인이며, 0.4.0이 TestFlight에 올라오면 자동으로 업데이트됩니다.",
+  "Disclaimer": "고지 사항",
+  "Your media, your server": "내 미디어, 내 서버",
+  "Arcfin is a player for media you own or have the right to watch. It doesn&rsquo;t provide, host or link to any content; everything it plays comes from a server you or someone you trust runs.": "Arcfin은 내가 소유했거나 볼 권리가 있는 미디어를 위한 플레이어입니다. 콘텐츠를 제공하거나 호스팅하거나 링크하지 않으며, 재생하는 모든 것은 나 또는 내가 신뢰하는 사람이 운영하는 서버에서 옵니다.",
+  "Arcfin does not promote, support or condone piracy. Discussion of piracy, requests for help with pirated content, and links to piracy tools or sites aren&rsquo;t allowed anywhere in the project, including issues, pull requests and support email, and will be closed or removed.": "Arcfin은 불법 복제를 조장하거나 지지하거나 용인하지 않습니다. 불법 복제에 관한 논의, 불법 복제 콘텐츠에 대한 도움 요청, 불법 복제 도구나 사이트로의 링크는 이슈, 풀 리퀘스트, 지원 이메일을 포함해 프로젝트 어디에서도 허용되지 않으며, 닫히거나 삭제됩니다.",
+  "No piracy": "불법 복제 금지",
+  "Arcfin is a player for media you own or have the right to watch. Discussion of piracy, requests for help with pirated content, and links to piracy tools or sites aren&rsquo;t allowed anywhere in the project, including issues, pull requests and support email, and will be closed or removed.": "Arcfin은 내가 소유했거나 볼 권리가 있는 미디어를 위한 플레이어입니다. 불법 복제에 관한 논의, 불법 복제 콘텐츠에 대한 도움 요청, 불법 복제 도구나 사이트로의 링크는 이슈, 풀 리퀘스트, 지원 이메일을 포함해 프로젝트 어디에서도 허용되지 않으며, 닫히거나 삭제됩니다."
 }
