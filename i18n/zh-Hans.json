@@ -132,7 +132,7 @@
   "Questions": "常见问题",
   "Good to know.": "值得了解。",
   "Do I need my own server?": "我需要自己的服务器吗？",
-  "Yes. Arcfin is a client for <a href=\"https://jellyfin.org\">Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide or host any content.": "需要。Arcfin 是 <a href=\"https://jellyfin.org\">Jellyfin</a> 的客户端，Jellyfin 是一个由你自己运行的免费媒体服务器。你需要自己的 Jellyfin 服务器，或在你信任的人运行的服务器上有账户。Arcfin 不提供也不托管任何内容。",
+  "Yes. Arcfin is a client for <a href=\"https://jellyfin.org\">Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide, host or link to any content.": "需要。Arcfin 是 <a href=\"https://jellyfin.org\">Jellyfin</a> 的客户端，Jellyfin 是一个由你自己运行的免费媒体服务器。你需要自己的 Jellyfin 服务器，或在你信任的人运行的服务器上有账户。Arcfin 不提供、不托管、也不链接任何内容。",
   "Is Arcfin on the App Store?": "Arcfin 上架 App Store 了吗？",
   "Not yet. Arcfin is in public beta on <a href=\"https://testflight.apple.com/join/kkC58n2w\">TestFlight</a>. It goes to Apple for App Store review at version 1.0.0.": "还没有。Arcfin 正在 <a href=\"https://testflight.apple.com/join/kkC58n2w\">TestFlight</a> 上公开测试，将在 1.0.0 版本提交 Apple 的 App Store 审核。",
   "Install TestFlight from the App Store, open the invite on your iPhone, iPad, Mac or Apple TV, and new builds arrive automatically.": "从 App Store 安装 TestFlight，在 iPhone、iPad、Mac 或 Apple TV 上打开邀请，新版本就会自动送达。",
@@ -192,7 +192,7 @@
   "Contact": "联系",
   "What do I need to use Arcfin?": "使用 Arcfin 需要什么？",
   "A <a href=\"https://jellyfin.org\">Jellyfin</a> server of your own, or an account on one that someone you trust runs, and a device running iOS 26, iPadOS 26, macOS 26 or tvOS 26.": "你自己的 <a href=\"https://jellyfin.org\">Jellyfin</a> 服务器，或在你信任的人运行的服务器上有账户，以及一台运行 iOS 26、iPadOS 26、macOS 26 或 tvOS 26 的设备。",
-  "Arcfin doesn&rsquo;t provide or host any content. Everything it plays comes from your server.": "Arcfin 不提供也不托管任何内容。它播放的一切都来自你的服务器。",
+  "Arcfin doesn&rsquo;t provide, host or link to any content. Everything it plays comes from your server.": "Arcfin 不提供、不托管、也不链接任何内容。它播放的一切都来自你的服务器。",
   "How do I install Arcfin?": "如何安装 Arcfin？",
   "Arcfin is in public beta. Install <strong>TestFlight</strong> from the App Store, then open the <a href=\"https://testflight.apple.com/join/kkC58n2w\">Arcfin invite</a> on your iPhone, iPad, Mac or Apple TV. New builds install automatically once Apple approves them.": "Arcfin 正在公开测试。从 App Store 安装 <strong>TestFlight</strong>，然后在 iPhone、iPad、Mac 或 Apple TV 上打开 <a href=\"https://testflight.apple.com/join/kkC58n2w\">Arcfin 邀请</a>。新版本在 Apple 批准后会自动安装。",
   "Arcfin goes to the App Store at version 1.0.0.": "Arcfin 将在 1.0.0 版本登陆 App Store。",
@@ -437,5 +437,11 @@
   "Arcfin notices when a server stops accepting your sign-in and asks you to sign in again, and title pages update as soon as you stop watching.": "当服务器不再接受你的登录时，Arcfin 会察觉并请你重新登录；停止观看后，作品页面会立即更新。",
   "<a href=\"/screenshots/\">See every screen</a>": "<a href=\"/screenshots/\">查看所有界面</a>",
   "<strong>New look coming in 0.4.0.</strong> These screenshots show today&rsquo;s design.": "<strong>0.4.0 将带来全新外观。</strong>这些截图展示的是当前设计。",
-  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0 将带来全新外观。</strong>Arcfin 将换上更温暖的珊瑚色设计。这些截图仍是当前设计，会在 0.4.0 登陆 TestFlight 后自动更新。"
+  "<strong>A new look is coming in 0.4.0.</strong> Arcfin is moving to a warmer coral design. These screenshots still show the current one and update by themselves when 0.4.0 reaches TestFlight.": "<strong>0.4.0 将带来全新外观。</strong>Arcfin 将换上更温暖的珊瑚色设计。这些截图仍是当前设计，会在 0.4.0 登陆 TestFlight 后自动更新。",
+  "Disclaimer": "免责声明",
+  "Your media, your server": "你的媒体，你的服务器",
+  "Arcfin is a player for media you own or have the right to watch. It doesn&rsquo;t provide, host or link to any content; everything it plays comes from a server you or someone you trust runs.": "Arcfin 是一款播放器，用于播放你拥有或有权观看的媒体。它不提供、不托管、也不链接任何内容；它播放的一切都来自你或你信任的人运行的服务器。",
+  "Arcfin does not promote, support or condone piracy. Discussion of piracy, requests for help with pirated content, and links to piracy tools or sites aren&rsquo;t allowed anywhere in the project, including issues, pull requests and support email, and will be closed or removed.": "Arcfin 不提倡、不支持也不纵容盗版。项目中的任何地方都不允许讨论盗版、请求盗版内容方面的帮助或发布盗版工具和网站的链接，包括 issue、拉取请求和支持邮件，相关内容会被关闭或删除。",
+  "No piracy": "禁止盗版",
+  "Arcfin is a player for media you own or have the right to watch. Discussion of piracy, requests for help with pirated content, and links to piracy tools or sites aren&rsquo;t allowed anywhere in the project, including issues, pull requests and support email, and will be closed or removed.": "Arcfin 是一款播放器，用于播放你拥有或有权观看的媒体。项目中的任何地方都不允许讨论盗版、请求盗版内容方面的帮助或发布盗版工具和网站的链接，包括 issue、拉取请求和支持邮件，相关内容会被关闭或删除。"
 }
