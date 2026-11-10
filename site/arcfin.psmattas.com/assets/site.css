@@ -240,19 +240,6 @@ p { margin: 0; }
 }
 .hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .hero-note { margin-top: 16px; color: var(--muted); font-size: 0.85rem; }
-.look-note {
-  position: relative; width: fit-content;
-  margin-top: 18px; padding: 10px 14px 10px 34px; border-radius: 12px;
-  background: var(--accent-subtle); color: var(--fg);
-  font-size: 0.88rem; line-height: 1.45; max-width: 40em;
-}
-.look-note::before {
-  content: ""; position: absolute; left: 14px; top: calc(10px + 0.42em);
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent); box-shadow: 0 0 0 4px var(--accent-subtle);
-}
-.look-note strong { color: var(--accent); }
-.page-hero p.look-note { margin-top: 18px; color: var(--fg); font-size: 0.95rem; }
 
 .platform-row { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px; }
 .platform-chip {
