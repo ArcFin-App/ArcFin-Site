@@ -18,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history, so the sitemap can date each page by its last commit.
+          fetch-depth: 0
 
       - name: Install rsync, SSH and Python
         run: |
