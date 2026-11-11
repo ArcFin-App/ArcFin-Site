@@ -17,6 +17,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 from html.parser import HTMLParser
 
@@ -44,6 +45,9 @@ LANGUAGES = [
 TRANSLATED = ["", "roadmap", "screenshots", "support", "contribute", "changelog", "404"]
 # Pages search engines shouldn't list.
 UNLISTED = {"404"}
+# Translated pages whose main text stays English (the release notes), so
+# search engines are pointed at the English page instead of near-copies.
+ENGLISH_CANONICAL = {"changelog"}
 ENGLISH_ONLY = ["privacy", "terms", "data-protection"]
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -265,7 +269,7 @@ def language_menu(current_code, slug, strings):
 
 
 def hreflang(slug):
-    if slug not in TRANSLATED or slug in UNLISTED:
+    if slug not in TRANSLATED or slug in UNLISTED or slug in ENGLISH_CANONICAL:
         return ""
     links = [f'<link rel="alternate" hreflang="{code}" href="{ORIGIN}{url(folder, slug)}">' for code, folder, _ in LANGUAGES]
     links.append(f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}{url("", slug)}">')
@@ -329,7 +333,7 @@ def translate_page(source, code, folder, strings, missing, slug):
                 node.set_attr("lang", code)
             if node.tag == "a" and node.attr("href"):
                 node.set_attr("href", localize_href(node.attr("href"), folder))
-            if node.tag == "link" and node.attr("rel") == "canonical":
+            if node.tag == "link" and node.attr("rel") == "canonical" and slug not in ENGLISH_CANONICAL:
                 node.set_attr("href", ORIGIN + localize_href(node.attr("href")[len(ORIGIN):], folder))
             if node.tag == "meta" and node.attr("property") == "og:url":
                 node.set_attr("content", ORIGIN + localize_href(node.attr("content")[len(ORIGIN):], folder))
@@ -368,17 +372,32 @@ def source_keys():
     return list(dict.fromkeys(k for k in keys if re.search(r"[A-Za-z]", k)))
 
 
+def last_changed(*paths):
+    """Date of the newest commit touching any of the paths, or None outside git."""
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", *paths], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return out or None
+
+
 def sitemap():
     entries = []
     for slug in TRANSLATED + ENGLISH_ONLY:
         if slug in UNLISTED:
             continue
-        variants = LANGUAGES if slug in TRANSLATED else LANGUAGES[:1]
+        listed = slug in TRANSLATED and slug not in ENGLISH_CANONICAL
+        variants = LANGUAGES if listed else LANGUAGES[:1]
         alternates = "".join(
             f'\n    <xhtml:link rel="alternate" hreflang="{code}" href="{ORIGIN}{url(folder, slug)}"/>'
             for code, folder, _ in variants) if len(variants) > 1 else ""
-        for _, folder, _ in variants:
-            entries.append(f"  <url>\n    <loc>{ORIGIN}{url(folder, slug)}</loc>{alternates}\n  </url>")
+        source = os.path.join(SITE, page_path(slug))
+        for code, folder, _ in variants:
+            sources = [source] + ([os.path.join(I18N, f"{code}.json")] if folder else [])
+            date = last_changed(*sources)
+            lastmod = f"\n    <lastmod>{date}</lastmod>" if date else ""
+            entries.append(f"  <url>\n    <loc>{ORIGIN}{url(folder, slug)}</loc>{lastmod}{alternates}\n  </url>")
     write(os.path.join(SITE, "sitemap.xml"),
           '<?xml version="1.0" encoding="UTF-8"?>\n'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'

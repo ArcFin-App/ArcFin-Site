@@ -313,6 +313,10 @@ def main():
         notes = changelog(releases, translator(lang))
         rewrite(path, lambda text: marker.sub(lambda m: m.group(1) + "\n" + notes + "\n" + m.group(2), text))
 
+    newest = max(r["date"] for r in releases).strftime("%Y-%m-%d")
+    entry = re.compile(r"(<loc>[^<]*/changelog/</loc>\s*<lastmod>)[^<]*(</lastmod>)")
+    rewrite(os.path.join(SITE, "sitemap.xml"), lambda text: entry.sub(lambda m: m.group(1) + newest + m.group(2), text))
+
 
 if __name__ == "__main__":
     main()
