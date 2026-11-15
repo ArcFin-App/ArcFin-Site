@@ -360,6 +360,7 @@ p { margin: 0; }
 /* Card grid */
 
 .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.grid > .card.wide { grid-column: 1 / -1; }
 .card {
   position: relative;
   background: var(--bg-2); border: 1px solid var(--hairline);
@@ -544,6 +545,7 @@ p { margin: 0; }
 .prose strong { color: var(--fg); font-weight: 600; }
 .prose ul, .prose ol { padding-left: 22px; margin: 14px 0 0; }
 .prose li + li { margin-top: 8px; }
+.prose ul + p, .prose ol + p { margin-top: 14px; }
 .prose code {
   font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
   background: var(--bg-3); padding: 2px 6px; border-radius: 6px; color: var(--fg);
@@ -573,7 +575,7 @@ p { margin: 0; }
 
 .contact-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .contact-grid .card a.big { display: inline-block; margin-top: 14px; font-weight: 600; word-break: break-word; }
-.contact-grid .card .links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.contact-grid .card .links, .grid > .card .links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* Reveal */
 
@@ -613,7 +615,13 @@ p { margin: 0; }
 .changelog:has(#cl-tv:checked) .cl-notes:not(.tv),
 .changelog:has(#cl-ios:checked) .cl-build:not(:has(.ios)),
 .changelog:has(#cl-mac:checked) .cl-build:not(:has(.mac)),
-.changelog:has(#cl-tv:checked) .cl-build:not(:has(.tv)) { display: none; }
+.changelog:has(#cl-tv:checked) .cl-build:not(:has(.tv)),
+.changelog:has(#cl-plugin:checked) .cl-notes:not(.plugin),
+.changelog:has(#cl-plugin:checked) .cl-version:not(.cl-plugin-version),
+.changelog:has(#cl-plugin:checked) .cl-jump .cl-app,
+.changelog:not(:has(#cl-plugin:checked)) .cl-plugin-version,
+.changelog:not(:has(#cl-plugin:checked)) .cl-jump .cl-plugin { display: none; }
+.cl-plugin-version + .cl-plugin-version { margin-top: 40px; }
 
 .cl-version { scroll-margin-top: 88px; }
 .cl-version + .cl-version { margin-top: 72px; }
@@ -675,6 +683,10 @@ p { margin: 0; }
   }
   .cl-filter label { text-align: center; border-radius: 999px; padding: 8px 10px; white-space: nowrap; }
   .cl-jump { display: none; }
+}
+@media (max-width: 480px) {
+  .cl-filter { grid-auto-columns: auto; }
+  .cl-filter label { padding: 8px 8px; font-size: 0.82rem; }
 }
 
 /* Appearance switch */

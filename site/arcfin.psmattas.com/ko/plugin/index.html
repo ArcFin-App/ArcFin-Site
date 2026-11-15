@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arcfin Sync 플러그인 · Arcfin</title>
+  <meta name="description" content="Arcfin Sync는 Arcfin용 선택 사항 Jellyfin 서버 플러그인입니다: 기기 간에 따라오는 설정, 관리자가 관리하는 설정, 더 똑똑한 다운로드.">
+  <link rel="canonical" href="https://arcfin.psmattas.com/ko/plugin/">
+  <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Arcfin Sync 플러그인 · Arcfin">
+  <meta property="og:description" content="Arcfin Sync는 Arcfin용 선택 사항 Jellyfin 서버 플러그인입니다: 기기 간에 따라오는 설정, 관리자가 관리하는 설정, 더 똑똑한 다운로드.">
+  <meta property="og:url" content="https://arcfin.psmattas.com/ko/plugin/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/early.js"></script>
+  <script src="/assets/site.js" defer></script>
+<!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/plugin/">
+  <link rel="alternate" hreflang="de" href="https://arcfin.psmattas.com/de/plugin/">
+  <link rel="alternate" hreflang="es" href="https://arcfin.psmattas.com/es/plugin/">
+  <link rel="alternate" hreflang="fr" href="https://arcfin.psmattas.com/fr/plugin/">
+  <link rel="alternate" hreflang="it" href="https://arcfin.psmattas.com/it/plugin/">
+  <link rel="alternate" hreflang="nl" href="https://arcfin.psmattas.com/nl/plugin/">
+  <link rel="alternate" hreflang="pt-BR" href="https://arcfin.psmattas.com/pt-br/plugin/">
+  <link rel="alternate" hreflang="ru" href="https://arcfin.psmattas.com/ru/plugin/">
+  <link rel="alternate" hreflang="ja" href="https://arcfin.psmattas.com/ja/plugin/">
+  <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/plugin/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/plugin/">
+  <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/plugin/">
+  <!-- /hreflang --><!-- faq-schema --><!-- /faq-schema --></head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/ko/" aria-label="Arcfin 홈"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="주 메뉴"><a href="/ko/#features">기능</a><a href="/ko/#platforms">플랫폼</a><a href="/ko/#privacy">개인정보</a><a href="/ko/screenshots/">스크린샷</a><a href="/ko/roadmap/">로드맵</a><a href="/ko/changelog/">변경 사항</a><a href="/ko/contribute/">참여하기</a><a href="/ko/support/">지원</a></nav>
+    <!-- languages --><details class="lang-menu"><summary aria-label="언어"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></summary><div class="lang-sheet" role="list"><a href="/plugin/" hreflang="en" lang="en" data-lang="en">English</a><a href="/de/plugin/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/es/plugin/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/fr/plugin/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/plugin/" hreflang="it" lang="it" data-lang="it">Italiano</a><a href="/nl/plugin/" hreflang="nl" lang="nl" data-lang="nl">Nederlands</a><a href="/pt-br/plugin/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR">Português (Brasil)</a><a href="/ru/plugin/" hreflang="ru" lang="ru" data-lang="ru">Русский</a><a href="/ja/plugin/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/ko/plugin/" hreflang="ko" lang="ko" data-lang="ko" aria-current="true">한국어</a><a href="/zh-hans/plugin/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简体中文</a></div></details><!-- /languages --><details class="theme-menu"><summary aria-label="화면 모드"><svg class="i-system" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><svg class="i-light" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-dark" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></summary><div class="theme-sheet" role="radiogroup" aria-label="화면 모드"><button type="button" role="radio" aria-checked="true" data-theme-choice="system"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>시스템</button><button type="button" role="radio" aria-checked="false" data-theme-choice="light"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>라이트</button><button type="button" role="radio" aria-checked="false" data-theme-choice="dark"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>다크</button></div></details>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">베타 참여</a>
+    <details class="nav-menu">
+      <summary aria-label="메뉴"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary>
+      <nav class="nav-sheet" aria-label="주 메뉴"><a href="/ko/#features">기능</a><a href="/ko/#platforms">플랫폼</a><a href="/ko/#privacy">개인정보</a><a href="/ko/screenshots/">스크린샷</a><a href="/ko/roadmap/">로드맵</a><a href="/ko/changelog/">변경 사항</a><a href="/ko/contribute/">참여하기</a><a href="/ko/support/">지원</a><a href="https://testflight.apple.com/join/kkC58n2w">베타 참여</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow">서버 플러그인</span>
+  <h1>Arcfin Sync</h1>
+  <p>Jellyfin 서버용 선택 사항 플러그인입니다. Arcfin은 플러그인 없이도 잘 작동합니다. 설치하면 설정이 기기 간에 따라오고, 관리자가 모두의 설정을 관리할 수 있으며, 다운로드가 더 작아집니다.</p>
+  <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">설치하기</a><a class="btn btn-secondary btn-small" href="/ko/changelog/">변경 사항</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">소스 코드</a></div>
+  <p class="hero-note">최신 버전 <span data-version="plugin">0.3.0</span> &middot; AGPL-3.0 라이선스의 무료 오픈 소스</p>
+</div></section>
+
+<div class="wrap doc">
+<nav class="doc-toc" aria-label="이 페이지에서"><p class="doc-toc-title">이 페이지에서</p></nav>
+<article class="prose">
+    <h2 id="features">추가되는 기능</h2>
+    <ul>
+      <li><strong>나를 따라오는 설정.</strong> iPhone에서 설정을 바꾸면 iPad, Mac, Apple TV에도 그대로 적용됩니다. Mac 창 옵션이나 Apple TV 포커스 옵션처럼 한 종류의 기기에서만 의미 있는 설정은 그 종류의 기기에만 남습니다.</li>
+      <li><strong>관리자가 관리하는 설정.</strong> 관리자는 Jellyfin 대시보드에서 서버의 모든 사용자에 대해 설정을 잠그거나, 사용자가 나중에 바꿀 수 있는 초깃값을 넣을 수 있습니다. 잠긴 설정은 앱에서 잠김으로 표시되며 앱에서 바꿀 수 없습니다.</li>
+      <li><strong>더 작은 다운로드.</strong> 플러그인은 서버의 그래픽 카드가 실제로 쓸 수 있는 비디오 인코더를 테스트합니다. AV1 인코딩이 가능하면 Arcfin은 낮은 화질의 다운로드를 AV1으로 변환하는데, 같은 화질에서 H.264의 약 절반 크기입니다. 관리자는 앱의 관리 &rsaquo; 하드웨어 인코더에서 결과를 볼 수 있습니다.</li>
+      <li><strong>변환된 다운로드에 모든 오디오 트랙을.</strong> Jellyfin은 다운로드를 변환할 때 오디오 트랙을 하나만 남깁니다. 플러그인은 선택한 추가 트랙을 하나하나 Arcfin에 넘겨 주므로, 더 작은 다운로드에도 여러 언어를 남길 수 있습니다.</li>
+    </ul>
+
+    <h2 id="compare">플러그인 사용 여부 비교</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>기능</th><th>플러그인 없이</th><th>Arcfin Sync 사용 시</th></tr></thead>
+      <tbody>
+        <tr><td>재생, 둘러보기, 다운로드</td><td>모두 작동</td><td>모두 작동</td></tr>
+        <tr><td>앱 설정</td><td>기기마다 따로 보관</td><td>사용자별로 모든 기기 간에 동기화</td></tr>
+        <tr><td>관리자의 설정 관리</td><td>모든 사용자가 모든 설정을 변경 가능</td><td>관리자가 어떤 설정이든 모두에게 잠그거나 초깃값을 지정</td></tr>
+        <tr><td>변환된 다운로드</td><td>서버가 허용하면 HEVC, 아니면 H.264</td><td>서버 하드웨어가 실제로 인코딩할 수 있으면 AV1도</td></tr>
+        <tr><td>변환된 다운로드의 추가 오디오 트랙</td><td>Jellyfin에서 가져오며, 선택한 트랙 대신 기본 트랙이 올 수 있음</td><td>선택한 트랙마다 서버가 추출 (버전 0.3.1 이상)</td></tr>
+        <tr><td>관리자용 하드웨어 인코더 보고서</td><td>사용할 수 없음</td><td>관리 &rsaquo; 하드웨어 인코더에서 서버 하드웨어가 인코딩할 수 있는 형식을 표시</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="install">설치하기</h2>
+    <p>버전 12.1 이상을 실행하는 Jellyfin 서버의 관리자여야 합니다. 단계는 어떤 브라우저에서나 같습니다.</p>
+    <ol>
+      <li><strong>플러그인 저장소를 추가합니다.</strong> Jellyfin에서 <strong>Dashboard &rsaquo; Plugins &rsaquo; Repositories</strong>를 열고 새 저장소를 추가합니다. 이름은 <strong>Arcfin</strong>으로 하고 이 URL을 붙여 넣으세요:<br><code>https://git.psmattas.com/ArcFin/Arcfin-Sync/media/branch/main/manifest.json</code></li>
+      <li><strong>Jellyfin을 재시작합니다.</strong> 대시보드에서 <strong>Restart</strong>를 사용하거나 서버 또는 컨테이너를 재시작하세요. Jellyfin은 시작할 때 새 저장소를 읽습니다.</li>
+      <li><strong>플러그인을 설치합니다.</strong> <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>를 열고 <strong>Arcfin Sync</strong>를 찾아 <strong>Install</strong>을 선택하세요.</li>
+      <li><strong>Jellyfin을 한 번 더 재시작합니다.</strong> 플러그인은 서버가 시작할 때 로드됩니다. 그러면 Arcfin Sync가 <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong>에 <strong>Active</strong>로 표시됩니다.</li>
+      <li><strong>설정합니다.</strong> 이제 Arcfin Sync는 대시보드에 자체 페이지가 있습니다(아래 참고). 그런 다음 Arcfin을 열고 <strong>설정 &rsaquo; 서버 &rsaquo; Arcfin Sync</strong>로 가면 플러그인 버전과 함께 <strong>연결됨</strong>이 표시됩니다.</li>
+    </ol>
+    <p>업데이트는 같은 저장소를 통해 받습니다. 새 버전이 나오면 Jellyfin이 <strong>My Plugins</strong>에서 알려 주니, 설치하고 재시작하세요.</p>
+
+    <h2 id="configure">설정하기</h2>
+    <p>대시보드 메뉴나 <strong>My Plugins</strong>에서 <strong>Arcfin Sync</strong>를 엽니다. 페이지는 세 개입니다:</p>
+    <ul>
+      <li><strong>General:</strong> 이후 버전을 위한 알림 옵션입니다. 아직 여기서 Arcfin의 작동 방식이 바뀌지는 않습니다.</li>
+      <li><strong>Client Settings:</strong> 앱의 설정과 같은 구성입니다. 설정마다 아무도 바꿀 수 없게 잠그거나 초깃값을 지정하세요. 변경 사항은 다음에 Arcfin이 동기화할 때 각 사용자에게 적용됩니다.</li>
+      <li><strong>Advanced:</strong> 같은 항목을 YAML로 다룹니다. 텍스트로 설정하는 쪽을 선호하는 관리자를 위한 페이지입니다.</li>
+    </ul>
+    <p>사용자는 아무것도 할 필요가 없습니다. Arcfin이 플러그인을 알아서 찾고, 열릴 때 동기화하며, <strong>설정 &rsaquo; 서버 &rsaquo; Arcfin Sync</strong>의 <strong>지금 동기화</strong>로 바로 동기화할 수도 있습니다.</p>
+
+    <h2 id="privacy">개인정보</h2>
+    <p>플러그인은 여러분의 Jellyfin 서버에서 실행됩니다. 동기화된 설정은 그곳에만 저장되며, 중간에 Arcfin 서버는 여전히 없습니다. 무엇이 보관되는지는 <a href="/privacy/">개인정보 처리방침</a>에서 확인하세요.</p>
+
+    <h2 id="changes">변경 사항</h2>
+    <p>플러그인의 모든 릴리스는 <a href="/ko/changelog/">변경 사항</a>의 <strong>플러그인</strong>에 있습니다. 새 버전이 공개되면 자동으로 업데이트됩니다.</p>
+    <p>플러그인에 문제가 있나요? 앱 저장소에서 <a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">이슈를 만들고</a> Arcfin Sync와 그 버전을 적어 주세요.</p>
+  </article>
+</div>
+
+<p class="mt-note wrap">영어에서 자동 번역되었습니다. <a href="/ko/contribute/#translate">번역 개선에 참여해 주세요</a>.</p>
+</main>
+<div class="cookie-notice" role="region" aria-label="쿠키" hidden>
+  <p><strong>쿠키</strong> 이 사이트는 Cloudflare의 보안 쿠키와 브라우저에 저장되는 테마·언어 설정만 사용합니다. 방문 수는 Cloudflare Web Analytics로 세는데, 쿠키를 쓰지 않고 다른 사이트에서 추적하지도 않습니다. 광고는 없습니다.</p>
+  <div class="cookie-actions"><a href="/privacy/#website">자세히 알아보기</a><button type="button" class="btn btn-primary btn-small" data-cookie-ok>확인</button></div>
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/ko/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>iPhone, iPad, Mac, Apple TV를 위한 오픈 소스 Jellyfin 클라이언트. 한 명의 개발자와 늘어나는 테스터, 기여자가 공개적으로 만들고 있습니다.</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/ko/#features">기능</a></li>
+          <li><a href="/ko/#platforms">플랫폼</a></li>
+          <li><a href="/ko/screenshots/">스크린샷</a></li>
+          <li><a href="/ko/roadmap/">로드맵</a></li>
+          <li><a href="/ko/changelog/">변경 사항</a></li>
+          <li><a href="/ko/plugin/">서버 플러그인</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">TestFlight 베타</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>도움말</h4>
+        <ul>
+          <li><a href="/ko/support/">지원 및 자주 묻는 질문</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">문제 보고</a></li>
+          <li><a href="/ko/contribute/">참여하기</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">소스 코드</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>법률 정보</h4>
+        <ul>
+          <li><a href="/privacy/">개인정보 처리방침(영어)</a></li>
+          <li><a href="/terms/">이용 약관(영어)</a></li>
+          <li><a href="/data-protection/">데이터 보호(영어)</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">라이선스(AGPL-3.0)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas. Arcfin 이름과 로고는 상표이며 코드 라이선스의 적용을 받지 않습니다.</span>
+      <span>Arcfin은 Jellyfin 프로젝트와 제휴하거나 보증받지 않았습니다.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

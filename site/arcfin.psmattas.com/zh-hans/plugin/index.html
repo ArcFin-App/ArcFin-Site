@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arcfin Sync 插件 · Arcfin</title>
+  <meta name="description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，管理员可以管理设置，下载也更聪明。">
+  <link rel="canonical" href="https://arcfin.psmattas.com/zh-hans/plugin/">
+  <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Arcfin Sync 插件 · Arcfin">
+  <meta property="og:description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，管理员可以管理设置，下载也更聪明。">
+  <meta property="og:url" content="https://arcfin.psmattas.com/zh-hans/plugin/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/early.js"></script>
+  <script src="/assets/site.js" defer></script>
+<!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/plugin/">
+  <link rel="alternate" hreflang="de" href="https://arcfin.psmattas.com/de/plugin/">
+  <link rel="alternate" hreflang="es" href="https://arcfin.psmattas.com/es/plugin/">
+  <link rel="alternate" hreflang="fr" href="https://arcfin.psmattas.com/fr/plugin/">
+  <link rel="alternate" hreflang="it" href="https://arcfin.psmattas.com/it/plugin/">
+  <link rel="alternate" hreflang="nl" href="https://arcfin.psmattas.com/nl/plugin/">
+  <link rel="alternate" hreflang="pt-BR" href="https://arcfin.psmattas.com/pt-br/plugin/">
+  <link rel="alternate" hreflang="ru" href="https://arcfin.psmattas.com/ru/plugin/">
+  <link rel="alternate" hreflang="ja" href="https://arcfin.psmattas.com/ja/plugin/">
+  <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/plugin/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/plugin/">
+  <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/plugin/">
+  <!-- /hreflang --><!-- faq-schema --><!-- /faq-schema --></head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/zh-hans/" aria-label="Arcfin 首页"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="主菜单"><a href="/zh-hans/#features">功能</a><a href="/zh-hans/#platforms">平台</a><a href="/zh-hans/#privacy">隐私</a><a href="/zh-hans/screenshots/">截图</a><a href="/zh-hans/roadmap/">路线图</a><a href="/zh-hans/changelog/">更新日志</a><a href="/zh-hans/contribute/">参与贡献</a><a href="/zh-hans/support/">支持</a></nav>
+    <!-- languages --><details class="lang-menu"><summary aria-label="语言"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></summary><div class="lang-sheet" role="list"><a href="/plugin/" hreflang="en" lang="en" data-lang="en">English</a><a href="/de/plugin/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/es/plugin/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/fr/plugin/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/plugin/" hreflang="it" lang="it" data-lang="it">Italiano</a><a href="/nl/plugin/" hreflang="nl" lang="nl" data-lang="nl">Nederlands</a><a href="/pt-br/plugin/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR">Português (Brasil)</a><a href="/ru/plugin/" hreflang="ru" lang="ru" data-lang="ru">Русский</a><a href="/ja/plugin/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/ko/plugin/" hreflang="ko" lang="ko" data-lang="ko">한국어</a><a href="/zh-hans/plugin/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans" aria-current="true">简体中文</a></div></details><!-- /languages --><details class="theme-menu"><summary aria-label="外观"><svg class="i-system" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><svg class="i-light" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-dark" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></summary><div class="theme-sheet" role="radiogroup" aria-label="外观"><button type="button" role="radio" aria-checked="true" data-theme-choice="system"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>跟随系统</button><button type="button" role="radio" aria-checked="false" data-theme-choice="light"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>浅色</button><button type="button" role="radio" aria-checked="false" data-theme-choice="dark"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>深色</button></div></details>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">加入测试</a>
+    <details class="nav-menu">
+      <summary aria-label="菜单"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary>
+      <nav class="nav-sheet" aria-label="主菜单"><a href="/zh-hans/#features">功能</a><a href="/zh-hans/#platforms">平台</a><a href="/zh-hans/#privacy">隐私</a><a href="/zh-hans/screenshots/">截图</a><a href="/zh-hans/roadmap/">路线图</a><a href="/zh-hans/changelog/">更新日志</a><a href="/zh-hans/contribute/">参与贡献</a><a href="/zh-hans/support/">支持</a><a href="https://testflight.apple.com/join/kkC58n2w">加入测试</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow">服务器插件</span>
+  <h1>Arcfin Sync</h1>
+  <p>一款适用于你的 Jellyfin 服务器的可选插件。没有它，Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，管理员可以为所有人管理设置，下载也会更小。</p>
+  <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">安装</a><a class="btn btn-secondary btn-small" href="/zh-hans/changelog/">更新日志</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">源代码</a></div>
+  <p class="hero-note">最新版本 <span data-version="plugin">0.3.0</span> &middot; 免费开源，采用 AGPL-3.0 许可</p>
+</div></section>
+
+<div class="wrap doc">
+<nav class="doc-toc" aria-label="本页内容"><p class="doc-toc-title">本页内容</p></nav>
+<article class="prose">
+    <h2 id="features">它带来了什么</h2>
+    <ul>
+      <li><strong>设置跟着你走。</strong>在 iPhone 上改一项设置，iPad、Mac 和 Apple TV 上也会同步改好。只对某类设备有意义的设置，比如 Mac 的窗口选项或 Apple TV 的焦点选项，只留在这类设备上。</li>
+      <li><strong>由管理员管理的设置。</strong>管理员可以在 Jellyfin 控制台中为服务器上的所有人锁定某项设置，或者填入一个初始值，每位用户仍可自行修改。被锁定的设置在 App 中显示为已锁定，无法在 App 中更改。</li>
+      <li><strong>更小的下载。</strong>插件会测试你的服务器显卡真正能用哪些视频编码器。如果它能编码 AV1，Arcfin 会把较低画质的下载转换为 AV1，同样画面下体积约为 H.264 的一半。管理员可以在 App 的“管理 &rsaquo; 硬件编码器”中查看结果。</li>
+      <li><strong>转换后的下载保留所有音轨。</strong>Jellyfin 转换下载时只保留一条音轨。插件会把你选择的每条额外音轨交给 Arcfin，这样更小的下载也能保留多种语言。</li>
+    </ul>
+
+    <h2 id="compare">有无插件对比</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>功能</th><th>不装插件</th><th>装上 Arcfin Sync</th></tr></thead>
+      <tbody>
+        <tr><td>播放、浏览和下载</td><td>全部可用</td><td>全部可用</td></tr>
+        <tr><td>App 设置</td><td>每台设备各自保存</td><td>按用户在你的所有设备间同步</td></tr>
+        <tr><td>管理员管理设置</td><td>每位用户都可以更改所有设置</td><td>管理员可为所有人锁定任意设置，或为其设置初始值</td></tr>
+        <tr><td>转换后的下载</td><td>服务器允许时使用 HEVC，否则使用 H.264</td><td>服务器硬件真正能编码时，也可以使用 AV1</td></tr>
+        <tr><td>转换后下载中的额外音轨</td><td>从 Jellyfin 获取，可能会收到默认音轨而不是你选的那条</td><td>你选的每条音轨都由服务器单独提取（0.3.1 及更高版本）</td></tr>
+        <tr><td>面向管理员的硬件编码器报告</td><td>不可用</td><td>“管理 &rsaquo; 硬件编码器”显示服务器硬件能编码哪些格式</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="install">安装方法</h2>
+    <p>你需要是运行 12.1 或更高版本的 Jellyfin 服务器的管理员。在任何浏览器中步骤都相同。</p>
+    <ol>
+      <li><strong>添加插件存储库。</strong>在 Jellyfin 中打开 <strong>Dashboard &rsaquo; Plugins &rsaquo; Repositories</strong>，添加一个新的存储库。将其命名为 <strong>Arcfin</strong>，并粘贴以下 URL：<br><code>https://git.psmattas.com/ArcFin/Arcfin-Sync/media/branch/main/manifest.json</code></li>
+      <li><strong>重启 Jellyfin。</strong>在控制台中使用 <strong>Restart</strong>，或者重启服务器或其容器。Jellyfin 会在启动时读取新的存储库。</li>
+      <li><strong>安装插件。</strong>打开 <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>，找到 <strong>Arcfin Sync</strong>，然后选择 <strong>Install</strong>。</li>
+      <li><strong>再次重启 Jellyfin。</strong>插件会在服务器启动时加载。之后，Arcfin Sync 会在 <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong> 中显示为 <strong>Active</strong>。</li>
+      <li><strong>进行设置。</strong>Arcfin Sync 现在在控制台中有了自己的页面（见下文）。然后打开 Arcfin，前往<strong>“设置 &rsaquo; 服务器 &rsaquo; Arcfin Sync”</strong>：这里会显示<strong>“已连接”</strong>以及插件的版本。</li>
+    </ol>
+    <p>更新也通过同一个存储库提供。有新版本时，Jellyfin 会在 <strong>My Plugins</strong> 中提示；安装后重启即可。</p>
+
+    <h2 id="configure">设置方法</h2>
+    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它有三个页面：</p>
+    <ul>
+      <li><strong>General：</strong>为以后版本准备的通知选项。目前这里的内容还不会改变 Arcfin 的工作方式。</li>
+      <li><strong>Client Settings：</strong>App 自己的设置，布局完全相同。每项设置都可以锁定，让任何人都无法更改，或者为其设置初始值。更改会在 Arcfin 下次同步时送达每位用户。</li>
+      <li><strong>Advanced：</strong>以 YAML 形式提供相同的选项，适合喜欢用文本配置的管理员。</li>
+    </ul>
+    <p>用户无需做任何事。Arcfin 会自动找到插件，在打开时同步；在<strong>“设置 &rsaquo; 服务器 &rsaquo; Arcfin Sync”</strong>中点按<strong>“立即同步”</strong>可马上同步。</p>
+
+    <h2 id="privacy">隐私</h2>
+    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置只保存在那里，不会存到其他地方；中间依然没有任何 Arcfin 服务器。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
+
+    <h2 id="changes">有哪些变化</h2>
+    <p>插件的每个版本都列在<a href="/zh-hans/changelog/">更新日志</a>的<strong>插件</strong>下。有新版本发布时会自动更新。</p>
+    <p>插件有问题？请在 App 的存储库中<a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">提交一个 Issue</a>，并注明 Arcfin Sync 及其版本。</p>
+  </article>
+</div>
+
+<p class="mt-note wrap">由英文自动翻译。<a href="/zh-hans/contribute/#translate">帮助改进这份翻译</a>。</p>
+</main>
+<div class="cookie-notice" role="region" aria-label="Cookie" hidden>
+  <p><strong>Cookie</strong> 本网站只使用 Cloudflare 的安全 Cookie，以及保存在你浏览器中的主题和语言设置。网站用 Cloudflare Web Analytics 统计访问量，它不使用 Cookie，也不会在网络上跟踪你。没有广告。</p>
+  <div class="cookie-actions"><a href="/privacy/#website">了解更多</a><button type="button" class="btn btn-primary btn-small" data-cookie-ok>好</button></div>
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/zh-hans/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>适用于 iPhone、iPad、Mac 和 Apple TV 的开源 Jellyfin 客户端，由一名开发者和越来越多的测试者、贡献者公开打造。</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/zh-hans/#features">功能</a></li>
+          <li><a href="/zh-hans/#platforms">平台</a></li>
+          <li><a href="/zh-hans/screenshots/">截图</a></li>
+          <li><a href="/zh-hans/roadmap/">路线图</a></li>
+          <li><a href="/zh-hans/changelog/">更新日志</a></li>
+          <li><a href="/zh-hans/plugin/">服务器插件</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">TestFlight 测试</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助</h4>
+        <ul>
+          <li><a href="/zh-hans/support/">支持与常见问题</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">报告问题</a></li>
+          <li><a href="/zh-hans/contribute/">参与贡献</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">源代码</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>法律信息</h4>
+        <ul>
+          <li><a href="/privacy/">隐私政策（英文）</a></li>
+          <li><a href="/terms/">使用条款（英文）</a></li>
+          <li><a href="/data-protection/">数据保护（英文）</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">许可证（AGPL-3.0）</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas。Arcfin 名称和标志是商标，不在代码许可证的范围内。</span>
+      <span>Arcfin 与 Jellyfin 项目没有关联，也未获其认可。</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

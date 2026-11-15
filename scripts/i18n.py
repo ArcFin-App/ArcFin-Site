@@ -42,7 +42,7 @@ LANGUAGES = [
 ]
 # Pages that exist in every language. The legal pages stay English only,
 # because the English text is the binding one.
-TRANSLATED = ["", "roadmap", "screenshots", "support", "contribute", "changelog", "404"]
+TRANSLATED = ["", "plugin", "roadmap", "screenshots", "support", "contribute", "changelog", "404"]
 # Pages search engines shouldn't list.
 UNLISTED = {"404"}
 # Translated pages whose main text stays English (the release notes), so
@@ -67,7 +67,7 @@ RELEASES_NOTE = "Release notes are written in English."
 # scripts/releases.py (changelog labels) and the language menu.
 EXTRA = ["Language", NOTE, RELEASES_NOTE, "Build {n}", "Latest", "Release notes", "Code changes",
          "Release PR {pr}", "Versions", "Platform", "iPhone & iPad", "New", "Improved", "Fixed",
-         "Removed", "Under the hood"]
+         "Removed", "Under the hood", "Plugin", "Server plugin"]
 OPAQUE = {"script", "style", "svg"}
 ATTRS = {"alt", "aria-label", "title", "placeholder"}
 META = {"description", "og:title", "og:description", "twitter:title", "twitter:description"}

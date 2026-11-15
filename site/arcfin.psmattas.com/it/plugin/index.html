@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Plugin Arcfin Sync · Arcfin</title>
+  <meta name="description" content="Arcfin Sync è un plugin server Jellyfin facoltativo per Arcfin: impostazioni che ti seguono tra i dispositivi, impostazioni gestite dall’amministratore e download più intelligenti.">
+  <link rel="canonical" href="https://arcfin.psmattas.com/it/plugin/">
+  <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arcfin">
+  <meta property="og:title" content="Plugin Arcfin Sync · Arcfin">
+  <meta property="og:description" content="Arcfin Sync è un plugin server Jellyfin facoltativo per Arcfin: impostazioni che ti seguono tra i dispositivi, impostazioni gestite dall’amministratore e download più intelligenti.">
+  <meta property="og:url" content="https://arcfin.psmattas.com/it/plugin/">
+  <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/early.js"></script>
+  <script src="/assets/site.js" defer></script>
+<!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/plugin/">
+  <link rel="alternate" hreflang="de" href="https://arcfin.psmattas.com/de/plugin/">
+  <link rel="alternate" hreflang="es" href="https://arcfin.psmattas.com/es/plugin/">
+  <link rel="alternate" hreflang="fr" href="https://arcfin.psmattas.com/fr/plugin/">
+  <link rel="alternate" hreflang="it" href="https://arcfin.psmattas.com/it/plugin/">
+  <link rel="alternate" hreflang="nl" href="https://arcfin.psmattas.com/nl/plugin/">
+  <link rel="alternate" hreflang="pt-BR" href="https://arcfin.psmattas.com/pt-br/plugin/">
+  <link rel="alternate" hreflang="ru" href="https://arcfin.psmattas.com/ru/plugin/">
+  <link rel="alternate" hreflang="ja" href="https://arcfin.psmattas.com/ja/plugin/">
+  <link rel="alternate" hreflang="ko" href="https://arcfin.psmattas.com/ko/plugin/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/plugin/">
+  <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/plugin/">
+  <!-- /hreflang --><!-- faq-schema --><!-- /faq-schema --></head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/it/" aria-label="Home di Arcfin"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+    <nav class="nav" aria-label="Principale"><a href="/it/#features">Funzioni</a><a href="/it/#platforms">Piattaforme</a><a href="/it/#privacy">Privacy</a><a href="/it/screenshots/">Screenshot</a><a href="/it/roadmap/">Roadmap</a><a href="/it/changelog/">Novità</a><a href="/it/contribute/">Contribuisci</a><a href="/it/support/">Supporto</a></nav>
+    <!-- languages --><details class="lang-menu"><summary aria-label="Lingua"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></summary><div class="lang-sheet" role="list"><a href="/plugin/" hreflang="en" lang="en" data-lang="en">English</a><a href="/de/plugin/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/es/plugin/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/fr/plugin/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/plugin/" hreflang="it" lang="it" data-lang="it" aria-current="true">Italiano</a><a href="/nl/plugin/" hreflang="nl" lang="nl" data-lang="nl">Nederlands</a><a href="/pt-br/plugin/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR">Português (Brasil)</a><a href="/ru/plugin/" hreflang="ru" lang="ru" data-lang="ru">Русский</a><a href="/ja/plugin/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/ko/plugin/" hreflang="ko" lang="ko" data-lang="ko">한국어</a><a href="/zh-hans/plugin/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简体中文</a></div></details><!-- /languages --><details class="theme-menu"><summary aria-label="Aspetto"><svg class="i-system" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><svg class="i-light" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-dark" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></summary><div class="theme-sheet" role="radiogroup" aria-label="Aspetto"><button type="button" role="radio" aria-checked="true" data-theme-choice="system"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>Sistema</button><button type="button" role="radio" aria-checked="false" data-theme-choice="light"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Chiaro</button><button type="button" role="radio" aria-checked="false" data-theme-choice="dark"><svg class="" viewbox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>Scuro</button></div></details>
+    <a class="btn btn-primary btn-small" href="https://testflight.apple.com/join/kkC58n2w">Entra nella beta</a>
+    <details class="nav-menu">
+      <summary aria-label="Menu"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary>
+      <nav class="nav-sheet" aria-label="Principale"><a href="/it/#features">Funzioni</a><a href="/it/#platforms">Piattaforme</a><a href="/it/#privacy">Privacy</a><a href="/it/screenshots/">Screenshot</a><a href="/it/roadmap/">Roadmap</a><a href="/it/changelog/">Novità</a><a href="/it/contribute/">Contribuisci</a><a href="/it/support/">Supporto</a><a href="https://testflight.apple.com/join/kkC58n2w">Entra nella beta</a></nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow">Plugin server</span>
+  <h1>Arcfin Sync</h1>
+  <p>Un plugin facoltativo per il tuo server Jellyfin. Arcfin funziona bene anche senza; con il plugin, le tue impostazioni ti seguono tra i dispositivi, gli amministratori possono gestire le impostazioni di tutti e i download diventano più leggeri.</p>
+  <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">Installalo</a><a class="btn btn-secondary btn-small" href="/it/changelog/">Novità</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">Codice sorgente</a></div>
+  <p class="hero-note">Ultima versione <span data-version="plugin">0.3.0</span> &middot; Gratuito e open source con licenza AGPL-3.0</p>
+</div></section>
+
+<div class="wrap doc">
+<nav class="doc-toc" aria-label="In questa pagina"><p class="doc-toc-title">In questa pagina</p></nav>
+<article class="prose">
+    <h2 id="features">Cosa aggiunge</h2>
+    <ul>
+      <li><strong>Impostazioni che ti seguono.</strong> Cambia un’impostazione sul tuo iPhone e la ritrovi su iPad, Mac e Apple TV. Le impostazioni che hanno senso solo su un tipo di dispositivo, come le opzioni delle finestre sul Mac o quelle del focus su Apple TV, restano su quel tipo di dispositivo.</li>
+      <li><strong>Impostazioni gestite dal tuo amministratore.</strong> Dalla dashboard di Jellyfin, un amministratore può bloccare un’impostazione per tutti sul server, o impostare un valore iniziale che ogni utente può ancora cambiare. Un’impostazione bloccata appare come bloccata nell’app e lì non si può cambiare.</li>
+      <li><strong>Download più leggeri.</strong> Il plugin verifica quali encoder video la scheda grafica del tuo server può davvero usare. Quando può codificare in AV1, Arcfin converte i download di qualità inferiore in AV1, che a parità di immagine pesa circa la metà di H.264. Gli amministratori vedono i risultati nell’app, in Admin &rsaquo; Encoder hardware.</li>
+      <li><strong>Tutte le tracce audio in un download convertito.</strong> Jellyfin tiene una sola traccia audio quando converte un download. Il plugin passa ad Arcfin ogni traccia in più che scegli, così un download più leggero può mantenere più lingue.</li>
+    </ul>
+
+    <h2 id="compare">Con e senza il plugin</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>Funzione</th><th>Senza il plugin</th><th>Con Arcfin Sync</th></tr></thead>
+      <tbody>
+        <tr><td>Riproduzione, navigazione e download</td><td>Funziona tutto</td><td>Funziona tutto</td></tr>
+        <tr><td>Impostazioni dell’app</td><td>Salvate su ogni dispositivo separatamente</td><td>Sincronizzate tra tutti i tuoi dispositivi, per utente</td></tr>
+        <tr><td>Controllo delle impostazioni da parte dell’amministratore</td><td>Ogni utente può cambiare ogni impostazione</td><td>Gli amministratori bloccano qualsiasi impostazione per tutti o le danno un valore iniziale</td></tr>
+        <tr><td>Download convertiti</td><td>HEVC dove il server lo consente, altrimenti H.264</td><td>Anche AV1, quando l’hardware del server può davvero codificarlo</td></tr>
+        <tr><td>Tracce audio in più in un download convertito</td><td>Prese da Jellyfin, che può inviare la traccia predefinita invece di quella scelta</td><td>Ogni traccia che scegli, estratta dal server (versione 0.3.1 e successive)</td></tr>
+        <tr><td>Report degli encoder hardware per gli amministratori</td><td>Non disponibile</td><td>Admin &rsaquo; Encoder hardware mostra cosa può codificare l’hardware del server</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="install">Installazione</h2>
+    <p>Devi essere amministratore di un server Jellyfin con la versione 12.1 o successiva. I passaggi sono gli stessi in qualsiasi browser.</p>
+    <ol>
+      <li><strong>Aggiungi il repository del plugin.</strong> In Jellyfin, apri <strong>Dashboard &rsaquo; Plugins &rsaquo; Repositories</strong> e aggiungi un nuovo repository. Chiamalo <strong>Arcfin</strong> e incolla questo URL:<br><code>https://git.psmattas.com/ArcFin/Arcfin-Sync/media/branch/main/manifest.json</code></li>
+      <li><strong>Riavvia Jellyfin.</strong> Usa <strong>Restart</strong> nella dashboard, oppure riavvia il server o il suo container. Jellyfin legge il nuovo repository all’avvio.</li>
+      <li><strong>Installa il plugin.</strong> Apri <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>, trova <strong>Arcfin Sync</strong> e scegli <strong>Install</strong>.</li>
+      <li><strong>Riavvia di nuovo Jellyfin.</strong> I plugin si caricano all’avvio del server. Dopo, Arcfin Sync appare come <strong>Active</strong> in <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong>.</li>
+      <li><strong>Configuralo.</strong> Arcfin Sync ora ha le sue pagine nella dashboard (vedi sotto). Poi apri Arcfin e vai in <strong>Impostazioni &rsaquo; Server &rsaquo; Arcfin Sync</strong>: vedrai <strong>Connesso</strong> con la versione del plugin.</li>
+    </ol>
+    <p>Gli aggiornamenti arrivano dallo stesso repository. Quando esce una nuova versione, Jellyfin la propone in <strong>My Plugins</strong>; installala e riavvia.</p>
+
+    <h2 id="configure">Configurazione</h2>
+    <p>Apri <strong>Arcfin Sync</strong> dal menu della dashboard, oppure da <strong>My Plugins</strong>. Ha tre pagine:</p>
+    <ul>
+      <li><strong>General:</strong> opzioni di notifica per una versione futura. Per ora niente qui cambia il funzionamento di Arcfin.</li>
+      <li><strong>Client Settings:</strong> le Impostazioni dell’app, organizzate allo stesso modo. Per ogni impostazione, bloccala perché nessuno possa cambiarla, o dalle un valore iniziale. Le modifiche arrivano a ogni utente alla successiva sincronizzazione di Arcfin.</li>
+      <li><strong>Advanced:</strong> gli stessi controlli in YAML, per gli amministratori che preferiscono configurare tutto in testo.</li>
+    </ul>
+    <p>Gli utenti non devono fare nulla. Arcfin trova il plugin da solo, sincronizza all’apertura, e <strong>Sincronizza ora</strong> in <strong>Impostazioni &rsaquo; Server &rsaquo; Arcfin Sync</strong> sincronizza subito.</p>
+
+    <h2 id="privacy">Privacy</h2>
+    <p>Il plugin gira sul tuo server Jellyfin. Le impostazioni sincronizzate sono salvate lì e da nessun’altra parte; non c’è ancora nessun server Arcfin in mezzo. L’<a href="/privacy/">informativa sulla privacy</a> spiega cosa viene conservato.</p>
+
+    <h2 id="changes">Cosa è cambiato</h2>
+    <p>Ogni versione del plugin è nelle <a href="/it/changelog/">Novità</a>, sotto <strong>Plugin</strong>. Si aggiorna da sola quando esce una nuova versione.</p>
+    <p>Qualcosa non va con il plugin? <a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">Apri una issue</a> nel repository dell’app e indica Arcfin Sync e la sua versione.</p>
+  </article>
+</div>
+
+<p class="mt-note wrap">Tradotto automaticamente dall’inglese. <a href="/it/contribute/#translate">Aiuta a migliorare questa traduzione</a>.</p>
+</main>
+<div class="cookie-notice" role="region" aria-label="Cookie" hidden>
+  <p><strong>Cookie</strong> Questo sito usa solo un cookie di sicurezza di Cloudflare e le tue scelte di tema e lingua, salvate nel browser. Conta le visite con Cloudflare Web Analytics, che non usa cookie e non ti segue sul web. Nessuna pubblicità.</p>
+  <div class="cookie-actions"><a href="/privacy/#website">Scopri di più</a><button type="button" class="btn btn-primary btn-small" data-cookie-ok>OK</button></div>
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="brand" href="/it/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
+        <p>Un client Jellyfin open source per iPhone, iPad, Mac e Apple TV, sviluppato alla luce del sole da uno sviluppatore e da un gruppo crescente di tester e collaboratori.</p>
+      </div>
+      <div>
+        <h4>Arcfin</h4>
+        <ul>
+          <li><a href="/it/#features">Funzioni</a></li>
+          <li><a href="/it/#platforms">Piattaforme</a></li>
+          <li><a href="/it/screenshots/">Screenshot</a></li>
+          <li><a href="/it/roadmap/">Roadmap</a></li>
+          <li><a href="/it/changelog/">Novità</a></li>
+          <li><a href="/it/plugin/">Plugin server</a></li>
+          <li><a href="https://testflight.apple.com/join/kkC58n2w">Beta TestFlight</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Aiuto</h4>
+        <ul>
+          <li><a href="/it/support/">Supporto e FAQ</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose">Segnala un problema</a></li>
+          <li><a href="/it/contribute/">Contribuisci</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin">Codice sorgente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Note legali</h4>
+        <ul>
+          <li><a href="/privacy/">Informativa sulla privacy (in inglese)</a></li>
+          <li><a href="/terms/">Condizioni d’uso (in inglese)</a></li>
+          <li><a href="/data-protection/">Protezione dei dati (in inglese)</a></li>
+          <li><a href="https://git.psmattas.com/ArcFin/ArcFin/src/branch/main/LICENSE">Licenza (AGPL-3.0)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      <span>&copy; 2026 Puranjay Savar Mattas. Il nome e il logo Arcfin sono marchi e non sono coperti dalla licenza del codice.</span>
+      <span>Arcfin non è affiliato né approvato dal progetto Jellyfin.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
