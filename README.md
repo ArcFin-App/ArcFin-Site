@@ -16,7 +16,7 @@ The site is plain, hand-written HTML and CSS: no framework, no build step and no
 |---|---|
 | `/` | Landing page: features, platforms, privacy, open source, roadmap, FAQ and the TestFlight link |
 | `/support` | Help and FAQ, plus contacts. TestFlight's release notes link here, and App Store Connect requires it |
-| `/roadmap` | History since May 2026, what's on TestFlight now and the plan to 1.0.0 |
+| `/roadmap` | History since May 2026, what's on TestFlight now and the plan to the App Store |
 | `/changelog` | Every TestFlight build's release notes, filterable by platform. Built from the app's releases on each deploy |
 | `/contribute` | How to help with code, issues, translations and testing |
 | `/privacy` | Privacy Policy. Required by App Store Connect |
