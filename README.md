@@ -17,7 +17,8 @@ The site is plain, hand-written HTML and CSS: no framework, no build step and no
 | `/` | Landing page: features, platforms, privacy, open source, roadmap, FAQ and the TestFlight link |
 | `/support` | Help and FAQ, plus contacts. TestFlight's release notes link here, and App Store Connect requires it |
 | `/roadmap` | History since May 2026, what's on TestFlight now and the plan to the App Store |
-| `/changelog` | Every TestFlight build's release notes, filterable by platform. Built from the app's releases on each deploy |
+| `/plugin` | The optional Arcfin Sync server plugin: what it adds, with and without it, and how to install it |
+| `/changelog` | Every TestFlight build's release notes, filterable by platform, plus the plugin's releases under Plugin. Built from both release feeds on each deploy |
 | `/contribute` | How to help with code, issues, translations and testing |
 | `/privacy` | Privacy Policy. Required by App Store Connect |
 | `/terms` | Terms of Use, alongside Apple's Standard EULA |
@@ -35,7 +36,7 @@ scripts/i18n.py             Builds the translated pages from i18n/<lang>.json
 i18n/                       One translation file per language
 site/arcfin.psmattas.com/
 ├── index.html              Landing page
-├── 404/ roadmap/ screenshots/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
+├── 404/ plugin/ roadmap/ screenshots/ changelog/ support/ contribute/ privacy/ terms/ data-protection/
 ├── de/ es/ fr/ … zh-hans/  Translated pages, built by scripts/i18n.py
 └── assets/
     ├── site.css            Every style. Colours mirror the app's DT tokens, light and dark
@@ -78,7 +79,7 @@ The roadmap strip on `/` and the history on `/roadmap` are written by hand and f
 
 The site is available in the same eleven languages as the app. English is the source; the other ten live in folders such as `/de/` and `/zh-hans/`.
 
-- **Translated pages:** Home, Roadmap, Support, Contribute and Changelog. The legal pages stay English only, because the English text is the binding one. Translated pages link to them and say so.
+- **Translated pages:** Home, Plugin, Roadmap, Support, Contribute and Changelog. The legal pages stay English only, because the English text is the binding one. Translated pages link to them and say so.
 - **Translations** live in `i18n/<lang>.json`, which maps each piece of English text (a heading, paragraph, list item, button or image description) to its translation. Inline markup such as `<strong>` and links stays in the translation.
 - **Building:** `python3 scripts/i18n.py build` writes the translated pages from the English ones and refreshes the language menu and `hreflang` links on every page. The deploy runs it too, so a translated page can never fall behind its English page. Anything without a translation stays in English rather than breaking.
 - **Checking:** `python3 scripts/i18n.py check` lists the English text each language hasn't translated yet. Run it after changing English text.
@@ -99,6 +100,7 @@ Two things on the site aren't edited by hand: the version on each platform card 
 
 - writes the newest release for each platform into every element marked `data-version="iOS"`, `"macOS"`, `"tvOS"` or `"latest"`;
 - rebuilds the changelog between the `<!-- releases -->` markers in `changelog/index.html`, grouped by version and build, with a platform filter. The badges and the TestFlight review note are left out;
+- reads the [Arcfin Sync plugin's release feed](https://git.psmattas.com/ArcFin/Arcfin-Sync/releases.rss) too: its releases go in the changelog under the **Plugin** filter, and its newest version into every `data-version="plugin"` element. If only that feed can't be read, the app's changelog is still built and the plugin part is left out;
 - unpacks the newest screenshots for each platform (see [Updating screenshots](#updating-screenshots)).
 
 A newly published release shows up within the hour. Nothing is committed to this repository, so no bot needs push access, a token or a signing key. If the feed can't be read, the deploy copies the versions and changelog from the live site instead, so an outage never rolls the site back to the older snapshot in the repo. To refresh that copy, run the script locally and commit the result:

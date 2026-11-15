@@ -5,7 +5,10 @@ Reads the app repository's release feed once, then:
 - writes the newest version for each platform into every element marked
   data-version="iOS", "macOS", "tvOS" or "latest";
 - writes the release notes into changelog/index.html, between the
-  <!-- releases --> and <!-- /releases --> markers;
+  <!-- releases --> and <!-- /releases --> markers, with the Arcfin Sync
+  plugin's releases (from its own feed) under their own filter;
+- writes the plugin's newest version into elements marked
+  data-version="plugin";
 - unpacks each platform's newest screenshots (screenshots-<platform>.zip,
   attached by the app's TestFlight workflow) into assets/shots/auto/, over
   the copies in the repo. Pages use them by the name the app's screenshot
@@ -32,6 +35,7 @@ import zipfile
 
 SITE = sys.argv[1] if len(sys.argv) > 1 else "site/arcfin.psmattas.com"
 FEED = os.environ.get("RELEASES_FEED", "https://git.psmattas.com/ArcFin/ArcFin/releases.rss")
+PLUGIN_FEED = os.environ.get("PLUGIN_RELEASES_FEED", FEED.replace("/ArcFin/ArcFin/", "/ArcFin/Arcfin-Sync/"))
 # The runner reads the feed from inside the network, where Gitea writes
 # some links with its internal address. They're rewritten to the public one.
 INTERNAL = os.environ.get("GITEA_INTERNAL_URL", "").rstrip("/")
@@ -39,6 +43,7 @@ PUBLIC = "https://git.psmattas.com"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
 TAG = re.compile(r"/releases/tag/(iOS|macOS|tvOS)-(\d+)\.(\d+)\.(\d+)-build-(\d+)$")
 PLATFORMS = [("iOS", "iPhone & iPad", "ios"), ("macOS", "Mac", "mac"), ("tvOS", "Apple TV", "tv")]
+PLUGIN_TAG = re.compile(r"/releases/tag/v(\d+)\.(\d+)\.(\d+)(?:\.(\d+))?$")
 I18N = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "i18n")
 
 
@@ -72,6 +77,24 @@ def read_feed():
             "body": item.findtext(CONTENT) or "",
         })
     return releases
+
+
+def read_plugin_feed():
+    """The plugin's releases, newest first. Tagged v<major>.<minor>.<patch>."""
+    with urllib.request.urlopen(PLUGIN_FEED, timeout=20) as response:
+        root = ET.fromstring(response.read())
+    releases = []
+    for item in root.iter("item"):
+        match = PLUGIN_TAG.search(item.findtext("link", ""))
+        if not match:
+            continue
+        releases.append({
+            "key": tuple(int(n or 0) for n in match.groups()[:3]),
+            "link": item.findtext("link"),
+            "date": email.utils.parsedate_to_datetime(item.findtext("pubDate")),
+            "body": item.findtext(CONTENT) or "",
+        })
+    return sorted(releases, key=lambda r: r["key"], reverse=True)
 
 
 KINDS = {"new": "new", "improved": "improved", "fixed": "fixed", "removed": "removed",
@@ -121,7 +144,7 @@ def version_labels(releases):
     return labels
 
 
-def changelog(releases, t):
+def changelog(releases, t, plugin=()):
     builds = {}
     for r in releases:
         builds.setdefault(r["key"], {})[r["platform"]] = r
@@ -137,8 +160,10 @@ def changelog(releases, t):
     filters = "".join(
         f'<input type="radio" name="cl-platform" id="cl-{css}" value="{css}"{" checked" if css == "ios" else ""}>'
         f'<label for="cl-{css}">{html.escape(t(name))}</label>'
-        for _, name, css in PLATFORMS)
-    jump = "".join(f'<li><a href="#{vid(v)}">{".".join(map(str, v))}</a></li>' for v in versions)
+        for _, name, css in PLATFORMS + ([("plugin", "Plugin", "plugin")] if plugin else []))
+    jump = "".join(f'<li class="cl-app"><a href="#{vid(v)}">{".".join(map(str, v))}</a></li>' for v in versions)
+    jump += "".join(f'<li class="cl-plugin"><a href="#plugin-{vid(r["key"])}">{".".join(map(str, r["key"]))}</a></li>'
+                    for r in plugin)
     out = ['<div class="cl-layout">',
            '<aside class="cl-side">'
            f'<div class="cl-filter" role="radiogroup" aria-label="{html.escape(t("Platform"))}">{filters}</div>'
@@ -174,6 +199,16 @@ def changelog(releases, t):
         out.append("</article>")
     if version is not None:
         out.append("</section>")
+    for index, r in enumerate(plugin):
+        number = ".".join(map(str, r["key"]))
+        notes, _ = clean(r["body"], t)
+        latest = f'<span class="cl-latest">{html.escape(t("Latest"))}</span>' if index == 0 else ""
+        out.append(f'<section class="cl-version cl-plugin-version" id="plugin-{vid(r["key"])}"><h2>Arcfin Sync {number}</h2>'
+                   f'<article class="cl-build"><header><h3>{html.escape(t("Server plugin"))}{latest}</h3>'
+                   f'<time datetime="{r["date"]:%Y-%m-%d}">{r["date"].day} {r["date"]:%B %Y}</time></header>'
+                   f'<div class="cl-notes plugin">{notes}'
+                   f'<p class="cl-more"><a href="{html.escape(r["link"])}">{html.escape(t("Release notes"))}</a></p></div>'
+                   '</article></section>')
     out.append("</div></div>")
     return "\n".join(out)
 
@@ -285,6 +320,11 @@ def main():
         return
 
     labels = version_labels(releases)
+    try:
+        plugin = read_plugin_feed()
+    except Exception as error:
+        warn(f"Couldn't read the plugin's release feed ({error}); the changelog leaves it out.")
+        plugin = []
     for platform, label in sorted(labels.items()):
         print(f"{platform}: {label}")
     count = str(len(releases))
@@ -293,8 +333,13 @@ def main():
     span = re.compile(r'(<span data-version="(\w+)">)[^<]*(</span>)')
     software = re.compile(r'("softwareVersion":")[^"]*(")')
 
+    shown = dict(labels)
+    if plugin:
+        shown["plugin"] = ".".join(map(str, plugin[0]["key"]))
+        print(f"plugin: {shown['plugin']}")
+
     def stamp(text):
-        text = span.sub(lambda m: m.group(1) + labels[m.group(2)] + m.group(3) if m.group(2) in labels else m.group(0), text)
+        text = span.sub(lambda m: m.group(1) + shown[m.group(2)] + m.group(3) if m.group(2) in shown else m.group(0), text)
         text = counter.sub(lambda m: m.group(1) + count + m.group(2), text)
         return software.sub(lambda m: m.group(1) + labels["latest"] + m.group(2), text)
 
@@ -310,7 +355,7 @@ def main():
         path = os.path.join(root, "index.html")
         with open(path, encoding="utf-8") as f:
             lang = re.search(r'<html lang="([^"]+)"', f.read()).group(1)
-        notes = changelog(releases, translator(lang))
+        notes = changelog(releases, translator(lang), plugin)
         rewrite(path, lambda text: marker.sub(lambda m: m.group(1) + "\n" + notes + "\n" + m.group(2), text))
 
     newest = max(r["date"] for r in releases).strftime("%Y-%m-%d")
