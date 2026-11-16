@@ -568,5 +568,13 @@
   "Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.": "Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，管理员可以管理设置，下载也更聪明。",
   "Every TestFlight build, newest first. Pick a platform to see what changed on it, or Plugin for the <a href=\"/plugin/\">Arcfin Sync</a> server plugin.": "所有 TestFlight 版本，最新的在前。选择一个平台，查看它有哪些变化；选择“插件”可查看 <a href=\"/plugin/\">Arcfin Sync</a> 服务器插件的变化。",
   "What changed in each Arcfin build for iPhone, iPad, Mac and Apple TV, and in each release of the Arcfin Sync server plugin.": "适用于 iPhone、iPad、Mac 和 Apple TV 的 Arcfin 每个版本，以及 Arcfin Sync 服务器插件每个版本的变化。",
-  "Plugin": "插件"
+  "Plugin": "插件",
+  "Sign in your Apple TV · Arcfin": "登录你的 Apple TV · Arcfin",
+  "Quick Connect": "Quick Connect",
+  "Sign in your Apple TV": "登录你的 Apple TV",
+  "With Arcfin on this iPhone or iPad, scanning the code with the Camera opens it there and signs the Apple TV in once you confirm. Without Arcfin, enter this code in Jellyfin on a device where you&rsquo;re already signed in, under your profile and then Quick Connect.": "如果这台 iPhone 或 iPad 上有 Arcfin，用相机扫描代码会在 Arcfin 中打开，确认后 Apple TV 即可登录。没有 Arcfin 时，请在已登录的设备上打开 Jellyfin，在个人资料中进入 Quick Connect 并输入此代码。",
+  "Open Quick Connect on your server": "在你的服务器上打开 Quick Connect",
+  "Get Arcfin": "获取 Arcfin",
+  "The code and your server&rsquo;s address stay in the link on this device. Your browser doesn&rsquo;t send them to this website, and nothing is stored.": "代码和服务器地址只留在此设备上的链接中。浏览器不会将它们发送到本网站，也不会保存任何内容。",
+  "Finish signing in your Apple TV with Quick Connect.": "使用 Quick Connect 完成 Apple TV 登录。"
 }

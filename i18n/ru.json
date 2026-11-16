@@ -568,5 +568,13 @@
   "Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.": "Arcfin Sync — необязательный серверный плагин Jellyfin для Arcfin: настройки, которые следуют за вами между устройствами, настройки под управлением администратора и более умные загрузки.",
   "Every TestFlight build, newest first. Pick a platform to see what changed on it, or Plugin for the <a href=\"/plugin/\">Arcfin Sync</a> server plugin.": "Каждая сборка TestFlight, сначала новые. Выберите платформу, чтобы увидеть, что в ней изменилось, или «Плагин» для серверного плагина <a href=\"/plugin/\">Arcfin Sync</a>.",
   "What changed in each Arcfin build for iPhone, iPad, Mac and Apple TV, and in each release of the Arcfin Sync server plugin.": "Что изменилось в каждой сборке Arcfin для iPhone, iPad, Mac и Apple TV и в каждой версии серверного плагина Arcfin Sync.",
-  "Plugin": "Плагин"
+  "Plugin": "Плагин",
+  "Sign in your Apple TV · Arcfin": "Вход на Apple TV · Arcfin",
+  "Quick Connect": "Quick Connect",
+  "Sign in your Apple TV": "Вход на Apple TV",
+  "With Arcfin on this iPhone or iPad, scanning the code with the Camera opens it there and signs the Apple TV in once you confirm. Without Arcfin, enter this code in Jellyfin on a device where you&rsquo;re already signed in, under your profile and then Quick Connect.": "Если на этом iPhone или iPad есть Arcfin, код, отсканированный Камерой, откроется в нём, и Apple TV войдёт после вашего подтверждения. Без Arcfin введите этот код в Jellyfin на устройстве, где вы уже вошли: в профиле, затем Quick Connect.",
+  "Open Quick Connect on your server": "Открыть Quick Connect на сервере",
+  "Get Arcfin": "Установить Arcfin",
+  "The code and your server&rsquo;s address stay in the link on this device. Your browser doesn&rsquo;t send them to this website, and nothing is stored.": "Код и адрес вашего сервера остаются в ссылке на этом устройстве. Браузер не отправляет их этому сайту, и ничего не сохраняется.",
+  "Finish signing in your Apple TV with Quick Connect.": "Завершите вход на Apple TV через Quick Connect."
 }

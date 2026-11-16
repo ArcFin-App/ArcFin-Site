@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["CW6GQT9SK5.com.psmattas.Arcfin"],
+        "components": [
+          { "/": "/quickconnect/", "comment": "The Apple TV's Quick Connect QR code" },
+          { "/": "/quickconnect", "comment": "The same, without the slash" }
+        ]
+      }
+    ]
+  }
+}
