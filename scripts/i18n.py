@@ -42,9 +42,9 @@ LANGUAGES = [
 ]
 # Pages that exist in every language. The legal pages stay English only,
 # because the English text is the binding one.
-TRANSLATED = ["", "plugin", "roadmap", "screenshots", "support", "contribute", "changelog", "404"]
+TRANSLATED = ["", "plugin", "roadmap", "screenshots", "support", "contribute", "changelog", "404", "quickconnect"]
 # Pages search engines shouldn't list.
-UNLISTED = {"404"}
+UNLISTED = {"404", "quickconnect"}
 # Translated pages whose main text stays English (the release notes), so
 # search engines are pointed at the English page instead of near-copies.
 ENGLISH_CANONICAL = {"changelog"}

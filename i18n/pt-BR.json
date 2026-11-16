@@ -568,5 +568,13 @@
   "Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.": "O Arcfin Sync é um plugin opcional de servidor Jellyfin para o Arcfin: ajustes que acompanham você entre dispositivos, ajustes gerenciados pelo administrador e downloads mais inteligentes.",
   "Every TestFlight build, newest first. Pick a platform to see what changed on it, or Plugin for the <a href=\"/plugin/\">Arcfin Sync</a> server plugin.": "Cada build do TestFlight, da mais nova para a mais antiga. Escolha uma plataforma para ver o que mudou nela, ou Plugin para o plugin de servidor <a href=\"/plugin/\">Arcfin Sync</a>.",
   "What changed in each Arcfin build for iPhone, iPad, Mac and Apple TV, and in each release of the Arcfin Sync server plugin.": "O que mudou em cada build do Arcfin para iPhone, iPad, Mac e Apple TV, e em cada versão do plugin de servidor Arcfin Sync.",
-  "Plugin": "Plugin"
+  "Plugin": "Plugin",
+  "Sign in your Apple TV · Arcfin": "Entre na sua Apple TV · Arcfin",
+  "Quick Connect": "Quick Connect",
+  "Sign in your Apple TV": "Entre na sua Apple TV",
+  "With Arcfin on this iPhone or iPad, scanning the code with the Camera opens it there and signs the Apple TV in once you confirm. Without Arcfin, enter this code in Jellyfin on a device where you&rsquo;re already signed in, under your profile and then Quick Connect.": "Com o Arcfin neste iPhone ou iPad, escanear o código com a Câmera o abre lá e faz a Apple TV entrar assim que você confirmar. Sem o Arcfin, digite este código no Jellyfin em um dispositivo em que você já entrou, no seu perfil e depois em Quick Connect.",
+  "Open Quick Connect on your server": "Abrir o Quick Connect no seu servidor",
+  "Get Arcfin": "Baixar o Arcfin",
+  "The code and your server&rsquo;s address stay in the link on this device. Your browser doesn&rsquo;t send them to this website, and nothing is stored.": "O código e o endereço do seu servidor ficam no link neste dispositivo. Seu navegador não os envia a este site, e nada é guardado.",
+  "Finish signing in your Apple TV with Quick Connect.": "Termine de entrar na sua Apple TV com o Quick Connect."
 }

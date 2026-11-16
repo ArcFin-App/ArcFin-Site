@@ -568,5 +568,13 @@
   "Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.": "Arcfin Sync is een optionele Jellyfin-serverplug-in voor Arcfin: instellingen die je volgen tussen apparaten, instellingen beheerd door beheerders en slimmere downloads.",
   "Every TestFlight build, newest first. Pick a platform to see what changed on it, or Plugin for the <a href=\"/plugin/\">Arcfin Sync</a> server plugin.": "Elke TestFlight-build, de nieuwste eerst. Kies een platform om te zien wat daar is veranderd, of Plug-in voor de serverplug-in <a href=\"/plugin/\">Arcfin Sync</a>.",
   "What changed in each Arcfin build for iPhone, iPad, Mac and Apple TV, and in each release of the Arcfin Sync server plugin.": "Wat er in elke Arcfin-build voor iPhone, iPad, Mac en Apple TV is veranderd, en in elke versie van de serverplug-in Arcfin Sync.",
-  "Plugin": "Plug-in"
+  "Plugin": "Plug-in",
+  "Sign in your Apple TV · Arcfin": "Log in op je Apple TV · Arcfin",
+  "Quick Connect": "Quick Connect",
+  "Sign in your Apple TV": "Log in op je Apple TV",
+  "With Arcfin on this iPhone or iPad, scanning the code with the Camera opens it there and signs the Apple TV in once you confirm. Without Arcfin, enter this code in Jellyfin on a device where you&rsquo;re already signed in, under your profile and then Quick Connect.": "Met Arcfin op deze iPhone of iPad opent het scannen van de code met de Camera hem daar, en logt de Apple TV in zodra je bevestigt. Zonder Arcfin voer je deze code in Jellyfin in op een apparaat waar je al bent ingelogd, onder je profiel en dan Quick Connect.",
+  "Open Quick Connect on your server": "Open Quick Connect op je server",
+  "Get Arcfin": "Download Arcfin",
+  "The code and your server&rsquo;s address stay in the link on this device. Your browser doesn&rsquo;t send them to this website, and nothing is stored.": "De code en het adres van je server blijven in de link op dit apparaat. Je browser stuurt ze niet naar deze website, en er wordt niets bewaard.",
+  "Finish signing in your Apple TV with Quick Connect.": "Log je Apple TV verder in met Quick Connect."
 }

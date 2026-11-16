@@ -27,6 +27,11 @@ arcfin.psmattas.com {
         X-Frame-Options "DENY"
     }
 
+    # Apple fetches this so Arcfin can open the Apple TV's Quick Connect QR code. It has no
+    # file extension, so Caddy wouldn't send it as JSON by itself.
+    @aasa path /.well-known/apple-app-site-association
+    header @aasa Content-Type application/json
+
     file_server
 
     # Missing pages get the 404 page in the language of the folder they

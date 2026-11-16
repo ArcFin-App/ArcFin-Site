@@ -568,5 +568,13 @@
   "Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.": "Arcfin Sync는 Arcfin용 선택 사항 Jellyfin 서버 플러그인입니다: 기기 간에 따라오는 설정, 관리자가 관리하는 설정, 더 똑똑한 다운로드.",
   "Every TestFlight build, newest first. Pick a platform to see what changed on it, or Plugin for the <a href=\"/plugin/\">Arcfin Sync</a> server plugin.": "TestFlight 빌드를 최신순으로 보여 줍니다. 플랫폼을 고르면 그 플랫폼에서 바뀐 점을, 플러그인을 고르면 <a href=\"/plugin/\">Arcfin Sync</a> 서버 플러그인의 변경 사항을 볼 수 있습니다.",
   "What changed in each Arcfin build for iPhone, iPad, Mac and Apple TV, and in each release of the Arcfin Sync server plugin.": "iPhone, iPad, Mac, Apple TV용 Arcfin 각 빌드와 Arcfin Sync 서버 플러그인 각 릴리스의 변경 사항.",
-  "Plugin": "플러그인"
+  "Plugin": "플러그인",
+  "Sign in your Apple TV · Arcfin": "Apple TV에 로그인 · Arcfin",
+  "Quick Connect": "Quick Connect",
+  "Sign in your Apple TV": "Apple TV에 로그인",
+  "With Arcfin on this iPhone or iPad, scanning the code with the Camera opens it there and signs the Apple TV in once you confirm. Without Arcfin, enter this code in Jellyfin on a device where you&rsquo;re already signed in, under your profile and then Quick Connect.": "이 iPhone 또는 iPad에 Arcfin이 있으면 카메라로 코드를 스캔할 때 Arcfin에서 열리고, 확인하면 Apple TV가 로그인됩니다. Arcfin이 없다면 이미 로그인한 기기의 Jellyfin에서 프로필, Quick Connect로 이동해 이 코드를 입력하세요.",
+  "Open Quick Connect on your server": "서버에서 Quick Connect 열기",
+  "Get Arcfin": "Arcfin 받기",
+  "The code and your server&rsquo;s address stay in the link on this device. Your browser doesn&rsquo;t send them to this website, and nothing is stored.": "코드와 서버 주소는 이 기기의 링크 안에만 있습니다. 브라우저는 이를 이 웹사이트로 보내지 않으며, 아무것도 저장되지 않습니다.",
+  "Finish signing in your Apple TV with Quick Connect.": "Quick Connect로 Apple TV 로그인을 마치세요."
 }
