@@ -41,7 +41,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Legal</span>
   <h1>Data Protection</h1>
-  <p>The details data protection laws such as the UK and EU GDPR and the CCPA ask for: who the controller is, the legal bases, and your rights.</p><p class="meta muted">Effective 27 October 2026</p>
+  <p>The details data protection laws such as the UK and EU GDPR and the CCPA ask for: who the controller is, the legal bases, and your rights.</p><p class="meta muted">Effective 16 November 2026</p>
 </div></section>
 <div class="wrap doc">
 <nav class="doc-toc" aria-label="On this page"><p class="doc-toc-title">On this page</p></nav>
@@ -63,6 +63,9 @@
       <tr><td>Playback progress, downloads and preferences</td><td>On your device, and on your Jellyfin server as with any Jellyfin app</td><td>Performance of a contract</td></tr>
       <tr><td>Settings synced with the Arcfin Sync plugin</td><td>Your Jellyfin server</td><td>Performance of a contract; you choose to install the plugin</td></tr>
       <tr><td>IDs of titles you open, sent to TMDB and Wikidata</td><td>Those services, directly from your device</td><td>Legitimate interest in showing title information; TMDB only if you add a key</td></tr>
+      <tr><td>Setting up an Apple TV from your iPhone or iPad: your server&rsquo;s address, Quick Connect codes and, if you added one, your TMDB key</td><td>Sent directly between your devices over your local network, encrypted, after you&rsquo;ve allowed it on the Apple TV and confirmed the same code on your iPhone or iPad. Never with us.</td><td>Performance of a contract; you start it and confirm it on both devices</td></tr>
+      <tr><td>The Quick Connect code and server address in an Apple TV&rsquo;s QR code</td><td>On your devices. If the link opens this website, the page reads them in your browser; browsers don&rsquo;t send that part of a link, so they never reach the site.</td><td>Performance of a contract</td></tr>
+      <tr><td>The camera image while you scan an Apple TV&rsquo;s code</td><td>On your device only; nothing is recorded or sent</td><td>Consent, through the system&rsquo;s camera prompt. Decline it and you can still type the code.</td></tr>
       <tr><td>Wi-Fi network name</td><td>On your device only</td><td>Consent, through the system&rsquo;s location prompt. Decline it and home switching simply won&rsquo;t happen.</td></tr>
       <tr><td>Diagnostic log</td><td>On your device, until you choose to share it</td><td>Consent: you choose whether and where to send it</td></tr>
       <tr><td>Crash reports you share with Apple</td><td>Apple, under its own policies. We only see them if Apple shares them with developers under your device&rsquo;s settings.</td><td>Your choice in your device&rsquo;s settings</td></tr>
@@ -86,7 +89,7 @@
   <p>Depending on where you live, you may have the right to access, correct, delete, restrict or port data about you, to object to processing, and to withdraw consent at any time. In practice:</p>
   <ul>
     <li><strong>Access, deletion and portability</strong>: the data is on your device, and deleting the app deletes it.</li>
-    <li><strong>Withdrawing consent</strong>: turn off Local Network, Location or other permissions in your device&rsquo;s settings at any time. The features that need them will stop working.</li>
+    <li><strong>Withdrawing consent</strong>: turn off Local Network, Location, Camera or other permissions in your device&rsquo;s settings at any time. The features that need them will stop working.</li>
     <li><strong>Anything else</strong>: email <a href="mailto:privacy.arcfin@psmattas.com">privacy.arcfin@psmattas.com</a> and we&rsquo;ll reply within 30 days.</li>
   </ul>
   <p>In the UK and EU you can also complain to your data protection authority; in the UK that&rsquo;s the <a href="https://ico.org.uk">Information Commissioner&rsquo;s Office</a>.</p>
@@ -96,6 +99,7 @@
 
   <h2>Security</h2>
   <p>Sign-ins are stored in the system Keychain, encrypted by the operating system. Requests to your server use the transport your server is set up for. We strongly recommend HTTPS for any server reachable from outside your home.</p>
+  <p>Setting up an Apple TV from an iPhone or iPad agrees fresh keys on each try and shows a code from them on both screens, so a device in between can&rsquo;t take part unnoticed. Nothing is sent until you&rsquo;ve allowed it on the Apple TV and confirmed the code on your iPhone or iPad, and everything after that is encrypted.</p>
 
   <h2>Changes</h2>
   <p>If this page changes, the new version will be posted at this address with a new effective date.</p>
