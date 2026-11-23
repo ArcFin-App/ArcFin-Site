@@ -41,7 +41,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Legal</span>
   <h1>Data Protection</h1>
-  <p>The details data protection laws such as the UK and EU GDPR and the CCPA ask for: who the controller is, the legal bases, and your rights.</p><p class="meta muted">Effective 16 November 2026</p>
+  <p>The details data protection laws such as the UK and EU GDPR and the CCPA ask for: who the controller is, the legal bases, and your rights.</p><p class="meta muted">Effective 23 November 2026</p>
 </div></section>
 <div class="wrap doc">
 <nav class="doc-toc" aria-label="On this page"><p class="doc-toc-title">On this page</p></nav>
@@ -63,7 +63,7 @@
       <tr><td>Playback progress, downloads and preferences</td><td>On your device, and on your Jellyfin server as with any Jellyfin app</td><td>Performance of a contract</td></tr>
       <tr><td>Settings synced with the Arcfin Sync plugin</td><td>Your Jellyfin server</td><td>Performance of a contract; you choose to install the plugin</td></tr>
       <tr><td>IDs of titles you open, sent to TMDB and Wikidata</td><td>Those services, directly from your device</td><td>Legitimate interest in showing title information; TMDB only if you add a key</td></tr>
-      <tr><td>Setting up an Apple TV from your iPhone or iPad: your server&rsquo;s address, Quick Connect codes and, if you added one, your TMDB key</td><td>Sent directly between your devices over your local network, encrypted, after you&rsquo;ve allowed it on the Apple TV and confirmed the same code on your iPhone or iPad. Never with us.</td><td>Performance of a contract; you start it and confirm it on both devices</td></tr>
+      <tr><td>Set Up Nearby Device, which signs in an Apple TV, iPad or Mac from your iPhone or iPad. For each profile you choose, your iPhone or iPad sends your Jellyfin user name, the server&rsquo;s name and its addresses and, if you added them, your TMDB key, the profile&rsquo;s Seerr server address, sign-in method and Seerr user name, and your ListenBrainz token. It never sends a password: Jellyfin signs in on the new device through Quick Connect, and a local Seerr account signs in on the new device itself. The new device sends back a Quick Connect code for each profile. Only after you&rsquo;ve pressed Allow on it does it also send which Jellyfin accounts are already signed in there, so your iPhone or iPad doesn&rsquo;t offer them again.</td><td>Sent directly between your devices over your local network, encrypted. Nothing is sent until you&rsquo;ve pressed Allow on the new device, and your profiles aren&rsquo;t sent until you&rsquo;ve also confirmed the same code on your iPhone or iPad. Never with us.</td><td>Performance of a contract; you start it and confirm it on both devices</td></tr>
       <tr><td>The Quick Connect code and server address in an Apple TV&rsquo;s QR code</td><td>On your devices. If the link opens this website, the page reads them in your browser; browsers don&rsquo;t send that part of a link, so they never reach the site.</td><td>Performance of a contract</td></tr>
       <tr><td>The camera image while you scan an Apple TV&rsquo;s code</td><td>On your device only; nothing is recorded or sent</td><td>Consent, through the system&rsquo;s camera prompt. Decline it and you can still type the code.</td></tr>
       <tr><td>Wi-Fi network name</td><td>On your device only</td><td>Consent, through the system&rsquo;s location prompt. Decline it and home switching simply won&rsquo;t happen.</td></tr>
@@ -99,7 +99,7 @@
 
   <h2>Security</h2>
   <p>Sign-ins are stored in the system Keychain, encrypted by the operating system. Requests to your server use the transport your server is set up for. We strongly recommend HTTPS for any server reachable from outside your home.</p>
-  <p>Setting up an Apple TV from an iPhone or iPad agrees fresh keys on each try and shows a code from them on both screens, so a device in between can&rsquo;t take part unnoticed. Nothing is sent until you&rsquo;ve allowed it on the Apple TV and confirmed the code on your iPhone or iPad, and everything after that is encrypted.</p>
+  <p>Set Up Nearby Device, which signs in an Apple TV, iPad or Mac from an iPhone or iPad, agrees fresh keys on each try and shows a six-digit code from them on both screens, so a device in between can&rsquo;t take part unnoticed. The new device takes one try at a time, with a pause between tries. Nothing is sent until you&rsquo;ve pressed Allow on the new device, and your profiles aren&rsquo;t sent until you&rsquo;ve also confirmed the code on your iPhone or iPad. Everything after that is encrypted and goes directly between your devices over your local network, never to us.</p>
 
   <h2>Changes</h2>
   <p>If this page changes, the new version will be posted at this address with a new effective date.</p>

@@ -41,7 +41,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
-  <p>What happens to your data when you use Arcfin.</p><p class="meta muted">Effective 16 November 2026</p>
+  <p>What happens to your data when you use Arcfin.</p><p class="meta muted">Effective 23 November 2026</p>
 </div></section>
 <div class="wrap doc">
 <nav class="doc-toc" aria-label="On this page"><p class="doc-toc-title">On this page</p></nav>
@@ -97,7 +97,12 @@
 
   <h2>Permissions</h2>
   <ul>
-    <li><strong>Local Network</strong>, to find your Jellyfin server and Cast devices on your network, and to set up an Apple TV from your iPhone or iPad. Setting up an Apple TV sends it, encrypted and over your own network, only what it needs to sign in: your server&rsquo;s address, a Quick Connect code and, if you added one, your TMDB key. Both screens show the same code to check first, and nothing is sent until you&rsquo;ve allowed it on the Apple TV and confirmed it on your iPhone or iPad.</li>
+    <li><strong>Local Network</strong>, to find your Jellyfin server and Cast devices on your network, and for <strong>Set Up Nearby Device</strong>, which signs in an Apple TV, iPad or Mac from your iPhone or iPad on the same network. Several devices can be waiting; you set them up one at a time, and you can send several profiles in one go.
+      <ul>
+        <li>For each profile you choose, your iPhone or iPad sends your Jellyfin user name, the server&rsquo;s name and its addresses and, if you added them, your TMDB key, the profile&rsquo;s Seerr server address, sign-in method and Seerr user name, and your ListenBrainz token. It never sends a password: Jellyfin signs in on the new device through Quick Connect, and a local Seerr account signs in on the new device itself.</li>
+        <li>The new device sends back a Quick Connect code for each profile. Only after you&rsquo;ve pressed Allow on it does it also send which Jellyfin accounts are already signed in there, so your iPhone or iPad doesn&rsquo;t offer them again.</li>
+        <li>Both screens show the same six-digit code to check first. Nothing is sent until you&rsquo;ve pressed Allow on the new device, and your profiles aren&rsquo;t sent until you&rsquo;ve also confirmed the code on your iPhone or iPad. Everything after that is encrypted and goes directly between your devices over your local network, never to us.</li>
+      </ul></li>
     <li><strong>Bluetooth</strong> (iPhone and iPad), which Google Cast can use to find nearby Cast devices.</li>
     <li><strong>Location</strong>, only to read the current Wi-Fi name for home and remote switching. Your location is never stored, tracked or shared.</li>
     <li><strong>Face ID</strong>, only to unlock a profile you&rsquo;ve locked.</li>
