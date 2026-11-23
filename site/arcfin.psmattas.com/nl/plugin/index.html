@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Serverplug-in</span>
   <h1>Arcfin Sync</h1>
-  <p>Een optionele plug-in voor je Jellyfin-server. Arcfin werkt prima zonder; met de plug-in volgen je instellingen je tussen apparaten, kunnen beheerders instellingen voor iedereen regelen en worden downloads kleiner.</p>
+  <p>Een optionele plug-in voor je Jellyfin-server. Arcfin werkt prima zonder; met de plug-in volgen je instellingen je tussen apparaten, kunnen beheerders standaardwaarden en vergrendelingen voor iedereen instellen, en worden downloads kleiner.</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">Installeren</a><a class="btn btn-secondary btn-small" href="/nl/changelog/">Wijzigingen</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">Broncode</a></div>
   <p class="hero-note">Nieuwste versie <span data-version="plugin">0.3.0</span> &middot; Gratis en open source onder de AGPL-3.0</p>
 </div></section>
@@ -65,7 +65,10 @@
     <h2 id="features">Wat hij toevoegt</h2>
     <ul>
       <li><strong>Instellingen die je volgen.</strong> Wijzig een instelling op je iPhone en hij staat ook op je iPad, Mac en Apple TV. Instellingen die maar op één soort apparaat zin hebben, zoals vensteropties op de Mac of focusopties op de Apple TV, blijven op dat soort apparaat.</li>
-      <li><strong>Instellingen die je beheerder regelt.</strong> Vanuit het Jellyfin-dashboard kan een beheerder een instelling voor iedereen op de server vergrendelen, of een beginwaarde invullen die elke gebruiker nog kan wijzigen. Een vergrendelde instelling staat in de app als vergrendeld en is daar niet te wijzigen.</li>
+      <li><strong>Apparaten en synchronisatie.</strong> Elk apparaat kiest hoe het synchroniseert: automatisch, Eerst vragen om bij jou te checken voordat wijzigingen van een ander apparaat worden gebruikt, of Uit. Je kunt ook de instellingen van één apparaat naar al je andere sturen. Je vindt het in Arcfin onder <strong>Instellingen &rsaquo; Server &rsaquo; Apparaten en synchronisatie</strong>.</li>
+      <li><strong>Je apparaten op één plek.</strong> De plug-in houdt bij op welke apparaten je Arcfin gebruikt, met naam, platform, appversie en wanneer het voor het laatst gezien is. Je kunt je eigen apparaten een andere naam geven of vergeten, en beheerders kunnen dat voor iedereen.</li>
+      <li><strong>Standaardwaarden en vergrendelingen voor iedereen.</strong> Beheerders geven elke instelling een standaardwaarde, die geldt tot iemand zelf iets kiest, of vergrendelen hem zodat iedereen die waarde krijgt en hem niet kan wijzigen. Dat kan voor iedereen op de server of voor één persoon, en een instelling kan ook voor één persoon worden ontgrendeld. In de app staat het onder <strong>Beheer &rsaquo; Arcfin voor iedereen</strong>; op Apple TV onder <strong>Instellingen &rsaquo; Server</strong>.</li>
+      <li><strong>De volledige lijst met instellingen.</strong> De plug-in bevat dezelfde catalogus met instellingen als de app, met hun titels, standaardwaarden, keuzes en de platforms waarop ze verschijnen. Hij bewaart alleen instellingen die op die lijst staan.</li>
       <li><strong>Kleinere downloads.</strong> De plug-in test welke video-encoders de videokaart van je server echt kan gebruiken. Als die AV1 kan coderen, zet Arcfin downloads van lagere kwaliteit om naar AV1, dat bij hetzelfde beeld ongeveer half zo groot is als H.264. Beheerders zien de resultaten in de app onder Beheer &rsaquo; Hardware-encoders.</li>
       <li><strong>Elk audiospoor in een omgezette download.</strong> Jellyfin houdt maar één audiospoor over als het een download omzet. De plug-in geeft Arcfin elk extra spoor dat je kiest, zodat een kleinere download meerdere talen kan houden.</li>
     </ul>
@@ -76,7 +79,9 @@
       <tbody>
         <tr><td>Afspelen, bladeren en downloaden</td><td>Alles werkt</td><td>Alles werkt</td></tr>
         <tr><td>App-instellingen</td><td>Op elk apparaat apart bewaard</td><td>Gesynchroniseerd tussen al je apparaten, per gebruiker</td></tr>
-        <tr><td>Beheer van instellingen door beheerders</td><td>Elke gebruiker kan elke instelling wijzigen</td><td>Beheerders vergrendelen elke instelling voor iedereen of geven hem een beginwaarde</td></tr>
+        <tr><td>Hoe elk apparaat synchroniseert</td><td>Niet beschikbaar</td><td>Automatisch, Eerst vragen of Uit, en de instellingen van één apparaat naar de andere sturen (versie 0.4.0 en later)</td></tr>
+        <tr><td>Je apparaten</td><td>Niet beschikbaar</td><td>Vermeld in Apparaten en synchronisatie, om een andere naam te geven of te vergeten (versie 0.4.0 en later)</td></tr>
+        <tr><td>Beheer van instellingen door beheerders</td><td>Elke gebruiker kan elke instelling wijzigen</td><td>Standaardwaarden en vergrendelingen voor iedereen of voor één persoon, vanuit het dashboard of Beheer &rsaquo; Arcfin voor iedereen</td></tr>
         <tr><td>Omgezette downloads</td><td>HEVC waar de server het toestaat, anders H.264</td><td>Ook AV1, als de hardware van de server het echt kan coderen</td></tr>
         <tr><td>Extra audiosporen in een omgezette download</td><td>Opgehaald bij Jellyfin, dat het standaardspoor kan sturen in plaats van het spoor dat je koos</td><td>Elk spoor dat je kiest, door de server eruit gekopieerd (versie 0.3.1 en later)</td></tr>
         <tr><td>Rapport over hardware-encoders voor beheerders</td><td>Niet beschikbaar</td><td>Beheer &rsaquo; Hardware-encoders laat zien wat de hardware van de server kan coderen</td></tr>
@@ -90,21 +95,22 @@
       <li><strong>Herstart Jellyfin.</strong> Gebruik <strong>Restart</strong> in het dashboard, of herstart de server of zijn container. Jellyfin leest de nieuwe repository bij het opstarten.</li>
       <li><strong>Installeer de plug-in.</strong> Open <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>, zoek <strong>Arcfin Sync</strong> en kies <strong>Install</strong>.</li>
       <li><strong>Herstart Jellyfin nog een keer.</strong> Plug-ins laden als de server opstart. Daarna staat Arcfin Sync als <strong>Active</strong> onder <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong>.</li>
-      <li><strong>Stel hem in.</strong> Arcfin Sync heeft nu eigen pagina’s in het dashboard (zie hieronder). Open daarna Arcfin en ga naar <strong>Instellingen &rsaquo; Server &rsaquo; Arcfin Sync</strong>: daar staat <strong>Verbonden</strong> met de versie van de plug-in.</li>
+      <li><strong>Stel hem in.</strong> Arcfin Sync heeft nu een eigen pagina in het dashboard (zie hieronder). Open daarna Arcfin en ga naar <strong>Instellingen &rsaquo; Server</strong>: onder <strong>Arcfin Sync</strong> staat <strong>Verbonden</strong> met de versie van de plug-in.</li>
     </ol>
     <p>Updates komen via dezelfde repository. Als er een nieuwe versie is, biedt Jellyfin die aan onder <strong>My Plugins</strong>; installeer hem en herstart.</p>
 
     <h2 id="configure">Instellen</h2>
-    <p>Open <strong>Arcfin Sync</strong> vanuit het menu van het dashboard, of vanuit <strong>My Plugins</strong>. Er zijn drie pagina’s:</p>
+    <p>Open <strong>Arcfin Sync</strong> vanuit het menu van het dashboard, of vanuit <strong>My Plugins</strong>. Het is één pagina met drie tabbladen:</p>
     <ul>
-      <li><strong>General:</strong> meldingsopties voor een latere versie. Niets hier verandert nog hoe Arcfin werkt.</li>
-      <li><strong>Client Settings:</strong> de eigen Instellingen van de app, op dezelfde manier ingedeeld. Vergrendel elke instelling zodat niemand hem kan wijzigen, of geef hem een beginwaarde. Wijzigingen bereiken elke gebruiker de volgende keer dat Arcfin synchroniseert.</li>
-      <li><strong>Advanced:</strong> dezelfde opties als YAML, voor beheerders die liever in tekst instellen.</li>
+      <li><strong>Overview:</strong> hoe de plug-in werkt, met links naar hulp en om een probleem te melden.</li>
+      <li><strong>Settings:</strong> elke Arcfin-instelling. Geef er een standaardwaarde aan, die geldt tot iemand zelf iets kiest, of vergrendel hem zodat iedereen jouw waarde krijgt.</li>
+      <li><strong>Users &amp; Devices:</strong> elk apparaat dat met Arcfin is aangemeld. Geef er een andere naam aan of vergeet het, en geef één gebruiker eigen standaardwaarden en vergrendelingen.</li>
     </ul>
-    <p>Gebruikers hoeven niets te doen. Arcfin vindt de plug-in zelf, synchroniseert bij het openen, en <strong>Synchroniseer nu</strong> in <strong>Instellingen &rsaquo; Server &rsaquo; Arcfin Sync</strong> synchroniseert meteen.</p>
+    <p>Beheerders kunnen dezelfde wijzigingen in Arcfin maken, onder <strong>Beheer &rsaquo; Arcfin voor iedereen</strong>. Wijzigingen komen op elk apparaat aan bij de volgende synchronisatie van Arcfin: als het opent, naar voren komt of als een instelling verandert.</p>
+    <p>Gebruikers hoeven niets te doen. Arcfin vindt de plug-in zelf, en <strong>Synchroniseer nu</strong> in <strong>Instellingen &rsaquo; Server</strong> synchroniseert meteen. Om te kiezen hoe een apparaat synchroniseert, open je <strong>Instellingen &rsaquo; Server &rsaquo; Apparaten en synchronisatie</strong>.</p>
 
     <h2 id="privacy">Privacy</h2>
-    <p>De plug-in draait op je eigen Jellyfin-server. Gesynchroniseerde instellingen worden daar bewaard en nergens anders; er zit nog steeds geen Arcfin-server tussen. Het <a href="/privacy/">privacybeleid</a> beschrijft wat er bewaard wordt.</p>
+    <p>De plug-in draait op je eigen Jellyfin-server. Gesynchroniseerde instellingen en de lijst met je apparaten worden daar bewaard en nergens anders; er zit nog steeds geen Arcfin-server tussen. Het <a href="/privacy/">privacybeleid</a> beschrijft wat er wordt bewaard.</p>
 
     <h2 id="changes">Wat er veranderd is</h2>
     <p>Elke versie van de plug-in staat bij <a href="/nl/changelog/">Wijzigingen</a>, onder <strong>Plug-in</strong>. De lijst werkt zichzelf bij als er een nieuwe versie verschijnt.</p>
@@ -123,7 +129,7 @@
     <div class="cols">
       <div class="about">
         <a class="brand" href="/nl/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
-        <p>Een opensource Jellyfin-client voor iPhone, iPad, Mac en Apple TV, openlijk gebouwd door één ontwikkelaar en een groeiende groep testers en bijdragers.</p>
+        <p>Een opensource Jellyfin-client voor iPhone, iPad, Mac, Apple TV en Apple Watch, openlijk gebouwd door één ontwikkelaar en een groeiende groep testers en bijdragers.</p>
       </div>
       <div>
         <h4>Arcfin</h4>

@@ -2,7 +2,7 @@
 
 [![Deploy](https://git.psmattas.com/ArcFin/arcfin-site/actions/workflows/deploy.yml/badge.svg?branch=main)](https://git.psmattas.com/ArcFin/arcfin-site/actions?workflow=deploy.yml)
 
-The website for [Arcfin](https://git.psmattas.com/ArcFin/ArcFin), an open-source Jellyfin client for iPhone, iPad, Mac and Apple TV. It lives at **[arcfin.psmattas.com](https://arcfin.psmattas.com)**.
+The website for [Arcfin](https://git.psmattas.com/ArcFin/ArcFin), an open-source Jellyfin client for iPhone, iPad, Mac, Apple TV and Apple Watch, with CarPlay in the car. It lives at **[arcfin.psmattas.com](https://arcfin.psmattas.com)**.
 
 The site is plain, hand-written HTML and CSS: no framework, no build step and no backend. Visits are counted with Cloudflare Web Analytics, which sets no cookies; the app itself has no analytics at all. What's in `site/arcfin.psmattas.com/` is exactly what's served.
 

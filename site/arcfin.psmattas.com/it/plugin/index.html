@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Plugin server</span>
   <h1>Arcfin Sync</h1>
-  <p>Un plugin facoltativo per il tuo server Jellyfin. Arcfin funziona bene anche senza; con il plugin, le tue impostazioni ti seguono tra i dispositivi, gli amministratori possono gestire le impostazioni di tutti e i download diventano più leggeri.</p>
+  <p>Un plugin facoltativo per il tuo server Jellyfin. Arcfin funziona benissimo anche senza; con il plugin, le tue impostazioni ti seguono tra i dispositivi, gli amministratori possono impostare valori predefiniti e blocchi per tutti, e i download diventano più leggeri.</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">Installalo</a><a class="btn btn-secondary btn-small" href="/it/changelog/">Novità</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">Codice sorgente</a></div>
   <p class="hero-note">Ultima versione <span data-version="plugin">0.3.0</span> &middot; Gratuito e open source con licenza AGPL-3.0</p>
 </div></section>
@@ -65,7 +65,10 @@
     <h2 id="features">Cosa aggiunge</h2>
     <ul>
       <li><strong>Impostazioni che ti seguono.</strong> Cambia un’impostazione sul tuo iPhone e la ritrovi su iPad, Mac e Apple TV. Le impostazioni che hanno senso solo su un tipo di dispositivo, come le opzioni delle finestre sul Mac o quelle del focus su Apple TV, restano su quel tipo di dispositivo.</li>
-      <li><strong>Impostazioni gestite dal tuo amministratore.</strong> Dalla dashboard di Jellyfin, un amministratore può bloccare un’impostazione per tutti sul server, o impostare un valore iniziale che ogni utente può ancora cambiare. Un’impostazione bloccata appare come bloccata nell’app e lì non si può cambiare.</li>
+      <li><strong>Dispositivi e sincronizzazione.</strong> Ogni dispositivo sceglie come sincronizzarsi: automaticamente, Chiedi prima per verificare con te prima di usare le modifiche di un altro dispositivo, o Disattivato. Puoi anche inviare le impostazioni di un dispositivo a tutti gli altri. In Arcfin si trova in <strong>Impostazioni &rsaquo; Server &rsaquo; Dispositivi e sincronizzazione</strong>.</li>
+      <li><strong>I tuoi dispositivi in un solo posto.</strong> Il plugin tiene una scheda per ogni dispositivo su cui usi Arcfin, con nome, piattaforma, versione dell’app e quando è stato visto l’ultima volta. Puoi rinominare o dimenticare i tuoi dispositivi, e gli amministratori possono farlo per chiunque.</li>
+      <li><strong>Valori predefiniti e blocchi per tutti.</strong> Gli amministratori danno a qualsiasi impostazione un valore predefinito, usato finché qualcuno non sceglie il proprio, oppure la bloccano perché tutti abbiano quel valore senza poterlo cambiare. Possono farlo per tutto il server o per una persona, e sbloccare un’impostazione per una persona. Nell’app si trova in <strong>Admin &rsaquo; Arcfin per tutti</strong>; su Apple TV in <strong>Impostazioni &rsaquo; Server</strong>.</li>
+      <li><strong>L’elenco completo delle impostazioni.</strong> Il plugin contiene lo stesso catalogo di impostazioni dell’app, con titoli, valori predefiniti, opzioni e le piattaforme che le mostrano. Salva solo le impostazioni di quell’elenco.</li>
       <li><strong>Download più leggeri.</strong> Il plugin verifica quali encoder video la scheda grafica del tuo server può davvero usare. Quando può codificare in AV1, Arcfin converte i download di qualità inferiore in AV1, che a parità di immagine pesa circa la metà di H.264. Gli amministratori vedono i risultati nell’app, in Admin &rsaquo; Encoder hardware.</li>
       <li><strong>Tutte le tracce audio in un download convertito.</strong> Jellyfin tiene una sola traccia audio quando converte un download. Il plugin passa ad Arcfin ogni traccia in più che scegli, così un download più leggero può mantenere più lingue.</li>
     </ul>
@@ -76,7 +79,9 @@
       <tbody>
         <tr><td>Riproduzione, navigazione e download</td><td>Funziona tutto</td><td>Funziona tutto</td></tr>
         <tr><td>Impostazioni dell’app</td><td>Salvate su ogni dispositivo separatamente</td><td>Sincronizzate tra tutti i tuoi dispositivi, per utente</td></tr>
-        <tr><td>Controllo delle impostazioni da parte dell’amministratore</td><td>Ogni utente può cambiare ogni impostazione</td><td>Gli amministratori bloccano qualsiasi impostazione per tutti o le danno un valore iniziale</td></tr>
+        <tr><td>Come si sincronizza ogni dispositivo</td><td>Non disponibile</td><td>Automaticamente, Chiedi prima o Disattivato, e invio delle impostazioni di un dispositivo agli altri (versione 0.4.0 e successive)</td></tr>
+        <tr><td>I tuoi dispositivi</td><td>Non disponibile</td><td>Elencati in Dispositivi e sincronizzazione, per rinominarli o dimenticarli (versione 0.4.0 e successive)</td></tr>
+        <tr><td>Controllo delle impostazioni da parte dell’amministratore</td><td>Ogni utente può cambiare ogni impostazione</td><td>Valori predefiniti e blocchi per tutti o per una persona, dalla dashboard o da Admin &rsaquo; Arcfin per tutti</td></tr>
         <tr><td>Download convertiti</td><td>HEVC dove il server lo consente, altrimenti H.264</td><td>Anche AV1, quando l’hardware del server può davvero codificarlo</td></tr>
         <tr><td>Tracce audio in più in un download convertito</td><td>Prese da Jellyfin, che può inviare la traccia predefinita invece di quella scelta</td><td>Ogni traccia che scegli, estratta dal server (versione 0.3.1 e successive)</td></tr>
         <tr><td>Report degli encoder hardware per gli amministratori</td><td>Non disponibile</td><td>Admin &rsaquo; Encoder hardware mostra cosa può codificare l’hardware del server</td></tr>
@@ -90,21 +95,22 @@
       <li><strong>Riavvia Jellyfin.</strong> Usa <strong>Restart</strong> nella dashboard, oppure riavvia il server o il suo container. Jellyfin legge il nuovo repository all’avvio.</li>
       <li><strong>Installa il plugin.</strong> Apri <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>, trova <strong>Arcfin Sync</strong> e scegli <strong>Install</strong>.</li>
       <li><strong>Riavvia di nuovo Jellyfin.</strong> I plugin si caricano all’avvio del server. Dopo, Arcfin Sync appare come <strong>Active</strong> in <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong>.</li>
-      <li><strong>Configuralo.</strong> Arcfin Sync ora ha le sue pagine nella dashboard (vedi sotto). Poi apri Arcfin e vai in <strong>Impostazioni &rsaquo; Server &rsaquo; Arcfin Sync</strong>: vedrai <strong>Connesso</strong> con la versione del plugin.</li>
+      <li><strong>Configuralo.</strong> Arcfin Sync ora ha una sua pagina nella dashboard (vedi sotto). Poi apri Arcfin e vai in <strong>Impostazioni &rsaquo; Server</strong>: sotto <strong>Arcfin Sync</strong> compare <strong>Connesso</strong> con la versione del plugin.</li>
     </ol>
     <p>Gli aggiornamenti arrivano dallo stesso repository. Quando esce una nuova versione, Jellyfin la propone in <strong>My Plugins</strong>; installala e riavvia.</p>
 
     <h2 id="configure">Configurazione</h2>
-    <p>Apri <strong>Arcfin Sync</strong> dal menu della dashboard, oppure da <strong>My Plugins</strong>. Ha tre pagine:</p>
+    <p>Apri <strong>Arcfin Sync</strong> dal menu della dashboard o da <strong>My Plugins</strong>. È una sola pagina con tre schede:</p>
     <ul>
-      <li><strong>General:</strong> opzioni di notifica per una versione futura. Per ora niente qui cambia il funzionamento di Arcfin.</li>
-      <li><strong>Client Settings:</strong> le Impostazioni dell’app, organizzate allo stesso modo. Per ogni impostazione, bloccala perché nessuno possa cambiarla, o dalle un valore iniziale. Le modifiche arrivano a ogni utente alla successiva sincronizzazione di Arcfin.</li>
-      <li><strong>Advanced:</strong> gli stessi controlli in YAML, per gli amministratori che preferiscono configurare tutto in testo.</li>
+      <li><strong>Overview:</strong> come funziona il plugin, con link all’aiuto e per segnalare un problema.</li>
+      <li><strong>Settings:</strong> tutte le impostazioni di Arcfin. Dai a ognuna un valore predefinito, usato finché qualcuno non sceglie il proprio, oppure bloccala perché tutti abbiano il tuo valore.</li>
+      <li><strong>Users &amp; Devices:</strong> tutti i dispositivi collegati con Arcfin. Rinominane uno o dimenticalo, e dai a un singolo utente i suoi valori predefiniti e blocchi.</li>
     </ul>
-    <p>Gli utenti non devono fare nulla. Arcfin trova il plugin da solo, sincronizza all’apertura, e <strong>Sincronizza ora</strong> in <strong>Impostazioni &rsaquo; Server &rsaquo; Arcfin Sync</strong> sincronizza subito.</p>
+    <p>Gli amministratori possono fare le stesse modifiche in Arcfin, in <strong>Admin &rsaquo; Arcfin per tutti</strong>. Le modifiche arrivano su ogni dispositivo alla successiva sincronizzazione di Arcfin: quando si apre, torna in primo piano o cambia un’impostazione.</p>
+    <p>Gli utenti non devono fare nulla. Arcfin trova il plugin da solo, e <strong>Sincronizza ora</strong> in <strong>Impostazioni &rsaquo; Server</strong> sincronizza subito. Per scegliere come si sincronizza un dispositivo, apri <strong>Impostazioni &rsaquo; Server &rsaquo; Dispositivi e sincronizzazione</strong>.</p>
 
     <h2 id="privacy">Privacy</h2>
-    <p>Il plugin gira sul tuo server Jellyfin. Le impostazioni sincronizzate sono salvate lì e da nessun’altra parte; non c’è ancora nessun server Arcfin in mezzo. L’<a href="/privacy/">informativa sulla privacy</a> spiega cosa viene conservato.</p>
+    <p>Il plugin gira sul tuo server Jellyfin. Le impostazioni sincronizzate e la scheda dei tuoi dispositivi sono salvate lì e da nessun’altra parte; non c’è comunque nessun server Arcfin in mezzo. L’<a href="/privacy/">Informativa sulla privacy</a> spiega cosa viene conservato.</p>
 
     <h2 id="changes">Cosa è cambiato</h2>
     <p>Ogni versione del plugin è nelle <a href="/it/changelog/">Novità</a>, sotto <strong>Plugin</strong>. Si aggiorna da sola quando esce una nuova versione.</p>
@@ -123,7 +129,7 @@
     <div class="cols">
       <div class="about">
         <a class="brand" href="/it/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
-        <p>Un client Jellyfin open source per iPhone, iPad, Mac e Apple TV, sviluppato alla luce del sole da uno sviluppatore e da un gruppo crescente di tester e collaboratori.</p>
+        <p>Un client Jellyfin open source per iPhone, iPad, Mac, Apple TV e Apple Watch, sviluppato alla luce del sole da uno sviluppatore e da un gruppo crescente di tester e collaboratori.</p>
       </div>
       <div>
         <h4>Arcfin</h4>

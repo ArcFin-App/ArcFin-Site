@@ -60,7 +60,7 @@
 <section class="wrap" aria-label="これまでの Arcfin"><div class="rm-facts">
   <div><strong>2026 年 5 月</strong><span>最初のコミット</span></div>
   <div><strong><span data-count="releases">33</span></strong><span>TestFlight ビルド</span></div>
-  <div><strong>4</strong><span>Apple プラットフォーム</span></div>
+  <div><strong>5</strong><span>Apple プラットフォーム</span></div>
   <div><strong>11</strong><span>言語</span></div>
 </div></section>
 
@@ -69,21 +69,21 @@
 <div class="doc-main timeline">
 <h2>これから</h2>
 <ol class="tl upcoming">
-<li class="tl-item"><span class="tl-ver">0.5.0</span><h3>最後の大きな機能追加</h3><p>アルバム、アーティスト、プレイリストに対応した音楽と、オフラインで聴くためのダウンロード。iPhone から Apple TV、Mac、iPad の Arcfin を操作でき、最初の Apple Watch アプリはリモコンとして使えます。このバージョンのライブ TV、管理ツール、ワンタップの Seerr はすでに TestFlight にあります。</p></li>
 <li class="tl-item"><span class="tl-ver">0.5.1</span><h3>最後のベータ、そして App Store へ</h3><p>新機能はなし。安定性の修正と、Arcfin のすべての機能を対象にしたテストを行います。テスターの確認が済んだら 0.5.1 を Apple の審査に出し、最初の App Store リリースになります。</p></li>
-<li class="tl-item"><span class="tl-ver">その後</span><h3>継続的なサイクル</h3><p>新しいビルドはまず社内テスターへ、次に毎晩同じリンクの公開 TestFlight ベータへ届き、両方のグループで問題がなければ App Store に出ます。セキュリティ修正は待たずに出します。</p></li>
+<li class="tl-item"><span class="tl-ver">その後</span><h3>継続的なサイクル</h3><p>ナイトリービルドは、何か変更があった日は毎晩、内部テスターに届きます。内部テスターが承認したナイトリーは同じリンクの公開 TestFlight ベータに進み、両方のグループで問題なく使えたら App Store に届きます。セキュリティ修正は待たずに配信されます。</p></li>
 </ol>
 <p class="footnote">計画は変わることがあります。各バージョンの内容は<a href="https://git.psmattas.com/ArcFin/ArcFin/milestones">マイルストーン</a>で随時確認できます。</p>
 
 <h2>現在</h2>
 <div class="tl-now">
   <p class="tl-now-version"><span>TestFlight でバージョン <span data-version="latest">0.2.0</span></span></p>
-  <p>ガイド、録画、ラジオに対応したライブ TV、管理ツールとサーバー設定、リクエスト承認付きのワンタップ Seerr サインイン、新しいエピソードと映画の通知、空き容量を待つダウンロード。</p>
+  <p>0.5.0 は最後の大きな機能追加です。「再生中」と歌詞付きの音楽、オフラインとスマートダウンロード、CarPlay、SharePlay、ウィジェット。番組表、録画、ラジオ付きのライブTV。「みんなのArcfin」付きの「管理」タブ、「デバイスと同期」、別のデバイスで再生とリモコン、そして音楽とリモコンのための Apple Watch アプリ。</p>
   <div class="hero-actions"><a class="btn btn-primary" href="https://testflight.apple.com/join/kkC58n2w">TestFlight ベータに参加</a><a class="btn btn-secondary" href="/ja/changelog/">変更履歴を読む</a></div>
 </div>
 
 <h2><time datetime="2026-11" data-date="month">November 2026</time></h2>
 <ol class="tl">
+<li class="tl-item done"><time datetime="2026-11-23" data-date="day">23 November 2026</time><h3>0.5.0：ミュージックとリモコン</h3><p>iPhone、iPad、Mac、Apple TV 向けのビルド 1 が TestFlight に登場。ミュージックとオフラインダウンロード、CarPlay、ライブTV、「みんなのArcfin」を備えた管理タブ、「デバイスと同期」、「再生先」、Apple Watch アプリを搭載しています。</p></li>
 <li class="tl-item done"><time datetime="2026-11-13" data-date="day">13 November 2026</time><h3>ハードウェアエンコーダと Mac の設定ウインドウ</h3><p>管理者はサーバーが実際に使えるエンコーダを確認でき、Arcfin を開いている間も通知が新着を確認し、Mac には専用の設定ウインドウができました。</p></li>
 <li class="tl-item done"><time datetime="2026-11-12" data-date="day">12 November 2026</time><h3>管理ツールと通知</h3><p>サーバー設定とメタデータエディタのある管理タブ、新しいエピソードと映画の通知、写真の長押しでプロフィール切り替え。</p></li>
 <li class="tl-item done"><time datetime="2026-11-12" data-date="day">12 November 2026</time><h3>ホームとライブラリの追加機能</h3><p>管理者がおすすめするコレクション、ポスターの未視聴数、タグ、エピソードか番組のアートワークの選択。</p></li>
@@ -149,7 +149,7 @@
     <div class="cols">
       <div class="about">
         <a class="brand" href="/ja/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
-        <p>iPhone、iPad、Mac、Apple TV 向けのオープンソースの Jellyfin クライアント。ひとりの開発者と、増え続けるテスターやコントリビューターがオープンに作っています。</p>
+        <p>iPhone、iPad、Mac、Apple TV、Apple Watch 向けのオープンソースの Jellyfin クライアント。ひとりの開発者と、増え続けるテスターやコントリビューターがオープンに作っています。</p>
       </div>
       <div>
         <h4>Arcfin</h4>

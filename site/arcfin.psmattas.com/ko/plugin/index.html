@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">서버 플러그인</span>
   <h1>Arcfin Sync</h1>
-  <p>Jellyfin 서버용 선택 사항 플러그인입니다. Arcfin은 플러그인 없이도 잘 작동합니다. 설치하면 설정이 기기 간에 따라오고, 관리자가 모두의 설정을 관리할 수 있으며, 다운로드가 더 작아집니다.</p>
+  <p>Jellyfin 서버용 선택 플러그인입니다. 없어도 Arcfin은 잘 작동하지만, 있으면 설정이 기기 간에 따라오고, 관리자가 모두에게 기본값과 잠금을 정할 수 있으며, 다운로드도 작아집니다.</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">설치하기</a><a class="btn btn-secondary btn-small" href="/ko/changelog/">변경 사항</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">소스 코드</a></div>
   <p class="hero-note">최신 버전 <span data-version="plugin">0.3.0</span> &middot; AGPL-3.0 라이선스의 무료 오픈 소스</p>
 </div></section>
@@ -65,7 +65,10 @@
     <h2 id="features">추가되는 기능</h2>
     <ul>
       <li><strong>나를 따라오는 설정.</strong> iPhone에서 설정을 바꾸면 iPad, Mac, Apple TV에도 그대로 적용됩니다. Mac 창 옵션이나 Apple TV 포커스 옵션처럼 한 종류의 기기에서만 의미 있는 설정은 그 종류의 기기에만 남습니다.</li>
-      <li><strong>관리자가 관리하는 설정.</strong> 관리자는 Jellyfin 대시보드에서 서버의 모든 사용자에 대해 설정을 잠그거나, 사용자가 나중에 바꿀 수 있는 초깃값을 넣을 수 있습니다. 잠긴 설정은 앱에서 잠김으로 표시되며 앱에서 바꿀 수 없습니다.</li>
+      <li><strong>기기 및 동기화.</strong> 기기마다 동기화 방식을 고릅니다: 자동, 다른 기기의 변경 사항을 쓰기 전에 확인하는 먼저 묻기, 또는 끔. 한 기기의 설정을 다른 모든 기기로 보낼 수도 있습니다. Arcfin의 <strong>설정 &rsaquo; 서버 &rsaquo; 기기 및 동기화</strong>에 있습니다.</li>
+      <li><strong>내 기기를 한곳에.</strong> 플러그인은 Arcfin을 쓰는 각 기기를 이름, 플랫폼, 앱 버전, 마지막으로 확인된 시각과 함께 기록합니다. 내 기기의 이름을 바꾸거나 삭제할 수 있고, 관리자는 모든 사람의 기기에 대해 그렇게 할 수 있습니다.</li>
+      <li><strong>모두를 위한 기본값과 잠금.</strong> 관리자는 어떤 설정에든 기본값(각자 고르기 전까지 쓰는 값)을 주거나, 잠가서 모두가 같은 값을 쓰고 바꿀 수 없게 할 수 있습니다. 서버 전체나 한 사람에게 설정할 수 있고, 한 사람만 잠금을 풀 수도 있습니다. 앱에서는 <strong>관리 &rsaquo; 모두를 위한 Arcfin</strong>, Apple TV에서는 <strong>설정 &rsaquo; 서버</strong>에 있습니다.</li>
+      <li><strong>설정 전체 목록.</strong> 플러그인은 앱과 같은 설정 카탈로그를 갖고 있으며, 제목, 기본값, 선택지, 표시되는 플랫폼도 포함합니다. 이 목록에 있는 설정만 저장합니다.</li>
       <li><strong>더 작은 다운로드.</strong> 플러그인은 서버의 그래픽 카드가 실제로 쓸 수 있는 비디오 인코더를 테스트합니다. AV1 인코딩이 가능하면 Arcfin은 낮은 화질의 다운로드를 AV1으로 변환하는데, 같은 화질에서 H.264의 약 절반 크기입니다. 관리자는 앱의 관리 &rsaquo; 하드웨어 인코더에서 결과를 볼 수 있습니다.</li>
       <li><strong>변환된 다운로드에 모든 오디오 트랙을.</strong> Jellyfin은 다운로드를 변환할 때 오디오 트랙을 하나만 남깁니다. 플러그인은 선택한 추가 트랙을 하나하나 Arcfin에 넘겨 주므로, 더 작은 다운로드에도 여러 언어를 남길 수 있습니다.</li>
     </ul>
@@ -76,7 +79,9 @@
       <tbody>
         <tr><td>재생, 둘러보기, 다운로드</td><td>모두 작동</td><td>모두 작동</td></tr>
         <tr><td>앱 설정</td><td>기기마다 따로 보관</td><td>사용자별로 모든 기기 간에 동기화</td></tr>
-        <tr><td>관리자의 설정 관리</td><td>모든 사용자가 모든 설정을 변경 가능</td><td>관리자가 어떤 설정이든 모두에게 잠그거나 초깃값을 지정</td></tr>
+        <tr><td>기기별 동기화 방식</td><td>사용할 수 없음</td><td>자동, 먼저 묻기, 끔 중에서 고르고, 한 기기의 설정을 다른 기기로 보내기(버전 0.4.0 이상)</td></tr>
+        <tr><td>내 기기</td><td>사용할 수 없음</td><td>기기 및 동기화에 표시되며, 이름 변경이나 삭제 가능(버전 0.4.0 이상)</td></tr>
+        <tr><td>관리자의 설정 관리</td><td>모든 사용자가 모든 설정을 변경 가능</td><td>모두 또는 한 사람을 위한 기본값과 잠금, 대시보드나 관리 &rsaquo; 모두를 위한 Arcfin에서</td></tr>
         <tr><td>변환된 다운로드</td><td>서버가 허용하면 HEVC, 아니면 H.264</td><td>서버 하드웨어가 실제로 인코딩할 수 있으면 AV1도</td></tr>
         <tr><td>변환된 다운로드의 추가 오디오 트랙</td><td>Jellyfin에서 가져오며, 선택한 트랙 대신 기본 트랙이 올 수 있음</td><td>선택한 트랙마다 서버가 추출 (버전 0.3.1 이상)</td></tr>
         <tr><td>관리자용 하드웨어 인코더 보고서</td><td>사용할 수 없음</td><td>관리 &rsaquo; 하드웨어 인코더에서 서버 하드웨어가 인코딩할 수 있는 형식을 표시</td></tr>
@@ -90,21 +95,22 @@
       <li><strong>Jellyfin을 재시작합니다.</strong> 대시보드에서 <strong>Restart</strong>를 사용하거나 서버 또는 컨테이너를 재시작하세요. Jellyfin은 시작할 때 새 저장소를 읽습니다.</li>
       <li><strong>플러그인을 설치합니다.</strong> <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>를 열고 <strong>Arcfin Sync</strong>를 찾아 <strong>Install</strong>을 선택하세요.</li>
       <li><strong>Jellyfin을 한 번 더 재시작합니다.</strong> 플러그인은 서버가 시작할 때 로드됩니다. 그러면 Arcfin Sync가 <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong>에 <strong>Active</strong>로 표시됩니다.</li>
-      <li><strong>설정합니다.</strong> 이제 Arcfin Sync는 대시보드에 자체 페이지가 있습니다(아래 참고). 그런 다음 Arcfin을 열고 <strong>설정 &rsaquo; 서버 &rsaquo; Arcfin Sync</strong>로 가면 플러그인 버전과 함께 <strong>연결됨</strong>이 표시됩니다.</li>
+      <li><strong>설정합니다.</strong> 이제 Arcfin Sync는 대시보드에 자체 페이지가 있습니다(아래 참고). 그런 다음 Arcfin을 열고 <strong>설정 &rsaquo; 서버</strong>로 가면 <strong>Arcfin Sync</strong> 아래에 플러그인 버전과 함께 <strong>연결됨</strong>이 표시됩니다.</li>
     </ol>
     <p>업데이트는 같은 저장소를 통해 받습니다. 새 버전이 나오면 Jellyfin이 <strong>My Plugins</strong>에서 알려 주니, 설치하고 재시작하세요.</p>
 
     <h2 id="configure">설정하기</h2>
-    <p>대시보드 메뉴나 <strong>My Plugins</strong>에서 <strong>Arcfin Sync</strong>를 엽니다. 페이지는 세 개입니다:</p>
+    <p>대시보드 메뉴나 <strong>My Plugins</strong>에서 <strong>Arcfin Sync</strong>를 엽니다. 탭이 세 개 있는 한 페이지입니다:</p>
     <ul>
-      <li><strong>General:</strong> 이후 버전을 위한 알림 옵션입니다. 아직 여기서 Arcfin의 작동 방식이 바뀌지는 않습니다.</li>
-      <li><strong>Client Settings:</strong> 앱의 설정과 같은 구성입니다. 설정마다 아무도 바꿀 수 없게 잠그거나 초깃값을 지정하세요. 변경 사항은 다음에 Arcfin이 동기화할 때 각 사용자에게 적용됩니다.</li>
-      <li><strong>Advanced:</strong> 같은 항목을 YAML로 다룹니다. 텍스트로 설정하는 쪽을 선호하는 관리자를 위한 페이지입니다.</li>
+      <li><strong>Overview:</strong> 플러그인이 작동하는 방식과 도움말, 문제 신고 링크.</li>
+      <li><strong>Settings:</strong> Arcfin의 모든 설정. 어떤 설정에든 기본값(각자 고르기 전까지 쓰는 값)을 주거나, 잠가서 모두가 내가 정한 값을 쓰게 할 수 있습니다.</li>
+      <li><strong>Users &amp; Devices:</strong> Arcfin으로 로그인한 모든 기기. 이름을 바꾸거나 삭제하고, 한 사용자에게 자신만의 기본값과 잠금을 줄 수 있습니다.</li>
     </ul>
-    <p>사용자는 아무것도 할 필요가 없습니다. Arcfin이 플러그인을 알아서 찾고, 열릴 때 동기화하며, <strong>설정 &rsaquo; 서버 &rsaquo; Arcfin Sync</strong>의 <strong>지금 동기화</strong>로 바로 동기화할 수도 있습니다.</p>
+    <p>관리자는 Arcfin의 <strong>관리 &rsaquo; 모두를 위한 Arcfin</strong>에서도 같은 변경을 할 수 있습니다. 변경 사항은 각 기기가 다음에 동기화할 때, 즉 열릴 때, 앞으로 나올 때, 설정이 바뀔 때 반영됩니다.</p>
+    <p>사용자는 아무것도 할 필요가 없습니다. Arcfin이 플러그인을 알아서 찾고, <strong>설정 &rsaquo; 서버</strong>의 <strong>지금 동기화</strong>로 바로 동기화할 수 있습니다. 기기의 동기화 방식을 고르려면 <strong>설정 &rsaquo; 서버 &rsaquo; 기기 및 동기화</strong>를 여세요.</p>
 
     <h2 id="privacy">개인정보</h2>
-    <p>플러그인은 여러분의 Jellyfin 서버에서 실행됩니다. 동기화된 설정은 그곳에만 저장되며, 중간에 Arcfin 서버는 여전히 없습니다. 무엇이 보관되는지는 <a href="/privacy/">개인정보 처리방침</a>에서 확인하세요.</p>
+    <p>플러그인은 내 Jellyfin 서버에서 실행됩니다. 동기화된 설정과 기기 기록은 그곳에만 저장되고 다른 곳에는 저장되지 않으며, 중간에 Arcfin 서버도 없습니다. 무엇이 저장되는지는 <a href="/privacy/">개인정보 처리방침</a>에 나와 있습니다.</p>
 
     <h2 id="changes">변경 사항</h2>
     <p>플러그인의 모든 릴리스는 <a href="/ko/changelog/">변경 사항</a>의 <strong>플러그인</strong>에 있습니다. 새 버전이 공개되면 자동으로 업데이트됩니다.</p>
@@ -123,7 +129,7 @@
     <div class="cols">
       <div class="about">
         <a class="brand" href="/ko/"><img src="/assets/logo.png" alt="" width="30" height="30">Arcfin</a>
-        <p>iPhone, iPad, Mac, Apple TV를 위한 오픈 소스 Jellyfin 클라이언트. 한 명의 개발자와 늘어나는 테스터, 기여자가 공개적으로 만들고 있습니다.</p>
+        <p>iPhone, iPad, Mac, Apple TV, Apple Watch를 위한 오픈 소스 Jellyfin 클라이언트. 한 명의 개발자와 늘어나는 테스터, 기여자가 공개적으로 만들고 있습니다.</p>
       </div>
       <div>
         <h4>Arcfin</h4>
