@@ -48,19 +48,24 @@
 <article class="prose">
   <div class="summary-box"><strong>In short:</strong> Arcfin has no server of its own. It connects directly from your device to the servers you add. We don&rsquo;t collect, see or store your media, your passwords or what you watch. There&rsquo;s no account with us, and the app has no analytics, advertising or tracking. This website counts visits with Cloudflare Web Analytics, which sets no cookies.</div>
 
-  <p style="margin-top:28px">Arcfin (&ldquo;the app&rdquo;) is developed by Puranjay Savar Mattas (&ldquo;we&rdquo;, &ldquo;us&rdquo;). This policy applies to Arcfin on iPhone, iPad, Mac, Apple TV and Apple Watch.</p>
+  <p style="margin-top:28px">Arcfin (&ldquo;the app&rdquo;) is developed by Puranjay Savar Mattas (&ldquo;we&rdquo;, &ldquo;us&rdquo;). This policy applies to Arcfin on iPhone, iPad, Mac, Apple TV and Apple Watch, and in CarPlay.</p>
 
   <h2>What Arcfin connects to</h2>
   <p>Arcfin is a client for services you run or already use. When you add a server or turn on a feature, your device talks to it directly:</p>
   <ul>
-    <li><strong>Your Jellyfin server</strong> (required). Arcfin sends your sign-in details and playback requests straight to the address you enter. If you install the Arcfin Sync plugin on that server, your Arcfin settings are stored there too.</li>
-    <li><strong>Seerr</strong> (optional). If you connect a Seerr server to browse and request titles, your device talks to it directly.</li>
-    <li><strong>TMDB</strong> (optional). If you add your own TMDB API key, Arcfin asks The Movie Database for review scores, where-to-watch information, popular titles and artwork, using the IDs of the titles you look at.</li>
+    <li><strong>Your Jellyfin server</strong> (required). Arcfin sends your sign-in details and playback requests straight to the address you enter.</li>
+    <li><strong>Arcfin Sync</strong> (optional, a plugin on your Jellyfin server). If your server&rsquo;s admin installs it, your synced settings are stored on that server, with a record of each device you use Arcfin on: its name, platform, app version, when it was last seen and how it syncs. The server&rsquo;s admins can set defaults and locks for settings. All of this stays on your server; we never receive it.</li>
+    <li><strong>Seerr</strong> (optional). If you connect a Seerr server, your device talks to it directly for requests and your watchlist, signed in per profile.</li>
+    <li><strong>TMDB</strong> (optional). If you add your own TMDB API key, Arcfin asks The Movie Database for review scores, where-to-watch information, popular titles and images, using the IDs of the titles you look at.</li>
     <li><strong>Wikidata</strong>. To show awards on a title page, Arcfin sends that title&rsquo;s TMDB ID to Wikidata&rsquo;s public query service.</li>
-    <li><strong>YouTube</strong>. If your server has no trailer for a title, Arcfin can play its trailer from YouTube using Google&rsquo;s embedded player. You can turn this off in Settings &rsaquo; Playback.</li>
+    <li><strong>LRCLIB</strong> (optional). If you turn on Find Missing Lyrics in Settings &rsaquo; Music, Arcfin looks up lyrics your server doesn&rsquo;t have on LRCLIB, a free lyrics library, sending it the song&rsquo;s title, artist, album and length.</li>
+    <li><strong>YouTube</strong> (iPhone, iPad and Mac). If your server has no trailer for a title and YouTube Fallback is on in Settings &rsaquo; Playback, Arcfin plays its trailer from YouTube using Google&rsquo;s embedded player.</li>
+    <li><strong>Google Cast</strong> (Chromecast, iPhone and iPad). When you cast, Google&rsquo;s Cast SDK finds Cast devices on your local network, and the one you pick plays from your server.</li>
     <li><strong>ListenBrainz</strong> (optional, per profile). It&rsquo;s off until you add your own ListenBrainz user token in Settings &rsaquo; Integrations. With a token, Arcfin sends your listens to ListenBrainz, each with the song title, artist, album, its length, when you played it, and that it came from Arcfin and which Arcfin version. It also sends the loves and hates you set on a song, reads your feedback and your listening stats for Stats and Year in Music, and checks that the token is valid. If you import your listening history while ListenBrainz is linked, the plays from the files you pick are sent to ListenBrainz with their times, as well as to your Jellyfin server. The switch for this is on by default; turn it off when you import to keep those plays off ListenBrainz.</li>
-    <li><strong>What&rsquo;s Playing?</strong> (iPhone and iPad). To identify a song playing nearby, Arcfin uses Apple&rsquo;s ShazamKit and the microphone, only while you&rsquo;re on that screen. ShazamKit makes a signature of the sound on your device and matches it with Apple&rsquo;s Shazam service. Arcfin doesn&rsquo;t keep the recording or send it anywhere else. When the song isn&rsquo;t on your server and you&rsquo;ve turned on the Apple Music option in Settings, Arcfin searches Apple Music&rsquo;s catalogue with MusicKit to find and play it.</li>
-    <li><strong>Voice search in CarPlay</strong>. Arcfin uses the microphone and Apple&rsquo;s speech recognition to turn what you say into a search. Apple may process the audio under its own privacy policy. Arcfin only uses the resulting text, to search your server.</li>
+    <li><strong>What&rsquo;s Playing?</strong> (optional, iPhone and iPad). It&rsquo;s off until you turn it on in Settings &rsaquo; Music. To identify a song playing nearby, Arcfin uses Apple&rsquo;s ShazamKit and the microphone, only while you&rsquo;re on that screen. ShazamKit makes a signature of the sound on your device and matches it with Apple&rsquo;s Shazam service. Arcfin doesn&rsquo;t keep the recording or send it anywhere else. It then looks for the song on your server, and can open it in Apple Music.</li>
+    <li><strong>Apple Music</strong> (optional, iPhone and iPad). If you have an Apple Music subscription and turn on Apple Music in Settings &rsaquo; Music, music search also looks in Apple Music&rsquo;s catalogue with MusicKit, sending Apple your search, and plays songs that aren&rsquo;t on your server in Apple Music&rsquo;s own player.</li>
+    <li><strong>Voice search in CarPlay</strong> (iPhone). Arcfin uses the microphone and Apple&rsquo;s speech recognition to turn what you say into a search. Apple may process the audio under its own privacy policy. Arcfin only uses the resulting text, to search your server.</li>
+    <li><strong>Apple Watch</strong>. Your iPhone sends the watch your active profile&rsquo;s server addresses and sign-in over Apple&rsquo;s WatchConnectivity. The watch keeps the sign-in in its own Keychain and then talks to your Jellyfin server itself. Signing out on your iPhone clears it.</li>
   </ul>
   <p>We operate none of these. We have no view of your library, your watch history, your requests or your settings.</p>
 
@@ -70,13 +75,14 @@
     <tbody>
       <tr><td>Server addresses, sign-in tokens, Seerr sign-ins, your TMDB key and your ListenBrainz token</td><td>Your device&rsquo;s Keychain, encrypted by the system. Only ever sent to the service it belongs to.</td></tr>
       <tr><td>Profile lock (PIN, Face ID, Touch ID)</td><td>Your device only. Face ID and Touch ID data never leave Apple&rsquo;s Secure Enclave; Arcfin only receives a yes or no.</td></tr>
-      <tr><td>Downloaded videos, subtitles and artwork</td><td>Your device&rsquo;s storage, for offline playback. Removed when you delete the download or the app.</td></tr>
+      <tr><td>The sign-in on your Apple Watch</td><td>The watch&rsquo;s Keychain, sent from your iPhone. Cleared when you sign out on your iPhone.</td></tr>
+      <tr><td>Downloaded videos, music, subtitles and artwork</td><td>Your device&rsquo;s storage, for offline playback, and music you keep on your Apple Watch. Removed when you delete the download or the app.</td></tr>
       <tr><td>Playback progress, caches and preferences</td><td>Your device&rsquo;s app storage. Progress is also saved to your Jellyfin server, as with any Jellyfin app.</td></tr>
-      <tr><td>Settings, if you use the Arcfin Sync plugin</td><td>Your Jellyfin server, so they follow you to your other devices.</td></tr>
+      <tr><td>Settings and the record of your devices, if your server has the Arcfin Sync plugin</td><td>Your Jellyfin server, so your settings follow you to your other devices. You can rename or forget your devices in Settings &rsaquo; Server &rsaquo; Devices &amp; Sync.</td></tr>
       <tr><td>Stats</td><td>Worked out on your device from the watch history your Jellyfin server already keeps. If you&rsquo;ve linked ListenBrainz, music stats and Year in Music can come from your ListenBrainz stats instead.</td></tr>
       <tr><td>Wi-Fi network name</td><td>Read on your device to switch between your server&rsquo;s home and remote addresses. Only the name you mark as &ldquo;home&rdquo; is kept, and it&rsquo;s never sent anywhere.</td></tr>
-      <tr><td>The app&rsquo;s diagnostic log</td><td>Your device only, until you choose Share Diagnostics. It can include your server&rsquo;s address and the titles you played, so check it before posting it publicly.</td></tr>
-      <tr><td>Siri, Spotlight, widgets and Handoff</td><td>Titles you watch can appear in Spotlight, widgets and Siri suggestions. Apple handles these on your device under its own privacy terms.</td></tr>
+      <tr><td>The app&rsquo;s diagnostic log</td><td>Your device only. Share Diagnostics builds it on your device and opens the system share sheet, so you choose where it goes; nothing is sent automatically. It can include your server&rsquo;s address and the titles you played, so check it before posting it publicly. Report a Problem only opens our public issue tracker in your browser.</td></tr>
+      <tr><td>Siri, Shortcuts, Spotlight, widgets, Live Activities and Handoff</td><td>Titles you watch or play can appear in Spotlight, widgets, Live Activities and Siri suggestions. Apple handles these on your device under its own privacy terms.</td></tr>
     </tbody>
   </table></div>
 
@@ -94,8 +100,9 @@
     <li><strong>YouTube</strong> trailers are subject to <a href="https://policies.google.com/privacy">Google&rsquo;s Privacy Policy</a> and the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>.</li>
     <li><strong>TMDB</strong> requests are subject to <a href="https://www.themoviedb.org/privacy-policy">TMDB&rsquo;s Privacy Policy</a>. This product uses the TMDB API but is not endorsed or certified by TMDB.</li>
     <li><strong>ListenBrainz</strong> is run by the MetaBrainz Foundation, under the <a href="https://metabrainz.org/privacy">MetaBrainz Foundation&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>LRCLIB</strong> (lrclib.net) is a free, open lyrics library, run independently of us under its own terms.</li>
     <li><strong>Wikidata</strong> queries are subject to the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation&rsquo;s Privacy Policy</a>.</li>
-    <li><strong>Apple services</strong> such as AirPlay, SharePlay, Picture in Picture, Siri, notifications, ShazamKit and Shazam, MusicKit and Apple Music, speech recognition and TestFlight are subject to <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Apple services</strong> are subject to <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>: AirPlay, SharePlay for watching or listening together over FaceTime, Picture in Picture, Siri and Shortcuts, Spotlight, widgets, Live Activities, Handoff, notifications, CarPlay, the Apple Watch and WatchConnectivity, ShazamKit and Shazam, MusicKit and Apple Music, speech recognition, and TestFlight, including nightly builds for internal testers.</li>
   </ul>
   <p>We don&rsquo;t control these services and aren&rsquo;t responsible for how they handle data.</p>
 
@@ -113,7 +120,8 @@
     <li><strong>Camera</strong> (iPhone and iPad), only while you scan the Quick Connect code an Apple TV shows to sign it in. Nothing is recorded or sent.</li>
     <li><strong>Microphone</strong> (iPhone and iPad), only while you&rsquo;re on the What&rsquo;s Playing? screen, to identify a song playing nearby, and for voice search in CarPlay.</li>
     <li><strong>Speech Recognition</strong> (iPhone), to turn what you say to voice search in CarPlay into a search.</li>
-    <li><strong>Media &amp; Apple Music</strong> (iPhone and iPad), only if you turn on the Apple Music option, to find and play a song What&rsquo;s Playing? identified that isn&rsquo;t on your server.</li>
+    <li><strong>Media &amp; Apple Music</strong> (iPhone and iPad), only if you turn on Apple Music in Settings &rsaquo; Music, to find and play songs that aren&rsquo;t on your server.</li>
+    <li><strong>Siri</strong> (iPhone and iPad), so Siri can play your movies, shows and music in Arcfin when you ask, including in the car.</li>
     <li><strong>Notifications</strong>, to tell you about new episodes and downloads. Arcfin checks your own server for new episodes.</li>
   </ul>
   <p>Each one is optional. If you say no, only the feature that needs it stops working.</p>
@@ -131,7 +139,7 @@
   <p>Arcfin isn&rsquo;t directed at children. Content restrictions and parental controls are set on your Jellyfin server, and Arcfin follows them.</p>
 
   <h2>Deleting your data</h2>
-  <p>Deleting the app removes everything Arcfin stored on that device: downloads, caches, preferences and Keychain entries. Your library, accounts and watch history live on your Jellyfin server and aren&rsquo;t affected; manage them there. Settings saved by the Arcfin Sync plugin can be removed from the plugin on your server.</p>
+  <p>Deleting the app removes everything Arcfin stored on that device: downloads, caches, preferences and Keychain entries. Your library, accounts and watch history live on your Jellyfin server and aren&rsquo;t affected; manage them there. Settings and device records saved by the Arcfin Sync plugin can be removed from the plugin on your server. Listens and feedback you sent to ListenBrainz are managed in your ListenBrainz account.</p>
 
   <h2>Changes</h2>
   <p>If this policy changes, the new version will be posted at this address with a new effective date. The <a href="https://git.psmattas.com/ArcFin/ArcFin">source code</a> is public, so you can check what the app does yourself.</p>
