@@ -23,7 +23,7 @@
   <script src="/assets/early.js"></script>
   <script src="/assets/site.js" defer></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26, watchOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
   </script>
 <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/">
@@ -39,7 +39,7 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
   <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
   <!-- /hreflang --><!-- faq-schema -->
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need my own server?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Arcfin is a client for Jellyfin, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn’t provide, host or link to any content."}}, {"@type": "Question", "name": "Is Arcfin on the App Store?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. Arcfin is in public beta on TestFlight. It goes to Apple for App Store review at version 0.5.1.Install TestFlight from the App Store, open the invite on your iPhone, iPad, Mac or Apple TV, and new builds arrive automatically."}}, {"@type": "Question", "name": "Which devices does it run on?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone and iPad with iOS or iPadOS 26, Macs with macOS 26, and Apple TV with tvOS 26. The Mac version is a real Mac app with its own interface, and Apple TV has its own layout built for the Siri Remote."}}, {"@type": "Question", "name": "Do I need to install anything on my server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Arcfin works with any Jellyfin server as it is. There’s an optional companion plugin, Arcfin Sync, that your server’s admin can install so your settings follow you between devices and downloads get smaller."}}, {"@type": "Question", "name": "Is Arcfin an official Jellyfin app?", "acceptedAnswer": {"@type": "Answer", "text": "No. Arcfin is an independent, third-party client. It isn’t affiliated with or endorsed by the Jellyfin project, so please don’t ask the Jellyfin team for help with it. Use the support page instead."}}, {"@type": "Question", "name": "Does Arcfin collect my data?", "acceptedAnswer": {"@type": "Answer", "text": "No. There’s no Arcfin server, no analytics, no tracking and no crash-reporting service. The app talks directly to the servers you add. The Privacy Policy lists every outside service and when it’s used."}}, {"@type": "Question", "name": "Something doesn’t work. What should I do?", "acceptedAnswer": {"@type": "Answer", "text": "Use Settings › About › Report a Problem in the app, or open an issue. Include your device, OS version and Jellyfin server version. More help is on the support page."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need my own server?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Arcfin is a client for Jellyfin, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn’t provide, host or link to any content."}}, {"@type": "Question", "name": "Is Arcfin on the App Store?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. Arcfin is in public beta on TestFlight. It goes to Apple for App Store review at version 0.5.1.Install TestFlight from the App Store, open the invite on your iPhone, iPad, Mac or Apple TV, and new builds arrive automatically."}}, {"@type": "Question", "name": "Which devices does it run on?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone and iPad with iOS or iPadOS 26, Macs with macOS 26, and Apple TV with tvOS 26. The Mac version is a real Mac app with its own interface, and Apple TV has its own layout built for the Siri Remote.The Apple Watch app, for watchOS 26, plays your music and works as a remote. It comes with the iPhone app."}}, {"@type": "Question", "name": "Do I need to install anything on my server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Arcfin works with any Jellyfin server as it is. There’s an optional companion plugin, Arcfin Sync, that your server’s admin can install so your settings follow you between devices and downloads get smaller."}}, {"@type": "Question", "name": "Is Arcfin an official Jellyfin app?", "acceptedAnswer": {"@type": "Answer", "text": "No. Arcfin is an independent, third-party client. It isn’t affiliated with or endorsed by the Jellyfin project, so please don’t ask the Jellyfin team for help with it. Use the support page instead."}}, {"@type": "Question", "name": "Does Arcfin collect my data?", "acceptedAnswer": {"@type": "Answer", "text": "No. There’s no Arcfin server, no analytics, no tracking and no crash-reporting service. The app talks directly to the servers you add. The Privacy Policy lists every outside service and when it’s used."}}, {"@type": "Question", "name": "Something doesn’t work. What should I do?", "acceptedAnswer": {"@type": "Answer", "text": "Use Settings › About › Report a Problem in the app, or open an issue. Include your device, OS version and Jellyfin server version. More help is on the support page."}}]}</script>
   <!-- /faq-schema --></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -69,7 +69,7 @@
       </div>
       <p class="hero-note">Needs your own Jellyfin server, or an account on one. iOS, iPadOS, macOS or tvOS 26 and later.</p>
       <div class="platform-row" aria-label="Platforms">
-        <span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M10.5 4.5h3"/></svg>iPhone</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"/></svg>iPad</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.5"/><path d="M1.5 19.5h21l-1.2-2.5H2.7z"/></svg>Mac</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8.5 20.5h7M12 17v3.5"/></svg>Apple TV</span>
+        <span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M10.5 4.5h3"/></svg>iPhone</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"/></svg>iPad</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.5"/><path d="M1.5 19.5h21l-1.2-2.5H2.7z"/></svg>Mac</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8.5 20.5h7M12 17v3.5"/></svg>Apple TV</span><span class="platform-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="6" width="11" height="12" rx="3"/><path d="M9 6l.6-3.5h4.8L15 6M9 18l.6 3.5h4.8L15 18"/></svg>Apple Watch</span>
       </div>
     </div>
     <div class="hero-devices" aria-label="Arcfin on iPhone">
@@ -81,7 +81,7 @@
 
 <section class="strip" aria-label="Arcfin in numbers">
   <div class="wrap">
-    <div class="strip-item"><strong>4</strong><span>Apple platforms</span></div>
+    <div class="strip-item"><strong>5</strong><span>Apple platforms</span></div>
     <div class="strip-item"><strong>3</strong><span>playback engines</span></div>
     <div class="strip-item"><strong>11</strong><span>languages</span></div>
     <div class="strip-item"><strong>0</strong><span>trackers or analytics in the app</span></div>
@@ -92,7 +92,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Features</span>
-      <h2>Everything on your server, wherever you watch.</h2>
+      <h2>Everything on your server, wherever you watch or listen.</h2>
       <p>Arcfin talks straight to the Jellyfin server you already run. Here is what it does with it.</p>
     </div>
 
@@ -107,7 +107,16 @@
         <span class="eyebrow">Watching</span>
         <h3>Plays almost anything your server has.</h3>
         <p>Arcfin picks the best of three playback engines for each file, so HEVC, HDR, surround sound and odd old containers play without fuss.</p>
-        <ul class="checks"><li><p><strong>Three engines.</strong> <span>Aether (FFmpeg demuxing with hardware decoding) by default, with AVFoundation and VLC as fallbacks when a file won&rsquo;t open.</span></p></li><li><p><strong>Skip what you&rsquo;ve seen.</strong> <span>Skip Intro, Recap, Credits and Preview, plus chapters, scrubbing previews and Up Next with a countdown.</span></p></li><li><p><strong>Your subtitles, your way.</strong> <span>Text and image subtitles with your own styling, and audio or subtitle switching without reloading.</span></p></li><li><p><strong>Beyond the screen.</strong> <span>AirPlay, Chromecast, Picture in Picture, SharePlay over FaceTime and Jellyfin&rsquo;s SyncPlay.</span></p></li></ul>
+        <ul class="checks"><li><p><strong>Three engines.</strong> <span>Aether (FFmpeg demuxing with hardware decoding) by default, with AVFoundation and VLC as fallbacks when a file won&rsquo;t open.</span></p></li><li><p><strong>Skip what you&rsquo;ve seen.</strong> <span>Skip Intro, Recap, Credits and Preview, plus chapters, scrubbing previews and Up Next with a countdown.</span></p></li><li><p><strong>Your subtitles, your way.</strong> <span>Text and image subtitles with your own styling, and audio or subtitle switching without reloading.</span></p></li><li><p><strong>Beyond the screen.</strong> <span>AirPlay, Chromecast, Picture in Picture, SharePlay over FaceTime and Jellyfin&rsquo;s SyncPlay.</span></p></li><li><p><strong>Play On and remote control.</strong> <span>Send what you&rsquo;re watching to another device signed in to your server, and control it from here, from the Jellyfin web app or from your Apple Watch.</span></p></li></ul>
+      </div>
+    </div>
+
+    <div class="chapter solo reveal">
+      <div class="chapter-copy">
+        <span class="eyebrow">Music</span>
+        <h3>Your music, as well as your films.</h3>
+        <p>Arcfin plays the music on your Jellyfin server too, with a Now Playing screen built around the cover.</p>
+        <ul class="checks"><li><p><strong>The whole library.</strong> <span>Artists with an A&ndash;Z bar, albums, songs, genres, playlists and favourites, each with its own search, plus Made for You playlists.</span></p></li><li><p><strong>Now Playing.</strong> <span>The cover up front, synced and plain lyrics, the queue and what played earlier, Repeat, Shuffle and a sleep timer.</span></p></li><li><p><strong>Offline.</strong> <span>Download songs, albums, playlists or everything by an artist, with smart downloads, a storage limit and a Live Activity.</span></p></li><li><p><strong>Everywhere you listen.</strong> <span>SharePlay, CarPlay with voice search, Siri, interactive widgets in every size, AirPlay and casting.</span></p></li><li><p><strong>Your listening.</strong> <span>ListenBrainz scrobbling, likes and dislikes, and importing your listening history from other music services.</span></p></li><li><p><strong>What&rsquo;s Playing? and Year in Music.</strong> <span>Recognise a song that&rsquo;s playing around you and find it, and look back on your year of listening.</span></p></li></ul>
       </div>
     </div>
 
@@ -119,7 +128,7 @@
         <span class="eyebrow">Browsing</span>
         <h3>A Home screen that knows what&rsquo;s next.</h3>
         <p>Continue Watching, Next Up, Recently Added, recommendations and collections, in the order you choose. What you watch on other devices shows up while the app is open.</p>
-        <ul class="checks"><li><p><strong>Title pages with depth.</strong> <span>Cast, review scores, age ratings, where to watch, trailers and More Like This.</span></p></li><li><p><strong>A library you can dig through.</strong> <span>Filters, sorting, genres, playlists, collections, Hide Watched and Surprise Me.</span></p></li><li><p><strong>Search everything.</strong> <span>Your server and Discover in one search, with optional history.</span></p></li><li><p><strong>Spoiler Protection.</strong> <span>Hides episode thumbnails and descriptions until you&rsquo;ve watched them.</span></p></li></ul>
+        <ul class="checks"><li><p><strong>Title pages with depth.</strong> <span>Cast, review scores, age ratings, where to watch, trailers and More Like This.</span></p></li><li><p><strong>A library you can dig through.</strong> <span>Filters, sorting, genres, playlists, collections, Hide Watched and Surprise Me.</span></p></li><li><p><strong>Search inside libraries.</strong> <span>Movies, Shows, Collections and Playlists each have a search of their own.</span></p></li><li><p><strong>Search everything.</strong> <span>Your server and Discover in one search, with optional history.</span></p></li><li><p><strong>Spoiler Protection.</strong> <span>Hides episode thumbnails and descriptions until you&rsquo;ve watched them.</span></p></li></ul>
       </div>
     </div>
 
@@ -131,7 +140,7 @@
         <span class="eyebrow">Downloads</span>
         <h3>Take your library offline.</h3>
         <p>Download films and episodes on iPhone, iPad and Mac. Your progress syncs back to the server the next time you&rsquo;re online.</p>
-        <ul class="checks"><li><p><strong>Fast.</strong> <span>Large files download in parallel ranges, several titles at once, and keep going in the background.</span></p></li><li><p><strong>Live Activity.</strong> <span>Progress and time left on the Lock Screen, including when a download is paused or waiting for Wi-Fi.</span></p></li><li><p><strong>Smart Downloads.</strong> <span>Keeps the next episodes of your shows ready and removes watched ones, within a storage budget you set.</span></p></li><li><p><strong>In your control.</strong> <span>Quality, mobile data, pausing in Low Power and Low Data Mode, and automatic clean-up.</span></p></li></ul>
+        <ul class="checks"><li><p><strong>Fast.</strong> <span>Large files download in parallel ranges, several titles at once, and keep going in the background.</span></p></li><li><p><strong>Live Activity.</strong> <span>Progress and time left on the Lock Screen, including when a download is paused or waiting for Wi-Fi.</span></p></li><li><p><strong>Smart Downloads.</strong> <span>Keeps the next episodes of your shows ready and removes watched ones, within a storage budget you set.</span></p></li><li><p><strong>In your control.</strong> <span>Quality, mobile data, pausing in Low Power and Low Data Mode, and automatic clean-up.</span></p></li><li><p><strong>The full player.</strong> <span>Downloads, and video files you open with Browse Files, play in the same player as streaming, with chapters, scrubbing previews and Up Next.</span></p></li></ul>
       </div>
     </div>
 
@@ -143,7 +152,7 @@
         <span class="eyebrow">Profiles</span>
         <h3>Everyone gets their own Arcfin.</h3>
         <p>Each person gets their own profile, with their own recommendations and progress, behind its own lock.</p>
-        <ul class="checks"><li><p><strong>Locked when you want.</strong> <span>Face ID, Touch ID or a PIN for each profile, plus the server&rsquo;s parental controls and access schedule.</span></p></li><li><p><strong>Settings that follow you.</strong> <span>With the Arcfin Sync server plugin, settings sync across devices, and admins can lock the ones that matter.</span></p></li><li><p><strong>Tools for the server admin.</strong> <span>Active Sessions shows who&rsquo;s watching and why a stream transcodes. Pause, stop or message any session.</span></p></li></ul>
+        <ul class="checks"><li><p><strong>Locked when you want.</strong> <span>Face ID, Touch ID or a PIN for each profile, plus the server&rsquo;s parental controls and access schedule.</span></p></li><li><p><strong>Devices &amp; Sync.</strong> <span>With the Arcfin Sync server plugin, your settings follow you to your other devices: automatically, after asking first, or not at all. You can also send one device&rsquo;s settings to all the others.</span></p></li><li><p><strong>An Admin tab for server admins.</strong> <span>The server dashboard, scheduled tasks, libraries, users, devices, plugins, logs, backups and server settings. Active Sessions shows who&rsquo;s watching and why a stream transcodes, and lets you pause, stop or message them.</span></p></li><li><p><strong>Arcfin for Everyone.</strong> <span>Admins set defaults and locks for every Arcfin app on the server, or for one person.</span></p></li></ul>
       </div>
     </div>
 
@@ -155,7 +164,7 @@
         <span class="eyebrow">Across your devices</span>
         <h3>Part of the system, not just an app.</h3>
         <p>Arcfin works with Siri, Shortcuts, widgets and the Lock Screen, so the next episode is never more than a tap or a sentence away.</p>
-        <ul class="checks"><li><p><strong>Siri and Shortcuts.</strong> <span>Play a title, play a random movie, download the next episode of a show, or open Discover.</span></p></li><li><p><strong>Widgets and controls.</strong> <span>Continue Watching and Recently Added widgets, Control Center controls, Spotlight and Handoff.</span></p></li><li><p><strong>New episode alerts.</strong> <span>Notifications when new episodes arrive, with Quiet Hours.</span></p></li><li><p><strong>On the big screen.</strong> <span>Top Shelf and a screensaver made from your own artwork on Apple TV, and every player control in the Mac menu bar.</span></p></li></ul>
+        <ul class="checks"><li><p><strong>Siri and Shortcuts.</strong> <span>Play a title, play a random movie, download the next episode of a show, or open Discover.</span></p></li><li><p><strong>Widgets and controls.</strong> <span>Continue Watching and Recently Added widgets, Control Center controls, Spotlight and Handoff.</span></p></li><li><p><strong>New episode alerts.</strong> <span>Notifications when new episodes arrive, with Quiet Hours.</span></p></li><li><p><strong>On the big screen.</strong> <span>On Apple TV, Top Shelf with trailers from your server, Spotlight Home, Always Ask Who&rsquo;s Watching and a screensaver made from your own artwork. On the Mac, every player control in the menu bar.</span></p></li><li><p><strong>On your wrist.</strong> <span>The Apple Watch app plays your music, with playlists kept on the watch to play without your phone. It&rsquo;s also a remote for Arcfin on another device, with the Digital Crown for volume.</span></p></li></ul>
       </div>
     </div>
   </div>
@@ -168,15 +177,17 @@
       <h2 id="more-title">The details add up.</h2>
     </div>
     <div class="grid">
-      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><h3>Stats</h3><p>An optional tab worked out from your Jellyfin watch history: time watched, streaks, top shows, genres, decades and people, with a card to share.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><h3>Stats</h3><p>An optional tab with All, Movies &amp; Shows and Music: time watched, streaks, your top shows, songs and artists, and the genres you come back to, with a card to share.</p></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="m8 3 4 4 4-4"/></svg></span><h3>Live TV</h3><p>Channels and the guide, radio and search. Pause and rewind a channel, record a programme or a whole series, and set reminders.</p></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span><h3>Seerr requests</h3><p>Browse, request and keep a watchlist through your own Seerr server, signed in per profile.</p><span class="tag">Optional</span></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></span><h3>TMDB extras</h3><p>Add your own TMDB key for review scores, where to watch and what&rsquo;s popular.</p><span class="tag">Optional</span></article>
+      <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>ListenBrainz</h3><p>Add your own ListenBrainz token to a profile. Arcfin sends your listens and loves to it, and Stats and Year in Music can count from it.</p><p>On a Jellyfin 12.4 server, Jellyfin&rsquo;s own ListenBrainz similarity provider also feeds Similar Artists.</p><span class="tag">Optional</span></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><rect x="11" y="12" width="7" height="5" rx="1"/></svg></span><h3>Player in its own window</h3><p>On iPad and Mac, keep the player in its own window and keep browsing beside it.</p></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h3>Eleven languages</h3><p>English, German, French, Spanish, Simplified Chinese, Brazilian Portuguese, Japanese, Italian, Korean, Dutch and Russian.</p></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.5"/><path d="M5 8.5 12 10l7-1.5M12 10v5m0 0-3 6m3-6 3 6"/></svg></span><h3>Accessible</h3><p>VoiceOver labels throughout, Dynamic Type, Increase Contrast and Reduce Motion.</p></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span><h3>Help built in</h3><p>Report a Problem and Share Diagnostics in Settings. Diagnostics stay on your device until you choose to send them.</p></article>
       <article class="card reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></span><h3>Light and dark</h3><p>Follows your system appearance on iPhone, iPad and Mac. The player and Apple TV always stay dark.</p></article>
-      <article class="card wide reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15"/><path d="M4 20v-5h5"/></svg></span><h3>Arcfin Sync plugin</h3><p>A companion plugin for your Jellyfin server: settings that follow you between devices, settings your admin manages, and smaller downloads.</p><span class="tag">Optional</span><div class="links"><a class="btn btn-secondary btn-small" href="/plugin/">About the plugin</a></div></article>
+      <article class="card wide reveal"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15"/><path d="M4 20v-5h5"/></svg></span><h3>Arcfin Sync plugin</h3><p>A companion plugin for your Jellyfin server: Devices &amp; Sync, so your settings follow you, defaults and locks your admin sets for everyone, and smaller downloads.</p><span class="tag">Optional</span><div class="links"><a class="btn btn-secondary btn-small" href="/plugin/">About the plugin</a></div></article>
     </div>
   </div>
 </section>
@@ -192,7 +203,7 @@
       <article class="platform reveal">
   <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><rect x="17" y="5" width="22" height="46" rx="5"/><path d="M25 9h6"/></svg></span>
   <h3>iPhone</h3><p class="os">iOS 26 or later</p>
-  <ul><li>Liquid Glass interface</li><li>Downloads with Live Activities</li><li>Lock Screen widgets</li><li>Chromecast and AirPlay</li></ul>
+  <ul><li>Liquid Glass interface</li><li>Downloads with Live Activities</li><li>Lock Screen widgets</li><li>Chromecast and AirPlay</li><li>CarPlay for your music</li></ul>
   <span class="status"><span>Version <span data-version="iOS">0.2.0 (build 2)</span> on TestFlight</span></span>
 </article>
       <article class="platform reveal">
@@ -213,9 +224,15 @@
   <ul><li>Focus-driven layout for the Siri Remote</li><li>Scrub freely with the touch surface</li><li>Top Shelf for what&rsquo;s next</li><li>A screensaver from your artwork</li></ul>
   <span class="status"><span>Version <span data-version="tvOS">0.2.0 (build 2)</span> on TestFlight</span></span>
 </article>
+      <article class="platform reveal">
+  <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 56 56"><rect x="15" y="13" width="26" height="30" rx="7"/><path d="M20 13l2-8h12l2 8M20 43l2 8h12l2-8"/></svg></span>
+  <h3>Apple Watch</h3><p class="os">watchOS 26 or later, with the iPhone app</p>
+  <ul><li>Your music on the watch</li><li>Playlists that play without your phone</li><li>A remote for Arcfin on another device</li><li>Digital Crown for volume</li></ul>
+  <span class="status"><span>Version <span data-version="iOS">0.2.0 (build 2)</span> on TestFlight</span></span>
+</article>
     </div>
     <div class="hero-actions reveal"><a class="btn btn-secondary" href="/screenshots/">See every screen</a></div>
-    <p class="footnote reveal">A few things can&rsquo;t work everywhere: Chromecast is iPhone and iPad only, because Google&rsquo;s SDK is. Live Activities and Lock Screen widgets are iPhone only. Apple TV has no downloads (it has no lasting storage) and no Face ID or Touch ID.</p>
+    <p class="footnote reveal">A few things can&rsquo;t work everywhere: Chromecast is iPhone and iPad only, because Google&rsquo;s SDK is. CarPlay is iPhone only, and plays music. Live Activities and Lock Screen widgets are iPhone only. Apple TV has no downloads (it has no lasting storage) and no Face ID or Touch ID.</p>
   </div>
 </section>
 
@@ -229,7 +246,7 @@
       </div>
       <div class="hero-actions"><a class="btn btn-secondary" href="/privacy/">Read the Privacy Policy</a></div>
     </div>
-    <div class="flow reveal" role="img" aria-label="Arcfin on your device connects directly to your Jellyfin server, and optionally to Seerr, TMDB, Wikidata and YouTube. No Arcfin server is involved.">
+    <div class="flow reveal" role="img" aria-label="Arcfin on your device connects directly to your Jellyfin server, and optionally to Seerr, TMDB, Wikidata, YouTube and ListenBrainz. No Arcfin server is involved.">
       <div class="flow-row">
         <div class="flow-node you"><strong>Arcfin</strong><span>on your device</span></div>
         <div class="flow-arrow"><svg viewBox="0 0 44 20" aria-hidden="true"><path d="M2 10h38M33 3l7 7-7 7"/></svg></div>
@@ -240,6 +257,7 @@
         <div><strong>TMDB</strong>with your own key</div>
         <div><strong>Wikidata</strong>awards on title pages</div>
         <div><strong>YouTube</strong>trailers your server lacks</div>
+        <div><strong>ListenBrainz</strong>with your own token</div>
       </div>
       <div class="flow-none"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>No Arcfin servers. No analytics. No ads.</div>
     </div>
@@ -294,7 +312,7 @@
     <div class="faq reveal">
       <details><summary>Do I need my own server?</summary><div class="answer"><p>Yes. Arcfin is a client for <a href='https://jellyfin.org'>Jellyfin</a>, a free media server you run yourself. You need a Jellyfin server of your own, or an account on one that someone you trust runs. Arcfin doesn&rsquo;t provide, host or link to any content.</p></div></details>
       <details><summary>Is Arcfin on the App Store?</summary><div class="answer"><p>Not yet. Arcfin is in public beta on <a href='https://testflight.apple.com/join/kkC58n2w'>TestFlight</a>. It goes to Apple for App Store review at version 0.5.1.</p><p>Install TestFlight from the App Store, open the invite on your iPhone, iPad, Mac or Apple TV, and new builds arrive automatically.</p></div></details>
-      <details><summary>Which devices does it run on?</summary><div class="answer"><p>iPhone and iPad with iOS or iPadOS 26, Macs with macOS 26, and Apple TV with tvOS 26. The Mac version is a real Mac app with its own interface, and Apple TV has its own layout built for the Siri Remote.</p></div></details>
+      <details><summary>Which devices does it run on?</summary><div class="answer"><p>iPhone and iPad with iOS or iPadOS 26, Macs with macOS 26, and Apple TV with tvOS 26. The Mac version is a real Mac app with its own interface, and Apple TV has its own layout built for the Siri Remote.</p><p>The Apple Watch app, for watchOS 26, plays your music and works as a remote. It comes with the iPhone app.</p></div></details>
       <details><summary>Do I need to install anything on my server?</summary><div class="answer"><p>No. Arcfin works with any Jellyfin server as it is. There&rsquo;s an optional companion plugin, <a href='/plugin/'>Arcfin Sync</a>, that your server&rsquo;s admin can install so your settings follow you between devices and downloads get smaller.</p></div></details>
       <details><summary>Is Arcfin an official Jellyfin app?</summary><div class="answer"><p>No. Arcfin is an independent, third-party client. It isn&rsquo;t affiliated with or endorsed by the Jellyfin project, so please don&rsquo;t ask the Jellyfin team for help with it. Use the <a href='/support/'>support page</a> instead.</p></div></details>
       <details><summary>Does Arcfin collect my data?</summary><div class="answer"><p>No. There&rsquo;s no Arcfin server, no analytics, no tracking and no crash-reporting service. The app talks directly to the servers you add. The <a href='/privacy/'>Privacy Policy</a> lists every outside service and when it&rsquo;s used.</p></div></details>
