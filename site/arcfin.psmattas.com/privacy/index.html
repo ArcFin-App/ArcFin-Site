@@ -58,6 +58,9 @@
     <li><strong>TMDB</strong> (optional). If you add your own TMDB API key, Arcfin asks The Movie Database for review scores, where-to-watch information, popular titles and artwork, using the IDs of the titles you look at.</li>
     <li><strong>Wikidata</strong>. To show awards on a title page, Arcfin sends that title&rsquo;s TMDB ID to Wikidata&rsquo;s public query service.</li>
     <li><strong>YouTube</strong>. If your server has no trailer for a title, Arcfin can play its trailer from YouTube using Google&rsquo;s embedded player. You can turn this off in Settings &rsaquo; Playback.</li>
+    <li><strong>ListenBrainz</strong> (optional, per profile). It&rsquo;s off until you add your own ListenBrainz user token in Settings &rsaquo; Integrations. With a token, Arcfin sends your listens to ListenBrainz, each with the song title, artist, album, its length, when you played it, and that it came from Arcfin and which Arcfin version. It also sends the loves and hates you set on a song, reads your feedback and your listening stats for Stats and Year in Music, and checks that the token is valid. If you import your listening history while ListenBrainz is linked, the plays from the files you pick are sent to ListenBrainz with their times, as well as to your Jellyfin server. There&rsquo;s a switch for this when you import.</li>
+    <li><strong>What&rsquo;s Playing?</strong> (iPhone and iPad). To identify a song playing nearby, Arcfin uses Apple&rsquo;s ShazamKit and the microphone, only while you&rsquo;re on that screen. ShazamKit makes a signature of the sound on your device and matches it with Apple&rsquo;s Shazam service. Arcfin doesn&rsquo;t keep the recording or send it anywhere else. When the song isn&rsquo;t on your server and you&rsquo;ve turned on the Apple Music option in Settings, Arcfin searches Apple Music&rsquo;s catalogue with MusicKit to find and play it.</li>
+    <li><strong>Voice search in CarPlay</strong>. Arcfin uses the microphone and Apple&rsquo;s speech recognition to turn what you say into a search. Apple may process the audio under its own privacy policy. Arcfin only uses the resulting text, to search your server.</li>
   </ul>
   <p>We operate none of these. We have no view of your library, your watch history, your requests or your settings.</p>
 
@@ -65,12 +68,12 @@
   <div class="table-scroll"><table>
     <thead><tr><th>Data</th><th>Where it lives</th></tr></thead>
     <tbody>
-      <tr><td>Server addresses, sign-in tokens, Seerr sign-ins and your TMDB key</td><td>Your device&rsquo;s Keychain, encrypted by the system. Only ever sent to the service it belongs to.</td></tr>
+      <tr><td>Server addresses, sign-in tokens, Seerr sign-ins, your TMDB key and your ListenBrainz token</td><td>Your device&rsquo;s Keychain, encrypted by the system. Only ever sent to the service it belongs to.</td></tr>
       <tr><td>Profile lock (PIN, Face ID, Touch ID)</td><td>Your device only. Face ID and Touch ID data never leave Apple&rsquo;s Secure Enclave; Arcfin only receives a yes or no.</td></tr>
       <tr><td>Downloaded videos, subtitles and artwork</td><td>Your device&rsquo;s storage, for offline playback. Removed when you delete the download or the app.</td></tr>
       <tr><td>Playback progress, caches and preferences</td><td>Your device&rsquo;s app storage. Progress is also saved to your Jellyfin server, as with any Jellyfin app.</td></tr>
       <tr><td>Settings, if you use the Arcfin Sync plugin</td><td>Your Jellyfin server, so they follow you to your other devices.</td></tr>
-      <tr><td>Stats</td><td>Worked out on your device from the watch history your Jellyfin server already keeps.</td></tr>
+      <tr><td>Stats</td><td>Worked out on your device from the watch history your Jellyfin server already keeps. If you&rsquo;ve linked ListenBrainz, music stats and Year in Music can come from your ListenBrainz stats instead.</td></tr>
       <tr><td>Wi-Fi network name</td><td>Read on your device to switch between your server&rsquo;s home and remote addresses. Only the name you mark as &ldquo;home&rdquo; is kept, and it&rsquo;s never sent anywhere.</td></tr>
       <tr><td>The app&rsquo;s diagnostic log</td><td>Your device only, until you choose Share Diagnostics. It can include your server&rsquo;s address and the titles you played, so check it before posting it publicly.</td></tr>
       <tr><td>Siri, Spotlight, widgets and Handoff</td><td>Titles you watch can appear in Spotlight, widgets and Siri suggestions. Apple handles these on your device under its own privacy terms.</td></tr>
@@ -90,8 +93,9 @@
     <li><strong>Google Cast</strong> (Chromecast, iPhone and iPad only) uses Google&rsquo;s Cast SDK to find and control Cast devices on your network, under <a href="https://policies.google.com/privacy">Google&rsquo;s Privacy Policy</a>.</li>
     <li><strong>YouTube</strong> trailers are subject to <a href="https://policies.google.com/privacy">Google&rsquo;s Privacy Policy</a> and the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>.</li>
     <li><strong>TMDB</strong> requests are subject to <a href="https://www.themoviedb.org/privacy-policy">TMDB&rsquo;s Privacy Policy</a>. This product uses the TMDB API but is not endorsed or certified by TMDB.</li>
+    <li><strong>ListenBrainz</strong> is run by the MetaBrainz Foundation, under the <a href="https://metabrainz.org/privacy">MetaBrainz Foundation&rsquo;s Privacy Policy</a>.</li>
     <li><strong>Wikidata</strong> queries are subject to the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation&rsquo;s Privacy Policy</a>.</li>
-    <li><strong>Apple services</strong> such as AirPlay, SharePlay, Picture in Picture, Siri, notifications and TestFlight are subject to <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Apple services</strong> such as AirPlay, SharePlay, Picture in Picture, Siri, notifications, ShazamKit and Shazam, MusicKit and Apple Music, speech recognition and TestFlight are subject to <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</li>
   </ul>
   <p>We don&rsquo;t control these services and aren&rsquo;t responsible for how they handle data.</p>
 
@@ -107,6 +111,9 @@
     <li><strong>Location</strong>, only to read the current Wi-Fi name for home and remote switching. Your location is never stored, tracked or shared.</li>
     <li><strong>Face ID</strong>, only to unlock a profile you&rsquo;ve locked.</li>
     <li><strong>Camera</strong> (iPhone and iPad), only while you scan the Quick Connect code an Apple TV shows to sign it in. Nothing is recorded or sent.</li>
+    <li><strong>Microphone</strong> (iPhone and iPad), only while you&rsquo;re on the What&rsquo;s Playing? screen, to identify a song playing nearby, and for voice search in CarPlay.</li>
+    <li><strong>Speech Recognition</strong> (iPhone), to turn what you say to voice search in CarPlay into a search.</li>
+    <li><strong>Media &amp; Apple Music</strong> (iPhone and iPad), only if you turn on the Apple Music option, to find and play a song What&rsquo;s Playing? identified that isn&rsquo;t on your server.</li>
     <li><strong>Notifications</strong>, to tell you about new episodes and downloads. Arcfin checks your own server for new episodes.</li>
   </ul>
   <p>Each one is optional. If you say no, only the feature that needs it stops working.</p>
