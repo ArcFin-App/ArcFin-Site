@@ -139,7 +139,6 @@
   "Use <strong>Settings &rsaquo; About &rsaquo; Report a Problem</strong> in the app, or <a href=\"https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose\">open an issue</a>. Include your device, OS version and Jellyfin server version. More help is on the <a href=\"/support/\">support page</a>.": "在 App 中使用<strong>“设置 &rsaquo; 关于 &rsaquo; 报告问题”</strong>，或<a href=\"https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose\">提交一个 Issue</a>。请写明设备、系统版本和 Jellyfin 服务器版本。更多帮助见<a href=\"/support/\">支持页面</a>。",
   "Bring your library to every screen.": "把你的媒体库带到每一块屏幕。",
   "Join the public beta on TestFlight and get each new build of Arcfin as soon as Apple approves it.": "加入 TestFlight 公开测试，Apple 一批准就能收到 Arcfin 的每个新版本。",
-  "An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV, built in the open by one developer and a growing group of testers and contributors.": "适用于 iPhone、iPad、Mac 和 Apple TV 的开源 Jellyfin 客户端，由一名开发者和越来越多的测试者、贡献者公开打造。",
   "<a href=\"/#features\">Features</a>": "<a href=\"/#features\">功能</a>",
   "<a href=\"/#platforms\">Platforms</a>": "<a href=\"/#platforms\">平台</a>",
   "<a href=\"/changelog/\">Changelog</a>": "<a href=\"/changelog/\">更新日志</a>",
@@ -615,5 +614,6 @@
   "<strong>Set Up Nearby Device.</strong> <span>Sign in an Apple TV, iPad or Mac from your iPhone or iPad, with every profile you pick and their Seerr and ListenBrainz, over your own network. Both screens show a code to compare, nothing is sent until you allow it on the new device, and passwords are never sent.</span>": "<strong>设置附近的设备。</strong> <span>从你的 iPhone 或 iPad 登录 Apple TV、iPad 或 Mac，带上你选择的每个个人资料及其 Seerr 和 ListenBrainz，全程通过你自己的网络。两个屏幕都会显示一个代码供比对，在新设备上允许之前不会发送任何内容，也从不发送密码。</span>",
   "23 November 2026": "23 November 2026",
   "0.5.0: music and remotes": "0.5.0：音乐与遥控",
-  "Build 1 arrives on TestFlight for iPhone, iPad, Mac and Apple TV, with music and offline downloads, CarPlay, Live TV, an Admin tab with Arcfin for Everyone, Devices &amp; Sync, Play On and an Apple Watch app.": "面向 iPhone、iPad、Mac 和 Apple TV 的 build 1 登陆 TestFlight，带来音乐与离线下载、CarPlay、电视直播、包含“所有人的 Arcfin”的管理标签页、“设备与同步”、“在此播放”和 Apple Watch App。"
+  "Build 1 arrives on TestFlight for iPhone, iPad, Mac and Apple TV, with music and offline downloads, CarPlay, Live TV, an Admin tab with Arcfin for Everyone, Devices &amp; Sync, Play On and an Apple Watch app.": "面向 iPhone、iPad、Mac 和 Apple TV 的 build 1 登陆 TestFlight，带来音乐与离线下载、CarPlay、电视直播、包含“所有人的 Arcfin”的管理标签页、“设备与同步”、“在此播放”和 Apple Watch App。",
+  "An open-source Jellyfin client for iPhone, iPad, Mac, Apple TV and Apple Watch, built in the open by one developer and a growing group of testers and contributors.": "适用于 iPhone、iPad、Mac、Apple TV 和 Apple Watch 的开源 Jellyfin 客户端，由一名开发者和越来越多的测试者、贡献者公开打造。"
 }
