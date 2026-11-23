@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">服务器插件</span>
   <h1>Arcfin Sync</h1>
-  <p>一款适用于你的 Jellyfin 服务器的可选插件。没有它，Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，管理员可以为所有人管理设置，下载也会更小。</p>
+  <p>一个可选的 Jellyfin 服务器插件。没有它 Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，管理员可以为所有人设置默认值和锁定，下载也会更小。</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">安装</a><a class="btn btn-secondary btn-small" href="/zh-hans/changelog/">更新日志</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">源代码</a></div>
   <p class="hero-note">最新版本 <span data-version="plugin">0.3.0</span> &middot; 免费开源，采用 AGPL-3.0 许可</p>
 </div></section>
@@ -65,7 +65,10 @@
     <h2 id="features">它带来了什么</h2>
     <ul>
       <li><strong>设置跟着你走。</strong>在 iPhone 上改一项设置，iPad、Mac 和 Apple TV 上也会同步改好。只对某类设备有意义的设置，比如 Mac 的窗口选项或 Apple TV 的焦点选项，只留在这类设备上。</li>
-      <li><strong>由管理员管理的设置。</strong>管理员可以在 Jellyfin 控制台中为服务器上的所有人锁定某项设置，或者填入一个初始值，每位用户仍可自行修改。被锁定的设置在 App 中显示为已锁定，无法在 App 中更改。</li>
+      <li><strong>设备与同步。</strong>每台设备可以选择同步方式：自动、在使用其他设备的更改前先询问你的“先询问”，或“关闭”。你还可以把一台设备的设置发送到其他所有设备。它位于 Arcfin 的<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>中。</li>
+      <li><strong>所有设备一目了然。</strong>插件会记录你使用 Arcfin 的每台设备，包括名称、平台、应用版本和最后一次出现的时间。你可以重命名或移除自己的设备，管理员可以对任何人的设备这样做。</li>
+      <li><strong>为所有人设置默认值和锁定。</strong>管理员可以给任何设置一个默认值（在用户自己选择前使用），或锁定它，让所有人都使用这个值且无法更改。可以针对服务器上所有人，也可以针对某一个人，还可以只为某一个人解锁某项设置。在应用中位于<strong>“管理 &rsaquo; 所有人的 Arcfin”</strong>；在 Apple TV 上位于<strong>“设置 &rsaquo; 服务器”</strong>。</li>
+      <li><strong>完整的设置清单。</strong>插件带有和应用相同的设置目录，包括标题、默认值、选项以及显示它们的平台。它只保存清单上的设置。</li>
       <li><strong>更小的下载。</strong>插件会测试你的服务器显卡真正能用哪些视频编码器。如果它能编码 AV1，Arcfin 会把较低画质的下载转换为 AV1，同样画面下体积约为 H.264 的一半。管理员可以在 App 的“管理 &rsaquo; 硬件编码器”中查看结果。</li>
       <li><strong>转换后的下载保留所有音轨。</strong>Jellyfin 转换下载时只保留一条音轨。插件会把你选择的每条额外音轨交给 Arcfin，这样更小的下载也能保留多种语言。</li>
     </ul>
@@ -76,7 +79,9 @@
       <tbody>
         <tr><td>播放、浏览和下载</td><td>全部可用</td><td>全部可用</td></tr>
         <tr><td>App 设置</td><td>每台设备各自保存</td><td>按用户在你的所有设备间同步</td></tr>
-        <tr><td>管理员管理设置</td><td>每位用户都可以更改所有设置</td><td>管理员可为所有人锁定任意设置，或为其设置初始值</td></tr>
+        <tr><td>每台设备的同步方式</td><td>不可用</td><td>自动、先询问或关闭，并可把一台设备的设置发送到其他设备（0.4.0 及更高版本）</td></tr>
+        <tr><td>你的设备</td><td>不可用</td><td>列在“设备与同步”中，可重命名或移除（0.4.0 及更高版本）</td></tr>
+        <tr><td>管理员管理设置</td><td>每位用户都可以更改所有设置</td><td>为所有人或某一个人设置默认值和锁定，可在控制台或“管理 &rsaquo; 所有人的 Arcfin”中进行</td></tr>
         <tr><td>转换后的下载</td><td>服务器允许时使用 HEVC，否则使用 H.264</td><td>服务器硬件真正能编码时，也可以使用 AV1</td></tr>
         <tr><td>转换后下载中的额外音轨</td><td>从 Jellyfin 获取，可能会收到默认音轨而不是你选的那条</td><td>你选的每条音轨都由服务器单独提取（0.3.1 及更高版本）</td></tr>
         <tr><td>面向管理员的硬件编码器报告</td><td>不可用</td><td>“管理 &rsaquo; 硬件编码器”显示服务器硬件能编码哪些格式</td></tr>
@@ -90,21 +95,22 @@
       <li><strong>重启 Jellyfin。</strong>在控制台中使用 <strong>Restart</strong>，或者重启服务器或其容器。Jellyfin 会在启动时读取新的存储库。</li>
       <li><strong>安装插件。</strong>打开 <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong>，找到 <strong>Arcfin Sync</strong>，然后选择 <strong>Install</strong>。</li>
       <li><strong>再次重启 Jellyfin。</strong>插件会在服务器启动时加载。之后，Arcfin Sync 会在 <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong> 中显示为 <strong>Active</strong>。</li>
-      <li><strong>进行设置。</strong>Arcfin Sync 现在在控制台中有了自己的页面（见下文）。然后打开 Arcfin，前往<strong>“设置 &rsaquo; 服务器 &rsaquo; Arcfin Sync”</strong>：这里会显示<strong>“已连接”</strong>以及插件的版本。</li>
+      <li><strong>进行设置。</strong>Arcfin Sync 现在在控制台中有了自己的页面（见下文）。然后打开 Arcfin，前往<strong>“设置 &rsaquo; 服务器”</strong>：在 <strong>Arcfin Sync</strong> 下会显示<strong>“已连接”</strong>以及插件的版本。</li>
     </ol>
     <p>更新也通过同一个存储库提供。有新版本时，Jellyfin 会在 <strong>My Plugins</strong> 中提示；安装后重启即可。</p>
 
     <h2 id="configure">设置方法</h2>
-    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它有三个页面：</p>
+    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含三个标签页的页面：</p>
     <ul>
-      <li><strong>General：</strong>为以后版本准备的通知选项。目前这里的内容还不会改变 Arcfin 的工作方式。</li>
-      <li><strong>Client Settings：</strong>App 自己的设置，布局完全相同。每项设置都可以锁定，让任何人都无法更改，或者为其设置初始值。更改会在 Arcfin 下次同步时送达每位用户。</li>
-      <li><strong>Advanced：</strong>以 YAML 形式提供相同的选项，适合喜欢用文本配置的管理员。</li>
+      <li><strong>Overview：</strong>插件的工作方式，以及帮助和报告问题的链接。</li>
+      <li><strong>Settings：</strong>Arcfin 的每项设置。可以给任何一项设置一个默认值（在用户自己选择前使用），或锁定它，让所有人都使用你的值。</li>
+      <li><strong>Users &amp; Devices：</strong>每台用 Arcfin 登录的设备。可以重命名或移除设备，并为单个用户设置专属的默认值和锁定。</li>
     </ul>
-    <p>用户无需做任何事。Arcfin 会自动找到插件，在打开时同步；在<strong>“设置 &rsaquo; 服务器 &rsaquo; Arcfin Sync”</strong>中点按<strong>“立即同步”</strong>可马上同步。</p>
+    <p>管理员也可以在 Arcfin 的<strong>“管理 &rsaquo; 所有人的 Arcfin”</strong>中进行同样的更改。更改会在每台设备下次同步时生效：打开时、切换到前台时或某项设置更改时。</p>
+    <p>用户无需做任何事。Arcfin 会自动找到插件，在<strong>“设置 &rsaquo; 服务器”</strong>中点按<strong>“立即同步”</strong>可马上同步。要选择设备的同步方式，请打开<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>。</p>
 
     <h2 id="privacy">隐私</h2>
-    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置只保存在那里，不会存到其他地方；中间依然没有任何 Arcfin 服务器。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
+    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置和你的设备记录只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
 
     <h2 id="changes">有哪些变化</h2>
     <p>插件的每个版本都列在<a href="/zh-hans/changelog/">更新日志</a>的<strong>插件</strong>下。有新版本发布时会自动更新。</p>

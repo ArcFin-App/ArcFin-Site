@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">サーバープラグイン</span>
   <h1>Arcfin Sync</h1>
-  <p>Jellyfin サーバー用のオプションのプラグインです。Arcfin はなくても問題なく使えます。入れると、設定がデバイス間でついてくるようになり、管理者は全員の設定を管理でき、ダウンロードも小さくなります。</p>
+  <p>Jellyfin サーバー用の任意のプラグインです。なくても Arcfin は問題なく動きますが、入れると設定がデバイス間でついてきて、管理者はみんなのデフォルトとロックを設定でき、ダウンロードも小さくなります。</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">インストール</a><a class="btn btn-secondary btn-small" href="/ja/changelog/">変更履歴</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">ソースコード</a></div>
   <p class="hero-note">最新バージョン <span data-version="plugin">0.3.0</span> &middot; AGPL-3.0 の無料オープンソース</p>
 </div></section>
@@ -65,7 +65,10 @@
     <h2 id="features">追加される機能</h2>
     <ul>
       <li><strong>設定がついてくる。</strong> iPhone で設定を変えると、iPad、Mac、Apple TV にも反映されます。Mac のウインドウ設定や Apple TV のフォーカス設定のように、特定の種類のデバイスでしか意味のない設定は、その種類のデバイスにとどまります。</li>
-      <li><strong>管理者が管理する設定。</strong> 管理者は Jellyfin のダッシュボードから、サーバーの全員に対して設定を固定したり、各ユーザーが後から変更できる初期値を入れたりできます。固定された設定はアプリ内で固定と表示され、そこでは変更できません。</li>
+      <li><strong>デバイスと同期。</strong> デバイスごとに同期のしかたを選べます。自動、ほかのデバイスでの変更を使う前に確認する「先に確認」、または「オフ」。1 台のデバイスの設定をほかのすべてのデバイスに送ることもできます。Arcfin の<strong>「設定 &rsaquo; サーバー &rsaquo; デバイスと同期」</strong>にあります。</li>
+      <li><strong>デバイスをひとまとめに。</strong> プラグインは Arcfin を使う各デバイスを、名前、プラットフォーム、アプリのバージョン、最後に確認された日時とともに記録します。自分のデバイスは名前を変えたり削除したりでき、管理者は全員のデバイスに対して同じことができます。</li>
+      <li><strong>みんなのデフォルトとロック。</strong> 管理者はどの設定にもデフォルト(各自が選ぶまで使われる値)を設定したり、ロックして全員に同じ値を使わせ、変更できないようにしたりできます。サーバー全体にも 1 人のユーザーにも設定でき、1 人だけロックを外すこともできます。アプリでは<strong>「管理 &rsaquo; みんなのArcfin」</strong>、Apple TV では<strong>「設定 &rsaquo; サーバー」</strong>にあります。</li>
+      <li><strong>設定の一覧をまるごと。</strong> プラグインはアプリと同じ設定のカタログを持ち、タイトル、デフォルト、選択肢、表示されるプラットフォームも含みます。保存するのはこの一覧にある設定だけです。</li>
       <li><strong>より小さなダウンロード。</strong> プラグインは、サーバーのグラフィックカードが実際に使えるビデオエンコーダをテストします。AV1 でエンコードできる場合、Arcfin は低画質のダウンロードを AV1 に変換します。同じ画質なら H.264 のおよそ半分のサイズです。管理者はアプリの「管理 &rsaquo; ハードウェアエンコーダ」で結果を確認できます。</li>
       <li><strong>変換したダウンロードにすべての音声トラックを。</strong> Jellyfin はダウンロードを変換するとき、音声トラックを 1 つしか残しません。プラグインは選んだ追加トラックをそれぞれ Arcfin に渡すので、小さなダウンロードでも複数の言語を残せます。</li>
     </ul>
@@ -76,7 +79,9 @@
       <tbody>
         <tr><td>再生、ブラウズ、ダウンロード</td><td>すべて使えます</td><td>すべて使えます</td></tr>
         <tr><td>アプリの設定</td><td>デバイスごとに個別に保存</td><td>ユーザーごとに、すべてのデバイス間で同期</td></tr>
-        <tr><td>管理者による設定の管理</td><td>すべてのユーザーがすべての設定を変更可能</td><td>管理者がどの設定も全員に対して固定、または初期値を設定</td></tr>
+        <tr><td>デバイスごとの同期のしかた</td><td>利用できません</td><td>自動、先に確認、オフから選べ、1 台のデバイスの設定をほかのデバイスに送れます(バージョン 0.4.0 以降)</td></tr>
+        <tr><td>あなたのデバイス</td><td>利用できません</td><td>「デバイスと同期」に一覧表示され、名前の変更や削除ができます(バージョン 0.4.0 以降)</td></tr>
+        <tr><td>管理者による設定の管理</td><td>すべてのユーザーがすべての設定を変更可能</td><td>全員または 1 人のユーザーに対するデフォルトとロック。ダッシュボードまたは「管理 &rsaquo; みんなのArcfin」から</td></tr>
         <tr><td>変換したダウンロード</td><td>サーバーが許可すれば HEVC、それ以外は H.264</td><td>サーバーのハードウェアが実際にエンコードできれば AV1 も</td></tr>
         <tr><td>変換したダウンロードの追加音声トラック</td><td>Jellyfin から取得。選んだトラックではなくデフォルトのトラックが送られることがあります</td><td>選んだトラックをそれぞれサーバーが書き出し(バージョン 0.3.1 以降)</td></tr>
         <tr><td>管理者向けハードウェアエンコーダレポート</td><td>利用できません</td><td>「管理 &rsaquo; ハードウェアエンコーダ」でサーバーのハードウェアがエンコードできる形式を表示</td></tr>
@@ -90,21 +95,22 @@
       <li><strong>Jellyfin を再起動する。</strong> ダッシュボードの <strong>Restart</strong> を使うか、サーバーやそのコンテナを再起動します。Jellyfin は起動時に新しいリポジトリを読み込みます。</li>
       <li><strong>プラグインをインストールする。</strong> <strong>Dashboard &rsaquo; Plugins &rsaquo; Catalog</strong> を開き、<strong>Arcfin Sync</strong> を見つけて <strong>Install</strong> を選びます。</li>
       <li><strong>Jellyfin をもう一度再起動する。</strong> プラグインはサーバーの起動時に読み込まれます。その後、Arcfin Sync が <strong>Dashboard &rsaquo; Plugins &rsaquo; My Plugins</strong> に <strong>Active</strong> と表示されます。</li>
-      <li><strong>設定する。</strong> Arcfin Sync にはダッシュボード内に専用のページができました(下記参照)。次に Arcfin を開き、<strong>「設定 &rsaquo; サーバー &rsaquo; Arcfin Sync」</strong>に進むと、プラグインのバージョンとともに<strong>「接続済み」</strong>と表示されます。</li>
+      <li><strong>設定する。</strong> Arcfin Sync にはダッシュボード内に専用のページができました(下記参照)。次に Arcfin を開いて<strong>「設定 &rsaquo; サーバー」</strong>に進むと、<strong>Arcfin Sync</strong> の下にプラグインのバージョンとともに<strong>「接続済み」</strong>と表示されます。</li>
     </ol>
     <p>アップデートも同じリポジトリから届きます。新しいバージョンが出ると、Jellyfin の <strong>My Plugins</strong> に表示されるので、インストールして再起動してください。</p>
 
     <h2 id="configure">設定方法</h2>
-    <p>ダッシュボードのメニュー、または <strong>My Plugins</strong> から <strong>Arcfin Sync</strong> を開きます。ページは 3 つあります:</p>
+    <p>ダッシュボードのメニュー、または <strong>My Plugins</strong> から <strong>Arcfin Sync</strong> を開きます。3 つのタブがある 1 ページです:</p>
     <ul>
-      <li><strong>General:</strong> 今後のバージョン向けの通知オプション。ここでの設定は、まだ Arcfin の動作を変えません。</li>
-      <li><strong>Client Settings:</strong> アプリの設定と同じ構成の画面です。設定ごとに、誰も変更できないよう固定するか、初期値を入れます。変更は、次に Arcfin が同期したときに各ユーザーに届きます。</li>
-      <li><strong>Advanced:</strong> 同じ項目を YAML で。テキストで設定したい管理者向けです。</li>
+      <li><strong>Overview:</strong> プラグインのしくみと、ヘルプや問題の報告へのリンク。</li>
+      <li><strong>Settings:</strong> Arcfin のすべての設定。どれにもデフォルト(各自が選ぶまで使われる値)を設定したり、ロックして全員にあなたの値を使わせたりできます。</li>
+      <li><strong>Users &amp; Devices:</strong> Arcfin でサインインしているすべてのデバイス。名前の変更や削除ができ、1 人のユーザーに専用のデフォルトとロックを設定できます。</li>
     </ul>
-    <p>ユーザーは何もする必要がありません。Arcfin はプラグインを自動で見つけ、起動時に同期します。<strong>「設定 &rsaquo; サーバー &rsaquo; Arcfin Sync」</strong>の<strong>「今すぐ同期」</strong>ですぐに同期することもできます。</p>
+    <p>管理者は同じ変更を Arcfin の<strong>「管理 &rsaquo; みんなのArcfin」</strong>からも行えます。変更は、各デバイスが次に同期したとき(開いたとき、前面に来たとき、設定が変わったとき)に届きます。</p>
+    <p>ユーザーは何もする必要がありません。Arcfin はプラグインを自動で見つけ、<strong>「設定 &rsaquo; サーバー」</strong>の<strong>「今すぐ同期」</strong>ですぐに同期できます。デバイスの同期のしかたを選ぶには<strong>「設定 &rsaquo; サーバー &rsaquo; デバイスと同期」</strong>を開きます。</p>
 
     <h2 id="privacy">プライバシー</h2>
-    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定はそこに保存され、ほかのどこにも保存されません。間に Arcfin のサーバーが入ることはこれまでどおりありません。何が保存されるかは<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
+    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定とデバイスの記録はそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
 
     <h2 id="changes">変更点</h2>
     <p>プラグインのすべてのリリースは<a href="/ja/changelog/">変更履歴</a>の<strong>プラグイン</strong>にあります。新しいバージョンが公開されると自動で更新されます。</p>
