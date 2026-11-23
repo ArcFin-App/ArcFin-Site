@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Arcfin · iPhone、iPad、Mac、Apple TV のための Jellyfin</title>
-  <meta name="description" content="Arcfin は iPhone、iPad、Mac、Apple TV 向けのオープンソースの Jellyfin クライアントです。サーバーにあるほぼすべてを再生し、オフライン視聴用にダウンロードでき、データは自分のサーバーに置いたままです。">
+  <title>Arcfin · iPhone、iPad、Mac、Apple TV、Apple Watch のための Jellyfin</title>
+  <meta name="description" content="Arcfin は iPhone、iPad、Mac、Apple TV、Apple Watch 向けのオープンソースの Jellyfin クライアントで、車では CarPlay でも使えます。サーバーにあるほぼすべてを再生し、オフライン視聴用にダウンロードでき、データは自分のサーバーに置いたままです。">
   <link rel="canonical" href="https://arcfin.psmattas.com/ja/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
-  <meta property="og:title" content="Arcfin · iPhone、iPad、Mac、Apple TV のための Jellyfin">
-  <meta property="og:description" content="Arcfin は iPhone、iPad、Mac、Apple TV 向けのオープンソースの Jellyfin クライアントです。サーバーにあるほぼすべてを再生し、オフライン視聴用にダウンロードでき、データは自分のサーバーに置いたままです。">
+  <meta property="og:title" content="Arcfin · iPhone、iPad、Mac、Apple TV、Apple Watch のための Jellyfin">
+  <meta property="og:description" content="Arcfin は iPhone、iPad、Mac、Apple TV、Apple Watch 向けのオープンソースの Jellyfin クライアントで、車では CarPlay でも使えます。サーバーにあるほぼすべてを再生し、オフライン視聴用にダウンロードでき、データは自分のサーバーに置いたままです。">
   <meta property="og:url" content="https://arcfin.psmattas.com/ja/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
   <script src="/assets/early.js"></script>
   <script src="/assets/site.js" defer></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26, watchOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac and Apple TV.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcfin","applicationCategory":"MultimediaApplication","operatingSystem":"iOS 26, iPadOS 26, macOS 26, tvOS 26, watchOS 26","description":"An open-source Jellyfin client for iPhone, iPad, Mac, Apple TV and Apple Watch, with CarPlay in the car.","url":"https://arcfin.psmattas.com/","image":"https://arcfin.psmattas.com/assets/logo.png","softwareVersion":"0.2.0","license":"https://www.gnu.org/licenses/agpl-3.0.html","author":{"@type":"Person","name":"Puranjay Savar Mattas"}}
   </script>
 <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://arcfin.psmattas.com/">
@@ -39,7 +39,7 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://arcfin.psmattas.com/zh-hans/">
   <link rel="alternate" hreflang="x-default" href="https://arcfin.psmattas.com/">
   <!-- /hreflang --><!-- faq-schema -->
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "自分のサーバーが必要ですか?", "acceptedAnswer": {"@type": "Answer", "text": "はい。Arcfin は Jellyfin のクライアントです。Jellyfin は自分で運用する無料のメディアサーバーです。自分の Jellyfin サーバー、または信頼できる人が運用するサーバーのアカウントが必要です。Arcfin がコンテンツを提供、ホスト、またはリンクすることはありません。"}}, {"@type": "Question", "name": "Arcfin は App Store にありますか?", "acceptedAnswer": {"@type": "Answer", "text": "まだありません。Arcfin は TestFlight でパブリックベータ中です。バージョン 0.5.1 で Apple の App Store 審査に出します。App Store から TestFlight をインストールし、iPhone、iPad、Mac、Apple TV で招待を開けば、新しいビルドが自動で届きます。"}}, {"@type": "Question", "name": "どのデバイスで使えますか?", "acceptedAnswer": {"@type": "Answer", "text": "iOS または iPadOS 26 の iPhone と iPad、macOS 26 の Mac、tvOS 26 の Apple TV です。Mac 版は専用のインターフェイスを持つ本物の Mac アプリで、Apple TV には Siri Remote 用の専用レイアウトがあります。watchOS 26 用の Apple Watch アプリは、音楽を再生し、リモコンとしても使えます。iPhone アプリに含まれています。"}}, {"@type": "Question", "name": "サーバーに何かインストールする必要はありますか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin はどの Jellyfin サーバーでもそのまま使えます。オプションのコンパニオンプラグイン Arcfin Sync をサーバーの管理者がインストールすると、設定がデバイス間でついてくるようになり、ダウンロードも小さくなります。"}}, {"@type": "Question", "name": "Arcfin は Jellyfin の公式アプリですか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin は独立したサードパーティのクライアントです。Jellyfin プロジェクトとの提携や推奨はないため、Arcfin について Jellyfin チームに質問しないでください。代わりにサポートページをご利用ください。"}}, {"@type": "Question", "name": "Arcfin は私のデータを収集しますか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin のサーバーも、解析も、トラッキングも、クラッシュレポートサービスもありません。アプリはあなたが追加したサーバーと直接やり取りします。プライバシーポリシー(英語)に、外部サービスとその利用場面をすべて記載しています。"}}, {"@type": "Question", "name": "うまく動きません。どうすればいいですか?", "acceptedAnswer": {"@type": "Answer", "text": "アプリの「設定 › 情報 › 問題を報告」を使うか、Issue を作成してください。デバイス、OS のバージョン、Jellyfin サーバーのバージョンを書いてください。詳しくはサポートページへ。"}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "自分のサーバーが必要ですか?", "acceptedAnswer": {"@type": "Answer", "text": "はい。Arcfin は Jellyfin のクライアントです。Jellyfin は自分で運用する無料のメディアサーバーです。自分の Jellyfin サーバー、または信頼できる人が運用するサーバーのアカウントが必要です。Arcfin がコンテンツを提供、ホスト、またはリンクすることはありません。"}}, {"@type": "Question", "name": "Arcfin は App Store にありますか?", "acceptedAnswer": {"@type": "Answer", "text": "まだありません。Arcfin は TestFlight でパブリックベータ中です。バージョン 0.5.1 で Apple の App Store 審査に出します。App Store から TestFlight をインストールし、iPhone、iPad、Mac、Apple TV で招待を開けば、新しいビルドが自動で届きます。Apple Watch アプリと CarPlay は iPhone アプリに含まれています。"}}, {"@type": "Question", "name": "どのデバイスで使えますか?", "acceptedAnswer": {"@type": "Answer", "text": "iOS または iPadOS 26 の iPhone と iPad、macOS 26 の Mac、tvOS 26 の Apple TV です。Mac 版は専用のインターフェイスを持つ本物の Mac アプリで、Apple TV には Siri Remote 用の専用レイアウトがあります。watchOS 26 用の Apple Watch アプリは、音楽を再生し、リモコンとしても使えます。iPhone アプリに含まれていて、車で音楽を楽しめる CarPlay も同じです。"}}, {"@type": "Question", "name": "サーバーに何かインストールする必要はありますか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin はどの Jellyfin サーバーでもそのまま使えます。オプションのコンパニオンプラグイン Arcfin Sync をサーバーの管理者がインストールすると、設定がデバイス間でついてくるようになり、ダウンロードも小さくなります。"}}, {"@type": "Question", "name": "Arcfin は Jellyfin の公式アプリですか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin は独立したサードパーティのクライアントです。Jellyfin プロジェクトとの提携や推奨はないため、Arcfin について Jellyfin チームに質問しないでください。代わりにサポートページをご利用ください。"}}, {"@type": "Question", "name": "Arcfin は私のデータを収集しますか?", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。Arcfin のサーバーも、解析も、トラッキングも、クラッシュレポートサービスもありません。アプリはあなたが追加したサーバーと直接やり取りします。プライバシーポリシー(英語)に、外部サービスとその利用場面をすべて記載しています。"}}, {"@type": "Question", "name": "うまく動きません。どうすればいいですか?", "acceptedAnswer": {"@type": "Answer", "text": "アプリの「設定 › 情報 › 問題を報告」を使うか、Issue を作成してください。デバイス、OS のバージョン、Jellyfin サーバーのバージョンを書いてください。詳しくはサポートページへ。"}}]}</script>
   <!-- /faq-schema --></head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -62,14 +62,14 @@
     <div class="hero-copy">
       <a class="pill" href="/ja/changelog/"><span class="dot"></span><span>パブリックベータ &middot; TestFlight で <span data-version="latest">0.2.0</span></span></a>
       <h1>あなたの Jellyfin ライブラリを、<span class="accent">美しく再生。</span></h1>
-      <p class="lede">Arcfin は iPhone、iPad、Mac、Apple TV 向けのオープンソースの Jellyfin クライアントです。サーバーにあるほぼすべてを再生し、オフライン視聴用にダウンロードでき、どの画面でも自然に使えます。</p>
+      <p class="lede">Arcfin は iPhone、iPad、Mac、Apple TV、Apple Watch 向けのオープンソースの Jellyfin クライアントで、車では CarPlay でも使えます。サーバーにあるほぼすべてを再生し、オフライン視聴用にダウンロードでき、どの画面でも自然に使えます。</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://testflight.apple.com/join/kkC58n2w"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>TestFlight ベータに参加</a>
         <a class="btn btn-secondary" href="#features">できることを見る</a>
       </div>
-      <p class="hero-note">自分の Jellyfin サーバー、またはサーバー上のアカウントが必要です。iOS、iPadOS、macOS、tvOS 26 以降。</p>
+      <p class="hero-note">自分の Jellyfin サーバー、またはサーバー上のアカウントが必要です。iOS、iPadOS、macOS、tvOS、watchOS 26 以降。CarPlay は iPhone アプリから使えます。</p>
       <div class="platform-row" aria-label="対応機種">
-        <span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"></rect><path d="M10.5 4.5h3"></path></svg>iPhone</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"></rect></svg>iPad</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.5"></rect><path d="M1.5 19.5h21l-1.2-2.5H2.7z"></path></svg>Mac</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="1.5"></rect><path d="M8.5 20.5h7M12 17v3.5"></path></svg>Apple TV</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="6" width="11" height="12" rx="3"></rect><path d="M9 6l.6-3.5h4.8L15 6M9 18l.6 3.5h4.8L15 18"></path></svg>Apple Watch</span>
+        <span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"></rect><path d="M10.5 4.5h3"></path></svg>iPhone</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"></rect></svg>iPad</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.5"></rect><path d="M1.5 19.5h21l-1.2-2.5H2.7z"></path></svg>Mac</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="1.5"></rect><path d="M8.5 20.5h7M12 17v3.5"></path></svg>Apple TV</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="6" width="11" height="12" rx="3"></rect><path d="M9 6l.6-3.5h4.8L15 6M9 18l.6 3.5h4.8L15 18"></path></svg>Apple Watch</span><span class="platform-chip"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16v-4l2-5h10l2 5v4z"></path><path d="M5 12h14M5 16v2.5M19 16v2.5"></path><circle cx="8.5" cy="14" r="0.8"></circle><circle cx="15.5" cy="14" r="0.8"></circle></svg>CarPlay</span>
       </div>
     </div>
     <div class="hero-devices" aria-label="iPhone の Arcfin">
@@ -197,7 +197,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">対応機種</span>
       <h2>画面ごとに設計。引き伸ばしではなく。</h2>
-      <p>デバイスごとに専用のレイアウトを、共通の再生・ライブラリ・同期のコードの上に作っています。</p>
+      <p>デバイスごとに専用のレイアウトを、共通の再生・ライブラリ・同期のコードの上に作っています。CarPlay は iPhone アプリに含まれ、車で音楽を楽しめます。</p>
     </div>
     <div class="platforms">
       <article class="platform reveal">
@@ -310,8 +310,8 @@
     </div>
     <div class="faq reveal">
       <details><summary>自分のサーバーが必要ですか?</summary><div class="answer"><p>はい。Arcfin は <a href="https://jellyfin.org">Jellyfin</a> のクライアントです。Jellyfin は自分で運用する無料のメディアサーバーです。自分の Jellyfin サーバー、または信頼できる人が運用するサーバーのアカウントが必要です。Arcfin がコンテンツを提供、ホスト、またはリンクすることはありません。</p></div></details>
-      <details><summary>Arcfin は App Store にありますか?</summary><div class="answer"><p>まだありません。Arcfin は <a href="https://testflight.apple.com/join/kkC58n2w">TestFlight</a> でパブリックベータ中です。バージョン 0.5.1 で Apple の App Store 審査に出します。</p><p>App Store から TestFlight をインストールし、iPhone、iPad、Mac、Apple TV で招待を開けば、新しいビルドが自動で届きます。</p></div></details>
-      <details><summary>どのデバイスで使えますか?</summary><div class="answer"><p>iOS または iPadOS 26 の iPhone と iPad、macOS 26 の Mac、tvOS 26 の Apple TV です。Mac 版は専用のインターフェイスを持つ本物の Mac アプリで、Apple TV には Siri Remote 用の専用レイアウトがあります。</p><p>watchOS 26 用の Apple Watch アプリは、音楽を再生し、リモコンとしても使えます。iPhone アプリに含まれています。</p></div></details>
+      <details><summary>Arcfin は App Store にありますか?</summary><div class="answer"><p>まだありません。Arcfin は <a href="https://testflight.apple.com/join/kkC58n2w">TestFlight</a> でパブリックベータ中です。バージョン 0.5.1 で Apple の App Store 審査に出します。</p><p>App Store から TestFlight をインストールし、iPhone、iPad、Mac、Apple TV で招待を開けば、新しいビルドが自動で届きます。Apple Watch アプリと CarPlay は iPhone アプリに含まれています。</p></div></details>
+      <details><summary>どのデバイスで使えますか?</summary><div class="answer"><p>iOS または iPadOS 26 の iPhone と iPad、macOS 26 の Mac、tvOS 26 の Apple TV です。Mac 版は専用のインターフェイスを持つ本物の Mac アプリで、Apple TV には Siri Remote 用の専用レイアウトがあります。</p><p>watchOS 26 用の Apple Watch アプリは、音楽を再生し、リモコンとしても使えます。iPhone アプリに含まれていて、車で音楽を楽しめる CarPlay も同じです。</p></div></details>
       <details><summary>サーバーに何かインストールする必要はありますか?</summary><div class="answer"><p>いいえ。Arcfin はどの Jellyfin サーバーでもそのまま使えます。オプションのコンパニオンプラグイン <a href="/ja/plugin/">Arcfin Sync</a> をサーバーの管理者がインストールすると、設定がデバイス間でついてくるようになり、ダウンロードも小さくなります。</p></div></details>
       <details><summary>Arcfin は Jellyfin の公式アプリですか?</summary><div class="answer"><p>いいえ。Arcfin は独立したサードパーティのクライアントです。Jellyfin プロジェクトとの提携や推奨はないため、Arcfin について Jellyfin チームに質問しないでください。代わりに<a href="/ja/support/">サポートページ</a>をご利用ください。</p></div></details>
       <details><summary>Arcfin は私のデータを収集しますか?</summary><div class="answer"><p>いいえ。Arcfin のサーバーも、解析も、トラッキングも、クラッシュレポートサービスもありません。アプリはあなたが追加したサーバーと直接やり取りします。<a href="/privacy/">プライバシーポリシー</a>(英語)に、外部サービスとその利用場面をすべて記載しています。</p></div></details>
