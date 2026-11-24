@@ -10,7 +10,7 @@ Reads the app repository's release feed once, then:
 - writes the plugin's newest version into elements marked
   data-version="plugin";
 - unpacks each platform's newest screenshots (screenshots-<platform>.zip,
-  attached by the app's TestFlight workflow) into assets/shots/auto/, over
+  attached by the app's screenshots workflow) into assets/shots/auto/, over
   the copies in the repo. Pages use them by the name the app's screenshot
   test gives them, e.g. iPhone-01-home.webp, so a new release replaces each
   one in place.
@@ -41,7 +41,12 @@ PLUGIN_FEED = os.environ.get("PLUGIN_RELEASES_FEED", FEED.replace("/ArcFin/ArcFi
 INTERNAL = os.environ.get("GITEA_INTERNAL_URL", "").rstrip("/")
 PUBLIC = "https://git.psmattas.com"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
-TAG = re.compile(r"/releases/tag/(iOS|macOS|tvOS)-(\d+)\.(\d+)\.(\d+)-build-(\d+)$")
+# Builds are tagged v<version>-build-<build>.<unix time>, one tag for every platform that
+# uploaded that night, and the release title lists them. Releases up to 0.4.0 have a tag per
+# platform, <Platform>-<version>-build-<build>, and sort as if built at time 0.
+TAG = re.compile(r"/releases/tag/v(\d+)\.(\d+)\.(\d+)-build-(\d+)\.(\d+)$")
+OLD_TAG = re.compile(r"/releases/tag/(iOS|macOS|tvOS)-(\d+)\.(\d+)\.(\d+)-build-(\d+)$")
+TITLE_PLATFORMS = {"iOS & iPadOS": "iOS", "macOS": "macOS", "tvOS": "tvOS"}
 PLATFORMS = [("iOS", "iPhone & iPad", "ios"), ("macOS", "Mac", "mac"), ("tvOS", "Apple TV", "tv")]
 PLUGIN_TAG = re.compile(r"/releases/tag/v(\d+)\.(\d+)\.(\d+)(?:\.(\d+))?$")
 I18N = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "i18n")
@@ -60,22 +65,34 @@ def warn(message):
     print(f"::warning::{message}")
 
 
+def tag_platforms(tag, title=""):
+    """The (platform, key) pairs a release tag covers; key is (major, minor, patch, build, time)."""
+    old = OLD_TAG.search("/releases/tag/" + tag)
+    if old:
+        platform, *numbers = old.groups()
+        return [(platform, tuple(int(n) for n in numbers) + (0,))]
+    new = TAG.search("/releases/tag/" + tag)
+    if not new:
+        return []
+    key = tuple(int(n) for n in new.groups())
+    named = [TITLE_PLATFORMS[p.strip()] for p in title.split("·")[1:] if p.strip() in TITLE_PLATFORMS]
+    return [(platform, key) for platform in named]
+
+
 def read_feed():
     with urllib.request.urlopen(FEED, timeout=20) as response:
         root = ET.fromstring(response.read())
     releases = []
     for item in root.iter("item"):
-        match = TAG.search(item.findtext("link", ""))
-        if not match:
-            continue
-        platform, *numbers = match.groups()
-        releases.append({
-            "platform": platform,
-            "key": tuple(int(n) for n in numbers),
-            "link": item.findtext("link"),
-            "date": email.utils.parsedate_to_datetime(item.findtext("pubDate")),
-            "body": item.findtext(CONTENT) or "",
-        })
+        link = item.findtext("link", "")
+        for platform, key in tag_platforms(link.rsplit("/releases/tag/", 1)[-1], item.findtext("title", "")):
+            releases.append({
+                "platform": platform,
+                "key": key,
+                "link": link,
+                "date": email.utils.parsedate_to_datetime(item.findtext("pubDate")),
+                "body": item.findtext(CONTENT) or "",
+            })
     return releases
 
 
@@ -139,7 +156,7 @@ def version_labels(releases):
     for r in releases:
         if r["platform"] not in newest or r["key"] > newest[r["platform"]]:
             newest[r["platform"]] = r["key"]
-    labels = {p: f"{a}.{b}.{c} (build {n})" for p, (a, b, c, n) in newest.items()}
+    labels = {p: f"{a}.{b}.{c} (build {n})" for p, (a, b, c, n, _) in newest.items()}
     labels["latest"] = ".".join(map(str, max(v[:3] for v in newest.values())))
     return labels
 
@@ -285,11 +302,12 @@ def screenshots():
         asset_name = f"screenshots-{platform}.zip"
         newest = None
         for release in releases:
-            match = TAG.search("/releases/tag/" + release.get("tag_name", ""))
             asset = next((a for a in release.get("assets", []) if a.get("name") == asset_name), None)
-            if match and match.group(1) == platform and asset:
-                key = tuple(int(n) for n in match.groups()[1:])
-                if newest is None or key > newest[0]:
+            if not asset:
+                continue
+            # The zip's name says the platform, so a new-style tag needn't list it in its title.
+            for _, key in tag_platforms(release.get("tag_name", ""), release.get("name", "")) or [(None, None)]:
+                if key is not None and (newest is None or key > newest[0]):
                     newest = (key, release["tag_name"], asset["browser_download_url"])
         if newest is None:
             continue
