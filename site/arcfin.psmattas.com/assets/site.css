@@ -386,6 +386,8 @@ p { margin: 0; }
   border: 1px solid var(--hairline-strong); color: var(--muted);
   font-size: 0.74rem; font-weight: 600;
 }
+/* Needs the Arcfin Sync plugin on the server: the accent, so these stand out from Optional. */
+.tag-plugin { border-color: var(--accent); color: var(--accent); }
 
 /* Platforms */
 

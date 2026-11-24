@@ -64,6 +64,7 @@
 <article class="prose">
     <h2 id="features">它带来了什么</h2>
     <ul>
+      <li><strong>Pick Together。</strong>不知道看什么？每个人在自己的 iPhone 或 iPad 上滑动浏览影片，直到大家都喜欢同一部，然后在一台设备上、另一台设备上，或通过 SyncPlay 一起同步观看。扫描二维码或输入代码即可加入，每个人只会看到会话中所有人都有权观看的影片。发起会话的设备担任主持：它发放新影片、移除成员并锁定会话。0.5.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
       <li><strong>设置跟着你走。</strong>在 iPhone 上改一项设置，iPad、Mac 和 Apple TV 上也会同步改好。只对某类设备有意义的设置，比如 Mac 的窗口选项或 Apple TV 的焦点选项，只留在这类设备上。</li>
       <li><strong>设备与同步。</strong>每台设备可以选择同步方式：自动、在使用其他设备的更改前先询问你的“先询问”，或“关闭”。你还可以把一台设备的设置发送到其他所有设备。它位于 Arcfin 的<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>中。</li>
       <li><strong>所有设备一目了然。</strong>插件会记录你使用 Arcfin 的每台设备，包括名称、平台、应用版本和最后一次出现的时间。你可以重命名或移除自己的设备，管理员可以对任何人的设备这样做。</li>
@@ -85,6 +86,7 @@
         <tr><td>转换后的下载</td><td>服务器允许时使用 HEVC，否则使用 H.264</td><td>服务器硬件真正能编码时，也可以使用 AV1</td></tr>
         <tr><td>转换后下载中的额外音轨</td><td>从 Jellyfin 获取，可能会收到默认音轨而不是你选的那条</td><td>你选的每条音轨都由服务器单独提取（0.3.1 及更高版本）</td></tr>
         <tr><td>面向管理员的硬件编码器报告</td><td>不可用</td><td>“管理 &rsaquo; 硬件编码器”显示服务器硬件能编码哪些格式</td></tr>
+        <tr><td>Pick Together</td><td>不可用</td><td>滑动直到大家意见一致，然后在这里、另一台设备上或一起观看（0.5.0 及更高版本）</td></tr>
       </tbody>
     </table></div>
 
@@ -100,17 +102,18 @@
     <p>更新也通过同一个存储库提供。有新版本时，Jellyfin 会在 <strong>My Plugins</strong> 中提示；安装后重启即可。</p>
 
     <h2 id="configure">设置方法</h2>
-    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含三个标签页的页面：</p>
+    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含四个标签页的页面：</p>
     <ul>
       <li><strong>Overview：</strong>插件的工作方式，以及帮助和报告问题的链接。</li>
       <li><strong>Settings：</strong>Arcfin 的每项设置。可以给任何一项设置一个默认值（在用户自己选择前使用），或锁定它，让所有人都使用你的值。</li>
       <li><strong>Users &amp; Devices：</strong>每台用 Arcfin 登录的设备。可以重命名或移除设备，并为单个用户设置专属的默认值和锁定。</li>
+      <li><strong>Pick Together：</strong>为所有人或选定的用户开启或关闭。默认开启。</li>
     </ul>
     <p>管理员也可以在 Arcfin 的<strong>“管理 &rsaquo; 所有人的 Arcfin”</strong>中进行同样的更改。更改会在每台设备下次同步时生效：打开时、切换到前台时或某项设置更改时。</p>
     <p>用户无需做任何事。Arcfin 会自动找到插件，在<strong>“设置 &rsaquo; 服务器”</strong>中点按<strong>“立即同步”</strong>可马上同步。要选择设备的同步方式，请打开<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>。</p>
 
     <h2 id="privacy">隐私</h2>
-    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置和你的设备记录只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
+    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置和你的设备记录只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。Pick Together 会话仅在使用期间保存在服务器内存中，闲置六小时后结束。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
 
     <h2 id="changes">有哪些变化</h2>
     <p>插件的每个版本都列在<a href="/zh-hans/changelog/">更新日志</a>的<strong>插件</strong>下。有新版本发布时会自动更新。</p>

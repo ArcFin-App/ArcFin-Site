@@ -64,6 +64,7 @@
 <article class="prose">
     <h2 id="features">What it adds</h2>
     <ul>
+      <li><strong>Pick Together.</strong> Can&rsquo;t decide what to watch? Everyone swipes through titles on their own iPhone or iPad until you all like the same one, then watches it on one device, on another, or together in sync with SyncPlay. People join by scanning a QR code or entering a code, and each person only gets titles everyone in the session is allowed to see. The device that starts a session hosts it: it deals new titles, removes people and locks the session. Version 0.5.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
       <li><strong>Settings that follow you.</strong> Change a setting on your iPhone and it&rsquo;s there on your iPad, Mac and Apple TV. Settings that only make sense on one kind of device, like Mac window options or Apple TV focus options, stay on that kind of device.</li>
       <li><strong>Devices &amp; Sync.</strong> Each device chooses how it syncs: automatically, Ask First to check with you before using changes from another device, or Off. You can also send one device&rsquo;s settings to all your others. It&rsquo;s in Arcfin under <strong>Settings &rsaquo; Server &rsaquo; Devices &amp; Sync</strong>.</li>
       <li><strong>Your devices in one place.</strong> The plugin keeps a record of each device you use Arcfin on, with its name, platform, app version and when it was last seen. You can rename or forget your own devices, and admins can do it for anyone.</li>
@@ -85,6 +86,7 @@
         <tr><td>Converted downloads</td><td>HEVC where the server allows it, otherwise H.264</td><td>AV1 too, when the server&rsquo;s hardware can really encode it</td></tr>
         <tr><td>Extra audio tracks in a converted download</td><td>Fetched from Jellyfin, which can send the default track instead of the one you picked</td><td>Each track you pick, copied out by the server (version 0.3.1 and later)</td></tr>
         <tr><td>Hardware encoder report for admins</td><td>Not available</td><td>Admin &rsaquo; Hardware Encoders shows what the server&rsquo;s hardware can encode</td></tr>
+        <tr><td>Pick Together</td><td>Not available</td><td>Swipe until everyone agrees, then watch here, on another device or together (version 0.5.0 and later)</td></tr>
       </tbody>
     </table></div>
 
@@ -100,17 +102,18 @@
     <p>Updates come through the same repository. When a new version is out, Jellyfin offers it under <strong>My Plugins</strong>; install it and restart.</p>
 
     <h2 id="configure">Setting it up</h2>
-    <p>Open <strong>Arcfin Sync</strong> from the dashboard&rsquo;s menu, or from <strong>My Plugins</strong>. It&rsquo;s one page with three tabs:</p>
+    <p>Open <strong>Arcfin Sync</strong> from the dashboard&rsquo;s menu, or from <strong>My Plugins</strong>. It&rsquo;s one page with four tabs:</p>
     <ul>
       <li><strong>Overview:</strong> how the plugin works, with links to help and to report a problem.</li>
       <li><strong>Settings:</strong> every Arcfin setting. Give any of them a default, used until someone picks their own, or lock it so everyone gets your value.</li>
       <li><strong>Users &amp; Devices:</strong> every device signed in with Arcfin. Rename or forget one, and give a single user their own defaults and locks.</li>
+      <li><strong>Pick Together:</strong> turn it on or off for everyone, or for chosen users. It&rsquo;s on to begin with.</li>
     </ul>
     <p>Admins can make the same changes in Arcfin, under <strong>Admin &rsaquo; Arcfin for Everyone</strong>. Changes reach each device the next time Arcfin syncs: when it opens, comes to the front, or a setting changes.</p>
     <p>Users don&rsquo;t need to do anything. Arcfin finds the plugin on its own, and <strong>Sync Now</strong> in <strong>Settings &rsaquo; Server</strong> syncs straight away. To choose how a device syncs, open <strong>Settings &rsaquo; Server &rsaquo; Devices &amp; Sync</strong>.</p>
 
     <h2 id="privacy">Privacy</h2>
-    <p>The plugin runs on your own Jellyfin server. Synced settings and the record of your devices are stored there and nowhere else; there&rsquo;s still no Arcfin server in the middle. The <a href="/privacy/">Privacy Policy</a> covers what&rsquo;s kept.</p>
+    <p>The plugin runs on your own Jellyfin server. Synced settings and the record of your devices are stored there and nowhere else; there&rsquo;s still no Arcfin server in the middle. Pick Together sessions are only kept in the server&rsquo;s memory while they&rsquo;re in use, and end after six hours without activity. The <a href="/privacy/">Privacy Policy</a> covers what&rsquo;s kept.</p>
 
     <h2 id="changes">What&rsquo;s changed</h2>
     <p>Every release of the plugin is in the <a href="/changelog/">changelog</a>, under <strong>Plugin</strong>. It updates on its own when a new version is published.</p>

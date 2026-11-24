@@ -64,6 +64,7 @@
 <article class="prose">
     <h2 id="features">Ce qu’il apporte</h2>
     <ul>
+      <li><strong>Pick Together.</strong> Vous n’arrivez pas à choisir quoi regarder ? Chacun fait défiler des titres sur son propre iPhone ou iPad jusqu’à ce que vous aimiez tous le même, puis vous le regardez sur un appareil, sur un autre, ou ensemble en synchro avec SyncPlay. On rejoint la session en scannant un code QR ou en saisissant un code, et chacun ne reçoit que des titres que tout le monde dans la session a le droit de voir. L’appareil qui lance une session l’héberge : il distribue de nouveaux titres, retire des participants et verrouille la session. Version 0.5.0 et ultérieures, avec Arcfin 0.5.0 (build 3) ou ultérieur.</li>
       <li><strong>Des réglages qui vous suivent.</strong> Modifiez un réglage sur votre iPhone et il est aussi sur votre iPad, votre Mac et votre Apple TV. Les réglages qui n’ont de sens que sur un type d’appareil, comme les options de fenêtre sur Mac ou de focus sur Apple TV, restent sur ce type d’appareil.</li>
       <li><strong>Appareils et synchro.</strong> Chaque appareil choisit sa façon de se synchroniser : automatiquement, Demander d’abord pour vérifier avec vous avant d’utiliser les changements d’un autre appareil, ou Désactivé. Vous pouvez aussi envoyer les réglages d’un appareil à tous les autres. C’est dans Arcfin, sous <strong>Réglages &rsaquo; Serveur &rsaquo; Appareils et synchro</strong>.</li>
       <li><strong>Tous vos appareils au même endroit.</strong> Le plugin garde une fiche pour chaque appareil sur lequel vous utilisez Arcfin, avec son nom, sa plateforme, la version de l’app et sa dernière connexion. Vous pouvez renommer ou oublier vos propres appareils, et les administrateurs peuvent le faire pour tout le monde.</li>
@@ -85,6 +86,7 @@
         <tr><td>Téléchargements convertis</td><td>HEVC quand le serveur le permet, sinon H.264</td><td>AV1 aussi, quand le matériel du serveur sait vraiment l’encoder</td></tr>
         <tr><td>Pistes audio supplémentaires dans un téléchargement converti</td><td>Récupérées auprès de Jellyfin, qui peut envoyer la piste par défaut au lieu de celle que vous avez choisie</td><td>Chaque piste choisie, extraite par le serveur (version 0.3.1 et ultérieures)</td></tr>
         <tr><td>Rapport des encodeurs matériels pour les administrateurs</td><td>Non disponible</td><td>Admin &rsaquo; Encodeurs matériels montre ce que le matériel du serveur sait encoder</td></tr>
+        <tr><td>Pick Together</td><td>Non disponible</td><td>Faites défiler jusqu’à ce que tout le monde soit d’accord, puis regardez ici, sur un autre appareil ou ensemble (version 0.5.0 et ultérieures)</td></tr>
       </tbody>
     </table></div>
 
@@ -100,17 +102,18 @@
     <p>Les mises à jour passent par le même dépôt. Quand une nouvelle version sort, Jellyfin la propose dans <strong>My Plugins</strong> ; installez-la et redémarrez.</p>
 
     <h2 id="configure">Configuration</h2>
-    <p>Ouvrez <strong>Arcfin Sync</strong> depuis le menu du tableau de bord, ou depuis <strong>My Plugins</strong>. C’est une seule page avec trois onglets :</p>
+    <p>Ouvrez <strong>Arcfin Sync</strong> depuis le menu du tableau de bord, ou depuis <strong>My Plugins</strong>. C’est une seule page avec quatre onglets :</p>
     <ul>
       <li><strong>Overview:</strong> le fonctionnement du plugin, avec des liens vers l’aide et pour signaler un problème.</li>
       <li><strong>Settings:</strong> tous les réglages d’Arcfin. Donnez à chacun une valeur par défaut, utilisée tant que personne n’a choisi la sienne, ou verrouillez-le pour que tout le monde ait votre valeur.</li>
       <li><strong>Users &amp; Devices:</strong> tous les appareils connectés avec Arcfin. Renommez-en un ou oubliez-le, et donnez à un seul utilisateur ses propres valeurs par défaut et verrous.</li>
+      <li><strong>Pick Together:</strong> activez-le ou désactivez-le pour tous, ou pour certains utilisateurs. Il est activé au départ.</li>
     </ul>
     <p>Les administrateurs peuvent faire les mêmes changements dans Arcfin, sous <strong>Admin &rsaquo; Arcfin pour tous</strong>. Les changements arrivent sur chaque appareil à la prochaine synchronisation d’Arcfin : à l’ouverture, au retour au premier plan, ou quand un réglage change.</p>
     <p>Les utilisateurs n’ont rien à faire. Arcfin trouve le plugin tout seul, et <strong>Synchroniser maintenant</strong> dans <strong>Réglages &rsaquo; Serveur</strong> synchronise tout de suite. Pour choisir comment un appareil se synchronise, ouvrez <strong>Réglages &rsaquo; Serveur &rsaquo; Appareils et synchro</strong>.</p>
 
     <h2 id="privacy">Confidentialité</h2>
-    <p>Le plugin tourne sur votre propre serveur Jellyfin. Les réglages synchronisés et la fiche de vos appareils y sont stockés et nulle part ailleurs ; il n’y a toujours aucun serveur Arcfin au milieu. La <a href="/privacy/">Politique de confidentialité</a> décrit ce qui est conservé.</p>
+    <p>Le plugin tourne sur votre propre serveur Jellyfin. Les réglages synchronisés et la fiche de vos appareils y sont stockés et nulle part ailleurs ; il n’y a toujours aucun serveur Arcfin au milieu. Les sessions Pick Together ne sont gardées que dans la mémoire du serveur pendant leur utilisation, et se terminent après six heures sans activité. La <a href="/privacy/">Politique de confidentialité</a> décrit ce qui est conservé.</p>
 
     <h2 id="changes">Ce qui a changé</h2>
     <p>Chaque version du plugin figure dans les <a href="/fr/changelog/">Nouveautés</a>, sous <strong>Plugin</strong>. La page se met à jour d’elle-même quand une nouvelle version est publiée.</p>
