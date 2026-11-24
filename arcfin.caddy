@@ -32,6 +32,11 @@ arcfin.psmattas.com {
     @aasa path /.well-known/apple-app-site-association
     header @aasa Content-Type application/json
 
+    # The app README's version badge changes with every build, and nothing else sets a
+    # cache time, so Cloudflare would keep it for its default four hours.
+    @badges path /badges/*
+    header @badges Cache-Control "public, max-age=300"
+
     file_server
 
     # Missing pages get the 404 page in the language of the folder they

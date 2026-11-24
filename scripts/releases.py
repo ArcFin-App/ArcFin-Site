@@ -128,6 +128,7 @@ def clean(body, t):
     # Badges and the TestFlight review note are for the release page, not the site.
     body = re.sub(r"<p[^>]*>(?:(?!</p>).)*?(?:testflight-badge|img\.shields\.io)(?:(?!</p>).)*</p>\s*", "", body, flags=re.S)
     body = re.sub(r"<blockquote>(?:(?!</blockquote>).)*When will I get this build\?.*?</blockquote>\s*", "", body, flags=re.S)
+    body = re.sub(r"<p[^>]*>Built from <code>main</code>(?:(?!</p>).)*</p>\s*", "", body, flags=re.S)
     body = re.sub(r"<(script|style|iframe)\b.*?</\1>", "", body, flags=re.S | re.I)
     body = re.sub(r"\son\w+=(\"[^\"]*\"|'[^']*')", "", body)
     body = re.sub(r"\s(dir|data-markdown-generated-content|class|target)=\"[^\"]*\"", "", body)
@@ -151,7 +152,21 @@ def clean(body, t):
         return f'<h4 class="cl-kind {kind}">{title}</h4>'
 
     body = re.sub(r"<h2>(.*?)</h2>", heading, body)
+
+    def summary(match):
+        # A folded section, "Under the hood" with a count after it from the nightly notes.
+        title, count = re.match(r"(.*?)\s*(\(\d+\))?$", match.group(1).strip()).groups()
+        kind = KINDS.get(title.lower(), "other")
+        label = html.escape(t(html.unescape(title))) if kind != "other" else title
+        return f'<summary class="cl-kind {kind}">{label}{" " + count if count else ""}</summary>'
+
+    body = re.sub(r"<summary>(.*?)</summary>", summary, body, flags=re.S)
     return body.strip(), links
+
+
+def build_number(key):
+    """A build's number as TestFlight shows it: 2.1795491084, or 1 for the older tags."""
+    return f"{key[3]}.{key[4]}" if key[4] else str(key[3])
 
 
 def version_labels(releases):
@@ -159,7 +174,7 @@ def version_labels(releases):
     for r in releases:
         if r["platform"] not in newest or r["key"] > newest[r["platform"]]:
             newest[r["platform"]] = r["key"]
-    labels = {p: f"{a}.{b}.{c} (build {n})" for p, (a, b, c, n, _) in newest.items()}
+    labels = {p: f"{k[0]}.{k[1]}.{k[2]} (build {build_number(k)})" for p, k in newest.items()}
     labels["latest"] = ".".join(map(str, max(v[:3] for v in newest.values())))
     return labels
 
@@ -200,13 +215,17 @@ def changelog(releases, t, plugin=()):
         entries = builds[key]
         date = max(e["date"] for e in entries.values())
         latest = f'<span class="cl-latest">{html.escape(t("Latest"))}</span>' if index == 0 else ""
-        build = html.escape(t("Build {n}").replace("{n}", str(key[3])))
+        build = html.escape(t("Build {n}").replace("{n}", build_number(key)))
         out.append(f'<article class="cl-build"><header><h3>{build}{latest}</h3>'
                    f'<time datetime="{date:%Y-%m-%d}">{date.day} {date:%B %Y}</time></header>')
+        # One release can cover several platforms: its notes appear once, marked for each.
+        shown = {}
         for platform, name, css in PLATFORMS:
             entry = entries.get(platform)
-            if not entry:
-                continue
+            if entry:
+                shown.setdefault(entry["link"], (entry, []))[1].append(css)
+        for entry, classes in shown.values():
+            css = " ".join(classes)
             notes, links = clean(entry["body"], t)
             more = [f'<a href="{html.escape(entry["link"])}">{html.escape(t("Release notes"))}</a>']
             if "compare" in links:
@@ -375,8 +394,8 @@ def main():
         return
 
     labels = version_labels(releases)
-    a, b, c, n, _ = max(r["key"] for r in releases)
-    badge(f"{a}.{b}.{c} (build {n})")
+    newest = max(r["key"] for r in releases)
+    badge(f"{newest[0]}.{newest[1]}.{newest[2]} (build {build_number(newest)})")
     try:
         plugin = read_plugin_feed()
     except Exception as error:
