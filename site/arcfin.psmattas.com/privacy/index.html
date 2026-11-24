@@ -41,7 +41,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
-  <p>What happens to your data when you use Arcfin.</p><p class="meta muted">Effective 23 November 2026</p>
+  <p>What happens to your data when you use Arcfin.</p><p class="meta muted">Effective 24 November 2026</p>
 </div></section>
 <div class="wrap doc">
 <nav class="doc-toc" aria-label="On this page"><p class="doc-toc-title">On this page</p></nav>
@@ -54,7 +54,7 @@
   <p>Arcfin is a client for services you run or already use. When you add a server or turn on a feature, your device talks to it directly:</p>
   <ul>
     <li><strong>Your Jellyfin server</strong> (required). Arcfin sends your sign-in details and playback requests straight to the address you enter.</li>
-    <li><strong>Arcfin Sync</strong> (optional, a plugin on your Jellyfin server). If your server&rsquo;s admin installs it, your synced settings are stored on that server, with a record of each device you use Arcfin on: its name, platform, app version, when it was last seen and how it syncs. The server&rsquo;s admins can set defaults and locks for settings. All of this stays on your server; we never receive it.</li>
+    <li><strong>Arcfin Sync</strong> (optional, a plugin on your Jellyfin server). If your server&rsquo;s admin installs it, your synced settings are stored on that server, with a record of each device you use Arcfin on: its name, platform, app version, when it was last seen and how it syncs. The server&rsquo;s admins can set defaults and locks for settings. From version 0.6 the admin can also turn on watch parties, Seerr and TMDB through the server, signed security commands, watch time limits, download limits, shared accounts, announcements, hidden titles and recommendations; each is off until they do. What these keep is listed below. All of this stays on your server; we never receive it.</li>
     <li><strong>Seerr</strong> (optional). If you connect a Seerr server, your device talks to it directly for requests and your watchlist, signed in per profile.</li>
     <li><strong>TMDB</strong> (optional). If you add your own TMDB API key, Arcfin asks The Movie Database for review scores, where-to-watch information, popular titles and images, using the IDs of the titles you look at.</li>
     <li><strong>Wikidata</strong>. To show awards on a title page, Arcfin sends that title&rsquo;s TMDB ID to Wikidata&rsquo;s public query service.</li>
@@ -73,12 +73,22 @@
   <div class="table-scroll"><table>
     <thead><tr><th>Data</th><th>Where it lives</th></tr></thead>
     <tbody>
-      <tr><td>Server addresses, sign-in tokens, Seerr sign-ins, your TMDB key and your ListenBrainz token</td><td>Your device&rsquo;s Keychain, encrypted by the system. Only ever sent to the service it belongs to.</td></tr>
-      <tr><td>Profile lock (PIN, Face ID, Touch ID)</td><td>Your device only. Face ID and Touch ID data never leave Apple&rsquo;s Secure Enclave; Arcfin only receives a yes or no.</td></tr>
+      <tr><td>Server addresses, sign-in tokens, Seerr sign-ins, your TMDB key and your ListenBrainz token</td><td>Your device&rsquo;s Keychain, encrypted by the system. Only ever sent to the service it belongs to. If your server&rsquo;s admin sets up Seerr or TMDB in the Arcfin Sync plugin, Arcfin uses them through your server instead and removes the Seerr password and TMDB key from your device.</td></tr>
+      <tr><td>Profile lock (PIN, Face ID, Touch ID)</td><td>Your device only. Face ID and Touch ID data never leave Apple&rsquo;s Secure Enclave; Arcfin only receives a yes or no. Your PIN is never sent anywhere. If your server uses the Arcfin Sync plugin&rsquo;s security features, your server&rsquo;s admin can send signed commands that clear a profile&rsquo;s PIN, lock or unlock it, or wipe a lost device&rsquo;s downloads, and Arcfin tells the server when a profile locks after too many wrong PINs.</td></tr>
       <tr><td>The sign-in on your Apple Watch</td><td>The watch&rsquo;s Keychain, sent from your iPhone. Cleared when you sign out on your iPhone.</td></tr>
       <tr><td>Downloaded videos, music, subtitles and artwork</td><td>Your device&rsquo;s storage, for offline playback, and music you keep on your Apple Watch. Removed when you delete the download or the app.</td></tr>
       <tr><td>Playback progress, caches and preferences</td><td>Your device&rsquo;s app storage. Progress is also saved to your Jellyfin server, as with any Jellyfin app.</td></tr>
       <tr><td>Settings and the record of your devices, if your server has the Arcfin Sync plugin</td><td>Your Jellyfin server, so your settings follow you to your other devices. You can rename or forget your devices in Settings &rsaquo; Server &rsaquo; Devices &amp; Sync.</td></tr>
+      <tr><td>Arcfin Sync 0.6 features, if your server&rsquo;s admin turns them on</td><td>Your Jellyfin server, for the feature to work:
+        <ul>
+          <li><strong>Security:</strong> each Arcfin device&rsquo;s ID, name and which version of the server&rsquo;s signing key it holds, which devices you&rsquo;ve trusted, approval requests for new devices, and reports that a device saw a key that didn&rsquo;t match.</li>
+          <li><strong>Watch time:</strong> your daily limits and bedtime, and how many minutes you&rsquo;ve watched each day.</li>
+          <li><strong>Download limits:</strong> which titles and songs each of your devices keeps downloaded, and their sizes, to count them once across your devices.</li>
+          <li><strong>Watch parties:</strong> each party&rsquo;s host, guests, title, time and the time zone each guest&rsquo;s device reports, until it&rsquo;s over.</li>
+          <li><strong>History:</strong> past watch parties and Pick Together sessions, with who took part and what was picked, only if the admin keeps history, and for as long as they choose.</li>
+          <li><strong>Seerr through the server:</strong> requests made while Seerr can&rsquo;t be reached, until they&rsquo;re sent (at most three days). The admin&rsquo;s Seerr and TMDB keys are kept encrypted on the server and never sent to your device.</li>
+          <li><strong>Other features:</strong> titles you hide from Continue Watching and Next Up; on a shared account, who you said is watching, for twelve hours; announcements and maintenance the admin posts. Recommendations are worked out on the server from the watch history it already keeps, and Popular on This Server only shows titles at least two other people played.</li>
+        </ul></td></tr>
       <tr><td>Stats</td><td>Worked out on your device from the watch history your Jellyfin server already keeps. If you&rsquo;ve linked ListenBrainz, music stats and Year in Music can come from your ListenBrainz stats instead.</td></tr>
       <tr><td>Wi-Fi network name</td><td>Read on your device to switch between your server&rsquo;s home and remote addresses. Only the name you mark as &ldquo;home&rdquo; is kept, and it&rsquo;s never sent anywhere.</td></tr>
       <tr><td>The app&rsquo;s diagnostic log</td><td>Your device only. Share Diagnostics builds it on your device and opens the system share sheet, so you choose where it goes; nothing is sent automatically. It can include your server&rsquo;s address and the titles you played, so check it before posting it publicly. Report a Problem only opens our public issue tracker in your browser.</td></tr>
@@ -117,7 +127,7 @@
     <li><strong>Bluetooth</strong> (iPhone and iPad), which Google Cast can use to find nearby Cast devices.</li>
     <li><strong>Location</strong>, only to read the current Wi-Fi name for home and remote switching. Your location is never stored, tracked or shared.</li>
     <li><strong>Face ID</strong>, only to unlock a profile you&rsquo;ve locked.</li>
-    <li><strong>Camera</strong> (iPhone and iPad), only while you scan the Quick Connect code an Apple TV shows to sign it in. Nothing is recorded or sent.</li>
+    <li><strong>Camera</strong> (iPhone and iPad), only while you scan a code: the Quick Connect code an Apple TV shows to sign it in, or a Pick Together or watch party code. Nothing is recorded or sent.</li>
     <li><strong>Microphone</strong> (iPhone and iPad), only while you&rsquo;re on the What&rsquo;s Playing? screen, to identify a song playing nearby, and for voice search in CarPlay.</li>
     <li><strong>Speech Recognition</strong> (iPhone), to turn what you say to voice search in CarPlay into a search.</li>
     <li><strong>Media &amp; Apple Music</strong> (iPhone and iPad), only if you turn on Apple Music in Settings &rsaquo; Music, to find and play songs that aren&rsquo;t on your server.</li>
@@ -139,7 +149,7 @@
   <p>Arcfin isn&rsquo;t directed at children. Content restrictions and parental controls are set on your Jellyfin server, and Arcfin follows them.</p>
 
   <h2>Deleting your data</h2>
-  <p>Deleting the app removes everything Arcfin stored on that device: downloads, caches, preferences and Keychain entries. Your library, accounts and watch history live on your Jellyfin server and aren&rsquo;t affected; manage them there. Settings and device records saved by the Arcfin Sync plugin can be removed from the plugin on your server. Listens and feedback you sent to ListenBrainz are managed in your ListenBrainz account.</p>
+  <p>Deleting the app removes everything Arcfin stored on that device: downloads, caches, preferences and Keychain entries. Your library, accounts and watch history live on your Jellyfin server and aren&rsquo;t affected; manage them there. Settings, device records and everything else the Arcfin Sync plugin keeps can be removed by your server&rsquo;s admin from the plugin on your server. Listens and feedback you sent to ListenBrainz are managed in your ListenBrainz account.</p>
 
   <h2>Changes</h2>
   <p>If this policy changes, the new version will be posted at this address with a new effective date. The <a href="https://git.psmattas.com/ArcFin/ArcFin">source code</a> is public, so you can check what the app does yourself.</p>
