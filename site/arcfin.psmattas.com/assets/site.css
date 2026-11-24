@@ -577,6 +577,15 @@ p { margin: 0; }
 .prose td { color: var(--muted); }
 .prose tr:last-child td { border-bottom: 0; }
 .prose td:first-child { color: var(--fg); font-weight: 500; }
+/* Ticks and crosses in comparison tables. The glyph is drawn in CSS so the cell's
+   text stays the translation key; the span carries role="img" and an aria-label. */
+.mark { display: inline-block; width: 1.25em; margin-right: 4px; font-weight: 700; text-align: center; }
+.mark.yes { color: var(--c-fixed); }
+.mark.yes::before { content: "\2713"; }
+.mark.no { color: var(--c-removed); }
+.mark.no::before { content: "\2717"; }
+.mark.part { color: var(--c-improved); }
+.mark.part::before { content: "\25D0"; }
 
 .toc {
   margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;
