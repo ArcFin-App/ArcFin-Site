@@ -9,6 +9,9 @@ Reads the app repository's release feed once, then:
   plugin's releases (from its own feed) under their own filter;
 - writes the plugin's newest version into elements marked
   data-version="plugin";
+- writes badges/version.svg, the app's newest version and build, which the
+  app's README shows. Badge services fetch from servers Cloudflare sometimes
+  challenges, so the badge is made here, from the feed this already reads;
 - unpacks each platform's newest screenshots (screenshots-<platform>.zip,
   attached by the app's screenshots workflow) into assets/shots/auto/, over
   the copies in the repo. Pages use them by the name the app's screenshot
@@ -280,6 +283,40 @@ def keep_live():
             rewrite(path, change)
             copied += 1
     print(f"kept the live versions and changelog on {copied} pages")
+    try:
+        live = fetch_live("/" + BADGE)
+        with open(os.path.join(SITE, BADGE), "w", encoding="utf-8") as f:
+            f.write(live)
+        print("kept the live version badge")
+    except Exception as error:
+        warn(f"Couldn't read the live version badge ({error}); keeping the repo's.")
+
+
+BADGE = "badges/version.svg"
+
+
+def badge(text):
+    """A flat badge, "version | <text>", sized from the text (Verdana 11px is about 6.5px a character)."""
+    label_w, value_w = 51, round(len(text) * 6.5) + 10
+    width = label_w + value_w
+    text = html.escape(text)
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="20" role="img" aria-label="version: {text}">'
+           f'<title>version: {text}</title>'
+           '<linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/>'
+           '<stop offset="1" stop-opacity=".1"/></linearGradient>'
+           f'<clipPath id="r"><rect width="{width}" height="20" rx="3" fill="#fff"/></clipPath>'
+           f'<g clip-path="url(#r)"><rect width="{label_w}" height="20" fill="#555"/>'
+           f'<rect x="{label_w}" width="{value_w}" height="20" fill="#007ec6"/>'
+           f'<rect width="{width}" height="20" fill="url(#s)"/></g>'
+           '<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11">'
+           f'<text x="{label_w / 2}" y="14" fill="#010101" fill-opacity=".3">version</text>'
+           f'<text x="{label_w / 2}" y="13">version</text>'
+           f'<text x="{label_w + value_w / 2}" y="14" fill="#010101" fill-opacity=".3">{text}</text>'
+           f'<text x="{label_w + value_w / 2}" y="13">{text}</text></g></svg>\n')
+    path = os.path.join(SITE, BADGE)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(svg)
 
 
 SHOT_NAME = re.compile(r"(?:iPhone|iPad|Mac|AppleTV)-\d\d-[a-z-]+\.webp")
@@ -338,6 +375,8 @@ def main():
         return
 
     labels = version_labels(releases)
+    a, b, c, n, _ = max(r["key"] for r in releases)
+    badge(f"{a}.{b}.{c} (build {n})")
     try:
         plugin = read_plugin_feed()
     except Exception as error:
