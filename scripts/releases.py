@@ -9,8 +9,11 @@ Reads the app repository's release feed once, then:
   plugin's releases (from its own feed) under their own filter;
 - writes the plugin's newest version into elements marked
   data-version="plugin";
+- writes badges/version.svg, the app's newest version and build, which the
+  app's README shows. Badge services fetch from servers Cloudflare sometimes
+  challenges, so the badge is made here, from the feed this already reads;
 - unpacks each platform's newest screenshots (screenshots-<platform>.zip,
-  attached by the app's TestFlight workflow) into assets/shots/auto/, over
+  attached by the app's screenshots workflow) into assets/shots/auto/, over
   the copies in the repo. Pages use them by the name the app's screenshot
   test gives them, e.g. iPhone-01-home.webp, so a new release replaces each
   one in place.
@@ -41,7 +44,12 @@ PLUGIN_FEED = os.environ.get("PLUGIN_RELEASES_FEED", FEED.replace("/ArcFin/ArcFi
 INTERNAL = os.environ.get("GITEA_INTERNAL_URL", "").rstrip("/")
 PUBLIC = "https://git.psmattas.com"
 CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
-TAG = re.compile(r"/releases/tag/(iOS|macOS|tvOS)-(\d+)\.(\d+)\.(\d+)-build-(\d+)$")
+# Builds are tagged v<version>-build-<build>.<unix time>, one tag for every platform that
+# uploaded that night, and the release title lists them. Releases up to 0.4.0 have a tag per
+# platform, <Platform>-<version>-build-<build>, and sort as if built at time 0.
+TAG = re.compile(r"/releases/tag/v(\d+)\.(\d+)\.(\d+)-build-(\d+)\.(\d+)$")
+OLD_TAG = re.compile(r"/releases/tag/(iOS|macOS|tvOS)-(\d+)\.(\d+)\.(\d+)-build-(\d+)$")
+TITLE_PLATFORMS = {"iOS & iPadOS": "iOS", "macOS": "macOS", "tvOS": "tvOS"}
 PLATFORMS = [("iOS", "iPhone & iPad", "ios"), ("macOS", "Mac", "mac"), ("tvOS", "Apple TV", "tv")]
 PLUGIN_TAG = re.compile(r"/releases/tag/v(\d+)\.(\d+)\.(\d+)(?:\.(\d+))?$")
 I18N = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "i18n")
@@ -60,22 +68,34 @@ def warn(message):
     print(f"::warning::{message}")
 
 
+def tag_platforms(tag, title=""):
+    """The (platform, key) pairs a release tag covers; key is (major, minor, patch, build, time)."""
+    old = OLD_TAG.search("/releases/tag/" + tag)
+    if old:
+        platform, *numbers = old.groups()
+        return [(platform, tuple(int(n) for n in numbers) + (0,))]
+    new = TAG.search("/releases/tag/" + tag)
+    if not new:
+        return []
+    key = tuple(int(n) for n in new.groups())
+    named = [TITLE_PLATFORMS[p.strip()] for p in title.split("·")[1:] if p.strip() in TITLE_PLATFORMS]
+    return [(platform, key) for platform in named]
+
+
 def read_feed():
     with urllib.request.urlopen(FEED, timeout=20) as response:
         root = ET.fromstring(response.read())
     releases = []
     for item in root.iter("item"):
-        match = TAG.search(item.findtext("link", ""))
-        if not match:
-            continue
-        platform, *numbers = match.groups()
-        releases.append({
-            "platform": platform,
-            "key": tuple(int(n) for n in numbers),
-            "link": item.findtext("link"),
-            "date": email.utils.parsedate_to_datetime(item.findtext("pubDate")),
-            "body": item.findtext(CONTENT) or "",
-        })
+        link = item.findtext("link", "")
+        for platform, key in tag_platforms(link.rsplit("/releases/tag/", 1)[-1], item.findtext("title", "")):
+            releases.append({
+                "platform": platform,
+                "key": key,
+                "link": link,
+                "date": email.utils.parsedate_to_datetime(item.findtext("pubDate")),
+                "body": item.findtext(CONTENT) or "",
+            })
     return releases
 
 
@@ -139,7 +159,7 @@ def version_labels(releases):
     for r in releases:
         if r["platform"] not in newest or r["key"] > newest[r["platform"]]:
             newest[r["platform"]] = r["key"]
-    labels = {p: f"{a}.{b}.{c} (build {n})" for p, (a, b, c, n) in newest.items()}
+    labels = {p: f"{a}.{b}.{c} (build {n})" for p, (a, b, c, n, _) in newest.items()}
     labels["latest"] = ".".join(map(str, max(v[:3] for v in newest.values())))
     return labels
 
@@ -263,6 +283,40 @@ def keep_live():
             rewrite(path, change)
             copied += 1
     print(f"kept the live versions and changelog on {copied} pages")
+    try:
+        live = fetch_live("/" + BADGE)
+        with open(os.path.join(SITE, BADGE), "w", encoding="utf-8") as f:
+            f.write(live)
+        print("kept the live version badge")
+    except Exception as error:
+        warn(f"Couldn't read the live version badge ({error}); keeping the repo's.")
+
+
+BADGE = "badges/version.svg"
+
+
+def badge(text):
+    """A flat badge, "version | <text>", sized from the text (Verdana 11px is about 6.5px a character)."""
+    label_w, value_w = 51, round(len(text) * 6.5) + 10
+    width = label_w + value_w
+    text = html.escape(text)
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="20" role="img" aria-label="version: {text}">'
+           f'<title>version: {text}</title>'
+           '<linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/>'
+           '<stop offset="1" stop-opacity=".1"/></linearGradient>'
+           f'<clipPath id="r"><rect width="{width}" height="20" rx="3" fill="#fff"/></clipPath>'
+           f'<g clip-path="url(#r)"><rect width="{label_w}" height="20" fill="#555"/>'
+           f'<rect x="{label_w}" width="{value_w}" height="20" fill="#007ec6"/>'
+           f'<rect width="{width}" height="20" fill="url(#s)"/></g>'
+           '<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11">'
+           f'<text x="{label_w / 2}" y="14" fill="#010101" fill-opacity=".3">version</text>'
+           f'<text x="{label_w / 2}" y="13">version</text>'
+           f'<text x="{label_w + value_w / 2}" y="14" fill="#010101" fill-opacity=".3">{text}</text>'
+           f'<text x="{label_w + value_w / 2}" y="13">{text}</text></g></svg>\n')
+    path = os.path.join(SITE, BADGE)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(svg)
 
 
 SHOT_NAME = re.compile(r"(?:iPhone|iPad|Mac|AppleTV)-\d\d-[a-z-]+\.webp")
@@ -285,11 +339,12 @@ def screenshots():
         asset_name = f"screenshots-{platform}.zip"
         newest = None
         for release in releases:
-            match = TAG.search("/releases/tag/" + release.get("tag_name", ""))
             asset = next((a for a in release.get("assets", []) if a.get("name") == asset_name), None)
-            if match and match.group(1) == platform and asset:
-                key = tuple(int(n) for n in match.groups()[1:])
-                if newest is None or key > newest[0]:
+            if not asset:
+                continue
+            # The zip's name says the platform, so a new-style tag needn't list it in its title.
+            for _, key in tag_platforms(release.get("tag_name", ""), release.get("name", "")) or [(None, None)]:
+                if key is not None and (newest is None or key > newest[0]):
                     newest = (key, release["tag_name"], asset["browser_download_url"])
         if newest is None:
             continue
@@ -320,6 +375,8 @@ def main():
         return
 
     labels = version_labels(releases)
+    a, b, c, n, _ = max(r["key"] for r in releases)
+    badge(f"{a}.{b}.{c} (build {n})")
     try:
         plugin = read_plugin_feed()
     except Exception as error:
