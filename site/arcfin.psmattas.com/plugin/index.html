@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Arcfin Sync plugin · Arcfin</title>
-  <meta name="description" content="Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.">
+  <meta name="description" content="Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, watch parties, household and safety controls, Seerr through your server, and smaller downloads.">
   <link rel="canonical" href="https://arcfin.psmattas.com/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Arcfin Sync plugin · Arcfin">
-  <meta property="og:description" content="Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, admin-managed settings, and smarter downloads.">
+  <meta property="og:description" content="Arcfin Sync is an optional Jellyfin server plugin for Arcfin: settings that follow you between devices, watch parties, household and safety controls, Seerr through your server, and smaller downloads.">
   <meta property="og:url" content="https://arcfin.psmattas.com/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Server plugin</span>
   <h1>Arcfin Sync</h1>
-  <p>An optional plugin for your Jellyfin server. Arcfin works fine without it; with it, your settings follow you between devices, admins can set defaults and locks for everyone, and downloads get smaller.</p>
+  <p>An optional plugin for your Jellyfin server. Arcfin works fine without it; with it, your settings follow you between devices, admins can set defaults and locks for everyone, households get watch parties and safety controls, and downloads get smaller.</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">Install it</a><a class="btn btn-secondary btn-small" href="/changelog/">Changelog</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">Source code</a></div>
   <p class="hero-note">Latest version <span data-version="plugin">0.3.0</span> &middot; Free and open source under the AGPL-3.0</p>
 </div></section>
@@ -63,7 +63,21 @@
 <nav class="doc-toc" aria-label="On this page"><p class="doc-toc-title">On this page</p></nav>
 <article class="prose">
     <h2 id="features">What it adds</h2>
+    <p>Newest first. Every feature from version 0.6.0 is off until the server&rsquo;s admin turns it on, and anything already in use when the plugin updates stays on. Arcfin works fine without the plugin.</p>
     <ul>
+      <li><strong>Watch parties.</strong> Watch something together, each on your own screen. Start a party from Home or a title&rsquo;s page: pick a movie, or a show with its season and episode. Guests join on their iPhone or iPad with a six-character code or by scanning a QR code, never a link. You can plan a party up to 30 days ahead, and as host you see what time it&rsquo;ll be for each guest where they are. Arcfin hosts a Jellyfin SyncPlay group, so people in other apps that support SyncPlay can join too; the host needs Arcfin. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Seerr and TMDB through your server.</strong> The admin puts the Seerr API key and the TMDB key in the plugin. They&rsquo;re stored encrypted with AES-256-GCM and never reach any device. Every Seerr call is made as the person using it, with their own permissions and request limits, and only to the parts of Seerr Arcfin needs. Requests made while Seerr is down wait in a queue and are sent when it&rsquo;s back. Seerr can have a local address for the server and a public one for the apps. Without this, each device signs in to Seerr itself, as before. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Commands only your server can give.</strong> The server has its own signing key, which it can change on a schedule, with each new key signed by the last one. Arcfin carries out a command only when that key has signed it: clear a forgotten PIN, lock or unlock a profile on all of someone&rsquo;s devices (and, if you choose, disable their Jellyfin account too), or wipe a lost device, which deletes its downloads, locks it and signs it out. PINs never leave the device. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Trusting the server&rsquo;s key.</strong> Over HTTPS, devices trust the key on their own. Over plain HTTP, someone confirms the key&rsquo;s fingerprint by typing its last four characters, or Arcfin checks it against the server&rsquo;s saved HTTPS address. For a household on its own network, admins can choose to trust the key over HTTP. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>PIN rules and trusted devices.</strong> Admins choose who needs a PIN (nobody, everyone or chosen people), the shortest PIN allowed (4 to 8 digits) and how many wrong tries lock a profile. With trusted devices on, a new device shows a code and waits until one of that person&rsquo;s trusted iPhones or iPads, or an admin, approves it. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Safer sign-ins.</strong> Admins can require HTTPS away from home; local network addresses don&rsquo;t need it. They choose what happens to a device that falls behind on key changes (sign it out, or sign it out and lock it), and can sign out older versions of Arcfin that can&rsquo;t follow these rules. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Watch time and bedtime.</strong> Give each person daily minutes, for weekdays and weekends, and a bedtime, in their own time zone. Time is counted across every app on the server. Arcfin warns them 10 and 5 minutes before, then stops playback with a message. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Download limits.</strong> Cap how many titles and how many GB people can keep downloaded for movies and shows, and how many albums, songs and GB for music, whichever comes first, with your own limits for any one person. A title on several of someone&rsquo;s devices counts once. Downloads and Downloaded Music show how much is used. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Who&rsquo;s Watching?</strong> On an account several people share, like the one on the living-room TV, Arcfin asks who&rsquo;s watching and copies progress and watched status to that person too. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Announcements and planned maintenance.</strong> Messages from the admin, and times when the server will be down for maintenance, show at the top of Home. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Hide from Continue Watching and Next Up.</strong> Hide a title or a show and it&rsquo;s hidden on all your devices, kept for you on the server. It comes back when you play it again. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Recommendations.</strong> Top Picks, Because You Watched and Popular on This Server rows on Home. Popular only shows titles at least two other people played in the last 30 days. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
+      <li><strong>Live sessions and history.</strong> Admins can end, lock, remove people from or reschedule any watch party or Pick Together session, and choose how long their history is kept: a number of days, or for ever. Version 0.6.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
       <li><strong>Pick Together.</strong> Can&rsquo;t decide what to watch? Everyone swipes through titles on their own iPhone or iPad until you all like the same one, then watches it on one device, on another, or together in sync with SyncPlay. People join by scanning a QR code or entering a code, and each person only gets titles everyone in the session is allowed to see. The device that starts a session hosts it: it deals new titles, removes people and locks the session. Version 0.5.0 and later, with Arcfin 0.5.0 (build 3) or later.</li>
       <li><strong>Settings that follow you.</strong> Change a setting on your iPhone and it&rsquo;s there on your iPad, Mac and Apple TV. Settings that only make sense on one kind of device, like Mac window options or Apple TV focus options, stay on that kind of device.</li>
       <li><strong>Devices &amp; Sync.</strong> Each device chooses how it syncs: automatically, Ask First to check with you before using changes from another device, or Off. You can also send one device&rsquo;s settings to all your others. It&rsquo;s in Arcfin under <strong>Settings &rsaquo; Server &rsaquo; Devices &amp; Sync</strong>.</li>
@@ -78,15 +92,30 @@
     <div class="table-scroll"><table>
       <thead><tr><th>Feature</th><th>Without the plugin</th><th>With Arcfin Sync</th></tr></thead>
       <tbody>
-        <tr><td>Playing, browsing and downloading</td><td>Everything works</td><td>Everything works</td></tr>
-        <tr><td>App settings</td><td>Kept on each device on its own</td><td>Synced between all your devices, per user</td></tr>
-        <tr><td>How each device syncs</td><td>Not available</td><td>Automatically, Ask First or Off, and send one device&rsquo;s settings to the others (version 0.4.0 and later)</td></tr>
-        <tr><td>Your devices</td><td>Not available</td><td>Listed in Devices &amp; Sync, to rename or forget (version 0.4.0 and later)</td></tr>
-        <tr><td>Admin control of settings</td><td>Every user can change every setting</td><td>Defaults and locks for everyone or for one person, from the dashboard or Admin &rsaquo; Arcfin for Everyone</td></tr>
-        <tr><td>Converted downloads</td><td>HEVC where the server allows it, otherwise H.264</td><td>AV1 too, when the server&rsquo;s hardware can really encode it</td></tr>
-        <tr><td>Extra audio tracks in a converted download</td><td>Fetched from Jellyfin, which can send the default track instead of the one you picked</td><td>Each track you pick, copied out by the server (version 0.3.1 and later)</td></tr>
-        <tr><td>Hardware encoder report for admins</td><td>Not available</td><td>Admin &rsaquo; Hardware Encoders shows what the server&rsquo;s hardware can encode</td></tr>
-        <tr><td>Pick Together</td><td>Not available</td><td>Swipe until everyone agrees, then watch here, on another device or together (version 0.5.0 and later)</td></tr>
+        <tr><td>Playing, browsing and downloading</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Everything works</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Everything works</td></tr>
+        <tr><td>App settings</td><td><span class="mark part" role="img" aria-label="Partly"></span>Kept on each device on its own</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Synced between all your devices, per user</td></tr>
+        <tr><td>How each device syncs</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Automatically, Ask First or Off, and send one device&rsquo;s settings to the others (version 0.4.0 and later)</td></tr>
+        <tr><td>Your devices</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Listed in Devices &amp; Sync, to rename or forget (version 0.4.0 and later)</td></tr>
+        <tr><td>Admin control of settings</td><td><span class="mark no" role="img" aria-label="No"></span>Every user can change every setting</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Defaults and locks for everyone or for one person, from the dashboard or Admin &rsaquo; Arcfin for Everyone</td></tr>
+        <tr><td>Converted downloads</td><td><span class="mark part" role="img" aria-label="Partly"></span>HEVC where the server allows it, otherwise H.264</td><td><span class="mark yes" role="img" aria-label="Yes"></span>AV1 too, when the server&rsquo;s hardware can really encode it</td></tr>
+        <tr><td>Extra audio tracks in a converted download</td><td><span class="mark part" role="img" aria-label="Partly"></span>Fetched from Jellyfin, which can send the default track instead of the one you picked</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Each track you pick, copied out by the server (version 0.3.1 and later)</td></tr>
+        <tr><td>Hardware encoder report for admins</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Admin &rsaquo; Hardware Encoders shows what the server&rsquo;s hardware can encode</td></tr>
+        <tr><td>Pick Together</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Swipe until everyone agrees, then watch here, on another device or together (version 0.5.0 and later)</td></tr>
+        <tr><td>Watching together</td><td><span class="mark part" role="img" aria-label="Partly"></span>Jellyfin&rsquo;s SyncPlay from the player menu, and SharePlay</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Watch parties from Home or a title&rsquo;s page, planned up to 30 days ahead, joined with a code or a QR code (version 0.6.0 and later)</td></tr>
+        <tr><td>Seerr requests</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Each device signs in to Seerr itself</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Through the server as each person, with no keys on devices, and requests queued while Seerr is down (version 0.6.0 and later)</td></tr>
+        <tr><td>TMDB extras</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Your own TMDB key, added on each device</td><td><span class="mark yes" role="img" aria-label="Yes"></span>One key on the server, stored encrypted and never sent to devices (version 0.6.0 and later)</td></tr>
+        <tr><td>Profile PINs</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Face ID, Touch ID or a PIN, set on each device</td><td><span class="mark yes" role="img" aria-label="Yes"></span>PIN rules for everyone, and admins can clear a forgotten PIN (version 0.6.0 and later)</td></tr>
+        <tr><td>Locking a profile everywhere</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Lock or unlock a profile on all of someone&rsquo;s devices, and disable their Jellyfin account if you choose (version 0.6.0 and later)</td></tr>
+        <tr><td>A lost device</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Wipe it: its downloads are deleted, and it&rsquo;s locked and signed out (version 0.6.0 and later)</td></tr>
+        <tr><td>New devices</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>A new device waits until one of that person&rsquo;s trusted iPhones or iPads, or an admin, approves it (version 0.6.0 and later)</td></tr>
+        <tr><td>HTTPS away from home</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Required when the admin turns it on; local network addresses don&rsquo;t need it (version 0.6.0 and later)</td></tr>
+        <tr><td>Watch time and bedtime</td><td><span class="mark part" role="img" aria-label="Partly"></span>Jellyfin&rsquo;s own access schedule</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Daily minutes and a bedtime per person, counted across every app on the server, with warnings 10 and 5 minutes before (version 0.6.0 and later)</td></tr>
+        <tr><td>Download limits</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Caps on titles, albums, songs and GB, with limits for one person, and how much is used shown in Downloads (version 0.6.0 and later)</td></tr>
+        <tr><td>Shared accounts</td><td><span class="mark no" role="img" aria-label="No"></span>One account&rsquo;s progress for everyone on it</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Who&rsquo;s Watching? copies progress and watched status to each person (version 0.6.0 and later)</td></tr>
+        <tr><td>Announcements and planned maintenance</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Shown at the top of Home (version 0.6.0 and later)</td></tr>
+        <tr><td>Hiding from Continue Watching and Next Up</td><td><span class="mark part" role="img" aria-label="Partly"></span>Remove from Continue Watching, which clears your place</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Hide a title or a show on all your devices, keeping your place, until you play it again (version 0.6.0 and later)</td></tr>
+        <tr><td>Recommendations on Home</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Because You Watched and Suggested for You, from Jellyfin</td><td><span class="mark yes" role="img" aria-label="Yes"></span>Top Picks, Because You Watched and Popular on This Server (version 0.6.0 and later)</td></tr>
+        <tr><td>Watch parties and Pick Together for admins</td><td><span class="mark no" role="img" aria-label="No"></span>Not available</td><td><span class="mark yes" role="img" aria-label="Yes"></span>End, lock, remove people from or reschedule any session, and keep a history (version 0.6.0 and later)</td></tr>
       </tbody>
     </table></div>
 
@@ -102,18 +131,23 @@
     <p>Updates come through the same repository. When a new version is out, Jellyfin offers it under <strong>My Plugins</strong>; install it and restart.</p>
 
     <h2 id="configure">Setting it up</h2>
-    <p>Open <strong>Arcfin Sync</strong> from the dashboard&rsquo;s menu, or from <strong>My Plugins</strong>. It&rsquo;s one page with four tabs:</p>
+    <p>Open <strong>Arcfin Sync</strong> from the dashboard&rsquo;s menu, or from <strong>My Plugins</strong>. It&rsquo;s one page with nine tabs:</p>
     <ul>
       <li><strong>Overview:</strong> how the plugin works, with links to help and to report a problem.</li>
       <li><strong>Settings:</strong> every Arcfin setting. Give any of them a default, used until someone picks their own, or lock it so everyone gets your value.</li>
       <li><strong>Users &amp; Devices:</strong> every device signed in with Arcfin. Rename or forget one, and give a single user their own defaults and locks.</li>
-      <li><strong>Pick Together:</strong> turn it on or off for everyone, or for chosen users. It&rsquo;s on to begin with.</li>
+      <li><strong>Features:</strong> turn each feature on or off, like Pick Together, watch parties, recommendations and hiding from Continue Watching, and choose who can use Pick Together and watch parties.</li>
+      <li><strong>Seerr &amp; TMDB:</strong> the keys the server keeps for everyone, Seerr&rsquo;s local and public addresses, and requests waiting to be sent.</li>
+      <li><strong>Security:</strong> the server&rsquo;s signing key and how devices trust it, PIN rules, trusted devices and HTTPS away from home.</li>
+      <li><strong>Watch Time:</strong> daily minutes and bedtimes.</li>
+      <li><strong>Household:</strong> shared accounts that ask Who&rsquo;s Watching?, announcements and planned maintenance.</li>
+      <li><strong>Downloads:</strong> how much each person can keep downloaded.</li>
     </ul>
     <p>Admins can make the same changes in Arcfin, under <strong>Admin &rsaquo; Arcfin for Everyone</strong>. Changes reach each device the next time Arcfin syncs: when it opens, comes to the front, or a setting changes.</p>
     <p>Users don&rsquo;t need to do anything. Arcfin finds the plugin on its own, and <strong>Sync Now</strong> in <strong>Settings &rsaquo; Server</strong> syncs straight away. To choose how a device syncs, open <strong>Settings &rsaquo; Server &rsaquo; Devices &amp; Sync</strong>.</p>
 
     <h2 id="privacy">Privacy</h2>
-    <p>The plugin runs on your own Jellyfin server. Synced settings and the record of your devices are stored there and nowhere else; there&rsquo;s still no Arcfin server in the middle. Pick Together sessions are only kept in the server&rsquo;s memory while they&rsquo;re in use, and end after six hours without activity. The <a href="/privacy/">Privacy Policy</a> covers what&rsquo;s kept.</p>
+    <p>The plugin runs on your own Jellyfin server. Synced settings, the record of your devices, watch time, download limits and the Seerr and TMDB keys are stored there and nowhere else; there&rsquo;s still no Arcfin server in the middle. The keys are encrypted, and PINs never leave your devices. Pick Together sessions end after six hours without activity. A history of past sessions and watch parties is kept only if the admin chooses, for as long as they choose. The <a href="/privacy/">Privacy Policy</a> covers what&rsquo;s kept.</p>
 
     <h2 id="changes">What&rsquo;s changed</h2>
     <p>Every release of the plugin is in the <a href="/changelog/">changelog</a>, under <strong>Plugin</strong>. It updates on its own when a new version is published.</p>

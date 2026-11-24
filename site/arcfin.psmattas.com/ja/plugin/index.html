@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Arcfin Sync プラグイン · Arcfin</title>
-  <meta name="description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、管理者が管理する設定、より賢いダウンロードを実現します。">
+  <meta name="description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、ウォッチパーティ、家族と安全のための管理機能、サーバー経由の Seerr、より小さなダウンロードを実現します。">
   <link rel="canonical" href="https://arcfin.psmattas.com/ja/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Arcfin Sync プラグイン · Arcfin">
-  <meta property="og:description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、管理者が管理する設定、より賢いダウンロードを実現します。">
+  <meta property="og:description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、ウォッチパーティ、家族と安全のための管理機能、サーバー経由の Seerr、より小さなダウンロードを実現します。">
   <meta property="og:url" content="https://arcfin.psmattas.com/ja/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">サーバープラグイン</span>
   <h1>Arcfin Sync</h1>
-  <p>Jellyfin サーバー用の任意のプラグインです。なくても Arcfin は問題なく動きますが、入れると設定がデバイス間でついてきて、管理者はみんなのデフォルトとロックを設定でき、ダウンロードも小さくなります。</p>
+  <p>Jellyfin サーバー用の任意のプラグインです。なくても Arcfin は問題なく動きますが、入れると設定がデバイス間でついてきて、管理者はみんなのデフォルトとロックを設定でき、家族でウォッチパーティや安全のための管理機能が使え、ダウンロードも小さくなります。</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">インストール</a><a class="btn btn-secondary btn-small" href="/ja/changelog/">変更履歴</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">ソースコード</a></div>
   <p class="hero-note">最新バージョン <span data-version="plugin">0.3.0</span> &middot; AGPL-3.0 の無料オープンソース</p>
 </div></section>
@@ -63,7 +63,21 @@
 <nav class="doc-toc" aria-label="このページの内容"><p class="doc-toc-title">このページの内容</p></nav>
 <article class="prose">
     <h2 id="features">追加される機能</h2>
+    <p>新しい順。バージョン 0.6.0 以降の機能はどれも、サーバーの管理者がオンにするまでオフです。プラグインの更新時にすでに使っている機能はオンのままです。Arcfin はプラグインなしでも問題なく動きます。</p>
     <ul>
+      <li><strong>ウォッチパーティ。</strong> それぞれ自分の画面で、一緒に観られます。「ホーム」や作品のページからパーティを始め、映画、または番組とそのシーズンとエピソードを選びます。ゲストは iPhone や iPad で 6 文字のコードを入力するか QR コードを読み取って参加します。リンクは使いません。パーティは 30 日先まで予定でき、ホストは各ゲストの現地時間で何時になるかを確認できます。Arcfin は Jellyfin の SyncPlay グループをホストするので、SyncPlay に対応したほかのアプリからも参加できます。ホストには Arcfin が必要です。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>サーバー経由の Seerr と TMDB。</strong> 管理者が Seerr の API キーと TMDB のキーをプラグインに入力します。キーは AES-256-GCM で暗号化して保存され、どのデバイスにも届きません。Seerr への呼び出しはすべて使っている本人として行われ、その人の権限とリクエスト上限が適用されます。呼び出すのは Arcfin が必要とする Seerr の部分だけです。Seerr が停止中に行ったリクエストはキューで待機し、復旧すると送信されます。Seerr にはサーバー用のローカルアドレスとアプリ用の公開アドレスを設定できます。この機能を使わない場合は、これまでどおり各デバイスが自分で Seerr にサインインします。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>サーバーだけが出せるコマンド。</strong> サーバーは独自の署名キーを持ち、スケジュールに沿って変更できます。新しいキーはそれぞれ前のキーで署名されます。Arcfin はそのキーで署名されたコマンドだけを実行します。忘れた PIN の解除、ある人のすべてのデバイスでのプロファイルのロックやロック解除 (必要なら Jellyfin アカウントの無効化も)、なくしたデバイスの消去 (ダウンロードを削除し、ロックしてサインアウト) です。PIN がデバイスの外に出ることはありません。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>サーバーのキーを信頼する。</strong> HTTPS なら、デバイスは自動でキーを信頼します。暗号化されていない HTTP では、誰かがキーのフィンガープリントの最後の 4 文字を入力して確認するか、Arcfin がサーバーの保存済み HTTPS アドレスと照合します。自宅のネットワークだけで使う家族向けに、管理者は HTTP でもキーを信頼するよう選べます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>PIN のルールと信頼済みデバイス。</strong> 管理者は PIN が必要な人 (なし、全員、選んだ人)、PIN の最短の長さ (4〜8 桁)、何回間違えるとプロファイルがロックされるかを選べます。信頼済みデバイスをオンにすると、新しいデバイスはコードを表示し、その人の信頼済みの iPhone や iPad、または管理者が承認するまで待機します。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>より安全なサインイン。</strong> 管理者は、自宅の外では HTTPS を必須にできます。ローカルネットワークのアドレスには不要です。キーの変更に追いつけなくなったデバイスをどうするか (サインアウト、またはサインアウトしてロック) を選べるほか、これらのルールに対応していない古いバージョンの Arcfin をサインアウトさせることもできます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>視聴時間と就寝時間。</strong> 1 人ずつ、平日と週末それぞれの 1 日の視聴時間と、就寝時間を本人のタイムゾーンで設定します。時間はサーバー上のすべてのアプリで合算されます。Arcfin は 10 分前と 5 分前に知らせ、その後メッセージを表示して再生を止めます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>ダウンロードの上限。</strong> 映画と番組では作品数と GB、音楽ではアルバム数、曲数と GB について、ダウンロードして残せる量に上限を設けられます。どれか先に達した時点で上限となり、特定の人だけに別の上限も設定できます。同じ人の複数のデバイスにある作品は 1 つと数えます。「ダウンロード」と「ダウンロードしたミュージック」に使用量が表示されます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>誰が観ますか?</strong> リビングのテレビのように、何人かで共有しているアカウントでは、Arcfin が誰が観ているかを尋ね、再生位置と視聴済みの状態をその人にもコピーします。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>お知らせと予定メンテナンス。</strong> 管理者からのメッセージや、メンテナンスでサーバーが停止する時間が「ホーム」の上部に表示されます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>「視聴を続ける」と「次に見る」から非表示に。</strong> 作品や番組を非表示にすると、すべてのデバイスで非表示になり、その設定はサーバーに保存されます。もう一度再生すると元に戻ります。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>おすすめ。</strong> 「ホーム」に「イチオシ」、「視聴した作品に基づくおすすめ」、「このサーバーで人気」の列が並びます。「このサーバーで人気」には、過去 30 日間に少なくとも 2 人のほかのユーザーが再生した作品だけが表示されます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
+      <li><strong>ライブセッションと履歴。</strong> 管理者は、どのウォッチパーティや Pick Together のセッションでも、終了、ロック、参加者の削除、予定の変更ができます。履歴を保存する期間 (日数、または無期限) も選べます。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
       <li><strong>Pick Together。</strong> 何を観るか決められない？みんなが自分の iPhone や iPad でタイトルをスワイプし、全員が同じ作品を気に入るまで続けます。決まったら 1 台のデバイスで、別のデバイスで、または SyncPlay で同期してみんなで観られます。参加は QR コードを読み取るかコードを入力するだけ。各自に表示されるのは、セッションの全員が観られるタイトルだけです。セッションを始めたデバイスがホストになり、新しいタイトルを配り、参加者を外し、セッションをロックします。バージョン 0.5.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
       <li><strong>設定がついてくる。</strong> iPhone で設定を変えると、iPad、Mac、Apple TV にも反映されます。Mac のウインドウ設定や Apple TV のフォーカス設定のように、特定の種類のデバイスでしか意味のない設定は、その種類のデバイスにとどまります。</li>
       <li><strong>デバイスと同期。</strong> デバイスごとに同期のしかたを選べます。自動、ほかのデバイスでの変更を使う前に確認する「先に確認」、または「オフ」。1 台のデバイスの設定をほかのすべてのデバイスに送ることもできます。Arcfin の<strong>「設定 &rsaquo; サーバー &rsaquo; デバイスと同期」</strong>にあります。</li>
@@ -78,15 +92,30 @@
     <div class="table-scroll"><table>
       <thead><tr><th>機能</th><th>プラグインなし</th><th>Arcfin Sync あり</th></tr></thead>
       <tbody>
-        <tr><td>再生、ブラウズ、ダウンロード</td><td>すべて使えます</td><td>すべて使えます</td></tr>
-        <tr><td>アプリの設定</td><td>デバイスごとに個別に保存</td><td>ユーザーごとに、すべてのデバイス間で同期</td></tr>
-        <tr><td>デバイスごとの同期のしかた</td><td>利用できません</td><td>自動、先に確認、オフから選べ、1 台のデバイスの設定をほかのデバイスに送れます(バージョン 0.4.0 以降)</td></tr>
-        <tr><td>あなたのデバイス</td><td>利用できません</td><td>「デバイスと同期」に一覧表示され、名前の変更や削除ができます(バージョン 0.4.0 以降)</td></tr>
-        <tr><td>管理者による設定の管理</td><td>すべてのユーザーがすべての設定を変更可能</td><td>全員または 1 人のユーザーに対するデフォルトとロック。ダッシュボードまたは「管理 &rsaquo; みんなのArcfin」から</td></tr>
-        <tr><td>変換したダウンロード</td><td>サーバーが許可すれば HEVC、それ以外は H.264</td><td>サーバーのハードウェアが実際にエンコードできれば AV1 も</td></tr>
-        <tr><td>変換したダウンロードの追加音声トラック</td><td>Jellyfin から取得。選んだトラックではなくデフォルトのトラックが送られることがあります</td><td>選んだトラックをそれぞれサーバーが書き出し(バージョン 0.3.1 以降)</td></tr>
-        <tr><td>管理者向けハードウェアエンコーダレポート</td><td>利用できません</td><td>「管理 &rsaquo; ハードウェアエンコーダ」でサーバーのハードウェアがエンコードできる形式を表示</td></tr>
-        <tr><td>Pick Together</td><td>利用できません</td><td>全員が同意するまでスワイプして、ここで、別のデバイスで、またはみんなで観られます(バージョン 0.5.0 以降)</td></tr>
+        <tr><td>再生、ブラウズ、ダウンロード</td><td><span class="mark yes" role="img" aria-label="はい"></span>すべて使えます</td><td><span class="mark yes" role="img" aria-label="はい"></span>すべて使えます</td></tr>
+        <tr><td>アプリの設定</td><td><span class="mark part" role="img" aria-label="一部"></span>デバイスごとに個別に保存</td><td><span class="mark yes" role="img" aria-label="はい"></span>ユーザーごとに、すべてのデバイス間で同期</td></tr>
+        <tr><td>デバイスごとの同期のしかた</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>自動、先に確認、オフから選べ、1 台のデバイスの設定をほかのデバイスに送れます(バージョン 0.4.0 以降)</td></tr>
+        <tr><td>あなたのデバイス</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>「デバイスと同期」に一覧表示され、名前の変更や削除ができます(バージョン 0.4.0 以降)</td></tr>
+        <tr><td>管理者による設定の管理</td><td><span class="mark no" role="img" aria-label="いいえ"></span>すべてのユーザーがすべての設定を変更可能</td><td><span class="mark yes" role="img" aria-label="はい"></span>全員または 1 人のユーザーに対するデフォルトとロック。ダッシュボードまたは「管理 &rsaquo; みんなのArcfin」から</td></tr>
+        <tr><td>変換したダウンロード</td><td><span class="mark part" role="img" aria-label="一部"></span>サーバーが許可すれば HEVC、それ以外は H.264</td><td><span class="mark yes" role="img" aria-label="はい"></span>サーバーのハードウェアが実際にエンコードできれば AV1 も</td></tr>
+        <tr><td>変換したダウンロードの追加音声トラック</td><td><span class="mark part" role="img" aria-label="一部"></span>Jellyfin から取得。選んだトラックではなくデフォルトのトラックが送られることがあります</td><td><span class="mark yes" role="img" aria-label="はい"></span>選んだトラックをそれぞれサーバーが書き出し(バージョン 0.3.1 以降)</td></tr>
+        <tr><td>管理者向けハードウェアエンコーダレポート</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>「管理 &rsaquo; ハードウェアエンコーダ」でサーバーのハードウェアがエンコードできる形式を表示</td></tr>
+        <tr><td>Pick Together</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>全員が同意するまでスワイプして、ここで、別のデバイスで、またはみんなで観られます(バージョン 0.5.0 以降)</td></tr>
+        <tr><td>一緒に観る</td><td><span class="mark part" role="img" aria-label="一部"></span>プレーヤーのメニューからの Jellyfin の SyncPlay と、SharePlay</td><td><span class="mark yes" role="img" aria-label="はい"></span>「ホーム」や作品のページから始めるウォッチパーティ。30 日先まで予定でき、コードか QR コードで参加(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>Seerr でリクエスト</td><td><span class="mark yes" role="img" aria-label="はい"></span>各デバイスが自分で Seerr にサインイン</td><td><span class="mark yes" role="img" aria-label="はい"></span>サーバー経由で本人として。デバイスにキーは置かず、Seerr の停止中はリクエストをキューに保持(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>TMDB 連携</td><td><span class="mark yes" role="img" aria-label="はい"></span>自分の TMDB キーを各デバイスで追加</td><td><span class="mark yes" role="img" aria-label="はい"></span>サーバーにキーを 1 つだけ。暗号化して保存され、デバイスには送られません(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>プロファイルの PIN</td><td><span class="mark yes" role="img" aria-label="はい"></span>Face ID、Touch ID、または PIN をデバイスごとに設定</td><td><span class="mark yes" role="img" aria-label="はい"></span>全員共通の PIN ルール。管理者は忘れた PIN を解除可能(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>プロファイルをどこでもロック</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>ある人のすべてのデバイスでプロファイルをロック・ロック解除。必要なら Jellyfin アカウントも無効化(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>なくしたデバイス</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>消去すると、ダウンロードが削除され、ロックされてサインアウトします(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>新しいデバイス</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>新しいデバイスは、その人の信頼済みの iPhone や iPad、または管理者が承認するまで待機(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>自宅の外では HTTPS</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>管理者がオンにすると必須。ローカルネットワークのアドレスには不要(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>視聴時間と就寝時間</td><td><span class="mark part" role="img" aria-label="一部"></span>Jellyfin 本体のアクセススケジュール</td><td><span class="mark yes" role="img" aria-label="はい"></span>1 人ずつ 1 日の視聴時間と就寝時間。サーバー上のすべてのアプリで合算し、10 分前と 5 分前に警告(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>ダウンロードの上限</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>作品数、アルバム数、曲数、GB の上限。特定の人だけの上限も設定でき、使用量は「ダウンロード」に表示(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>共有アカウント</td><td><span class="mark no" role="img" aria-label="いいえ"></span>1 つのアカウントの再生状況を、そのアカウントの全員で共有</td><td><span class="mark yes" role="img" aria-label="はい"></span>「誰が観ますか?」で、再生位置と視聴済みの状態を各自にコピー(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>お知らせと予定メンテナンス</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>「ホーム」の上部に表示(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>「視聴を続ける」と「次に見る」から非表示</td><td><span class="mark part" role="img" aria-label="一部"></span>「視聴を続ける」から削除。再生位置は消えます</td><td><span class="mark yes" role="img" aria-label="はい"></span>作品や番組をすべてのデバイスで非表示に。再生位置はそのままで、もう一度再生するまで非表示(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>「ホーム」のおすすめ</td><td><span class="mark yes" role="img" aria-label="はい"></span>Jellyfin による「視聴した作品に基づくおすすめ」と「あなたへのおすすめ」</td><td><span class="mark yes" role="img" aria-label="はい"></span>「イチオシ」、「視聴した作品に基づくおすすめ」、「このサーバーで人気」(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>管理者向けのウォッチパーティと Pick Together</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>どのセッションでも、終了、ロック、参加者の削除、予定の変更ができ、履歴も保存(バージョン 0.6.0 以降)</td></tr>
       </tbody>
     </table></div>
 
@@ -102,18 +131,23 @@
     <p>アップデートも同じリポジトリから届きます。新しいバージョンが出ると、Jellyfin の <strong>My Plugins</strong> に表示されるので、インストールして再起動してください。</p>
 
     <h2 id="configure">設定方法</h2>
-    <p>ダッシュボードのメニュー、または <strong>My Plugins</strong> から <strong>Arcfin Sync</strong> を開きます。4 つのタブがある 1 ページです:</p>
+    <p>ダッシュボードのメニュー、または <strong>My Plugins</strong> から <strong>Arcfin Sync</strong> を開きます。9 つのタブがある 1 ページです:</p>
     <ul>
       <li><strong>Overview:</strong> プラグインのしくみと、ヘルプや問題の報告へのリンク。</li>
       <li><strong>Settings:</strong> Arcfin のすべての設定。どれにもデフォルト(各自が選ぶまで使われる値)を設定したり、ロックして全員にあなたの値を使わせたりできます。</li>
       <li><strong>Users &amp; Devices:</strong> Arcfin でサインインしているすべてのデバイス。名前の変更や削除ができ、1 人のユーザーに専用のデフォルトとロックを設定できます。</li>
-      <li><strong>Pick Together:</strong> 全員に対して、または選んだユーザーに対してオン/オフを切り替えます。最初はオンになっています。</li>
+      <li><strong>機能:</strong> Pick Together、ウォッチパーティ、おすすめ、「視聴を続ける」からの非表示など、各機能のオン/オフを切り替え、Pick Together とウォッチパーティを使える人を選びます。</li>
+      <li><strong>Seerr と TMDB:</strong> サーバーがみんなのために保管するキー、Seerr のローカルアドレスと公開アドレス、送信待ちのリクエスト。</li>
+      <li><strong>セキュリティ:</strong> サーバーの署名キーとデバイスがそれを信頼する方法、PIN のルール、信頼済みデバイス、自宅の外での HTTPS。</li>
+      <li><strong>視聴時間:</strong> 1 日の視聴時間と就寝時間。</li>
+      <li><strong>家族:</strong> 「誰が観ますか?」を表示する共有アカウント、お知らせ、予定メンテナンス。</li>
+      <li><strong>ダウンロード:</strong> 1 人ずつダウンロードして残せる量。</li>
     </ul>
     <p>管理者は同じ変更を Arcfin の<strong>「管理 &rsaquo; みんなのArcfin」</strong>からも行えます。変更は、各デバイスが次に同期したとき(開いたとき、前面に来たとき、設定が変わったとき)に届きます。</p>
     <p>ユーザーは何もする必要がありません。Arcfin はプラグインを自動で見つけ、<strong>「設定 &rsaquo; サーバー」</strong>の<strong>「今すぐ同期」</strong>ですぐに同期できます。デバイスの同期のしかたを選ぶには<strong>「設定 &rsaquo; サーバー &rsaquo; デバイスと同期」</strong>を開きます。</p>
 
     <h2 id="privacy">プライバシー</h2>
-    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定とデバイスの記録はそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。Pick Together のセッションは使用中だけサーバーのメモリに保持され、6 時間操作がないと終了します。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
+    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定、デバイスの記録、視聴時間、ダウンロードの上限、Seerr と TMDB のキーはそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。キーは暗号化され、PIN がデバイスの外に出ることはありません。Pick Together のセッションは 6 時間操作がないと終了します。過去のセッションやウォッチパーティの履歴は、管理者が選んだ場合に、選んだ期間だけ保存されます。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
 
     <h2 id="changes">変更点</h2>
     <p>プラグインのすべてのリリースは<a href="/ja/changelog/">変更履歴</a>の<strong>プラグイン</strong>にあります。新しいバージョンが公開されると自動で更新されます。</p>

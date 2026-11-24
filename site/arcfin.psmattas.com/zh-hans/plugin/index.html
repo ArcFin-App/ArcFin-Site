@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Arcfin Sync 插件 · Arcfin</title>
-  <meta name="description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，管理员可以管理设置，下载也更聪明。">
+  <meta name="description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，还有观影派对、家庭和安全管理、通过你的服务器使用 Seerr，以及更小的下载。">
   <link rel="canonical" href="https://arcfin.psmattas.com/zh-hans/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Arcfin Sync 插件 · Arcfin">
-  <meta property="og:description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，管理员可以管理设置，下载也更聪明。">
+  <meta property="og:description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，还有观影派对、家庭和安全管理、通过你的服务器使用 Seerr，以及更小的下载。">
   <meta property="og:url" content="https://arcfin.psmattas.com/zh-hans/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">服务器插件</span>
   <h1>Arcfin Sync</h1>
-  <p>一个可选的 Jellyfin 服务器插件。没有它 Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，管理员可以为所有人设置默认值和锁定，下载也会更小。</p>
+  <p>你的 Jellyfin 服务器的可选插件。没有它 Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，管理员可以为所有人设置默认值和锁定，家庭可以使用观影派对和安全管理，下载也会更小。</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">安装</a><a class="btn btn-secondary btn-small" href="/zh-hans/changelog/">更新日志</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">源代码</a></div>
   <p class="hero-note">最新版本 <span data-version="plugin">0.3.0</span> &middot; 免费开源，采用 AGPL-3.0 许可</p>
 </div></section>
@@ -63,7 +63,21 @@
 <nav class="doc-toc" aria-label="本页内容"><p class="doc-toc-title">本页内容</p></nav>
 <article class="prose">
     <h2 id="features">它带来了什么</h2>
+    <p>最新的在前。从 0.6.0 版本开始的每项功能在服务器管理员开启前都保持关闭，插件更新时已在使用的功能会继续开启。没有插件 Arcfin 也能正常使用。</p>
     <ul>
+      <li><strong>观影派对。</strong>一起看点什么，各自用自己的屏幕。从首页或作品页面发起派对：选一部电影，或选一部剧集及其季和集。宾客在自己的 iPhone 或 iPad 上输入六位字符代码或扫描二维码加入，绝不通过链接。你可以提前最多 30 天安排派对，作为主持人，你能看到每位宾客当地会是几点。Arcfin 会创建一个 Jellyfin SyncPlay 群组，因此使用其他支持 SyncPlay 的应用的人也能加入；主持人需要使用 Arcfin。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>通过你的服务器使用 Seerr 和 TMDB。</strong>管理员把 Seerr API 密钥和 TMDB 密钥填入插件。它们使用 AES-256-GCM 加密存储，绝不会传到任何设备。每次 Seerr 调用都以使用者本人的身份进行，使用其自己的权限和请求限额，并且只访问 Arcfin 需要的 Seerr 部分。Seerr 停机期间发出的请求会在队列中等待，恢复后再发送。Seerr 可以为服务器设置一个本地地址，为应用设置一个公网地址。不使用此功能时，每台设备像以前一样自行登录 Seerr。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>只有你的服务器能下达的命令。</strong>服务器有自己的签名密钥，可以按计划更换，每个新密钥都由上一个密钥签名。只有经该密钥签名的命令 Arcfin 才会执行：清除忘记的 PIN、在某人的所有设备上锁定或解锁个人资料（如果你愿意，还可以同时停用其 Jellyfin 账户），或抹掉丢失的设备，即删除其下载内容、锁定并退出登录。PIN 绝不会离开设备。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>信任服务器的密钥。</strong>通过 HTTPS 时，设备会自动信任密钥。通过普通 HTTP 时，需要有人输入密钥指纹的最后四个字符来确认，或由 Arcfin 将其与服务器已保存的 HTTPS 地址核对。对于只在自家网络中使用的家庭，管理员可以选择通过 HTTP 信任密钥。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>PIN 规则和受信任设备。</strong>管理员可以选择谁需要 PIN（没有人、所有人或选定的人）、PIN 的最短长度（4 到 8 位数字），以及输错多少次会锁定个人资料。开启受信任设备后，新设备会显示一个代码，并等待此人受信任的某台 iPhone 或 iPad 或管理员批准。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>更安全的登录。</strong>管理员可以要求在外使用 HTTPS；本地网络地址不需要。他们可以选择如何处理跟不上密钥更换的设备（退出登录，或退出登录并锁定），还可以让无法遵循这些规则的旧版 Arcfin 退出登录。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>观看时长和就寝时间。</strong>为每个人分别设置工作日和周末的每日分钟数，以及就寝时间，按其所在时区计算。时间统计涵盖服务器上的所有应用。Arcfin 会提前 10 分钟和 5 分钟提醒，然后停止播放并显示消息。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>下载限额。</strong>限制大家为电影和剧集保留的下载作品数量和 GB 数，以及音乐的专辑数、歌曲数和 GB 数，以先达到者为准，还可以为任何一个人单独设置限额。同一作品在某人的多台设备上只计算一次。“下载”和“已下载的音乐”会显示已用多少。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>谁在观看？</strong>在几个人共用的账户上，比如客厅电视上的那个，Arcfin 会询问谁在观看，并把进度和观看状态也复制给那个人。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>公告和计划维护。</strong>管理员发布的消息，以及服务器因维护而停机的时间，会显示在首页顶部。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>从“继续观看”和“接下来”中隐藏。</strong>隐藏一部作品或一部剧集后，它会在你的所有设备上隐藏，并为你保存在服务器上。再次播放时它会重新出现。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>推荐。</strong>首页上的“精选推荐”、“因为你看过”和“本服务器热门”行。“热门”只显示过去 30 天内至少有另外两个人播放过的作品。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
+      <li><strong>进行中的会话和历史记录。</strong>管理员可以结束、锁定、移除成员或改期任何观影派对或 Pick Together 会话，并选择历史记录保留多久：若干天，或永久保留。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
       <li><strong>Pick Together。</strong>不知道看什么？每个人在自己的 iPhone 或 iPad 上滑动浏览影片，直到大家都喜欢同一部，然后在一台设备上、另一台设备上，或通过 SyncPlay 一起同步观看。扫描二维码或输入代码即可加入，每个人只会看到会话中所有人都有权观看的影片。发起会话的设备担任主持：它发放新影片、移除成员并锁定会话。0.5.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
       <li><strong>设置跟着你走。</strong>在 iPhone 上改一项设置，iPad、Mac 和 Apple TV 上也会同步改好。只对某类设备有意义的设置，比如 Mac 的窗口选项或 Apple TV 的焦点选项，只留在这类设备上。</li>
       <li><strong>设备与同步。</strong>每台设备可以选择同步方式：自动、在使用其他设备的更改前先询问你的“先询问”，或“关闭”。你还可以把一台设备的设置发送到其他所有设备。它位于 Arcfin 的<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>中。</li>
@@ -78,15 +92,30 @@
     <div class="table-scroll"><table>
       <thead><tr><th>功能</th><th>不装插件</th><th>装上 Arcfin Sync</th></tr></thead>
       <tbody>
-        <tr><td>播放、浏览和下载</td><td>全部可用</td><td>全部可用</td></tr>
-        <tr><td>App 设置</td><td>每台设备各自保存</td><td>按用户在你的所有设备间同步</td></tr>
-        <tr><td>每台设备的同步方式</td><td>不可用</td><td>自动、先询问或关闭，并可把一台设备的设置发送到其他设备（0.4.0 及更高版本）</td></tr>
-        <tr><td>你的设备</td><td>不可用</td><td>列在“设备与同步”中，可重命名或移除（0.4.0 及更高版本）</td></tr>
-        <tr><td>管理员管理设置</td><td>每位用户都可以更改所有设置</td><td>为所有人或某一个人设置默认值和锁定，可在控制台或“管理 &rsaquo; 所有人的 Arcfin”中进行</td></tr>
-        <tr><td>转换后的下载</td><td>服务器允许时使用 HEVC，否则使用 H.264</td><td>服务器硬件真正能编码时，也可以使用 AV1</td></tr>
-        <tr><td>转换后下载中的额外音轨</td><td>从 Jellyfin 获取，可能会收到默认音轨而不是你选的那条</td><td>你选的每条音轨都由服务器单独提取（0.3.1 及更高版本）</td></tr>
-        <tr><td>面向管理员的硬件编码器报告</td><td>不可用</td><td>“管理 &rsaquo; 硬件编码器”显示服务器硬件能编码哪些格式</td></tr>
-        <tr><td>Pick Together</td><td>不可用</td><td>滑动直到大家意见一致，然后在这里、另一台设备上或一起观看（0.5.0 及更高版本）</td></tr>
+        <tr><td>播放、浏览和下载</td><td><span class="mark yes" role="img" aria-label="是"></span>全部可用</td><td><span class="mark yes" role="img" aria-label="是"></span>全部可用</td></tr>
+        <tr><td>App 设置</td><td><span class="mark part" role="img" aria-label="部分"></span>每台设备各自保存</td><td><span class="mark yes" role="img" aria-label="是"></span>按用户在你的所有设备间同步</td></tr>
+        <tr><td>每台设备的同步方式</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>自动、先询问或关闭，并可把一台设备的设置发送到其他设备（0.4.0 及更高版本）</td></tr>
+        <tr><td>你的设备</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>列在“设备与同步”中，可重命名或移除（0.4.0 及更高版本）</td></tr>
+        <tr><td>管理员管理设置</td><td><span class="mark no" role="img" aria-label="否"></span>每位用户都可以更改所有设置</td><td><span class="mark yes" role="img" aria-label="是"></span>为所有人或某一个人设置默认值和锁定，可在控制台或“管理 &rsaquo; 所有人的 Arcfin”中进行</td></tr>
+        <tr><td>转换后的下载</td><td><span class="mark part" role="img" aria-label="部分"></span>服务器允许时使用 HEVC，否则使用 H.264</td><td><span class="mark yes" role="img" aria-label="是"></span>服务器硬件真正能编码时，也可以使用 AV1</td></tr>
+        <tr><td>转换后下载中的额外音轨</td><td><span class="mark part" role="img" aria-label="部分"></span>从 Jellyfin 获取，可能会收到默认音轨而不是你选的那条</td><td><span class="mark yes" role="img" aria-label="是"></span>你选的每条音轨都由服务器单独提取（0.3.1 及更高版本）</td></tr>
+        <tr><td>面向管理员的硬件编码器报告</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>“管理 &rsaquo; 硬件编码器”显示服务器硬件能编码哪些格式</td></tr>
+        <tr><td>Pick Together</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>滑动直到大家意见一致，然后在这里、另一台设备上或一起观看（0.5.0 及更高版本）</td></tr>
+        <tr><td>一起观看</td><td><span class="mark part" role="img" aria-label="部分"></span>播放器菜单中的 Jellyfin SyncPlay，以及 SharePlay</td><td><span class="mark yes" role="img" aria-label="是"></span>从首页或作品页面发起观影派对，可提前最多 30 天安排，通过代码或二维码加入（0.6.0 及更高版本）</td></tr>
+        <tr><td>Seerr 请求</td><td><span class="mark yes" role="img" aria-label="是"></span>每台设备自行登录 Seerr</td><td><span class="mark yes" role="img" aria-label="是"></span>以每个人的身份通过服务器进行，设备上没有密钥，Seerr 停机时请求排队等待（0.6.0 及更高版本）</td></tr>
+        <tr><td>TMDB 附加信息</td><td><span class="mark yes" role="img" aria-label="是"></span>你自己的 TMDB 密钥，在每台设备上添加</td><td><span class="mark yes" role="img" aria-label="是"></span>服务器上只有一个密钥，加密存储，绝不发送到设备（0.6.0 及更高版本）</td></tr>
+        <tr><td>个人资料 PIN</td><td><span class="mark yes" role="img" aria-label="是"></span>Face ID、Touch ID 或 PIN，在每台设备上设置</td><td><span class="mark yes" role="img" aria-label="是"></span>适用于所有人的 PIN 规则，管理员可以清除忘记的 PIN（0.6.0 及更高版本）</td></tr>
+        <tr><td>在所有设备上锁定个人资料</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>在某人的所有设备上锁定或解锁个人资料，如果你愿意，还可以停用其 Jellyfin 账户（0.6.0 及更高版本）</td></tr>
+        <tr><td>丢失的设备</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>抹掉它：删除其下载内容，锁定并退出登录（0.6.0 及更高版本）</td></tr>
+        <tr><td>新设备</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>新设备会等待此人受信任的某台 iPhone 或 iPad 或管理员批准（0.6.0 及更高版本）</td></tr>
+        <tr><td>在外使用 HTTPS</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>管理员开启后必须使用；本地网络地址不需要（0.6.0 及更高版本）</td></tr>
+        <tr><td>观看时长和就寝时间</td><td><span class="mark part" role="img" aria-label="部分"></span>Jellyfin 自带的访问时间表</td><td><span class="mark yes" role="img" aria-label="是"></span>每人的每日分钟数和就寝时间，统计服务器上的所有应用，并提前 10 分钟和 5 分钟提醒（0.6.0 及更高版本）</td></tr>
+        <tr><td>下载限额</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>限制作品、专辑、歌曲数量和 GB 数，可为某一个人单独设置，已用量显示在“下载”中（0.6.0 及更高版本）</td></tr>
+        <tr><td>共享账户</td><td><span class="mark no" role="img" aria-label="否"></span>一个账户的进度由所有使用者共用</td><td><span class="mark yes" role="img" aria-label="是"></span>“谁在观看？”会把进度和观看状态复制给每个人（0.6.0 及更高版本）</td></tr>
+        <tr><td>公告和计划维护</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>显示在首页顶部（0.6.0 及更高版本）</td></tr>
+        <tr><td>从“继续观看”和“接下来”中隐藏</td><td><span class="mark part" role="img" aria-label="部分"></span>从“继续观看”中移除，会清除你的观看位置</td><td><span class="mark yes" role="img" aria-label="是"></span>在你的所有设备上隐藏某部作品或剧集，保留观看位置，直到你再次播放（0.6.0 及更高版本）</td></tr>
+        <tr><td>首页上的推荐</td><td><span class="mark yes" role="img" aria-label="是"></span>来自 Jellyfin 的“因为你看过”和“为你推荐”</td><td><span class="mark yes" role="img" aria-label="是"></span>“精选推荐”、“因为你看过”和“本服务器热门”（0.6.0 及更高版本）</td></tr>
+        <tr><td>面向管理员的观影派对和 Pick Together 管理</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>结束、锁定、移除成员或改期任何会话，并保留历史记录（0.6.0 及更高版本）</td></tr>
       </tbody>
     </table></div>
 
@@ -102,18 +131,23 @@
     <p>更新也通过同一个存储库提供。有新版本时，Jellyfin 会在 <strong>My Plugins</strong> 中提示；安装后重启即可。</p>
 
     <h2 id="configure">设置方法</h2>
-    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含四个标签页的页面：</p>
+    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含九个标签页的页面：</p>
     <ul>
       <li><strong>Overview：</strong>插件的工作方式，以及帮助和报告问题的链接。</li>
       <li><strong>Settings：</strong>Arcfin 的每项设置。可以给任何一项设置一个默认值（在用户自己选择前使用），或锁定它，让所有人都使用你的值。</li>
       <li><strong>Users &amp; Devices：</strong>每台用 Arcfin 登录的设备。可以重命名或移除设备，并为单个用户设置专属的默认值和锁定。</li>
-      <li><strong>Pick Together：</strong>为所有人或选定的用户开启或关闭。默认开启。</li>
+      <li><strong>功能：</strong>开启或关闭每项功能，例如 Pick Together、观影派对、推荐和从“继续观看”中隐藏，并选择谁能使用 Pick Together 和观影派对。</li>
+      <li><strong>Seerr &amp; TMDB：</strong>服务器为所有人保存的密钥、Seerr 的本地和公网地址，以及等待发送的请求。</li>
+      <li><strong>安全性：</strong>服务器的签名密钥及设备如何信任它、PIN 规则、受信任设备和在外使用 HTTPS。</li>
+      <li><strong>观看时长：</strong>每日分钟数和就寝时间。</li>
+      <li><strong>家庭：</strong>会询问“谁在观看？”的共享账户、公告和计划维护。</li>
+      <li><strong>下载：</strong>每个人可以保留多少下载内容。</li>
     </ul>
     <p>管理员也可以在 Arcfin 的<strong>“管理 &rsaquo; 所有人的 Arcfin”</strong>中进行同样的更改。更改会在每台设备下次同步时生效：打开时、切换到前台时或某项设置更改时。</p>
     <p>用户无需做任何事。Arcfin 会自动找到插件，在<strong>“设置 &rsaquo; 服务器”</strong>中点按<strong>“立即同步”</strong>可马上同步。要选择设备的同步方式，请打开<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>。</p>
 
     <h2 id="privacy">隐私</h2>
-    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置和你的设备记录只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。Pick Together 会话仅在使用期间保存在服务器内存中，闲置六小时后结束。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
+    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置、你的设备记录、观看时长、下载限额以及 Seerr 和 TMDB 密钥只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。密钥经过加密，PIN 绝不会离开你的设备。Pick Together 会话闲置六小时后结束。过往会话和观影派对的历史记录只有在管理员选择时才会保留，保留多久也由管理员决定。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
 
     <h2 id="changes">有哪些变化</h2>
     <p>插件的每个版本都列在<a href="/zh-hans/changelog/">更新日志</a>的<strong>插件</strong>下。有新版本发布时会自动更新。</p>
