@@ -8,6 +8,8 @@ The site is plain, hand-written HTML and CSS: no framework, no build step and no
 
 > Looking for the app? Its code, issues and releases are in **[ArcFin/ArcFin](https://git.psmattas.com/ArcFin/ArcFin)**.
 
+> **Where the site lives:** [git.psmattas.com/ArcFin/arcfin-site](https://git.psmattas.com/ArcFin/arcfin-site). The copy on GitHub is a read-only mirror. Found a mistake on the site? Open an issue in the [ArcFin issue tracker](https://git.psmattas.com/ArcFin/ArcFin/issues/new/choose).
+
 ---
 
 ## Pages
