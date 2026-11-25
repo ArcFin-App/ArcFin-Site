@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Arcfin Sync-plug-in · Arcfin</title>
-  <meta name="description" content="Arcfin Sync is een optionele Jellyfin-serverplug-in voor Arcfin: instellingen die je volgen tussen apparaten, watchparty’s, bediening voor het huishouden en veiligheid, Seerr via je server, en kleinere downloads.">
+  <meta name="description" content="Arcfin Sync is een optionele Jellyfin-serverplug-in voor Arcfin: instellingen die je volgen tussen apparaten, meldingen van je server, watchparty’s, bediening voor het huishouden en veiligheid, Seerr via je server, en kleinere downloads.">
   <link rel="canonical" href="https://arcfin.psmattas.com/nl/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Arcfin Sync-plug-in · Arcfin">
-  <meta property="og:description" content="Arcfin Sync is een optionele Jellyfin-serverplug-in voor Arcfin: instellingen die je volgen tussen apparaten, watchparty’s, bediening voor het huishouden en veiligheid, Seerr via je server, en kleinere downloads.">
+  <meta property="og:description" content="Arcfin Sync is een optionele Jellyfin-serverplug-in voor Arcfin: instellingen die je volgen tussen apparaten, meldingen van je server, watchparty’s, bediening voor het huishouden en veiligheid, Seerr via je server, en kleinere downloads.">
   <meta property="og:url" content="https://arcfin.psmattas.com/nl/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Serverplug-in</span>
   <h1>Arcfin Sync</h1>
-  <p>Een optionele plug-in voor je Jellyfin-server. Arcfin werkt prima zonder; met de plug-in volgen je instellingen je tussen apparaten, kunnen beheerders standaardwaarden en vergrendelingen voor iedereen instellen, krijgen huishoudens watchparty’s en veiligheidsinstellingen, en worden downloads kleiner.</p>
+  <p>Een optionele plug-in voor je Jellyfin-server. Arcfin werkt prima zonder; met de plug-in volgen je instellingen je tussen apparaten, kan je server je meldingen sturen, kunnen beheerders standaardwaarden en vergrendelingen voor iedereen instellen, krijgen huishoudens watchparty’s en veiligheidsinstellingen, en worden downloads kleiner.</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">Installeren</a><a class="btn btn-secondary btn-small" href="/nl/changelog/">Wijzigingen</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">Broncode</a></div>
   <p class="hero-note">Nieuwste versie <span data-version="plugin">0.3.0</span> &middot; Gratis en open source onder de AGPL-3.0</p>
 </div></section>
@@ -65,6 +65,8 @@
     <h2 id="features">Wat hij toevoegt</h2>
     <p>Nieuwste eerst. Elke functie vanaf versie 0.6.0 staat uit tot de beheerder van de server hem aanzet, en wat al in gebruik was toen de plug-in werd bijgewerkt, blijft aan. Arcfin werkt prima zonder de plug-in.</p>
     <ul>
+      <li><strong>Meldingen van je server.</strong> Arcfin laat je weten wanneer een Seerr-verzoek van je is goedgekeurd, geweigerd of beschikbaar is, zonder op dat apparaat bij Seerr in te loggen. Beheer je verzoeken in Seerr, dan hoor je ook wanneer er een op goedkeuring wacht, automatisch is goedgekeurd of is mislukt. Heb je een probleem gemeld, of beheer je problemen, dan hoor je wanneer er een wordt gemeld, een reactie krijgt, of wordt opgelost of heropend. Mededelingen en gepland onderhoud, een dag van tevoren, komen ook als meldingen, en beheerders kunnen iemand via het dashboard een testmelding sturen. Niemand krijgt een melding over eigen acties. Dit zijn geen directe pushmeldingen: een geopende Arcfin hoort het meteen, een gesloten Arcfin vindt het nieuws de volgende keer dat hij opent of wanneer iOS hem op de achtergrond laat kijken. Op iPhone, iPad en Mac; Apple TV toont mededelingen op Start. Versie 0.7.0 en nieuwer, met Arcfin 0.5.0 (build 4) of nieuwer.</li>
+      <li><strong>Seerr-problemen via je server.</strong> Meld een probleem met een titel, volg je problemen en reageer erop, en als je problemen in Seerr beheert, los ze op, open ze opnieuw of verwijder ze, allemaal vanuit Arcfin. Met Seerr via je server gebeurt dat als jijzelf, met je eigen Seerr-rechten. Versie 0.7.0 en nieuwer, met Arcfin 0.5.0 (build 4) of nieuwer.</li>
       <li><strong>Watchparty’s.</strong> Kijk samen naar iets, ieder op je eigen scherm. Start een watchparty op iPhone, iPad, Mac of Apple TV, vanuit Start of de pagina van een titel: kies een film, of een serie met seizoen en aflevering. Gasten doen op elk daarvan mee met een code van zes tekens, of op iPhone en iPad door een QR-code te scannen, nooit via een link. Je kunt een watchparty tot 30 dagen vooruit plannen, en als host zie je hoe laat het dan is voor elke gast waar die is. Arcfin host een SyncPlay-groep van Jellyfin, zodat mensen in andere apps die SyncPlay ondersteunen ook mee kunnen doen; de host heeft Arcfin nodig. Versie 0.6.0 en later, met Arcfin 0.5.0 (build 3) of later.</li>
       <li><strong>Seerr en TMDB via je server.</strong> De beheerder zet de Seerr-API-sleutel en de TMDB-sleutel in de plug-in. Ze worden versleuteld opgeslagen met AES-256-GCM en komen nooit op een apparaat. Elke aanroep naar Seerr gebeurt als de persoon die hem gebruikt, met diens eigen rechten en verzoeklimieten, en alleen naar de delen van Seerr die Arcfin nodig heeft. Verzoeken die worden gedaan terwijl Seerr onbereikbaar is, wachten in een wachtrij en worden verstuurd zodra Seerr terug is. Seerr kan een lokaal adres hebben voor de server en een openbaar adres voor de apps. Zonder dit logt elk apparaat zelf in bij Seerr, zoals voorheen. Versie 0.6.0 en later, met Arcfin 0.5.0 (build 3) of later.</li>
       <li><strong>Opdrachten die alleen je server kan geven.</strong> De server heeft een eigen ondertekeningssleutel, die hij volgens een schema kan vervangen, waarbij elke nieuwe sleutel door de vorige wordt ondertekend. Arcfin voert een opdracht alleen uit als die sleutel hem heeft ondertekend: een vergeten pincode wissen, een profiel vergrendelen of ontgrendelen op alle apparaten van iemand (en, als je wilt, ook diens Jellyfin-account uitschakelen), of een kwijtgeraakt apparaat wissen, waarmee de downloads worden verwijderd en het apparaat wordt vergrendeld en uitgelogd. Pincodes verlaten nooit het apparaat. Versie 0.6.0 en later, met Arcfin 0.5.0 (build 3) of later.</li>
@@ -116,6 +118,9 @@
         <tr><td>Verbergen in Verder kijken en Hierna</td><td><span class="mark part" role="img" aria-label="Deels"></span>Verwijder uit ‘Verder kijken’, waarmee je plek wordt gewist</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Verberg een titel of een serie op al je apparaten, met behoud van je plek, tot je hem opnieuw afspeelt (versie 0.6.0 en later)</td></tr>
         <tr><td>Aanbevelingen op Start</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Omdat je keek naar en Voorgesteld voor jou, van Jellyfin</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Topkeuzes, Omdat je keek naar en Populair op deze server (versie 0.6.0 en later)</td></tr>
         <tr><td>Watchparty’s en Pick Together voor beheerders</td><td><span class="mark no" role="img" aria-label="Nee"></span>Niet beschikbaar</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Beëindig, vergrendel of verzet elke sessie, verwijder er mensen uit, en bewaar een geschiedenis (versie 0.6.0 en later)</td></tr>
+        <tr><td>Meldingen over Seerr</td><td><span class="mark part" role="img" aria-label="Deels"></span>Alleen je eigen verzoeken, op een apparaat dat zelf bij Seerr is ingelogd</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Je verzoeken en problemen, en verzoeken om goed te keuren als je ze beheert, zonder Seerr-login op het apparaat (versie 0.7.0 en nieuwer)</td></tr>
+        <tr><td>Mededelingen als meldingen</td><td><span class="mark no" role="img" aria-label="Nee"></span>Niet beschikbaar</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Mededelingen, onderhoud een dag van tevoren en testmeldingen van de beheerder (versie 0.7.0 en nieuwer)</td></tr>
+        <tr><td>Seerr-problemen</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Problemen melden, volgen en beheren op een apparaat dat zelf bij Seerr is ingelogd</td><td><span class="mark yes" role="img" aria-label="Ja"></span>Hetzelfde via de server, als elke persoon zelf, zonder Seerr-login op apparaten (versie 0.7.0 en nieuwer)</td></tr>
       </tbody>
     </table></div>
 
@@ -137,17 +142,26 @@
       <li><strong>Settings:</strong> elke Arcfin-instelling. Geef er een standaardwaarde aan, die geldt tot iemand zelf iets kiest, of vergrendel hem zodat iedereen jouw waarde krijgt.</li>
       <li><strong>Users &amp; Devices:</strong> elk apparaat dat met Arcfin is aangemeld. Geef er een andere naam aan of vergeet het, en geef één gebruiker eigen standaardwaarden en vergrendelingen.</li>
       <li><strong>Functies:</strong> zet elke functie aan of uit, zoals Pick Together, watchparty’s, aanbevelingen en verbergen in Verder kijken, en kies wie Pick Together en watchparty’s mag gebruiken.</li>
-      <li><strong>Seerr &amp; TMDB:</strong> de sleutels die de server voor iedereen bewaart, het lokale en openbare adres van Seerr, en verzoeken die nog verstuurd moeten worden.</li>
+      <li><strong>Seerr &amp; TMDB:</strong> de sleutels die de server voor iedereen bewaart, het lokale en openbare adres van Seerr, verzoeken die nog verstuurd moeten worden, en meldingen.</li>
       <li><strong>Beveiliging:</strong> de ondertekeningssleutel van de server en hoe apparaten die vertrouwen, pincoderegels, vertrouwde apparaten en HTTPS buitenshuis.</li>
       <li><strong>Kijktijd:</strong> dagelijkse minuten en bedtijden.</li>
       <li><strong>Huishouden:</strong> gedeelde accounts die vragen Wie kijkt er?, mededelingen en gepland onderhoud.</li>
       <li><strong>Downloads:</strong> hoeveel iedereen gedownload mag houden.</li>
     </ul>
-    <p>Beheerders kunnen dezelfde wijzigingen in Arcfin maken, onder <strong>Beheer &rsaquo; Arcfin voor iedereen</strong>. Wijzigingen komen op elk apparaat aan bij de volgende synchronisatie van Arcfin: als het opent, naar voren komt of als een instelling verandert.</p>
+    <p>Meldingen stel je in op het tabblad <strong>Seerr &amp; TMDB</strong>. Vink <strong>Notifications are on</strong> aan; zonder meer controleert de server Seerr elke tien minuten. Voor meldingen binnen enkele seconden na een wijziging voeg je in Seerr een webhook toe, onder <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong>:</p>
+    <ol>
+      <li>Vink <strong>Enable Agent</strong> aan.</li>
+      <li><strong>Webhook URL:</strong> de URL op de kaart Notifications van de plug-in. Bereikt Seerr Jellyfin op een ander adres, zoals een lokaal of Docker-adres, vul dat dan eerst in op de kaart.</li>
+      <li><strong>Authorization Header:</strong> het geheim op de kaart. Laat Custom Headers leeg.</li>
+      <li><strong>JSON Payload:</strong> vervang het door:<br><code>{"notification_type": "{{notification_type}}", "request_id": "{{request_id}}", "issue_id": "{{issue_id}}"}</code></li>
+      <li><strong>Notification Types:</strong> vink ze allemaal aan.</li>
+      <li>Sla op, kies <strong>Wait for Seerr&rsquo;s Test</strong> op de kaart en druk dan in Seerr op <strong>Test</strong>. De kaart laat zien wanneer de test binnenkomt, of wat er misging.</li>
+    </ol>
+    <p>Beheerders kunnen de andere wijzigingen in Arcfin maken, onder <strong>Beheer &rsaquo; Arcfin voor iedereen</strong>. Wijzigingen komen op elk apparaat aan bij de volgende synchronisatie van Arcfin: als het opent, naar voren komt of als een instelling verandert.</p>
     <p>Gebruikers hoeven niets te doen. Arcfin vindt de plug-in zelf, en <strong>Synchroniseer nu</strong> in <strong>Instellingen &rsaquo; Server</strong> synchroniseert meteen. Om te kiezen hoe een apparaat synchroniseert, open je <strong>Instellingen &rsaquo; Server &rsaquo; Apparaten en synchronisatie</strong>.</p>
 
     <h2 id="privacy">Privacy</h2>
-    <p>De plug-in draait op je eigen Jellyfin-server. Gesynchroniseerde instellingen, de lijst met je apparaten, kijktijd, downloadlimieten en de Seerr- en TMDB-sleutels worden daar bewaard en nergens anders; er zit nog steeds geen Arcfin-server tussen. De sleutels zijn versleuteld, en pincodes verlaten nooit je apparaten. Pick Together-sessies eindigen na zes uur zonder activiteit. Een geschiedenis van eerdere sessies en watchparty’s wordt alleen bewaard als de beheerder daarvoor kiest, en zo lang als die kiest. Het <a href="/privacy/">privacybeleid</a> beschrijft wat er wordt bewaard.</p>
+    <p>De plug-in draait op je eigen Jellyfin-server. Gesynchroniseerde instellingen, de lijst met je apparaten, kijktijd, downloadlimieten, de Seerr- en TMDB-sleutels en je meldingen worden daar bewaard en nergens anders; er zit nog steeds geen Arcfin-server tussen. Meldingen worden twee weken bewaard. De sleutels en het webhookgeheim zijn versleuteld, en pincodes verlaten nooit je apparaten. Pick Together-sessies eindigen na zes uur zonder activiteit. Een geschiedenis van eerdere sessies en watchparty’s wordt alleen bewaard als de beheerder daarvoor kiest, en zo lang als die kiest. Het <a href="/privacy/">privacybeleid</a> beschrijft wat er wordt bewaard.</p>
 
     <h2 id="changes">Wat er veranderd is</h2>
     <p>Elke versie van de plug-in staat bij <a href="/nl/changelog/">Wijzigingen</a>, onder <strong>Plug-in</strong>. De lijst werkt zichzelf bij als er een nieuwe versie verschijnt.</p>

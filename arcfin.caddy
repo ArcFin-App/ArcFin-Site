@@ -37,6 +37,11 @@ arcfin.psmattas.com {
     @badges path /badges/*
     header @badges Cache-Control "public, max-age=300"
 
+    # What the app downloads for Legal & Licenses (scripts/legal.py). Short, so a changed
+    # policy reaches the app within minutes.
+    @legal path /legal/*
+    header @legal Cache-Control "public, max-age=300"
+
     file_server
 
     # Missing pages get the 404 page in the language of the folder they

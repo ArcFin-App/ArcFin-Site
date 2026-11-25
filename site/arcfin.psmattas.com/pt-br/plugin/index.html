@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Plugin Arcfin Sync · Arcfin</title>
-  <meta name="description" content="O Arcfin Sync é um plugin opcional de servidor Jellyfin para o Arcfin: ajustes que acompanham você entre dispositivos, sessões para assistir juntos, controles de segurança da casa, Seerr pelo seu servidor e downloads menores.">
+  <meta name="description" content="O Arcfin Sync é um plugin opcional de servidor Jellyfin para o Arcfin: ajustes que acompanham você entre dispositivos, notificações do seu servidor, sessões para assistir juntos, controles de segurança da casa, Seerr pelo seu servidor e downloads menores.">
   <link rel="canonical" href="https://arcfin.psmattas.com/pt-br/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Plugin Arcfin Sync · Arcfin">
-  <meta property="og:description" content="O Arcfin Sync é um plugin opcional de servidor Jellyfin para o Arcfin: ajustes que acompanham você entre dispositivos, sessões para assistir juntos, controles de segurança da casa, Seerr pelo seu servidor e downloads menores.">
+  <meta property="og:description" content="O Arcfin Sync é um plugin opcional de servidor Jellyfin para o Arcfin: ajustes que acompanham você entre dispositivos, notificações do seu servidor, sessões para assistir juntos, controles de segurança da casa, Seerr pelo seu servidor e downloads menores.">
   <meta property="og:url" content="https://arcfin.psmattas.com/pt-br/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Plugin de servidor</span>
   <h1>Arcfin Sync</h1>
-  <p>Um plugin opcional para o seu servidor Jellyfin. O Arcfin funciona bem sem ele; com ele, seus ajustes acompanham você entre dispositivos, os administradores podem definir padrões e bloqueios para todos, as casas ganham sessões para assistir juntos e controles de segurança, e os downloads ficam menores.</p>
+  <p>Um plugin opcional para o seu servidor Jellyfin. O Arcfin funciona bem sem ele; com ele, seus ajustes acompanham você entre dispositivos, seu servidor pode mandar notificações, os administradores podem definir padrões e bloqueios para todos, as casas ganham sessões para assistir juntos e controles de segurança, e os downloads ficam menores.</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">Instale</a><a class="btn btn-secondary btn-small" href="/pt-br/changelog/">Novidades</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">Código-fonte</a></div>
   <p class="hero-note">Versão mais recente <span data-version="plugin">0.3.0</span> &middot; Gratuito e de código aberto sob a AGPL-3.0</p>
 </div></section>
@@ -65,6 +65,8 @@
     <h2 id="features">O que ele acrescenta</h2>
     <p>Da mais nova para a mais antiga. Todo recurso a partir da versão 0.6.0 fica desativado até o administrador do servidor ativá-lo, e o que já estava em uso quando o plugin é atualizado continua ativado. O Arcfin funciona bem sem o plugin.</p>
     <ul>
+      <li><strong>Notificações do seu servidor.</strong> O Arcfin avisa quando uma solicitação sua no Seerr é aprovada, recusada ou fica disponível, sem entrar no Seerr naquele dispositivo. Se você gerencia solicitações no Seerr, ele também avisa quando uma está esperando aprovação, foi aprovada automaticamente ou falhou. Se você relatou um problema, ou gerencia problemas, fica sabendo quando um é relatado, recebe um comentário, é resolvido ou reaberto. Avisos e manutenções planejadas, com um dia de antecedência, também chegam como notificações, e os administradores podem enviar uma notificação de teste a uma pessoa pelo painel. Ninguém é avisado das próprias ações. Não são notificações push instantâneas: um Arcfin aberto fica sabendo na hora, e um fechado encontra as novidades na próxima vez que abre ou quando o iOS o deixa verificar em segundo plano. No iPhone, iPad e Mac; a Apple TV mostra os avisos no Início. Versão 0.7.0 e posteriores, com o Arcfin 0.5.0 (build 4) ou posterior.</li>
+      <li><strong>Problemas do Seerr pelo seu servidor.</strong> Relate um problema com um título, acompanhe seus problemas e responda e, se você gerencia problemas no Seerr, resolva, reabra ou exclua, tudo pelo Arcfin. Com o Seerr pelo seu servidor, essas chamadas são feitas como você, com suas próprias permissões do Seerr. Versão 0.7.0 e posteriores, com o Arcfin 0.5.0 (build 4) ou posterior.</li>
       <li><strong>Sessões para assistir juntos.</strong> Assistam a algo juntos, cada um na própria tela. Crie uma sessão no iPhone, iPad, Mac ou Apple TV, pelo Início ou pela página de um título: escolha um filme, ou uma série com a temporada e o episódio. Os convidados entram em qualquer um deles com um código de seis caracteres, ou no iPhone e iPad escaneando um QR code, nunca por um link. Você pode agendar uma sessão com até 30 dias de antecedência e, como anfitrião, vê que horas vão ser para cada convidado onde ele estiver. O Arcfin cria um grupo SyncPlay do Jellyfin, então pessoas em outros apps compatíveis com SyncPlay também podem entrar; o anfitrião precisa do Arcfin. Versão 0.6.0 e posteriores, com Arcfin 0.5.0 (build 3) ou posterior.</li>
       <li><strong>Seerr e TMDB pelo seu servidor.</strong> O administrador coloca a chave de API do Seerr e a chave do TMDB no plugin. Elas são guardadas criptografadas com AES-256-GCM e nunca chegam a nenhum dispositivo. Cada chamada ao Seerr é feita como a pessoa que está usando, com as permissões e os limites de pedidos dela, e só para as partes do Seerr de que o Arcfin precisa. Pedidos feitos enquanto o Seerr está fora do ar esperam numa fila e são enviados quando ele volta. O Seerr pode ter um endereço local para o servidor e um público para os apps. Sem isso, cada dispositivo entra no Seerr por conta própria, como antes. Versão 0.6.0 e posteriores, com Arcfin 0.5.0 (build 3) ou posterior.</li>
       <li><strong>Comandos que só o seu servidor pode dar.</strong> O servidor tem a própria chave de assinatura, que pode trocar de forma programada, com cada chave nova assinada pela anterior. O Arcfin só executa um comando quando essa chave o assinou: apagar um PIN esquecido, bloquear ou desbloquear um perfil em todos os dispositivos de alguém (e, se você quiser, desativar a conta do Jellyfin dessa pessoa também), ou apagar um dispositivo perdido, o que exclui os downloads dele, bloqueia e desconecta o dispositivo. Os PINs nunca saem do dispositivo. Versão 0.6.0 e posteriores, com Arcfin 0.5.0 (build 3) ou posterior.</li>
@@ -116,6 +118,9 @@
         <tr><td>Ocultar de Continuar assistindo e A seguir</td><td><span class="mark part" role="img" aria-label="Em parte"></span>Remover de Continuar assistindo, o que apaga onde você parou</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Ocultar um título ou uma série em todos os seus dispositivos, mantendo onde você parou, até você reproduzir de novo (versão 0.6.0 e posteriores)</td></tr>
         <tr><td>Recomendações no Início</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Porque você assistiu e Sugestões para você, do Jellyfin</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Destaques para você, Porque você assistiu e Popular neste servidor (versão 0.6.0 e posteriores)</td></tr>
         <tr><td>Sessões para assistir juntos e Pick Together para administradores</td><td><span class="mark no" role="img" aria-label="Não"></span>Não disponível</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Encerrar, bloquear, remover pessoas ou reagendar qualquer sessão, e manter um histórico (versão 0.6.0 e posteriores)</td></tr>
+        <tr><td>Notificações do Seerr</td><td><span class="mark part" role="img" aria-label="Em parte"></span>Só as suas próprias solicitações, num dispositivo conectado ao Seerr</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Suas solicitações e problemas, e as solicitações para aprovar se você as gerencia, sem entrar no Seerr no dispositivo (versão 0.7.0 e posteriores)</td></tr>
+        <tr><td>Avisos como notificações</td><td><span class="mark no" role="img" aria-label="Não"></span>Não disponível</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Avisos, manutenções com um dia de antecedência e notificações de teste do administrador (versão 0.7.0 e posteriores)</td></tr>
+        <tr><td>Problemas do Seerr</td><td><span class="mark yes" role="img" aria-label="Sim"></span>Relatar, acompanhar e gerenciar problemas num dispositivo conectado ao Seerr</td><td><span class="mark yes" role="img" aria-label="Sim"></span>O mesmo pelo servidor, como cada pessoa, sem entrar no Seerr nos dispositivos (versão 0.7.0 e posteriores)</td></tr>
       </tbody>
     </table></div>
 
@@ -137,17 +142,26 @@
       <li><strong>Settings:</strong> todos os ajustes do Arcfin. Dê a qualquer um deles um padrão, usado até alguém escolher o seu, ou bloqueie-o para que todos recebam o seu valor.</li>
       <li><strong>Users &amp; Devices:</strong> todos os dispositivos conectados com o Arcfin. Renomeie ou esqueça um, e dê a um único usuário seus próprios padrões e bloqueios.</li>
       <li><strong>Recursos:</strong> ative ou desative cada recurso, como o Pick Together, as sessões para assistir juntos, as recomendações e ocultar de Continuar assistindo, e escolha quem pode usar o Pick Together e as sessões para assistir juntos.</li>
-      <li><strong>Seerr &amp; TMDB:</strong> as chaves que o servidor guarda para todos, os endereços local e público do Seerr, e os pedidos esperando para ser enviados.</li>
+      <li><strong>Seerr &amp; TMDB:</strong> as chaves que o servidor guarda para todos, os endereços local e público do Seerr, os pedidos esperando para ser enviados e as notificações.</li>
       <li><strong>Segurança:</strong> a chave de assinatura do servidor e como os dispositivos confiam nela, regras de PIN, dispositivos confiáveis e HTTPS fora de casa.</li>
       <li><strong>Tempo para assistir:</strong> minutos por dia e horas de dormir.</li>
       <li><strong>Casa:</strong> contas compartilhadas que perguntam Quem está assistindo?, avisos e manutenções programadas.</li>
       <li><strong>Downloads:</strong> quanto cada pessoa pode manter baixado.</li>
     </ul>
-    <p>Administradores podem fazer as mesmas mudanças no Arcfin, em <strong>Admin &rsaquo; Arcfin para todos</strong>. As mudanças chegam a cada dispositivo na próxima vez que o Arcfin sincronizar: quando ele abre, volta para a frente ou quando um ajuste muda.</p>
+    <p>As notificações são configuradas na aba <strong>Seerr &amp; TMDB</strong>. Marque <strong>Notifications are on</strong>; sem mais nada, o servidor verifica o Seerr a cada dez minutos. Para notificações segundos depois de uma mudança, adicione um webhook no Seerr, em <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong>:</p>
+    <ol>
+      <li>Marque <strong>Enable Agent</strong>.</li>
+      <li><strong>Webhook URL:</strong> a URL do cartão Notifications do plugin. Se o Seerr acessa o Jellyfin por outro endereço, como um local ou do Docker, informe esse endereço no cartão primeiro.</li>
+      <li><strong>Authorization Header:</strong> o segredo do cartão. Deixe Custom Headers vazio.</li>
+      <li><strong>JSON Payload:</strong> substitua por:<br><code>{"notification_type": "{{notification_type}}", "request_id": "{{request_id}}", "issue_id": "{{issue_id}}"}</code></li>
+      <li><strong>Notification Types:</strong> marque todos.</li>
+      <li>Salve, escolha <strong>Wait for Seerr&rsquo;s Test</strong> no cartão e toque em <strong>Test</strong> no Seerr. O cartão mostra quando o teste chega, ou o que deu errado.</li>
+    </ol>
+    <p>Administradores podem fazer as outras mudanças no Arcfin, em <strong>Admin &rsaquo; Arcfin para todos</strong>. As mudanças chegam a cada dispositivo na próxima vez que o Arcfin sincronizar: quando ele abre, volta para a frente ou quando um ajuste muda.</p>
     <p>Os usuários não precisam fazer nada. O Arcfin encontra o plugin sozinho, e <strong>Sincronizar agora</strong> em <strong>Ajustes &rsaquo; Servidor</strong> sincroniza na hora. Para escolher como um dispositivo sincroniza, abra <strong>Ajustes &rsaquo; Servidor &rsaquo; Dispositivos e sincronização</strong>.</p>
 
     <h2 id="privacy">Privacidade</h2>
-    <p>O plugin roda no seu próprio servidor Jellyfin. Os ajustes sincronizados, o registro dos seus dispositivos, o tempo para assistir, os limites de download e as chaves do Seerr e do TMDB ficam guardados lá e em nenhum outro lugar; continua não havendo um servidor do Arcfin no meio. As chaves são criptografadas, e os PINs nunca saem dos seus dispositivos. As sessões do Pick Together terminam depois de seis horas sem atividade. Um histórico de sessões e sessões para assistir juntos anteriores só é mantido se o administrador escolher, pelo tempo que ele escolher. A <a href="/privacy/">Política de Privacidade</a> explica o que é guardado.</p>
+    <p>O plugin roda no seu próprio servidor Jellyfin. Os ajustes sincronizados, o registro dos seus dispositivos, o tempo para assistir, os limites de download, as chaves do Seerr e do TMDB e as suas notificações ficam guardados lá e em nenhum outro lugar; continua não havendo um servidor do Arcfin no meio. As notificações ficam guardadas por duas semanas. As chaves e o segredo do webhook são criptografados, e os PINs nunca saem dos seus dispositivos. As sessões do Pick Together terminam depois de seis horas sem atividade. Um histórico de sessões e sessões para assistir juntos anteriores só é mantido se o administrador escolher, pelo tempo que ele escolher. A <a href="/privacy/">Política de Privacidade</a> explica o que é guardado.</p>
 
     <h2 id="changes">O que mudou</h2>
     <p>Todas as versões do plugin estão em <a href="/pt-br/changelog/">Novidades</a>, em <strong>Plugin</strong>. A página se atualiza sozinha quando uma nova versão é publicada.</p>

@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Arcfin Sync 插件 · Arcfin</title>
-  <meta name="description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，还有观影派对、家庭和安全管理、通过你的服务器使用 Seerr，以及更小的下载。">
+  <meta name="description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，还有来自服务器的通知、观影派对、家庭和安全管理、通过你的服务器使用 Seerr，以及更小的下载。">
   <link rel="canonical" href="https://arcfin.psmattas.com/zh-hans/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Arcfin Sync 插件 · Arcfin">
-  <meta property="og:description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，还有观影派对、家庭和安全管理、通过你的服务器使用 Seerr，以及更小的下载。">
+  <meta property="og:description" content="Arcfin Sync 是 Arcfin 的可选 Jellyfin 服务器插件：设置在设备间跟着你走，还有来自服务器的通知、观影派对、家庭和安全管理、通过你的服务器使用 Seerr，以及更小的下载。">
   <meta property="og:url" content="https://arcfin.psmattas.com/zh-hans/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">服务器插件</span>
   <h1>Arcfin Sync</h1>
-  <p>你的 Jellyfin 服务器的可选插件。没有它 Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，管理员可以为所有人设置默认值和锁定，家庭可以使用观影派对和安全管理，下载也会更小。</p>
+  <p>你的 Jellyfin 服务器的可选插件。没有它 Arcfin 也能正常使用；装上后，你的设置会在设备间跟着你走，服务器可以给你发送通知，管理员可以为所有人设置默认值和锁定，家庭可以使用观影派对和安全管理，下载也会更小。</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">安装</a><a class="btn btn-secondary btn-small" href="/zh-hans/changelog/">更新日志</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">源代码</a></div>
   <p class="hero-note">最新版本 <span data-version="plugin">0.3.0</span> &middot; 免费开源，采用 AGPL-3.0 许可</p>
 </div></section>
@@ -65,6 +65,8 @@
     <h2 id="features">它带来了什么</h2>
     <p>最新的在前。从 0.6.0 版本开始的每项功能在服务器管理员开启前都保持关闭，插件更新时已在使用的功能会继续开启。没有插件 Arcfin 也能正常使用。</p>
     <ul>
+      <li><strong>来自服务器的通知。</strong>你的 Seerr 请求被批准、拒绝或可以观看时，Arcfin 会通知你，无需在该设备上登录 Seerr。如果你在 Seerr 中管理请求，还会在有请求等待批准、被自动批准或失败时通知你。如果你报告过问题或管理问题，会在问题被报告、收到评论、被解决或重新打开时收到通知。公告和提前一天的计划维护也会以通知形式送达，管理员还可以在控制台给某个人发送测试通知。你自己的操作不会通知你。这不是即时推送通知：打开的 Arcfin 会立刻收到，关闭的 Arcfin 会在下次打开或 iOS 允许其在后台检查时收到。适用于 iPhone、iPad 和 Mac；Apple TV 会在首页显示公告。0.7.0 及以后版本，需要 Arcfin 0.5.0(build 4)或更高版本。</li>
+      <li><strong>通过服务器处理 Seerr 问题。</strong>报告作品问题、跟进并回复你的问题；如果你在 Seerr 中管理问题，还可以解决、重新打开或删除，全部在 Arcfin 中完成。通过服务器使用 Seerr 时，这些操作以你的身份、按你自己的 Seerr 权限进行。0.7.0 及以后版本，需要 Arcfin 0.5.0(build 4)或更高版本。</li>
       <li><strong>观影派对。</strong>一起看点什么，各自用自己的屏幕。在 iPhone、iPad、Mac 或 Apple TV 上从首页或作品页面发起派对：选一部电影，或选一部剧集及其季和集。宾客在其中任一设备上输入六位字符代码即可加入，在 iPhone 和 iPad 上也可以扫描二维码，绝不通过链接。你可以提前最多 30 天安排派对，作为主持人，你能看到每位宾客当地会是几点。Arcfin 会创建一个 Jellyfin SyncPlay 群组，因此使用其他支持 SyncPlay 的应用的人也能加入；主持人需要使用 Arcfin。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
       <li><strong>通过你的服务器使用 Seerr 和 TMDB。</strong>管理员把 Seerr API 密钥和 TMDB 密钥填入插件。它们使用 AES-256-GCM 加密存储，绝不会传到任何设备。每次 Seerr 调用都以使用者本人的身份进行，使用其自己的权限和请求限额，并且只访问 Arcfin 需要的 Seerr 部分。Seerr 停机期间发出的请求会在队列中等待，恢复后再发送。Seerr 可以为服务器设置一个本地地址，为应用设置一个公网地址。不使用此功能时，每台设备像以前一样自行登录 Seerr。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
       <li><strong>只有你的服务器能下达的命令。</strong>服务器有自己的签名密钥，可以按计划更换，每个新密钥都由上一个密钥签名。只有经该密钥签名的命令 Arcfin 才会执行：清除忘记的 PIN、在某人的所有设备上锁定或解锁个人资料（如果你愿意，还可以同时停用其 Jellyfin 账户），或抹掉丢失的设备，即删除其下载内容、锁定并退出登录。PIN 绝不会离开设备。0.6.0 及更高版本，需要 Arcfin 0.5.0（build 3）或更高版本。</li>
@@ -116,6 +118,9 @@
         <tr><td>从“继续观看”和“接下来”中隐藏</td><td><span class="mark part" role="img" aria-label="部分"></span>从“继续观看”中移除，会清除你的观看位置</td><td><span class="mark yes" role="img" aria-label="是"></span>在你的所有设备上隐藏某部作品或剧集，保留观看位置，直到你再次播放（0.6.0 及更高版本）</td></tr>
         <tr><td>首页上的推荐</td><td><span class="mark yes" role="img" aria-label="是"></span>来自 Jellyfin 的“因为你看过”和“为你推荐”</td><td><span class="mark yes" role="img" aria-label="是"></span>“精选推荐”、“因为你看过”和“本服务器热门”（0.6.0 及更高版本）</td></tr>
         <tr><td>面向管理员的观影派对和 Pick Together 管理</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>结束、锁定、移除成员或改期任何会话，并保留历史记录（0.6.0 及更高版本）</td></tr>
+        <tr><td>Seerr 通知</td><td><span class="mark part" role="img" aria-label="部分"></span>仅限你自己的请求，且设备需自行登录 Seerr</td><td><span class="mark yes" role="img" aria-label="是"></span>你的请求和问题，如果你管理请求，还有待批准的请求，设备无需登录 Seerr(0.7.0 及以后版本)</td></tr>
+        <tr><td>以通知形式接收公告</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>公告、提前一天的维护提醒，以及管理员发送的测试通知(0.7.0 及以后版本)</td></tr>
+        <tr><td>Seerr 问题</td><td><span class="mark yes" role="img" aria-label="是"></span>在自行登录 Seerr 的设备上报告、跟进和管理问题</td><td><span class="mark yes" role="img" aria-label="是"></span>通过服务器以每个人的身份完成同样的操作，设备无需登录 Seerr(0.7.0 及以后版本)</td></tr>
       </tbody>
     </table></div>
 
@@ -137,17 +142,26 @@
       <li><strong>Settings：</strong>Arcfin 的每项设置。可以给任何一项设置一个默认值（在用户自己选择前使用），或锁定它，让所有人都使用你的值。</li>
       <li><strong>Users &amp; Devices：</strong>每台用 Arcfin 登录的设备。可以重命名或移除设备，并为单个用户设置专属的默认值和锁定。</li>
       <li><strong>功能：</strong>开启或关闭每项功能，例如 Pick Together、观影派对、推荐和从“继续观看”中隐藏，并选择谁能使用 Pick Together 和观影派对。</li>
-      <li><strong>Seerr &amp; TMDB：</strong>服务器为所有人保存的密钥、Seerr 的本地和公网地址，以及等待发送的请求。</li>
+      <li><strong>Seerr &amp; TMDB：</strong>服务器为所有人保存的密钥、Seerr 的本地和公网地址、等待发送的请求，以及通知。</li>
       <li><strong>安全性：</strong>服务器的签名密钥及设备如何信任它、PIN 规则、受信任设备和在外使用 HTTPS。</li>
       <li><strong>观看时长：</strong>每日分钟数和就寝时间。</li>
       <li><strong>家庭：</strong>会询问“谁在观看？”的共享账户、公告和计划维护。</li>
       <li><strong>下载：</strong>每个人可以保留多少下载内容。</li>
     </ul>
-    <p>管理员也可以在 Arcfin 的<strong>“管理 &rsaquo; 所有人的 Arcfin”</strong>中进行同样的更改。更改会在每台设备下次同步时生效：打开时、切换到前台时或某项设置更改时。</p>
+    <p>通知在 <strong>Seerr &amp; TMDB</strong> 标签页中设置。勾选 <strong>Notifications are on</strong>；不做其他设置时，服务器每十分钟检查一次 Seerr。若要在变更后几秒内收到通知，请在 Seerr 的 <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong> 中添加 Webhook：</p>
+    <ol>
+      <li>勾选 <strong>Enable Agent</strong>。</li>
+      <li><strong>Webhook URL：</strong>插件 Notifications 卡片上的 URL。如果 Seerr 通过其他地址(例如本地或 Docker 地址)访问 Jellyfin，先在卡片上填写该地址。</li>
+      <li><strong>Authorization Header：</strong>卡片上的密钥。Custom Headers 留空。</li>
+      <li><strong>JSON Payload：</strong>替换为：<br><code>{"notification_type": "{{notification_type}}", "request_id": "{{request_id}}", "issue_id": "{{issue_id}}"}</code></li>
+      <li><strong>Notification Types：</strong>全部勾选。</li>
+      <li>保存后，在卡片上选择 <strong>Wait for Seerr&rsquo;s Test</strong>，再在 Seerr 中按 <strong>Test</strong>。卡片会显示测试何时到达，或出了什么问题。</li>
+    </ol>
+    <p>其他更改管理员也可以在 Arcfin 的<strong>“管理 &rsaquo; 所有人的 Arcfin”</strong>中进行。更改会在每台设备下次同步时生效：打开时、切换到前台时或某项设置更改时。</p>
     <p>用户无需做任何事。Arcfin 会自动找到插件，在<strong>“设置 &rsaquo; 服务器”</strong>中点按<strong>“立即同步”</strong>可马上同步。要选择设备的同步方式，请打开<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>。</p>
 
     <h2 id="privacy">隐私</h2>
-    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置、你的设备记录、观看时长、下载限额以及 Seerr 和 TMDB 密钥只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。密钥经过加密，PIN 绝不会离开你的设备。Pick Together 会话闲置六小时后结束。过往会话和观影派对的历史记录只有在管理员选择时才会保留，保留多久也由管理员决定。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
+    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置、你的设备记录、观看时长、下载限额、Seerr 和 TMDB 密钥以及你的通知只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。通知保留两周。密钥和 Webhook 密钥经过加密，PIN 绝不会离开你的设备。Pick Together 会话闲置六小时后结束。过往会话和观影派对的历史记录只有在管理员选择时才会保留，保留多久也由管理员决定。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
 
     <h2 id="changes">有哪些变化</h2>
     <p>插件的每个版本都列在<a href="/zh-hans/changelog/">更新日志</a>的<strong>插件</strong>下。有新版本发布时会自动更新。</p>

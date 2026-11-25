@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Arcfin Sync プラグイン · Arcfin</title>
-  <meta name="description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、ウォッチパーティ、家族と安全のための管理機能、サーバー経由の Seerr、より小さなダウンロードを実現します。">
+  <meta name="description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、サーバーからの通知、ウォッチパーティ、家族と安全のための管理機能、サーバー経由の Seerr、より小さなダウンロードを実現します。">
   <link rel="canonical" href="https://arcfin.psmattas.com/ja/plugin/">
   <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arcfin">
   <meta property="og:title" content="Arcfin Sync プラグイン · Arcfin">
-  <meta property="og:description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、ウォッチパーティ、家族と安全のための管理機能、サーバー経由の Seerr、より小さなダウンロードを実現します。">
+  <meta property="og:description" content="Arcfin Sync は Arcfin 用のオプションの Jellyfin サーバープラグインです。デバイス間でついてくる設定、サーバーからの通知、ウォッチパーティ、家族と安全のための管理機能、サーバー経由の Seerr、より小さなダウンロードを実現します。">
   <meta property="og:url" content="https://arcfin.psmattas.com/ja/plugin/">
   <meta property="og:image" content="https://arcfin.psmattas.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">サーバープラグイン</span>
   <h1>Arcfin Sync</h1>
-  <p>Jellyfin サーバー用の任意のプラグインです。なくても Arcfin は問題なく動きますが、入れると設定がデバイス間でついてきて、管理者はみんなのデフォルトとロックを設定でき、家族でウォッチパーティや安全のための管理機能が使え、ダウンロードも小さくなります。</p>
+  <p>Jellyfin サーバー用の任意のプラグインです。なくても Arcfin は問題なく動きますが、入れると設定がデバイス間でついてきて、サーバーから通知が届き、管理者はみんなのデフォルトとロックを設定でき、家族でウォッチパーティや安全のための管理機能が使え、ダウンロードも小さくなります。</p>
   <div class="hero-actions"><a class="btn btn-primary btn-small" href="#install">インストール</a><a class="btn btn-secondary btn-small" href="/ja/changelog/">変更履歴</a><a class="btn btn-secondary btn-small" href="https://git.psmattas.com/ArcFin/Arcfin-Sync">ソースコード</a></div>
   <p class="hero-note">最新バージョン <span data-version="plugin">0.3.0</span> &middot; AGPL-3.0 の無料オープンソース</p>
 </div></section>
@@ -65,6 +65,8 @@
     <h2 id="features">追加される機能</h2>
     <p>新しい順。バージョン 0.6.0 以降の機能はどれも、サーバーの管理者がオンにするまでオフです。プラグインの更新時にすでに使っている機能はオンのままです。Arcfin はプラグインなしでも問題なく動きます。</p>
     <ul>
+      <li><strong>サーバーからの通知。</strong>Seerr のリクエストが承認・却下・視聴可能になると、そのデバイスで Seerr にサインインしなくても Arcfin が知らせます。Seerr でリクエストを管理している場合は、承認待ち、自動承認、失敗したリクエストも知らせます。問題を報告した人や問題を管理している人には、問題の報告、コメント、解決、再開を知らせます。お知らせや前日のメンテナンス予告も通知で届き、管理者はダッシュボードから一人にテスト通知を送れます。自分の操作について通知されることはありません。すぐに届くプッシュ通知ではありません。開いている Arcfin にはすぐ届き、閉じている Arcfin は次に開いたときか、iOS がバックグラウンドで確認させたときに受け取ります。iPhone、iPad、Mac で利用でき、Apple TV ではお知らせがホームに表示されます。バージョン 0.7.0 以降、Arcfin 0.5.0(ビルド 4)以降で利用できます。</li>
+      <li><strong>サーバー経由の Seerr の問題。</strong>作品の問題を報告し、自分の問題を確認して返信でき、Seerr で問題を管理している場合は解決、再開、削除もすべて Arcfin で行えます。サーバー経由の Seerr では、これらの操作はあなた自身として、あなたの Seerr の権限で行われます。バージョン 0.7.0 以降、Arcfin 0.5.0(ビルド 4)以降で利用できます。</li>
       <li><strong>ウォッチパーティ。</strong> それぞれ自分の画面で、一緒に観られます。iPhone、iPad、Mac、Apple TV の「ホーム」や作品のページからパーティを始め、映画、または番組とそのシーズンとエピソードを選びます。ゲストはこれらのどのデバイスでも 6 文字のコードを入力して参加でき、iPhone や iPad では QR コードを読み取って参加することもできます。リンクは使いません。パーティは 30 日先まで予定でき、ホストは各ゲストの現地時間で何時になるかを確認できます。Arcfin は Jellyfin の SyncPlay グループをホストするので、SyncPlay に対応したほかのアプリからも参加できます。ホストには Arcfin が必要です。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
       <li><strong>サーバー経由の Seerr と TMDB。</strong> 管理者が Seerr の API キーと TMDB のキーをプラグインに入力します。キーは AES-256-GCM で暗号化して保存され、どのデバイスにも届きません。Seerr への呼び出しはすべて使っている本人として行われ、その人の権限とリクエスト上限が適用されます。呼び出すのは Arcfin が必要とする Seerr の部分だけです。Seerr が停止中に行ったリクエストはキューで待機し、復旧すると送信されます。Seerr にはサーバー用のローカルアドレスとアプリ用の公開アドレスを設定できます。この機能を使わない場合は、これまでどおり各デバイスが自分で Seerr にサインインします。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
       <li><strong>サーバーだけが出せるコマンド。</strong> サーバーは独自の署名キーを持ち、スケジュールに沿って変更できます。新しいキーはそれぞれ前のキーで署名されます。Arcfin はそのキーで署名されたコマンドだけを実行します。忘れた PIN の解除、ある人のすべてのデバイスでのプロファイルのロックやロック解除 (必要なら Jellyfin アカウントの無効化も)、なくしたデバイスの消去 (ダウンロードを削除し、ロックしてサインアウト) です。PIN がデバイスの外に出ることはありません。 バージョン 0.6.0 以降、Arcfin 0.5.0 (ビルド 3) 以降が必要です。</li>
@@ -116,6 +118,9 @@
         <tr><td>「視聴を続ける」と「次に見る」から非表示</td><td><span class="mark part" role="img" aria-label="一部"></span>「視聴を続ける」から削除。再生位置は消えます</td><td><span class="mark yes" role="img" aria-label="はい"></span>作品や番組をすべてのデバイスで非表示に。再生位置はそのままで、もう一度再生するまで非表示(バージョン 0.6.0 以降)</td></tr>
         <tr><td>「ホーム」のおすすめ</td><td><span class="mark yes" role="img" aria-label="はい"></span>Jellyfin による「視聴した作品に基づくおすすめ」と「あなたへのおすすめ」</td><td><span class="mark yes" role="img" aria-label="はい"></span>「イチオシ」、「視聴した作品に基づくおすすめ」、「このサーバーで人気」(バージョン 0.6.0 以降)</td></tr>
         <tr><td>管理者向けのウォッチパーティと Pick Together</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>どのセッションでも、終了、ロック、参加者の削除、予定の変更ができ、履歴も保存(バージョン 0.6.0 以降)</td></tr>
+        <tr><td>Seerr の通知</td><td><span class="mark part" role="img" aria-label="一部"></span>自分のリクエストのみ。Seerr にサインインしたデバイスで</td><td><span class="mark yes" role="img" aria-label="はい"></span>自分のリクエストと問題、管理している場合は承認待ちのリクエストも。デバイスで Seerr にサインインする必要はありません(バージョン 0.7.0 以降)</td></tr>
+        <tr><td>お知らせを通知で</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>お知らせ、前日のメンテナンス予告、管理者からのテスト通知(バージョン 0.7.0 以降)</td></tr>
+        <tr><td>Seerr の問題</td><td><span class="mark yes" role="img" aria-label="はい"></span>Seerr にサインインしたデバイスで、問題の報告、確認、管理</td><td><span class="mark yes" role="img" aria-label="はい"></span>同じことをサーバー経由で、本人として。デバイスで Seerr にサインインする必要はありません(バージョン 0.7.0 以降)</td></tr>
       </tbody>
     </table></div>
 
@@ -137,17 +142,26 @@
       <li><strong>Settings:</strong> Arcfin のすべての設定。どれにもデフォルト(各自が選ぶまで使われる値)を設定したり、ロックして全員にあなたの値を使わせたりできます。</li>
       <li><strong>Users &amp; Devices:</strong> Arcfin でサインインしているすべてのデバイス。名前の変更や削除ができ、1 人のユーザーに専用のデフォルトとロックを設定できます。</li>
       <li><strong>機能:</strong> Pick Together、ウォッチパーティ、おすすめ、「視聴を続ける」からの非表示など、各機能のオン/オフを切り替え、Pick Together とウォッチパーティを使える人を選びます。</li>
-      <li><strong>Seerr と TMDB:</strong> サーバーがみんなのために保管するキー、Seerr のローカルアドレスと公開アドレス、送信待ちのリクエスト。</li>
+      <li><strong>Seerr と TMDB:</strong> サーバーがみんなのために保管するキー、Seerr のローカルアドレスと公開アドレス、送信待ちのリクエスト、通知。</li>
       <li><strong>セキュリティ:</strong> サーバーの署名キーとデバイスがそれを信頼する方法、PIN のルール、信頼済みデバイス、自宅の外での HTTPS。</li>
       <li><strong>視聴時間:</strong> 1 日の視聴時間と就寝時間。</li>
       <li><strong>家族:</strong> 「誰が観ますか?」を表示する共有アカウント、お知らせ、予定メンテナンス。</li>
       <li><strong>ダウンロード:</strong> 1 人ずつダウンロードして残せる量。</li>
     </ul>
-    <p>管理者は同じ変更を Arcfin の<strong>「管理 &rsaquo; みんなのArcfin」</strong>からも行えます。変更は、各デバイスが次に同期したとき(開いたとき、前面に来たとき、設定が変わったとき)に届きます。</p>
+    <p>通知は <strong>Seerr &amp; TMDB</strong> タブで設定します。<strong>Notifications are on</strong> をオンにすると、ほかに何もしなくてもサーバーが 10 分ごとに Seerr を確認します。変更から数秒で通知したい場合は、Seerr の <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong> で Webhook を追加します:</p>
+    <ol>
+      <li><strong>Enable Agent</strong> をオンにします。</li>
+      <li><strong>Webhook URL:</strong> プラグインの Notifications カードにある URL。Seerr がローカルや Docker など別のアドレスで Jellyfin に接続する場合は、先にそのアドレスをカードに入力します。</li>
+      <li><strong>Authorization Header:</strong> カードに表示されたシークレット。Custom Headers は空のままにします。</li>
+      <li><strong>JSON Payload:</strong> 次の内容に置き換えます:<br><code>{"notification_type": "{{notification_type}}", "request_id": "{{request_id}}", "issue_id": "{{issue_id}}"}</code></li>
+      <li><strong>Notification Types:</strong> すべてオンにします。</li>
+      <li>保存したら、カードの <strong>Wait for Seerr&rsquo;s Test</strong> を選び、Seerr で <strong>Test</strong> を押します。テストが届いたこと、またはうまくいかなかった理由がカードに表示されます。</li>
+    </ol>
+    <p>管理者はそれ以外の変更を Arcfin の<strong>「管理 &rsaquo; みんなのArcfin」</strong>からも行えます。変更は、各デバイスが次に同期したとき(開いたとき、前面に来たとき、設定が変わったとき)に届きます。</p>
     <p>ユーザーは何もする必要がありません。Arcfin はプラグインを自動で見つけ、<strong>「設定 &rsaquo; サーバー」</strong>の<strong>「今すぐ同期」</strong>ですぐに同期できます。デバイスの同期のしかたを選ぶには<strong>「設定 &rsaquo; サーバー &rsaquo; デバイスと同期」</strong>を開きます。</p>
 
     <h2 id="privacy">プライバシー</h2>
-    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定、デバイスの記録、視聴時間、ダウンロードの上限、Seerr と TMDB のキーはそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。キーは暗号化され、PIN がデバイスの外に出ることはありません。Pick Together のセッションは 6 時間操作がないと終了します。過去のセッションやウォッチパーティの履歴は、管理者が選んだ場合に、選んだ期間だけ保存されます。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
+    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定、デバイスの記録、視聴時間、ダウンロードの上限、Seerr と TMDB のキー、あなたの通知はそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。通知は 2 週間保存されます。キーと Webhook のシークレットは暗号化され、PIN がデバイスの外に出ることはありません。Pick Together のセッションは 6 時間操作がないと終了します。過去のセッションやウォッチパーティの履歴は、管理者が選んだ場合に、選んだ期間だけ保存されます。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
 
     <h2 id="changes">変更点</h2>
     <p>プラグインのすべてのリリースは<a href="/ja/changelog/">変更履歴</a>の<strong>プラグイン</strong>にあります。新しいバージョンが公開されると自動で更新されます。</p>

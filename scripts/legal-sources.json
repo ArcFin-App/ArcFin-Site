@@ -1,0 +1,135 @@
+{
+ "title": {
+  "en": "Data Sources",
+  "de": "Datenquellen",
+  "es": "Fuentes de datos",
+  "fr": "Sources de données",
+  "it": "Fonti dei dati",
+  "ja": "データソース",
+  "ko": "데이터 출처",
+  "nl": "Gegevensbronnen",
+  "pt-BR": "Fontes de dados",
+  "ru": "Источники данных",
+  "zh-Hans": "数据来源"
+ },
+ "items": [
+  {
+   "id": "tmdb",
+   "text": {
+    "en": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+    "de": "Dieses Produkt nutzt die TMDB-API, wird aber von TMDB weder unterstützt noch zertifiziert.",
+    "es": "Este producto usa la API de TMDB, pero TMDB no lo respalda ni lo certifica.",
+    "fr": "Ce produit utilise l'API TMDB, mais n'est ni approuvé ni certifié par TMDB.",
+    "it": "Questo prodotto usa l'API di TMDB, ma non è approvato né certificato da TMDB.",
+    "ja": "この製品はTMDB APIを使用していますが、TMDBによって承認または認定されたものではありません。",
+    "ko": "이 제품은 TMDB API를 사용하지만 TMDB의 보증이나 인증을 받지 않았습니다.",
+    "nl": "Dit product gebruikt de TMDB-API, maar wordt niet door TMDB onderschreven of gecertificeerd.",
+    "pt-BR": "Este produto usa a API do TMDB, mas não é endossado nem certificado pelo TMDB.",
+    "ru": "Этот продукт использует API TMDB, но не одобрен и не сертифицирован TMDB.",
+    "zh-Hans": "本产品使用 TMDB API，但未经 TMDB 认可或认证。"
+   }
+  },
+  {
+   "id": "justwatch",
+   "text": {
+    "en": "Streaming availability is provided by JustWatch.",
+    "de": "Verfügbarkeit bei Streamingdiensten von JustWatch.",
+    "es": "Disponibilidad en servicios de streaming proporcionada por JustWatch.",
+    "fr": "Disponibilité en streaming fournie par JustWatch.",
+    "it": "Disponibilità in streaming fornita da JustWatch.",
+    "ja": "ストリーミング配信状況はJustWatchによって提供されています。",
+    "ko": "스트리밍 제공 정보는 JustWatch에서 제공합니다.",
+    "nl": "Beschikbaarheid bij streamingdiensten wordt geleverd door JustWatch.",
+    "pt-BR": "Disponibilidade em streaming fornecida pela JustWatch.",
+    "ru": "Данные о доступности на стриминговых сервисах предоставлены JustWatch.",
+    "zh-Hans": "流媒体上架信息由 JustWatch 提供。"
+   }
+  },
+  {
+   "id": "wikidata",
+   "text": {
+    "en": "Awards come from Wikidata.",
+    "de": "Auszeichnungen stammen von Wikidata.",
+    "es": "Los premios proceden de Wikidata.",
+    "fr": "Les récompenses proviennent de Wikidata.",
+    "it": "I premi provengono da Wikidata.",
+    "ja": "受賞歴はWikidataから取得しています。",
+    "ko": "수상 정보는 Wikidata에서 가져옵니다.",
+    "nl": "Prijzen komen van Wikidata.",
+    "pt-BR": "Os prêmios vêm do Wikidata.",
+    "ru": "Сведения о наградах взяты из Wikidata.",
+    "zh-Hans": "奖项信息来自 Wikidata。"
+   }
+  },
+  {
+   "id": "lrclib",
+   "text": {
+    "en": "Lyrics not on your server come from LRCLIB.",
+    "de": "Songtexte, die nicht auf deinem Server sind, stammen von LRCLIB.",
+    "es": "Las letras que no están en tu servidor proceden de LRCLIB.",
+    "fr": "Les paroles absentes de votre serveur proviennent de LRCLIB.",
+    "it": "I testi che non sono sul tuo server provengono da LRCLIB.",
+    "ja": "サーバにない歌詞はLRCLIBから取得しています。",
+    "ko": "서버에 없는 가사는 LRCLIB에서 가져옵니다.",
+    "nl": "Songteksten die niet op je server staan, komen van LRCLIB.",
+    "pt-BR": "As letras que não estão no seu servidor vêm do LRCLIB.",
+    "ru": "Тексты песен, которых нет на вашем сервере, берутся из LRCLIB.",
+    "zh-Hans": "服务器上没有的歌词来自 LRCLIB。"
+   }
+  },
+  {
+   "id": "listenbrainz",
+   "text": {
+    "en": "Listening history, loves and Year in Music use ListenBrainz, a MetaBrainz Foundation project.",
+    "de": "Hörverlauf, Lieblingssongs und Musikjahr nutzen ListenBrainz, ein Projekt der MetaBrainz Foundation.",
+    "es": "El historial de escucha, los favoritos y Año en música usan ListenBrainz, un proyecto de la MetaBrainz Foundation.",
+    "fr": "L’historique d’écoute, les coups de cœur et Année en musique utilisent ListenBrainz, un projet de la MetaBrainz Foundation.",
+    "it": "La cronologia degli ascolti, i brani amati e Anno in musica usano ListenBrainz, un progetto della MetaBrainz Foundation.",
+    "ja": "再生履歴、ラブ、今年の音楽には、MetaBrainz FoundationのプロジェクトであるListenBrainzを使用しています。",
+    "ko": "청취 기록, 좋아요 및 올해의 음악은 MetaBrainz Foundation 프로젝트인 ListenBrainz를 사용합니다.",
+    "nl": "Luistergeschiedenis, favorieten en Muziekjaar gebruiken ListenBrainz, een project van de MetaBrainz Foundation.",
+    "pt-BR": "O histórico de audição, as músicas amadas e Ano em música usam o ListenBrainz, um projeto da MetaBrainz Foundation.",
+    "ru": "История прослушиваний, любимые треки и «Год в музыке» используют ListenBrainz — проект MetaBrainz Foundation.",
+    "zh-Hans": "收听记录、喜爱和年度音乐使用 ListenBrainz，这是 MetaBrainz Foundation 的项目。"
+   }
+  },
+  {
+   "id": "shazam",
+   "text": {
+    "en": "Song recognition in What's Playing? is provided by Shazam.",
+    "de": "Die Songerkennung in „Was läuft gerade?“ stammt von Shazam.",
+    "es": "El reconocimiento de canciones de ¿Qué está sonando? lo proporciona Shazam.",
+    "fr": "La reconnaissance des morceaux dans « Qu’est-ce qui passe ? » est fournie par Shazam.",
+    "it": "Il riconoscimento dei brani in “Cosa sta suonando?” è fornito da Shazam.",
+    "ja": "「この曲は？」の曲の認識はShazamによって提供されています。",
+    "ko": "'무슨 노래일까요?'의 노래 인식은 Shazam에서 제공합니다.",
+    "nl": "Muziekherkenning in ‘Wat speelt er?’ wordt geleverd door Shazam.",
+    "pt-BR": "O reconhecimento de músicas em “O que está tocando?” é fornecido pelo Shazam.",
+    "ru": "Распознавание песен в разделе «Что играет?» обеспечивает Shazam.",
+    "zh-Hans": "“正在播放什么？”中的歌曲识别由 Shazam 提供。"
+   },
+   "platforms": [
+    "iOS"
+   ]
+  },
+  {
+   "id": "apple-music",
+   "text": {
+    "en": "Songs not on your server can play from Apple Music, with a subscription.",
+    "de": "Songs, die nicht auf deinem Server sind, können mit einem Abo über Apple Music abgespielt werden.",
+    "es": "Las canciones que no están en tu servidor pueden reproducirse desde Apple Music con una suscripción.",
+    "fr": "Les morceaux absents de votre serveur peuvent être lus depuis Apple Music, avec un abonnement.",
+    "it": "I brani che non sono sul tuo server possono essere riprodotti da Apple Music, con un abbonamento.",
+    "ja": "サーバにない曲は、サブスクリプションがあればApple Musicから再生できます。",
+    "ko": "서버에 없는 노래는 구독이 있으면 Apple Music에서 재생할 수 있습니다.",
+    "nl": "Nummers die niet op je server staan, kunnen met een abonnement via Apple Music worden afgespeeld.",
+    "pt-BR": "As músicas que não estão no seu servidor podem ser reproduzidas pelo Apple Music, com uma assinatura.",
+    "ru": "Песни, которых нет на вашем сервере, можно воспроизводить из Apple Music по подписке.",
+    "zh-Hans": "服务器上没有的歌曲可通过 Apple Music 播放（需订阅）。"
+   },
+   "platforms": [
+    "iOS"
+   ]
+  }
+ ]
+}
