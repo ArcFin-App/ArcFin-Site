@@ -1,2 +1,4 @@
 .DS_Store
 __pycache__/
+# Made by scripts/legal.py on deploy, from the pages themselves.
+site/arcfin.psmattas.com/legal/v1/index.json
