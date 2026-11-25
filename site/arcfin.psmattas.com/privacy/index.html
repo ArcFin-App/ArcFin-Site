@@ -41,7 +41,7 @@
 <section class="page-hero"><div class="wrap">
   <span class="eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
-  <p>What happens to your data when you use Arcfin.</p><p class="meta muted">Effective 24 November 2026</p>
+  <p>What happens to your data when you use Arcfin.</p><p class="meta muted">Effective 25 November 2026</p>
 </div></section>
 <div class="wrap doc">
 <nav class="doc-toc" aria-label="On this page"><p class="doc-toc-title">On this page</p></nav>
@@ -54,8 +54,8 @@
   <p>Arcfin is a client for services you run or already use. When you add a server or turn on a feature, your device talks to it directly:</p>
   <ul>
     <li><strong>Your Jellyfin server</strong> (required). Arcfin sends your sign-in details and playback requests straight to the address you enter.</li>
-    <li><strong>Arcfin Sync</strong> (optional, a plugin on your Jellyfin server). If your server&rsquo;s admin installs it, your synced settings are stored on that server, with a record of each device you use Arcfin on: its name, platform, app version, when it was last seen and how it syncs. The server&rsquo;s admins can set defaults and locks for settings. From version 0.6 the admin can also turn on watch parties, Seerr and TMDB through the server, signed security commands, watch time limits, download limits, shared accounts, announcements, hidden titles and recommendations; each is off until they do. What these keep is listed below. All of this stays on your server; we never receive it.</li>
-    <li><strong>Seerr</strong> (optional). If you connect a Seerr server, your device talks to it directly for requests and your watchlist, signed in per profile.</li>
+    <li><strong>Arcfin Sync</strong> (optional, a plugin on your Jellyfin server). If your server&rsquo;s admin installs it, your synced settings are stored on that server, with a record of each device you use Arcfin on: its name, platform, app version, when it was last seen and how it syncs. The server&rsquo;s admins can set defaults and locks for settings. From version 0.6 the admin can also turn on watch parties, Seerr and TMDB through the server, signed security commands, watch time limits, download limits, shared accounts, announcements, hidden titles and recommendations, and from version 0.7 notifications; each is off until they do. What these keep is listed below. All of this stays on your server; we never receive it.</li>
+    <li><strong>Seerr</strong> (optional). If you connect a Seerr server, your device talks to it directly for requests, your watchlist and issues you report, signed in per profile. An issue you report, with its comments, is kept by Seerr like any other.</li>
     <li><strong>TMDB</strong> (optional). If you add your own TMDB API key, Arcfin asks The Movie Database for review scores, where-to-watch information, popular titles and images, using the IDs of the titles you look at.</li>
     <li><strong>Wikidata</strong>. To show awards on a title page, Arcfin sends that title&rsquo;s TMDB ID to Wikidata&rsquo;s public query service.</li>
     <li><strong>LRCLIB</strong> (optional). If you turn on Find Missing Lyrics in Settings &rsaquo; Music, Arcfin looks up lyrics your server doesn&rsquo;t have on LRCLIB, a free lyrics library, sending it the song&rsquo;s title, artist, album and length.</li>
@@ -87,6 +87,7 @@
           <li><strong>Watch parties:</strong> each party&rsquo;s host, guests, title, time and the time zone each guest&rsquo;s device reports, until it&rsquo;s over.</li>
           <li><strong>History:</strong> past watch parties and Pick Together sessions, with who took part and what was picked, only if the admin keeps history, and for as long as they choose.</li>
           <li><strong>Seerr through the server:</strong> requests made while Seerr can&rsquo;t be reached, until they&rsquo;re sent (at most three days). The admin&rsquo;s Seerr and TMDB keys are kept encrypted on the server and never sent to your device.</li>
+          <li><strong>Notifications (version 0.7):</strong> your news for two weeks (changes to your Seerr requests and issues, requests waiting for approval if you manage them, and test notifications from the admin), the last state the server saw of each Seerr request and issue, and the time and result of the last call from Seerr&rsquo;s webhook. The webhook&rsquo;s secret is kept encrypted. Arcfin fetches your news from your server and shows it as notifications on your device; nothing goes through Apple&rsquo;s push service or us.</li>
           <li><strong>Other features:</strong> titles you hide from Continue Watching and Next Up; on a shared account, who you said is watching, for twelve hours; announcements and maintenance the admin posts. Recommendations are worked out on the server from the watch history it already keeps, and Popular on This Server only shows titles at least two other people played.</li>
         </ul></td></tr>
       <tr><td>Stats</td><td>Worked out on your device from the watch history your Jellyfin server already keeps. If you&rsquo;ve linked ListenBrainz, music stats and Year in Music can come from your ListenBrainz stats instead.</td></tr>
@@ -132,7 +133,7 @@
     <li><strong>Speech Recognition</strong> (iPhone), to turn what you say to voice search in CarPlay into a search.</li>
     <li><strong>Media &amp; Apple Music</strong> (iPhone and iPad), only if you turn on Apple Music in Settings &rsaquo; Music, to find and play songs that aren&rsquo;t on your server.</li>
     <li><strong>Siri</strong> (iPhone and iPad), so Siri can play your movies, shows and music in Arcfin when you ask, including in the car.</li>
-    <li><strong>Notifications</strong>, to tell you about new episodes and downloads. Arcfin checks your own server for new episodes.</li>
+    <li><strong>Notifications</strong>, to tell you about new episodes, downloads, your Seerr requests and issues, and your server&rsquo;s announcements. Arcfin checks your own server and Seerr for them.</li>
   </ul>
   <p>Each one is optional. If you say no, only the feature that needs it stops working.</p>
 
