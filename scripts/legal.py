@@ -7,6 +7,9 @@ Writes, under legal/v1/:
 - index.json: the Privacy Policy, Terms of Use and Data Protection notice, each as Markdown
   made from the English page's <article class="prose">, with its effective date. The pages
   are the binding text and the only source, so the app never carries a copy of its own.
+  Also the screen's Data Sources credits, from scripts/legal-sources.json, in every
+  language the app has (keyed by the app's language codes, "en" first), each with the
+  platforms it shows on when it isn't all of them.
 - licenses/<version>-<build>.json for each app release that has a licenses.json attached
   (the nightly makes it from that build's pinned packages), and licenses/latest.json, the
   newest. The app asks for its own version and build and falls back to latest.json.
@@ -225,7 +228,9 @@ def main():
     site = args[0]
     out = os.path.join(site, "legal", "v1")
     documents = [page(site, slug, title) for slug, title in PAGES]
-    write(os.path.join(out, "index.json"), {"schema": SCHEMA, "documents": documents})
+    with open(os.path.join(os.path.dirname(__file__), "legal-sources.json"), encoding="utf-8") as f:
+        sources = json.load(f)
+    write(os.path.join(out, "index.json"), {"schema": SCHEMA, "documents": documents, "sources": sources})
     print("legal: " + ", ".join(f"{d['title']} ({d['effective']})" for d in documents))
     if "--no-licences" not in sys.argv:
         licences(os.path.join(out, "licenses"))
