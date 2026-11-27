@@ -644,7 +644,9 @@ p { margin: 0; }
 .changelog:has(#cl-plugin:checked) .cl-jump .cl-app,
 .changelog:not(:has(#cl-plugin:checked)) .cl-plugin-version,
 .changelog:not(:has(#cl-plugin:checked)) .cl-jump .cl-plugin { display: none; }
-.cl-plugin-version + .cl-plugin-version { margin-top: 40px; }
+.cl-plugin-version + .cl-plugin-version { margin-top: 72px; }
+/* The plugin's versions follow the app's hidden ones, so the first gets no gap above it. */
+.changelog:has(#cl-plugin:checked) .cl-version:not(.cl-plugin-version) + .cl-plugin-version { margin-top: 0; }
 
 .cl-version { scroll-margin-top: 88px; }
 .cl-version + .cl-version { margin-top: 72px; }
@@ -668,7 +670,7 @@ p { margin: 0; }
 .cl-build time { color: var(--muted); font-size: 0.88rem; font-variant-numeric: tabular-nums; }
 
 .cl-notes > * { max-width: 92ch; }
-.cl-notes { margin-top: 4px; color: var(--muted); font-size: 0.97rem; line-height: 1.6; }
+.cl-notes { margin-top: 4px; color: var(--muted); font-size: 0.97rem; line-height: 1.6; overflow-wrap: anywhere; }
 .cl-kind {
   display: flex; align-items: center; gap: 8px; margin: 22px 0 10px;
   font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg);
@@ -693,6 +695,8 @@ summary.cl-kind:focus-visible { outline: 2px solid var(--accent); outline-offset
   width: 5px; height: 5px; border-radius: 50%; background: var(--hairline-strong);
 }
 .cl-notes p { margin-top: 10px; }
+.cl-notes li > p:first-child { margin-top: 0; }
+.cl-notes li > ul { margin-top: 10px; }
 .cl-notes strong { color: var(--fg); font-weight: 600; }
 .cl-notes a { font-weight: 500; }
 .cl-notes code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.86em; background: var(--bg-3); padding: 1px 6px; border-radius: 6px; color: var(--fg); }
@@ -703,7 +707,7 @@ summary.cl-kind:focus-visible { outline: 2px solid var(--accent); outline-offset
 }
 
 @media (max-width: 900px) {
-  .cl-layout { grid-template-columns: 1fr; gap: 28px; }
+  .cl-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .cl-side { top: 68px; z-index: 10; }
   .cl-filter {
     grid-auto-flow: column; grid-auto-columns: 1fr; border-radius: 999px;
