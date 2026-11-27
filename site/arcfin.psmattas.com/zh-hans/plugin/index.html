@@ -65,6 +65,7 @@
     <h2 id="features">它带来了什么</h2>
     <p>最新的在前。从 0.6.0 版本开始的每项功能在服务器管理员开启前都保持关闭，插件更新时已在使用的功能会继续开启。没有插件 Arcfin 也能正常使用。</p>
     <ul>
+      <li><strong>Arcs。</strong>来自服务器上电影和剧集的短片段，为每个人分别挑选，在 iPhone 和 iPad 上的竖屏信息流中一个接一个播放。片段从章节、冷开场或场景切换处开始，跳过片头和片尾字幕，默认不剧透。你可以点赞、做出回应、保存和隐藏片段，按一句台词搜索，查看一部作品的精彩片段，还能把片段发给用 Arcs 好友代码添加的朋友，这样没人能看到服务器上还有谁。服务器上没有的作品可以带着预告片出现，方便通过 Seerr 请求；每个人都可以关闭 YouTube 预告片，管理员也可以为所有人关闭。当 Jellyfin 使用 NVENC 时，片段在服务器的 NVIDIA GPU 上生成，否则在其 CPU 上生成。0.8.0 及更高版本，需要 Arcfin 0.5.0（build 6）或更高版本。</li>
       <li><strong>可视化效果设置。</strong>音乐可视化效果的样式、显示位置和颜色会在你的设备之间同步，管理员也可以像其他设置一样为它们设定默认值或锁定。需要 0.7.1 及以上版本，以及 Arcfin 0.5.0（Build 5）或以上版本。</li>
       <li><strong>来自服务器的通知。</strong>你的 Seerr 请求被批准、拒绝或可以观看时，Arcfin 会通知你，无需在该设备上登录 Seerr。如果你在 Seerr 中管理请求，还会在有请求等待批准、被自动批准或失败时通知你。如果你报告过问题或管理问题，会在问题被报告、收到评论、被解决或重新打开时收到通知。公告和提前一天的计划维护也会以通知形式送达，管理员还可以在控制台给某个人发送测试通知。你自己的操作不会通知你。这不是即时推送通知：打开的 Arcfin 会立刻收到，关闭的 Arcfin 会在下次打开或 iOS 允许其在后台检查时收到。适用于 iPhone、iPad 和 Mac；Apple TV 会在首页显示公告。0.7.0 及以后版本，需要 Arcfin 0.5.0(build 4)或更高版本。</li>
       <li><strong>通过服务器处理 Seerr 问题。</strong>报告作品问题、跟进并回复你的问题；如果你在 Seerr 中管理问题，还可以解决、重新打开或删除，全部在 Arcfin 中完成。通过服务器使用 Seerr 时，这些操作以你的身份、按你自己的 Seerr 权限进行。0.7.0 及以后版本，需要 Arcfin 0.5.0(build 4)或更高版本。</li>
@@ -103,6 +104,7 @@
         <tr><td>转换后的下载</td><td><span class="mark part" role="img" aria-label="部分"></span>服务器允许时使用 HEVC，否则使用 H.264</td><td><span class="mark yes" role="img" aria-label="是"></span>服务器硬件真正能编码时，也可以使用 AV1</td></tr>
         <tr><td>转换后下载中的额外音轨</td><td><span class="mark part" role="img" aria-label="部分"></span>从 Jellyfin 获取，可能会收到默认音轨而不是你选的那条</td><td><span class="mark yes" role="img" aria-label="是"></span>你选的每条音轨都由服务器单独提取（0.3.1 及更高版本）</td></tr>
         <tr><td>面向管理员的硬件编码器报告</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>“管理 &rsaquo; 硬件编码器”显示服务器硬件能编码哪些格式</td></tr>
+        <tr><td>Arcs</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>从你的媒体库中为你挑选的片段信息流，适用于 iPhone 和 iPad（0.8.0 及更高版本）</td></tr>
         <tr><td>Pick Together</td><td><span class="mark no" role="img" aria-label="否"></span>不可用</td><td><span class="mark yes" role="img" aria-label="是"></span>滑动直到大家意见一致，然后在这里、另一台设备上或一起观看（0.5.0 及更高版本）</td></tr>
         <tr><td>一起观看</td><td><span class="mark part" role="img" aria-label="部分"></span>播放器菜单中的 Jellyfin SyncPlay，以及 SharePlay</td><td><span class="mark yes" role="img" aria-label="是"></span>从首页或作品页面发起观影派对，可提前最多 30 天安排，通过代码或二维码加入（0.6.0 及更高版本）</td></tr>
         <tr><td>Seerr 请求</td><td><span class="mark yes" role="img" aria-label="是"></span>每台设备自行登录 Seerr</td><td><span class="mark yes" role="img" aria-label="是"></span>以每个人的身份通过服务器进行，设备上没有密钥，Seerr 停机时请求排队等待（0.6.0 及更高版本）</td></tr>
@@ -137,7 +139,7 @@
     <p>更新也通过同一个存储库提供。有新版本时，Jellyfin 会在 <strong>My Plugins</strong> 中提示；安装后重启即可。</p>
 
     <h2 id="configure">设置方法</h2>
-    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含九个标签页的页面：</p>
+    <p>从控制台菜单或 <strong>My Plugins</strong> 中打开 <strong>Arcfin Sync</strong>。它是一个包含十个标签页的页面：</p>
     <ul>
       <li><strong>Overview：</strong>插件的工作方式，以及帮助和报告问题的链接。</li>
       <li><strong>Settings：</strong>Arcfin 的每项设置。可以给任何一项设置一个默认值（在用户自己选择前使用），或锁定它，让所有人都使用你的值。</li>
@@ -148,6 +150,7 @@
       <li><strong>观看时长：</strong>每日分钟数和就寝时间。</li>
       <li><strong>家庭：</strong>会询问“谁在观看？”的共享账户、公告和计划维护。</li>
       <li><strong>下载：</strong>每个人可以保留多少下载内容。</li>
+      <li><strong>Arcs：</strong>谁可以使用 Arcs 以及来自哪些媒体库、片段长度、剧透、分享和水印、可请求的作品及其 YouTube 预告片、发送和台词搜索、场景索引及其一次扫描的作品数量、推荐的权重，以及片段缓存。</li>
     </ul>
     <p>通知在 <strong>Seerr &amp; TMDB</strong> 标签页中设置。勾选 <strong>Notifications are on</strong>；不做其他设置时，服务器每十分钟检查一次 Seerr。若要在变更后几秒内收到通知，请在 Seerr 的 <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong> 中添加 Webhook：</p>
     <ol>
@@ -162,7 +165,7 @@
     <p>用户无需做任何事。Arcfin 会自动找到插件，在<strong>“设置 &rsaquo; 服务器”</strong>中点按<strong>“立即同步”</strong>可马上同步。要选择设备的同步方式，请打开<strong>“设置 &rsaquo; 服务器 &rsaquo; 设备与同步”</strong>。</p>
 
     <h2 id="privacy">隐私</h2>
-    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置、你的设备记录、观看时长、下载限额、Seerr 和 TMDB 密钥以及你的通知只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。通知保留两周。密钥和 Webhook 密钥经过加密，PIN 绝不会离开你的设备。Pick Together 会话闲置六小时后结束。过往会话和观影派对的历史记录只有在管理员选择时才会保留，保留多久也由管理员决定。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
+    <p>插件运行在你自己的 Jellyfin 服务器上。同步的设置、你的设备记录、观看时长、下载限额、Seerr 和 TMDB 密钥以及你的通知只保存在那里，不会保存在其他地方；中间仍然没有任何 Arcfin 服务器。通知保留两周。Arcs 会为每个人保留最近 2000 次 Arcs 操作、保存和隐藏的片段、好友代码和好友，以及发给他们的片段，另有一个由管理员设定大小的片段缓存。密钥和 Webhook 密钥经过加密，PIN 绝不会离开你的设备。Pick Together 会话闲置六小时后结束。过往会话和观影派对的历史记录只有在管理员选择时才会保留，保留多久也由管理员决定。<a href="/privacy/">隐私政策</a>说明了会保存哪些内容。</p>
 
     <h2 id="changes">有哪些变化</h2>
     <p>插件的每个版本都列在<a href="/zh-hans/changelog/">更新日志</a>的<strong>插件</strong>下。有新版本发布时会自动更新。</p>

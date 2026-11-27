@@ -65,6 +65,7 @@
     <h2 id="features">追加される機能</h2>
     <p>新しい順。バージョン 0.6.0 以降の機能はどれも、サーバーの管理者がオンにするまでオフです。プラグインの更新時にすでに使っている機能はオンのままです。Arcfin はプラグインなしでも問題なく動きます。</p>
     <ul>
+      <li><strong>Arcs。</strong> サーバーにある映画やエピソードの短いシーンを、1 人ずつに合わせて選び、iPhone と iPad の縦型フィードで次々に再生します。クリップはチャプター、アバンタイトル、シーンの切り替わりから始まり、イントロとエンドクレジットはスキップされ、標準でネタバレしないようになっています。シーンに「いいね」やリアクションをしたり、保存や非表示にしたり、セリフで検索したり、作品のベストシーンを見たり、Arcs のフレンドコードで追加した友だちにシーンを送ったりできます。サーバーにほかに誰がいるかは誰にもわかりません。サーバーにない作品は予告編付きで表示され、Seerr でリクエストできます。YouTube の予告編は各自でオフにでき、管理者は全員分をオフにできます。クリップは、Jellyfin が NVENC を使っていればサーバーの NVIDIA GPU で、そうでなければ CPU で作られます。バージョン 0.8.0 以降、Arcfin 0.5.0 (ビルド 6) 以降が必要です。</li>
       <li><strong>ビジュアライザの設定。</strong>音楽ビジュアライザのスタイル、表示位置、色がデバイス間で引き継がれ、管理者はほかの設定と同じように既定値を決めたりロックしたりできます。バージョン0.7.1以降、Arcfin 0.5.0（ビルド5）以降が必要です。</li>
       <li><strong>サーバーからの通知。</strong>Seerr のリクエストが承認・却下・視聴可能になると、そのデバイスで Seerr にサインインしなくても Arcfin が知らせます。Seerr でリクエストを管理している場合は、承認待ち、自動承認、失敗したリクエストも知らせます。問題を報告した人や問題を管理している人には、問題の報告、コメント、解決、再開を知らせます。お知らせや前日のメンテナンス予告も通知で届き、管理者はダッシュボードから一人にテスト通知を送れます。自分の操作について通知されることはありません。すぐに届くプッシュ通知ではありません。開いている Arcfin にはすぐ届き、閉じている Arcfin は次に開いたときか、iOS がバックグラウンドで確認させたときに受け取ります。iPhone、iPad、Mac で利用でき、Apple TV ではお知らせがホームに表示されます。バージョン 0.7.0 以降、Arcfin 0.5.0(ビルド 4)以降で利用できます。</li>
       <li><strong>サーバー経由の Seerr の問題。</strong>作品の問題を報告し、自分の問題を確認して返信でき、Seerr で問題を管理している場合は解決、再開、削除もすべて Arcfin で行えます。サーバー経由の Seerr では、これらの操作はあなた自身として、あなたの Seerr の権限で行われます。バージョン 0.7.0 以降、Arcfin 0.5.0(ビルド 4)以降で利用できます。</li>
@@ -103,6 +104,7 @@
         <tr><td>変換したダウンロード</td><td><span class="mark part" role="img" aria-label="一部"></span>サーバーが許可すれば HEVC、それ以外は H.264</td><td><span class="mark yes" role="img" aria-label="はい"></span>サーバーのハードウェアが実際にエンコードできれば AV1 も</td></tr>
         <tr><td>変換したダウンロードの追加音声トラック</td><td><span class="mark part" role="img" aria-label="一部"></span>Jellyfin から取得。選んだトラックではなくデフォルトのトラックが送られることがあります</td><td><span class="mark yes" role="img" aria-label="はい"></span>選んだトラックをそれぞれサーバーが書き出し(バージョン 0.3.1 以降)</td></tr>
         <tr><td>管理者向けハードウェアエンコーダレポート</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>「管理 &rsaquo; ハードウェアエンコーダ」でサーバーのハードウェアがエンコードできる形式を表示</td></tr>
+        <tr><td>Arcs</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>ライブラリから選ばれたシーンのフィード、iPhone と iPad で(バージョン 0.8.0 以降)</td></tr>
         <tr><td>Pick Together</td><td><span class="mark no" role="img" aria-label="いいえ"></span>利用できません</td><td><span class="mark yes" role="img" aria-label="はい"></span>全員が同意するまでスワイプして、ここで、別のデバイスで、またはみんなで観られます(バージョン 0.5.0 以降)</td></tr>
         <tr><td>一緒に観る</td><td><span class="mark part" role="img" aria-label="一部"></span>プレーヤーのメニューからの Jellyfin の SyncPlay と、SharePlay</td><td><span class="mark yes" role="img" aria-label="はい"></span>「ホーム」や作品のページから始めるウォッチパーティ。30 日先まで予定でき、コードか QR コードで参加(バージョン 0.6.0 以降)</td></tr>
         <tr><td>Seerr でリクエスト</td><td><span class="mark yes" role="img" aria-label="はい"></span>各デバイスが自分で Seerr にサインイン</td><td><span class="mark yes" role="img" aria-label="はい"></span>サーバー経由で本人として。デバイスにキーは置かず、Seerr の停止中はリクエストをキューに保持(バージョン 0.6.0 以降)</td></tr>
@@ -137,7 +139,7 @@
     <p>アップデートも同じリポジトリから届きます。新しいバージョンが出ると、Jellyfin の <strong>My Plugins</strong> に表示されるので、インストールして再起動してください。</p>
 
     <h2 id="configure">設定方法</h2>
-    <p>ダッシュボードのメニュー、または <strong>My Plugins</strong> から <strong>Arcfin Sync</strong> を開きます。9 つのタブがある 1 ページです:</p>
+    <p>ダッシュボードのメニュー、または <strong>My Plugins</strong> から <strong>Arcfin Sync</strong> を開きます。10 個のタブがある 1 ページです:</p>
     <ul>
       <li><strong>Overview:</strong> プラグインのしくみと、ヘルプや問題の報告へのリンク。</li>
       <li><strong>Settings:</strong> Arcfin のすべての設定。どれにもデフォルト(各自が選ぶまで使われる値)を設定したり、ロックして全員にあなたの値を使わせたりできます。</li>
@@ -148,6 +150,7 @@
       <li><strong>視聴時間:</strong> 1 日の視聴時間と就寝時間。</li>
       <li><strong>家族:</strong> 「誰が観ますか?」を表示する共有アカウント、お知らせ、予定メンテナンス。</li>
       <li><strong>ダウンロード:</strong> 1 人ずつダウンロードして残せる量。</li>
+      <li><strong>Arcs:</strong> Arcs を使える人と対象のライブラリ、クリップの長さ、ネタバレ、共有と透かし、リクエスト用の作品とその YouTube 予告編、送信とセリフ検索、シーンのインデックスと同時にスキャンする作品数、おすすめの重み付け、クリップのキャッシュ。</li>
     </ul>
     <p>通知は <strong>Seerr &amp; TMDB</strong> タブで設定します。<strong>Notifications are on</strong> をオンにすると、ほかに何もしなくてもサーバーが 10 分ごとに Seerr を確認します。変更から数秒で通知したい場合は、Seerr の <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong> で Webhook を追加します:</p>
     <ol>
@@ -162,7 +165,7 @@
     <p>ユーザーは何もする必要がありません。Arcfin はプラグインを自動で見つけ、<strong>「設定 &rsaquo; サーバー」</strong>の<strong>「今すぐ同期」</strong>ですぐに同期できます。デバイスの同期のしかたを選ぶには<strong>「設定 &rsaquo; サーバー &rsaquo; デバイスと同期」</strong>を開きます。</p>
 
     <h2 id="privacy">プライバシー</h2>
-    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定、デバイスの記録、視聴時間、ダウンロードの上限、Seerr と TMDB のキー、あなたの通知はそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。通知は 2 週間保存されます。キーと Webhook のシークレットは暗号化され、PIN がデバイスの外に出ることはありません。Pick Together のセッションは 6 時間操作がないと終了します。過去のセッションやウォッチパーティの履歴は、管理者が選んだ場合に、選んだ期間だけ保存されます。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
+    <p>プラグインはあなた自身の Jellyfin サーバーで動きます。同期された設定、デバイスの記録、視聴時間、ダウンロードの上限、Seerr と TMDB のキー、あなたの通知はそこにだけ保存され、ほかには保存されません。間に Arcfin のサーバーが入ることもありません。通知は 2 週間保存されます。Arcs は、各ユーザーの直近 2000 件の Arcs での操作、保存したシーンと非表示にしたシーン、フレンドコードと友だち、送られてきたシーンを保存します。さらに、管理者がサイズを決めるクリップのキャッシュもあります。キーと Webhook のシークレットは暗号化され、PIN がデバイスの外に出ることはありません。Pick Together のセッションは 6 時間操作がないと終了します。過去のセッションやウォッチパーティの履歴は、管理者が選んだ場合に、選んだ期間だけ保存されます。保存される内容は<a href="/privacy/">プライバシーポリシー</a>に記載しています。</p>
 
     <h2 id="changes">変更点</h2>
     <p>プラグインのすべてのリリースは<a href="/ja/changelog/">変更履歴</a>の<strong>プラグイン</strong>にあります。新しいバージョンが公開されると自動で更新されます。</p>
