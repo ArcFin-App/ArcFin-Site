@@ -65,6 +65,7 @@
     <h2 id="features">추가되는 기능</h2>
     <p>최신순입니다. 버전 0.6.0부터 추가된 기능은 모두 서버 관리자가 켤 때까지 꺼져 있으며, 플러그인이 업데이트될 때 이미 사용 중인 기능은 그대로 켜져 있습니다. Arcfin은 플러그인 없이도 잘 작동합니다.</p>
     <ul>
+      <li><strong>Arcs.</strong> 서버에 있는 영화와 에피소드의 짧은 장면을 사람마다 골라, iPhone과 iPad의 세로 피드에서 차례로 재생합니다. 클립은 챕터, 콜드 오픈 또는 장면 전환에서 시작하고, 인트로와 크레딧은 건너뛰며, 기본적으로 스포일러가 없습니다. 장면에 좋아요와 반응을 남기고, 저장하거나 숨기고, 대사 한 줄로 검색하고, 작품의 베스트 장면을 보고, Arcs 친구 코드로 추가한 친구에게 장면을 보낼 수 있어 서버에 누가 더 있는지는 아무도 알 수 없습니다. 서버에 없는 작품은 예고편과 함께 표시되어 Seerr로 요청할 수 있습니다. YouTube 예고편은 각자 끌 수 있고, 관리자는 모두를 위해 끌 수 있습니다. 클립은 Jellyfin이 NVENC를 사용하면 서버의 NVIDIA GPU에서, 그렇지 않으면 CPU에서 만들어집니다. 버전 0.8.0 이상, Arcfin 0.5.0(빌드 6) 이상 필요.</li>
       <li><strong>비주얼라이저 설정.</strong> 음악 비주얼라이저의 스타일, 표시 위치, 색상이 기기 간에 따라오며, 관리자는 다른 설정처럼 기본값을 정하거나 잠글 수 있습니다. 버전 0.7.1 이상, Arcfin 0.5.0(빌드 5) 이상이 필요합니다.</li>
       <li><strong>서버 알림.</strong> 내 Seerr 요청이 승인, 거절되거나 시청 가능해지면, 그 기기에서 Seerr에 로그인하지 않아도 Arcfin이 알려 줍니다. Seerr에서 요청을 관리한다면 승인 대기, 자동 승인, 실패한 요청도 알려 줍니다. 문제를 신고했거나 문제를 관리한다면 문제가 신고되거나, 댓글이 달리거나, 해결되거나 다시 열릴 때 알 수 있습니다. 공지와 하루 전 예정 유지보수도 알림으로 오고, 관리자는 대시보드에서 한 사람에게 테스트 알림을 보낼 수 있습니다. 자신의 행동에 대해서는 알림을 받지 않습니다. 즉시 오는 푸시 알림은 아닙니다. 열려 있는 Arcfin은 바로 알게 되고, 닫혀 있는 Arcfin은 다음에 열릴 때나 iOS가 백그라운드에서 확인하게 할 때 소식을 받습니다. iPhone, iPad, Mac에서 쓸 수 있고, Apple TV는 공지를 홈에 표시합니다. 버전 0.7.0 이상, Arcfin 0.5.0(빌드 4) 이상에서.</li>
       <li><strong>서버를 통한 Seerr 문제.</strong> 작품의 문제를 신고하고, 내 문제를 확인하고 답할 수 있으며, Seerr에서 문제를 관리한다면 해결, 다시 열기, 삭제까지 모두 Arcfin에서 할 수 있습니다. 서버를 통한 Seerr에서는 이런 요청이 내 Seerr 권한으로 나로서 이루어집니다. 버전 0.7.0 이상, Arcfin 0.5.0(빌드 4) 이상에서.</li>
@@ -103,6 +104,7 @@
         <tr><td>변환된 다운로드</td><td><span class="mark part" role="img" aria-label="일부"></span>서버가 허용하면 HEVC, 아니면 H.264</td><td><span class="mark yes" role="img" aria-label="예"></span>서버 하드웨어가 실제로 인코딩할 수 있으면 AV1도</td></tr>
         <tr><td>변환된 다운로드의 추가 오디오 트랙</td><td><span class="mark part" role="img" aria-label="일부"></span>Jellyfin에서 가져오며, 선택한 트랙 대신 기본 트랙이 올 수 있음</td><td><span class="mark yes" role="img" aria-label="예"></span>선택한 트랙마다 서버가 추출 (버전 0.3.1 이상)</td></tr>
         <tr><td>관리자용 하드웨어 인코더 보고서</td><td><span class="mark no" role="img" aria-label="아니요"></span>사용할 수 없음</td><td><span class="mark yes" role="img" aria-label="예"></span>관리 &rsaquo; 하드웨어 인코더에서 서버 하드웨어가 인코딩할 수 있는 형식을 표시</td></tr>
+        <tr><td>Arcs</td><td><span class="mark no" role="img" aria-label="아니요"></span>사용할 수 없음</td><td><span class="mark yes" role="img" aria-label="예"></span>라이브러리에서 나를 위해 고른 장면 피드, iPhone과 iPad에서(버전 0.8.0 이상)</td></tr>
         <tr><td>Pick Together</td><td><span class="mark no" role="img" aria-label="아니요"></span>사용할 수 없음</td><td><span class="mark yes" role="img" aria-label="예"></span>모두가 동의할 때까지 스와이프한 뒤 여기서, 다른 기기에서, 또는 함께 시청(버전 0.5.0 이상)</td></tr>
         <tr><td>함께 시청하기</td><td><span class="mark part" role="img" aria-label="일부"></span>플레이어 메뉴의 Jellyfin SyncPlay와 SharePlay</td><td><span class="mark yes" role="img" aria-label="예"></span>홈이나 작품 페이지에서 여는 워치 파티, 최대 30일 전에 계획, 코드나 QR 코드로 참여(버전 0.6.0 이상)</td></tr>
         <tr><td>Seerr 요청</td><td><span class="mark yes" role="img" aria-label="예"></span>각 기기가 직접 Seerr에 로그인</td><td><span class="mark yes" role="img" aria-label="예"></span>각 사람의 이름으로 서버를 통해, 기기에는 키 없이, Seerr가 중단된 동안 요청은 대기열에(버전 0.6.0 이상)</td></tr>
@@ -137,7 +139,7 @@
     <p>업데이트는 같은 저장소를 통해 받습니다. 새 버전이 나오면 Jellyfin이 <strong>My Plugins</strong>에서 알려 주니, 설치하고 재시작하세요.</p>
 
     <h2 id="configure">설정하기</h2>
-    <p>대시보드 메뉴나 <strong>My Plugins</strong>에서 <strong>Arcfin Sync</strong>를 엽니다. 탭이 아홉 개 있는 한 페이지입니다:</p>
+    <p>대시보드 메뉴나 <strong>My Plugins</strong>에서 <strong>Arcfin Sync</strong>를 엽니다. 탭이 열 개 있는 한 페이지입니다:</p>
     <ul>
       <li><strong>Overview:</strong> 플러그인이 작동하는 방식과 도움말, 문제 신고 링크.</li>
       <li><strong>Settings:</strong> Arcfin의 모든 설정. 어떤 설정에든 기본값(각자 고르기 전까지 쓰는 값)을 주거나, 잠가서 모두가 내가 정한 값을 쓰게 할 수 있습니다.</li>
@@ -148,6 +150,7 @@
       <li><strong>시청 시간:</strong> 하루 시청 시간과 취침 시간.</li>
       <li><strong>가족:</strong> 누가 시청하나요?를 묻는 공유 계정, 공지와 예정된 점검.</li>
       <li><strong>다운로드:</strong> 사람마다 다운로드해 둘 수 있는 양.</li>
+      <li><strong>Arcs:</strong> Arcs를 쓸 수 있는 사람과 대상 라이브러리, 클립 길이, 스포일러, 공유와 워터마크, 요청할 작품과 그 YouTube 예고편, 보내기와 대사 검색, 장면 색인과 한 번에 스캔하는 작품 수, 추천 가중치, 클립 캐시.</li>
     </ul>
     <p>알림은 <strong>Seerr &amp; TMDB</strong> 탭에서 설정합니다. <strong>Notifications are on</strong>을 선택하면, 다른 설정 없이도 서버가 10분마다 Seerr를 확인합니다. 변경 후 몇 초 안에 알림을 받으려면 Seerr의 <strong>Settings &rsaquo; Notifications &rsaquo; Webhook</strong>에서 웹훅을 추가합니다:</p>
     <ol>
@@ -162,7 +165,7 @@
     <p>사용자는 아무것도 할 필요가 없습니다. Arcfin이 플러그인을 알아서 찾고, <strong>설정 &rsaquo; 서버</strong>의 <strong>지금 동기화</strong>로 바로 동기화할 수 있습니다. 기기의 동기화 방식을 고르려면 <strong>설정 &rsaquo; 서버 &rsaquo; 기기 및 동기화</strong>를 여세요.</p>
 
     <h2 id="privacy">개인정보</h2>
-    <p>플러그인은 내 Jellyfin 서버에서 실행됩니다. 동기화된 설정, 기기 기록, 시청 시간, 다운로드 한도, Seerr와 TMDB 키, 내 알림은 그곳에만 저장되고 다른 곳에는 저장되지 않으며, 중간에 Arcfin 서버도 없습니다. 알림은 2주 동안 보관됩니다. 키와 웹훅 비밀 값은 암호화되며, PIN은 기기 밖으로 나가지 않습니다. Pick Together 세션은 6시간 동안 활동이 없으면 종료됩니다. 지난 세션과 워치 파티 기록은 관리자가 선택한 경우에만, 선택한 기간 동안 보관됩니다. 무엇이 저장되는지는 <a href="/privacy/">개인정보 처리방침</a>에 나와 있습니다.</p>
+    <p>플러그인은 내 Jellyfin 서버에서 실행됩니다. 동기화된 설정, 기기 기록, 시청 시간, 다운로드 한도, Seerr와 TMDB 키, 내 알림은 그곳에만 저장되고 다른 곳에는 저장되지 않으며, 중간에 Arcfin 서버도 없습니다. 알림은 2주 동안 보관됩니다. Arcs는 사람마다 최근 2000개의 Arcs 활동, 저장하거나 숨긴 장면, 친구 코드와 친구, 받은 장면을 보관하며, 관리자가 크기를 정하는 클립 캐시도 있습니다. 키와 웹훅 비밀 값은 암호화되며, PIN은 기기 밖으로 나가지 않습니다. Pick Together 세션은 6시간 동안 활동이 없으면 종료됩니다. 지난 세션과 워치 파티 기록은 관리자가 선택한 경우에만, 선택한 기간 동안 보관됩니다. 무엇이 저장되는지는 <a href="/privacy/">개인정보 처리방침</a>에 나와 있습니다.</p>
 
     <h2 id="changes">변경 사항</h2>
     <p>플러그인의 모든 릴리스는 <a href="/ko/changelog/">변경 사항</a>의 <strong>플러그인</strong>에 있습니다. 새 버전이 공개되면 자동으로 업데이트됩니다.</p>
